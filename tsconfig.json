@@ -1,0 +1,9 @@
+{
+    "extends": "@docusaurus/tsconfig",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "types": ["@docusaurus/plugin-ideal-image"]
+    },
+    "include": ["./src/**/*.*", "babel.config.js", "types.d.ts", "docusaurus.config.ts", "tailwind.config.ts"],
+    "exclude": ["node_modules", "build", ".docusaurus"]
+}
