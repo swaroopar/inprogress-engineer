@@ -1,4 +1,6 @@
-![website logo](static/img/icon-light.png)
+<p align="center">
+ <img src="https://raw.githubusercontent.com/swaroopar/inprogress-engineer/main/static/img/icon-light.png" width="75">
+</p>
 
 # In-progress Engineer - Personal Website
 
