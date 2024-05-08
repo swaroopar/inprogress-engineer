@@ -1,0 +1,36 @@
+name: ci
+
+# Run this workflow every time a new commit push to the repository
+on:
+    pull_request:
+        branches: ['main']
+
+jobs:
+    build:
+        permissions:
+            checks: write
+            pull-requests: write
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Install Dependencies
+              working-directory: ./
+              run: npm install
+            - name: Run vale linter
+              uses: errata-ai/vale-action@reviewdog
+              with:
+                  filter_mode: nofilter
+                  fail_on_error: true
+            - name: Run EsLint
+              working-directory: ./
+              run: npx eslint . --ext .js,.jsx,.ts,.tsx --config package.json --max-warnings=0
+            - name: Check Prettier Format
+              working-directory: ./
+              run: npx prettier --config .prettierrc --check .
+            - name: Run TS compiler
+              working-directory: ./
+              run: tsc
+            - name: Run build
+              working-directory: ./
+              run: npm run build
