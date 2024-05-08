@@ -1,4 +1,4 @@
-![website logo](static/img/logo-light.png)
+![website logo](static/img/icon-light.png)
 
 # In-progress Engineer - Personal Website
 
