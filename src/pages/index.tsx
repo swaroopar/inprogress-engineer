@@ -6,20 +6,20 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 function HomepageHeader() {
     return (
         <header className='bg-black p-10 pb-48 pt-48 text-right text-white'>
-            <div className='container'>
-                <h1 className='text-xl md:text-6xl'>
+            <div className="container">
+                <p className="text-md md:text-6xl">
                     Hi. I'm{' '}
-                    <span className='bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent'>
+                    <span className="bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent">
                         Swaroop Raghupathy
                     </span>
                     ,
                     <br />
                     Full-Stack Software Engineer.
-                </h1>
-                <p className='font-sans text-xl'>
-                    An engineer in-progress.
-                    <br /> Simplicity is the ultimate sophistication - Leonardo Da Vinci
                 </p>
+                <p className="text-md md:text-xl p-0 m-0">
+                    An engineer in-progress
+                </p>
+                <p className='text-xs sm:text-xl'>Simplicity is the ultimate sophistication - Leonardo Da Vinci</p>
             </div>
         </header>
     );
