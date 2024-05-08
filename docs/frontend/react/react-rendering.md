@@ -68,7 +68,7 @@ Also, we must consider that for the dynamic components which need data from othe
 then the client script has to still run on the browser to fetch data.
 
 :::info
-Suspense allows to throw promises from React components when it needs something that's not ready yet 
+Suspense allows to throw promises from React components when it needs something that's not ready yet
 (fetching data, lazily importing components, etc).
 These promises are caught at the **Suspense boundary**. This means, whenever a promise is thrown from rendering a Suspense sub-tree,
 React pauses rendering that sub-tree until the promise is resolved, and then tries again.

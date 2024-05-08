@@ -4,6 +4,13 @@
         "baseUrl": ".",
         "types": ["@docusaurus/plugin-ideal-image"]
     },
-    "include": ["./src/**/*.*", "babel.config.js", "types.d.ts", "docusaurus.config.ts", "tailwind.config.ts", "sidebars.ts"],
+    "include": [
+        "./src/**/*.*",
+        "babel.config.js",
+        "types.d.ts",
+        "docusaurus.config.ts",
+        "tailwind.config.ts",
+        "sidebars.ts"
+    ],
     "exclude": ["node_modules", "build", ".docusaurus"]
 }
