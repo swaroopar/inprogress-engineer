@@ -10,7 +10,7 @@ export interface TalkInfo {
     repoURL?: string;
 }
 
-export interface EventInfo {
+interface EventInfo {
     name: string;
     location: string;
     date: Date;
@@ -18,15 +18,14 @@ export interface EventInfo {
 
 export function Talk({ talkInfo }: { talkInfo: TalkInfo }) {
     return (
-        <div className='margin-bottom--lg padding--lg border-slate-100 border-solid border-2 rounded-xl w-full'>
+        <div className='border-1 w-full rounded-xl border-solid border-gray-100 p-10 sm:m-10'>
             <div>
                 <div>
                     <h2>{talkInfo.title}</h2>
                 </div>
                 <div>
-                    <div className='flex flex-row flex-nowrap  flex-grow justify-items-start gap-8'>
-                        <div className='max-w-2xl'>{talkInfo.description}</div>
-                        <div className='inline-block h-[250px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 dark:bg-white/10 col-span-2'></div>
+                    <div className='flex flex-grow flex-col flex-nowrap gap-2 md:flex-row md:gap-12'>
+                        <div className='max-w-2xl text-justify'>{talkInfo.description}</div>
                         <div className='content-center'>
                             <EventDetails data={talkInfo.events} />
                         </div>
@@ -34,7 +33,7 @@ export function Talk({ talkInfo }: { talkInfo: TalkInfo }) {
                 </div>
             </div>
             <div>
-                <div className='flex flex-row gap-4'>
+                <div className='flex flex-col gap-4 md:flex-row'>
                     <div>
                         {talkInfo.recordingURL && (
                             <a
@@ -42,8 +41,10 @@ export function Talk({ talkInfo }: { talkInfo: TalkInfo }) {
                                 target='_blank'
                                 className='button button--primary button--outline'
                             >
-                                <Video />
-                                Watch recording
+                                <div className='flex flex-row gap-1'>
+                                    <Video className='pt-1' />
+                                    <div className='pt-1'>Watch recording</div>
+                                </div>
                             </a>
                         )}
                     </div>
@@ -54,10 +55,10 @@ export function Talk({ talkInfo }: { talkInfo: TalkInfo }) {
                                 target='_blank'
                                 className='button button--secondary button--outline'
                             >
-                                <span className=''>
-                                    <Projector />
-                                </span>
-                                See slides
+                                <div className='flex flex-row gap-1'>
+                                    <Projector className='pt-1' />
+                                    <div className='pt-1'>See slides</div>
+                                </div>
                             </a>
                         )}
                     </div>
@@ -68,10 +69,10 @@ export function Talk({ talkInfo }: { talkInfo: TalkInfo }) {
                                 target='_blank'
                                 className='button button--secondary button--outline'
                             >
-                                <span className=''>
-                                    <FolderGit />
-                                </span>
-                                See repository
+                                <div className='flex flex-row gap-1'>
+                                    <FolderGit className='pt-1' />
+                                    <div className='pt-1'>See repository</div>
+                                </div>
                             </a>
                         )}
                     </div>
@@ -81,7 +82,7 @@ export function Talk({ talkInfo }: { talkInfo: TalkInfo }) {
     );
 }
 
-export function EventDetails({ data }: { data: EventInfo[] }): React.JSX.Element {
+function EventDetails({ data }: { data: EventInfo[] }): React.JSX.Element {
     if (data.length === 0) {
         return null;
     }
@@ -89,7 +90,7 @@ export function EventDetails({ data }: { data: EventInfo[] }): React.JSX.Element
     const [firstEvent, ...otherEvents] = data;
     const { name, location, date } = firstEvent;
     return (
-        <div className='row'>
+        <div className='flex flex-row'>
             <div>
                 <ul>
                     <li>
@@ -107,8 +108,8 @@ export function EventDetails({ data }: { data: EventInfo[] }): React.JSX.Element
                 </ul>
             </div>
             {data.length > 1 && (
-                <div className='col col--12'>
-                    <p className='margin--none'>Also presented on:</p>
+                <div>
+                    <p>Also presented on:</p>
                     <ul>
                         {otherEvents.map(({ name, location, date }) => (
                             <li key={name}>
@@ -123,7 +124,5 @@ export function EventDetails({ data }: { data: EventInfo[] }): React.JSX.Element
 }
 
 function formatDateString(date: Date): string {
-    return `${date.getMonth() + 1}/${date.getUTCFullYear()}`;
+    return `${date.getMonth()}/${date.getUTCFullYear()}`;
 }
-
-export default Talk;
