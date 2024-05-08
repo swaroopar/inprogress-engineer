@@ -4,7 +4,7 @@ import Layout from '@theme/Layout';
 import { Talk, TalkInfo } from '../components/talks/Talk';
 
 import XpanseWithScs from './assets/xpanse-with-scs.md';
-import XpanseStandalone from './assets/scs-standalone.md';
+import XpanseStandalone from './assets/xpanse-standalone.md';
 
 const talks: TalkInfo[] = [
     {
