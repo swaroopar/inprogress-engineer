@@ -13,7 +13,15 @@ stderr
 rebase
 SDKs
 CVEs
+Xpanse
 Vercel
 ReactJS
 Contentful
 Abramov
+bundler(.*)
+Webpack
+async
+EU(.*)
+CSP(.*)
+learnings
+Stringify
