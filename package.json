@@ -21,7 +21,9 @@
     },
     "devDependencies": {
         "@docusaurus/plugin-ideal-image": "^3.3.2",
+        "@docusaurus/plugin-content-docs": "^3.3.2",
         "@docusaurus/preset-classic": "^3.3.2",
+        "@docusaurus/theme-mermaid": "^3.3.2",
         "@docusaurus/tsconfig": "3.3.2",
         "@docusaurus/types": "3.3.2",
         "@types/react": "^18.3.1",
@@ -31,13 +33,13 @@
         "eslint": "^8.57.0",
         "eslint-plugin-react": "^7.34.1",
         "knip": "^5.13.0",
+        "lucide-react": "^0.378.0",
         "postcss": "^8.4.38",
         "prettier": "^3.2.5",
+        "prettier-plugin-tailwindcss": "^0.5.14",
         "prism-react-renderer": "^2.3.1",
         "tailwindcss": "^3.4.3",
-        "typescript": "^5.4.5",
-        "@docusaurus/theme-mermaid": "^3.3.2",
-        "lucide-react": "^0.378.0"
+        "typescript": "^5.4.5"
     },
     "browserslist": {
         "production": [
@@ -86,7 +88,8 @@
             "{index,main,cli}.{js,cjs,mjs,jsx,ts,cts,mts,tsx}",
             "src/{index,main,cli}.{js,cjs,mjs,jsx,ts,cts,mts,tsx}",
             "docusaurus.config.ts",
-            "src/pages/index.tsx"
+            "src/pages/index.tsx",
+            "src/pages/talks.tsx"
         ],
         "project": [
             "**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}",
@@ -100,7 +103,8 @@
             "@docusaurus/useDocusaurusContext",
             "@theme/Layout",
             "@theme/IdealImage",
-            "postcss-import"
+            "postcss-import",
+            "@docusaurus/theme-mermaid"
         ]
     }
 }

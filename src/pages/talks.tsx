@@ -1,9 +1,10 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 
-import Talk, { TalkInfo } from '../components/talks/Talk';
+import { Talk, TalkInfo } from '../components/talks/Talk';
 
 import XpanseWithScs from './assets/xpanse-with-scs.md';
+import XpanseStandalone from './assets/scs-standalone.md';
 
 const talks: TalkInfo[] = [
     {
@@ -22,7 +23,7 @@ const talks: TalkInfo[] = [
     },
     {
         title: 'Eclipse xpanse - An Open Services Cloud Project',
-        description: <XpanseWithScs />,
+        description: <XpanseStandalone />,
         events: [
             {
                 name: 'EclipseCon 2023',
@@ -36,18 +37,18 @@ const talks: TalkInfo[] = [
     },
 ];
 
-const title = 'Talks';
-const description = 'Featured talks I presented on various events.';
+const title = 'Event Presentations';
+const description = 'Spoke on various topics in multiple events. ';
 
 export default function Talks(): React.JSX.Element {
     return (
         <Layout title={title} description={description}>
-            <main className='container container--fluid margin-vert--lg'>
+            <main className='container mx-auto pt-4'>
                 <h1>{title}</h1>
                 <p>{description}</p>
 
                 <div className='row'>
-                    {talks.map((talkData) => (
+                    {talks.map((talkData: TalkInfo) => (
                         <Talk key={talkData.title} talkInfo={talkData} />
                     ))}
                 </div>

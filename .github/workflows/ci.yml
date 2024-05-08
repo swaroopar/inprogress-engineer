@@ -34,3 +34,6 @@ jobs:
             - name: Run build
               working-directory: ./
               run: npm run build
+            - name: Run knip
+              working-directory: ./
+              run: npx knip

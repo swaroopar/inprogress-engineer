@@ -5,14 +5,14 @@ import Image from '@theme/IdealImage';
 
 export function Biography(): React.JSX.Element {
     return (
-        <div className='container justify-items-center flex max-h-15 overflow-hidden mb-4 p-20 font-sans'>
-            <div className='w-1/2'>
+        <div className='container flex flex-col justify-items-center p-7 md:mb-4 md:flex md:flex-row md:overflow-hidden md:p-20'>
+            <div className=''>
                 <h3 className='font-sans'>Introduction</h3>
                 <br />
-                <BiographyAd className='text-right' />
+                <BiographyAd className='text-center' />
             </div>
-            <div className='w-1/2'>
-                <Image className='w-4/6 p-12' img={avatar as string}></Image>
+            <div className='md:pt-20'>
+                <Image className='' img={avatar as string}></Image>
             </div>
         </div>
     );
