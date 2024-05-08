@@ -44,8 +44,10 @@ This process of updating the HTML is called **Hydration**.
 
 _Dan Abramov (Ex-React Team) says - Hydration is like watering the “dry” HTML with the “water” of interactivity and event handlers._
 
-It is important to note that SSR simulates an environment for rendering a React tree into raw HTML.
-It does not differentiate between server and client components, and it renders them the same way!
+:::important
+It's important to note that SSR simulates an environment for rendering a React tree into raw HTML.
+It doesn't differentiate between server and client components, and it renders them the same way.
+:::
 
 **Problems with plain-old SSR** - All JavaScript should be downloaded on the client side before starting the hydration
 and the hydration process should be completed before the page can become interactive.
@@ -66,8 +68,9 @@ Also, we must consider that for the dynamic components which need data from othe
 then the client script has to still run on the browser to fetch data.
 
 :::info
-Suspense allows to throw promises from React components when it needs something that is not ready yet (fetching data, lazily importing components, etc).
-These promises are caught at the “Suspense boundary” — whenever a promise is thrown from rendering a Suspense sub-tree,
+Suspense allows to throw promises from React components when it needs something that's not ready yet
+(fetching data, lazily importing components, etc).
+These promises are caught at the **Suspense boundary**. This means, whenever a promise is thrown from rendering a Suspense sub-tree,
 React pauses rendering that sub-tree until the promise is resolved, and then tries again.
 :::
 

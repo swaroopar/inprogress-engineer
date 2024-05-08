@@ -1,6 +1,6 @@
 # JSX
 
-JSX is a templating language created by React team. It is just a syntactic sugar for the below React JSX Factory Function.
+JSX is a templating language created by React team. It's just a syntactic sugar for the below React JSX Factory Function.
 
 ```javascript
 React.createElement(component, props, ...children);
@@ -52,13 +52,13 @@ Babel compiler can be used to compile JSX to JS as described above.
 If using typescript, then `JSX` file are written as `TSX` files.
 The `tsconfig.json` has a configuration to say which way must be used for compiling TSX to JS.
 
-The config `jsx` can be `react` to compile to `createElement` or `react-jsx` to compile to use 'react/jsx-runtime' library.
+The configuration parameter `jsx` can be `react` to compile to `createElement` or `react-jsx` to compile to use 'react/jsx-runtime' library.
 
 ## Why JSX
 
 Generating HTML directly using plain JS is very error-prone and cumbersome.
 Example - matching open/close tags, escape content, etc.
-It is not only tough to write but also to read the code.
+It's not only tough to write but also to read the code.
 
 JSX has an HTML/XML based syntax. But it has nothing to do with HTML. But this makes it easy to write and understand.
 
@@ -68,7 +68,7 @@ also co-locate the String interpolation in the same place.
 On compilation, it will generate a JS script which will in-turn generate the HTML block for that component.
 
 :::tip
-JSX does not directly create the HTML output. It only creates JS which is capable for generating the HTML.
+JSX doesn't directly create the HTML output. It only creates JS which is capable for generating the HTML.
 :::
 
 :::info

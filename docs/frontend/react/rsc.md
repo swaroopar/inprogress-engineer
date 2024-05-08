@@ -11,15 +11,15 @@ Components in RSC can be also async.
 
 ## RSC streams JSX
 
-Most important mental model about RSC is, the server components are not rendered as HTML on the server (except the first render).
+Most important mental model about RSC is, the server components aren't rendered as HTML on the server (except the first render).
 Instead, the JSX is serialized to JSON and streamed to the client. The client then uses the updated JSX received from
 server and then the `react client` uses the regular way to render the received JSX and generate the difference and
 update DOM.
 
 So what RSC streams contains no react components. It streams only raw HTML tags.
 
-Similar to SSR, in RSC the JSX for full tree is not sent out in one big chunk. The servers will stream the JSX in chunks as
-and when it is available.
+Similar to SSR, in RSC the JSX for full tree isn't sent out in one big chunk. The servers will stream the JSX in chunks as
+and when it's available.
 
 Only the initial JSX is sent together with first render HTML.
 
@@ -32,25 +32,25 @@ we will lose state when browse through the webpage.
 
 And for React to know and change only the exact elements that has changed, it must know the full react tree.
 Constructing a React tree out of HTML is a heavy operation. Instead, the React tree is generated on the server,
-and it is directly sent.
+and it's directly sent.
 
 What this means is, the first page in RSC is an SSR generated HTML but together with this, RSC also ships the root
-JSX for this page. And all subsequents JSX received from server will be used to update this original root JSX and
-eventually also the DOM. Using this, the state is not lost, and React only replaces/adds components which were newly received
+JSX for this page. And all subsequent JSX received from server will be used to update this original root JSX and
+eventually also the DOM. Using this, the state isn't lost, and React only replaces/adds components which were newly received
 in the streamed JSX.
 
 #### Advantages
 
 1. API calls need not be generated from browser. It can happen directly from the server.
-2. Heavy NPM packages are not anymore part of the client bundle. The packages are only on the server
-   and they are directly used on server to render components.
+2. Heavy NPM packages aren't anymore part of the client bundle. The packages are only on the server,
+   and they're directly used on server to render components.
 
-### JSX Stringified Data a.k.a RSC Payload
+### Stringify JSX Data a.k.a RSC Payload
 
 1. By default, the root component is always a server component in RSC.
 2. And by default, every component is a server component. Only client components must be explicitly declared using the
    `use client` directive.
-3. Client components are simply exported as regular client scripts as it is done with CSR.
+3. Client components are simply exported as regular client scripts as it's done with CSR.
 4. The RSC payload contains the
     - JSX serialized data for server components
     - Placeholders for scripts of client components which are used in the server component.

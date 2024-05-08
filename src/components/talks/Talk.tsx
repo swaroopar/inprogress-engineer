@@ -81,7 +81,7 @@ export function Talk({ talkInfo }: { talkInfo: TalkInfo }) {
     );
 }
 
-export function EventDetails({ data }: {data: EventInfo[]}): React.JSX.Element {
+export function EventDetails({ data }: { data: EventInfo[] }): React.JSX.Element {
     if (data.length === 0) {
         return null;
     }
