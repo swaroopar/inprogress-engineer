@@ -33,51 +33,55 @@ export function Talk({ talkInfo }: { talkInfo: TalkInfo }) {
                     </div>
                 </div>
             </div>
-            <div >
+            <div>
                 <div className='flex flex-row gap-4'>
                     <div>
-                    {talkInfo.recordingURL && (
-                        <a
-                            href={talkInfo.recordingURL}
-                            target='_blank'
-                            className='button button--primary button--outline'
-                        >
-                            <Video />
-                            Watch recording
-                        </a>
-                    )}
-                        </div>
-                    <div>
-                    {talkInfo.slidesURL && (
-                        <a
-                            href={talkInfo.slidesURL}
-                            target='_blank'
-                            className='button button--secondary button--outline'
-                        >
-                            <span className=''>
-                                <Projector />
-                            </span>
-                            See slides
-                        </a>
-                    )}
+                        {talkInfo.recordingURL && (
+                            <a
+                                href={talkInfo.recordingURL}
+                                target='_blank'
+                                className='button button--primary button--outline'
+                            >
+                                <Video />
+                                Watch recording
+                            </a>
+                        )}
                     </div>
-                <div>
-                    {talkInfo.repoURL && (
-                        <a href={talkInfo.repoURL} target='_blank' className='button button--secondary button--outline'>
-                            <span className=''>
-                                <FolderGit />
-                            </span>
-                            See repository
-                        </a>
-                    )}
-                </div>
+                    <div>
+                        {talkInfo.slidesURL && (
+                            <a
+                                href={talkInfo.slidesURL}
+                                target='_blank'
+                                className='button button--secondary button--outline'
+                            >
+                                <span className=''>
+                                    <Projector />
+                                </span>
+                                See slides
+                            </a>
+                        )}
+                    </div>
+                    <div>
+                        {talkInfo.repoURL && (
+                            <a
+                                href={talkInfo.repoURL}
+                                target='_blank'
+                                className='button button--secondary button--outline'
+                            >
+                                <span className=''>
+                                    <FolderGit />
+                                </span>
+                                See repository
+                            </a>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
     );
 }
 
-export function EventDetails({ data }): React.JSX.Element {
+export function EventDetails({ data }: {data: EventInfo[]}): React.JSX.Element {
     if (data.length === 0) {
         return null;
     }
