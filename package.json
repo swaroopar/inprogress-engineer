@@ -89,7 +89,8 @@
             "src/{index,main,cli}.{js,cjs,mjs,jsx,ts,cts,mts,tsx}",
             "docusaurus.config.ts",
             "src/pages/index.tsx",
-            "src/pages/talks.tsx"
+            "src/pages/talks.tsx",
+            "src/pages/why.tsx"
         ],
         "project": [
             "**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}",

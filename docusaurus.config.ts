@@ -70,6 +70,11 @@ const config: Config = {
                     label: 'Talks',
                 },
                 {
+                    to: '/why',
+                    position: 'left',
+                    label: 'Why?',
+                },
+                {
                     href: 'https://www.linkedin.com/in/arswa',
                     className: 'header-linkedin-link',
                     position: 'right',
