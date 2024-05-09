@@ -45,3 +45,4 @@ This site is deployed automatically from the `main` branch using [Vercel](https:
 3. Vale Linter - https://vale.sh/
 4. Emojis - https://emojipedia.org/
 5. Logos - https://ui-avatars.com/
+6. Diagrams - https://excalidraw.com/
