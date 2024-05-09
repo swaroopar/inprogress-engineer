@@ -28,3 +28,7 @@ It uses Native ESM based development server.
 
 In case of production build, it still generates bundles.
 Uses `esbuild` to generate bundle from dependencies in `node_modules` and `rollup.js` for actual source code bundle.
+
+:::important
+Vite doesn't use `tsc` to transpile TS(X) to JS. Instead, uses `esbuild`.
+:::

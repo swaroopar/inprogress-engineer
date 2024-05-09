@@ -31,4 +31,4 @@ breakpoint
 Jascha
 Upskilling
 Vite
-(?i)transpiler
+(?i)transpile(.*)
