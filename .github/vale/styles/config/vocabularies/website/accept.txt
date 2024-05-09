@@ -30,3 +30,5 @@ hyperscalers
 breakpoint
 Jascha
 Upskilling
+Vite
+(?i)transpiler

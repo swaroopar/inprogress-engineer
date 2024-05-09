@@ -2,9 +2,9 @@
 
 Vite is a combination of multiple things.
 
-1. bundler
-2. transpiler
-3. development server
+1. Bundler
+2. Transpiler
+3. Development server
 
 Vite handles development server and production build differently.
 
@@ -15,14 +15,14 @@ import them in other files.
 Browser's JS runtime environment supports this.
 
 :::tip
-If you see the current bundlers such as webpack, they **bundle** all dependencies and code into one single file.
-This means the native ESM functionality is not used in this case.
+If you see the current bundlers such as Webpack, they **bundle** all dependencies and code into one single file.
+This means the native ESM functionality isn't used in this case.
 :::
 
 ## Vite in Development
 
-Vite handles dev and production differently. In the local environment, it does not bundle anything.
-It uses Native ESM based dev server.
+Vite handles development and production environments differently. In the local environment, it doesn't bundle anything.
+It uses Native ESM based development server.
 
 ## Vite in Production
 
