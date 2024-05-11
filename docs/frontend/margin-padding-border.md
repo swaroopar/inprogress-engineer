@@ -8,7 +8,7 @@ Padding - It's the inside an HTML element. It's from content to border.
 Think of it as the extra "padding" provided to content to increase its space in the page.
 Border - It's the fence of the element. It's the area around content + padding
 
-![Diagram](../../static/img/padding-border-margin.PNG)
+![Diagram](../../static/img/padding-border-margin.excalidraw.png)
 
 :::important Margins Auto Collapse
 Both margin and padding helps to add space between elements.
