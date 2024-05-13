@@ -26,6 +26,10 @@ function App() {
 }
 ```
 
+:::important
+React.createElement isn't for generating HTML elements. It's only for converting JSX to JS.
+:::
+
 ## Using the new 'react/jsx-runtime'
 
 The old way of using `React.CreateElement` had a problem of having `React` in the import always and also this method had some performance problems.

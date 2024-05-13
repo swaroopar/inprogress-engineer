@@ -12,7 +12,6 @@ function HomepageHeader() {
                     <span className='bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent'>
                         Swaroop Raghupathy
                     </span>
-                    ,
                     <br />
                     Full-Stack Software Engineer.
                 </p>
