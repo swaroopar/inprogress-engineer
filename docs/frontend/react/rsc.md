@@ -1,27 +1,28 @@
 # React Server Components
 
-RSC and SSR are two different approaches to same problem. In SSR, the HTML is generated on the server and
-returned to browser together with a small script which has the logic to define where the HTML must be inserted.
+In case of SSR, the problem has been that the server has to wait for client scripts to be downloaded and hydrated.
+Until then the web page isn't really usable.
 
-In case of RSC, the server components are returned as JSX instead of HTML. The JSX is converted to JSON and returned to client.
+In case of RSC, when a page is requested the following happens
+
+1. Prepare the complete component tree - including server and client components.
+2. Render all components and generate HTML
+3. Prepare JS instructions for client components.
+4. Stream RSC payload for all suspended components.
+
+![rsc-rendering](../../../static/img/rsc-server-rendering.excalidraw.png)
 
 :::note
-Components in RSC can be also async.
+Components in RSC can be also a async (Methods that return Promise).
 :::
 
 ## RSC streams JSX
 
-Most important mental model about RSC is, the server components aren't rendered as HTML on the server (except the first render).
-Instead, the JSX is serialized to JSON and streamed to the client. The client then uses the updated JSX received from
-server and then the `react client` uses the regular way to render the received JSX and generate the difference and
-update DOM.
+Most important mental model about RSC is, the HTML is rendered on server and to this same HTML, the RSC payloads
+are also streamed.
 
-So what RSC streams contains no react components. It streams only raw HTML tags.
-
-Similar to SSR, in RSC the JSX for full tree isn't sent out in one big chunk. The servers will stream the JSX in chunks as
-and when it's available.
-
-Only the initial JSX is sent together with first render HTML.
+The static HTML is returned to be immediately displayed on the browser and then starts to stream the suspended
+components using RSC payload.
 
 ### Why Streaming JSX
 
@@ -36,8 +37,7 @@ and it's directly sent.
 
 What this means is, the first page in RSC is an SSR generated HTML but together with this, RSC also ships the root
 JSX for this page. And all subsequent JSX received from server will be used to update this original root JSX and
-eventually also the DOM. Using this, the state isn't lost, and React only replaces/adds components which were newly received
-in the streamed JSX.
+eventually also the DOM. Using this, the state isn't lost, and React only replaces/adds components which were newly received in the streamed JSX.
 
 #### Advantages
 
@@ -62,15 +62,7 @@ React client library is used here to generate it. It will recursively go from th
 component to generate the complete React tree.
 :::
 
-```mermaid
-    mindmap
-        Root Page
-            child server component 1
-                child server component 2
-                child server component 3
-                    child client component 4
-
-```
+![react-component-tree](../../../static/img/react-component-tree.excalidraw.png)
 
 ## Client Boundary
 
@@ -84,14 +76,25 @@ RSC and SSR are two complementing features and is used together. For example, if
 component depends only on static data, then it will directly render HTML.
 
 :::tip
-**React Client** is any software that consumes the out of a **React Server**. It need not be a browser.
+**React Client** is any software that consumes the output of **React Server**. It need not be a browser.
 For example, SSR consumes the output of RSC and generates HTML. So even SSR is considered as a React Client.
 :::
+
+##### Notes
+
+1. Separate memory spaces - browser-server. This why serialization (JSX in RSC) is needed.
+2. Serialize it on server and de-serialize it on client.
+3. React tree - server and client component interleaved.
+4. RSC payload is part of the page payload.
 
 :::info
 content inspired and curated from
 
 -   https://github.com/reactwg/server-components/discussions/5
+-   https://github.com/reactwg/server-components/discussions/4
 -   https://www.plasmic.app/blog/how-react-server-components-work
 -   https://www.mux.com/blog/what-are-react-server-components
+-   https://unicorn-utterances.com/posts/what-are-react-server-components
+-   https://www.webscope.io/blog/server-components-vs-ssr
+-   https://www.smashingmagazine.com/2024/05/forensics-react-server-components/
     :::

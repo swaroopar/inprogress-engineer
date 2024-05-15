@@ -4,7 +4,7 @@ By trying to write something in simple and easy words will push anyone to also d
 
 ## Taking Physical Notes
 
-Until now, I had been making physical notes of my learnings (which I still love).
+Until now, I have been making physical notes of my learnings (which I still love to do).
 But these notes aren't very practical for many reasons.
 
 1. Searching through the notes isn't easy. Older the topic, the tougher it gets.
@@ -44,8 +44,8 @@ Learning here has two aspects
 2. Upskilling - the change
 
 With technology scene changing every couple of years, there is something new in trend always.
-Every library/framework seem to have a very low life-time. When we're relieved that we've mastered something,
-we see that there is already something else in the market which is more demand. This pushes to up-skill with new trends.
+Every library/framework seem to have a very low shelf life. When we're relieved that we've mastered something,
+we see that there is already something new in the market which is more in demand. This pushes to up-skill with new trends.
 
 But what remains constant are the foundational concepts. Irrespective of how many programming languages exist today and
 will be created tomorrow, the basic concepts of software engineering remains same.
