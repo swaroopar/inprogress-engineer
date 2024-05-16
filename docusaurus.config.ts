@@ -86,11 +86,6 @@ const config: Config = {
                 },
             ],
         },
-        docs: {
-            sidebar: {
-                autoCollapseCategories: true
-            }
-        },
         colorMode: {
             respectPrefersColorScheme: true,
         },
