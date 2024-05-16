@@ -8,7 +8,6 @@
    If the application is for NodeJS, then it must be any NodeJS dependent setting such as nodenext, etc..
    If the application is for browser, then it must be any ES Module based setting such as esnext, es2022, etc.
 
-
 :::tip
 https://www.typescriptlang.org/docs/handbook/modules/theory.html#the-module-output-format
 :::
