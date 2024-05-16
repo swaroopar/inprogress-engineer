@@ -1,13 +1,13 @@
 # Environment Variables
 
-Environment variables are handled very differently in the frontend applications when compared to backend applications.
+Environment variables are handled very differently in the frontend applications when compared to server-side applications.
 The is mainly due to the fact that the frontend applications run on browser and on the browser there isn't concept of
 environment variables.
 
 ## Variables at Build Time
 
 One possibility is to set environment variables during the build time on the build machines.
-Then the bundler will already use this values and replace them in the the client files generated.
+Then the bundler will already use this values and replace them in the client bundles generated.
 
 :::danger
 The problem with this approach is that, if we plan to run the application on different environments,
