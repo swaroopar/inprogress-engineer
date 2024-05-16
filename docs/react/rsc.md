@@ -10,7 +10,7 @@ In case of RSC, when a page is requested the following happens
 3. Prepare JS instructions for client components.
 4. Stream RSC payload for all suspended components.
 
-![rsc-rendering](../../../static/img/rsc-server-rendering.excalidraw.png)
+![rsc-rendering](../../static/img/rsc-server-rendering.excalidraw.png)
 
 :::note
 Components in RSC can be also a async (Methods that return Promise).
@@ -62,7 +62,7 @@ React client library is used here to generate it. It will recursively go from th
 component to generate the complete React tree.
 :::
 
-![react-component-tree](../../../static/img/react-component-tree.excalidraw.png)
+![react-component-tree](../../static/img/react-component-tree.excalidraw.png)
 
 ## Client Boundary
 

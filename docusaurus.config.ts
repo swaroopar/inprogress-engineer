@@ -41,7 +41,7 @@ const config: Config = {
                 blog: false,
                 docs: {
                     sidebarPath: require.resolve('./sidebars.ts'),
-                    sidebarCollapsible: false,
+                    sidebarCollapsible: true,
                 },
                 theme: {
                     customCss: './src/css/custom.css',

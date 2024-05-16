@@ -8,7 +8,7 @@ In case of CSR, JSX is converted to JS and bundled. The bundle is executed on br
 In case of SSR, JSX is converted to HTML on the server and returned directly to HTML on server. But additionally, the same client code that we send as part of CSR is also sent here.  
 :::
 
-![SSR Rendering](../../../static/img/ssr-rendering.excalidraw.png)
+![SSR Rendering](../../static/img/ssr-rendering.excalidraw.png)
 
 ### Hydration
 
@@ -69,7 +69,7 @@ React pauses rendering that sub-tree until the promise is resolved, and then tri
 Uses HTML streaming to sending updated HTML chunks as and when the data is processed on the server.
 
 :::tip
-More on HTML streaming can be found in this [page](../html-streaming).
+More on HTML streaming can be found in this [page](../html/html-streaming).
 :::
 
 :::info
