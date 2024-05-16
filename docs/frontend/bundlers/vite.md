@@ -31,4 +31,5 @@ Uses `esbuild` to generate bundle from dependencies in `node_modules` and `rollu
 
 :::important
 Vite doesn't use `tsc` to transpile TS(X) to JS. Instead, uses `esbuild`.
+Also it doesn't do type-check. Only transpiles code to JS.
 :::
