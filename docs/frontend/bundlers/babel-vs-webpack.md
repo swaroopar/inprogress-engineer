@@ -9,7 +9,7 @@ Compiler/Transpiler for generating JS from different sources. Or even covert syn
 For example, converting the code written in latest JS version to old version such that the app runs even on old browsers.
 
 :::tip
-Babel can even compile TS to JS. We need not use always TSC for it.
+Babel can even compile TS to JS. We need not use always `tsc` for it.
 :::
 
 ## Webpack

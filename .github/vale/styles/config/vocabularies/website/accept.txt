@@ -33,3 +33,11 @@ Upskilling
 Vite
 (?i)transpile(.*)
 viewport
+tsconfig
+NPM
+isolatedModules
+noEmit
+tsc
+nodenext
+esnext
+browserify
