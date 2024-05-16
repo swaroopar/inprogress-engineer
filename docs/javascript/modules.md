@@ -36,7 +36,6 @@ But this is an **optional** field.
 
 :::tip
 This field is used by NodeJS directly parse and execute files on the server.
-
 The same field is also used by bundlers to compile and transpile files.
 :::
 
@@ -66,8 +65,8 @@ Where as ES modules are **asynchronous**. This means, the runtime (browser or se
 ## Life Before Modules
 
 When NodeJS was created to run JavaScript on servers,
-they created the first module system CommonJS.
-This lead to also build the package manager system **NPM**
+they created the first module system called CommonJS.
+This lead to also build the package manager system called **NPM**.
 
 ### AMD - Asynchronous Module Definition / RequireJS
 

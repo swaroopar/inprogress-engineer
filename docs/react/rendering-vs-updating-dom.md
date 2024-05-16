@@ -26,7 +26,7 @@ but this doesn't mean that the DOM will be updated.
 React diffing algorithm is called **reconciliation** will be used by React to check if there are any DOM changes.
 If there are any changes, then the changes are handed over to ReactDOM which will then update the real DOM.
 
-![Diagram](../../../static/img/react-render.excalidraw.png)
+![Diagram](../../static/img/react-render.excalidraw.png)
 
 :::tip
 
