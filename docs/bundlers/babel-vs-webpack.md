@@ -16,7 +16,12 @@ Babel can even compile TS to JS. We need not use always `tsc` for it.
 
 Used to generate the final files that will be used in the browser. Some tasks the Webpack can do
 
-1. Merge/split CSS files
-2. Merge/Split JS files.
-3. Bundle images
-4. Invoke Babel to generate files.
+1. Transpile TS to JS using Babel or tsc or any other tool as required.
+2. Merge/split CSS files
+3. Merge/Split JS files.
+4. Bundle images
+5. Invoke Babel to generate files.
+
+:::info
+CRA doesn't use `tsc` in its Webpack configuration for compiling TypeScript. It uses Babel instead.
+:::

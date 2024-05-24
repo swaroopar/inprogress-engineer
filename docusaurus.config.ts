@@ -42,9 +42,11 @@ const config: Config = {
                 docs: {
                     sidebarPath: require.resolve('./sidebars.ts'),
                     sidebarCollapsible: true,
+                    showLastUpdateAuthor: true,
+                    showLastUpdateTime: true,
                 },
                 theme: {
-                    customCss: './src/css/custom.css',
+                    customCss: ['./src/css/custom.css', './src/css/admonitions.css'],
                 },
             } satisfies Preset.Options,
         ],

@@ -9,8 +9,8 @@ CommonJS module is where we use export and require keywords to share code betwee
 
 Files can be explicitly have `.cjs` extension to say that the code is written in CommonJS format.
 
-:::important
-This is the module ecosystem created by Node and wasn't intended to work on browser.
+:::important[First Module Framework]
+This is the module framework created by Node and wasn't intended to work on browser.
 Basically used by server-side applications. Browsers don't support this.
 
 This was the first module system in the JavaScript ecosystem.
@@ -25,8 +25,8 @@ Files can be explicitly have `.mjs` extension to say that the code is written in
 
 This specification was created by the ECMA for supported modules (multi-file) scripts in browser.
 
-:::important
-in case of ES Module, it called just `module`. That's also why the files have extension `mjs` and also package.json have type value as `module` or `commonjs`.
+:::danger[Naming Convention]
+In case of ES Module, it called just `module`. That's also why the files have extension `mjs` and also package.json have type value as `module` or `commonjs`.
 :::
 
 ## Type Field in Package.json
