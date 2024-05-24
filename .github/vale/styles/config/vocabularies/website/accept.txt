@@ -31,7 +31,7 @@ breakpoint
 Jascha
 Upskilling
 Vite
-(?i)transpile(.*)
+(?i)transpil(.*)
 viewport
 tsconfig
 NPM
@@ -41,3 +41,4 @@ tsc
 nodenext
 esnext
 browserify
+HTMLElement

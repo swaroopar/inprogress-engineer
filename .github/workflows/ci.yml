@@ -30,7 +30,7 @@ jobs:
               run: npx prettier --config .prettierrc --check .
             - name: Run TS compiler
               working-directory: ./
-              run: tsc
+              run: tsc --noEmit
             - name: Run build
               working-directory: ./
               run: npm run build
