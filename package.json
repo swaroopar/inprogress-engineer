@@ -20,8 +20,8 @@
         "react-dom": "^18.3.1"
     },
     "devDependencies": {
-        "@docusaurus/plugin-ideal-image": "^3.3.2",
         "@docusaurus/plugin-content-docs": "^3.3.2",
+        "@docusaurus/plugin-ideal-image": "^3.3.2",
         "@docusaurus/preset-classic": "^3.3.2",
         "@docusaurus/theme-mermaid": "^3.3.2",
         "@docusaurus/tsconfig": "3.3.2",
