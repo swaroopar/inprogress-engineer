@@ -35,7 +35,7 @@
         "knip": "^5.17.3",
         "lucide-react": "^0.379.0",
         "postcss": "^8.4.38",
-        "prettier": "^3.2.5",
+        "prettier": "^3.3.0",
         "prettier-plugin-tailwindcss": "^0.5.14",
         "prism-react-renderer": "^2.3.1",
         "tailwindcss": "^3.4.3",
