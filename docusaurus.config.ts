@@ -65,26 +65,37 @@ const config: Config = {
                     docId: 'introduction',
                     position: 'left',
                     label: 'TIL',
+                    title: 'Today I Learnt',
                 },
                 {
                     to: '/talks',
                     position: 'left',
                     label: 'Talks',
+                    title: 'Talks at Events',
                 },
                 {
                     to: '/why',
                     position: 'left',
                     label: 'Why?',
+                    title: 'Why inprogress-engineer',
                 },
                 {
                     href: 'https://www.linkedin.com/in/arswa',
                     className: 'header-linkedin-link',
                     position: 'right',
+                    title: 'LinkedIn Profile',
                 },
                 {
                     href: 'https://github.com/swaroopar',
                     className: 'header-github-link',
                     position: 'right',
+                    title: 'GitHub Profile',
+                },
+                {
+                    href: 'https://cv-swaroop.vercel.app/',
+                    className: 'header-resume-link',
+                    position: 'right',
+                    title: 'CV',
                 },
             ],
         },
@@ -104,6 +115,10 @@ const config: Config = {
                         {
                             label: 'LinkedIn',
                             href: 'https://www.linkedin.com/in/arswa',
+                        },
+                        {
+                            label: 'Resume',
+                            href: 'https://cv-swaroop.vercel.app/',
                         },
                     ],
                 },
