@@ -42,3 +42,5 @@ nodenext
 esnext
 browserify
 HTMLElement
+(?i)referer
+img
