@@ -44,3 +44,4 @@ browserify
 HTMLElement
 (?i)referer
 img
+Websocket(.*)

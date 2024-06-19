@@ -106,12 +106,8 @@ const config: Config = {
             style: 'light',
             links: [
                 {
-                    title: 'More',
+                    title: 'Profiles',
                     items: [
-                        {
-                            label: 'GitHub',
-                            href: 'https://github.com/swaroopar',
-                        },
                         {
                             label: 'LinkedIn',
                             href: 'https://www.linkedin.com/in/arswa',
@@ -122,8 +118,21 @@ const config: Config = {
                         },
                     ],
                 },
+                {
+                    title: 'Code',
+                    items: [
+                        {
+                            label: 'GitHub',
+                            href: 'https://github.com/swaroopar',
+                        },
+                        {
+                            label: 'Source Code',
+                            href: 'https://github.com/swaroopar/inprogress-engineer',
+                        },
+                    ],
+                },
             ],
-            copyright: `Copyright ©️ 2024 Swaroop Raghupathy. Built with ❤️ using Docusaurus.`,
+            copyright: `Copyright ©️ 2024 Swaroop Raghupathy. Built with Docusaurus.`,
         },
         prism: {
             theme: prismThemes.github,
