@@ -26,11 +26,17 @@ This is unidirectional way of sending multiple responses back to the client.
 
 ## Websockets
 
-Starts one single HTTP session from client and using the same to receive new messages from server and also to send multiple messages to server.
+Starts with one HTTP session from client to perform an handshake with server to start a websocket protocol based session.
+After that the client and server communicate with each other using the **ws** protocol.
 This is a bi-directional way of sending multiple requests and receiving multiple responses using the same HTTP session.
 
 :::tip[Websocket use]
 Websockets are mostly used in chat based communication.
+:::
+
+:::danger[Websocket protocol blocked]
+Since websocket uses its own protocol, mostly firewalls and load balancers can block them
+and it needs special configuration to handle them.
 :::
 
 ![websockets](../../static/img/websocket.excalidraw.png)

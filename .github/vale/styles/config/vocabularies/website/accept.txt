@@ -45,3 +45,4 @@ HTMLElement
 (?i)referer
 img
 Websocket(.*)
+ws
