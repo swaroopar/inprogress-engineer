@@ -22,6 +22,14 @@ Responds immediately to the polling request with whatever update it has.
 Starts one single HTTP session from client and the server uses the same session to send multiple responses.
 This is unidirectional way of sending multiple responses back to the client.
 
+:::important[difference between standard HTTP request and SSE]
+Difference is the **Accept** and **Content-Type** HTTP header.
+Value should be **text/event-stream** so that server and client understands that it's a SSE based communication.
+
+and the response messages always have **Transfer-Encoding: chunked** which means multiple responses can
+be expected.
+:::
+
 ![sse-polling](../../static/img/sse.excalidraw.png)
 
 ## Websockets
@@ -40,3 +48,16 @@ and it needs special configuration to handle them.
 :::
 
 ![websockets](../../static/img/websocket.excalidraw.png)
+
+## keep-alive Connection Header vs Server-Sent Events
+
+**Connection: keep-alive** HTTP header is to decide how the TCP layer 4 connection is handled between
+server and client.
+
+Here it means that the layer-4 TCP connection will be kept alive even after the HTTP session is closed.
+
+:::[danger](Multi Node Clusters)
+In case of polling, we must always consider that in a multi-node cluster the processing can happen on
+any node. So the node processing the polling request from the client must ensure to fetch data from
+a centralized system such as database.
+:::
