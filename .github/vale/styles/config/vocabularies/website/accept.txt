@@ -46,3 +46,4 @@ HTMLElement
 img
 Websocket(.*)
 ws
+(?i)servlet(.*)
