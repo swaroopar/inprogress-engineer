@@ -23,7 +23,7 @@ So the thread in the BIO case is blocked by one connection until it's fully clos
 ## Non-Blocking IO (NIO)
 
 1. JVM listens on the server port. Eg., 8080. This is the acceptor/main thread.
-2. The acceptor thread forwards the socket thread to poller queue.
+2. The acceptor thread forwards the socket object to poller queue.
 3. Poller then checks/polls the socket for messages.
 4. Forwards it to thread pool whenever a message is available.
 

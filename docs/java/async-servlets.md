@@ -15,12 +15,12 @@ The entire processing consists of 3 threads.
 
 It's important to understand that the request servlet thread sends a callback method to asynchronous thread.
 The callback method which is on a different **master** thread is then called by asynchronous thread when the
-processing finishes and then the **master** thread creates another HTTP servlet container thread to
-send response back.
+processing finishes and then the **master** thread places a task for the servlet thread pool to pickup
+the send response to the topic.
 
 :::info[No change for clients]
 There is no difference of the HTTP clients. The socket in which the request came in will remain connected.
-JVM won't close it until the response is written.
+It will remain connected until the timeout period.
 :::
 
 ## Non-Blocking IO
@@ -34,9 +34,10 @@ IO requests is more scalable.
 
 ## Port vs Socket
 
-Port is physical network property.
+Port is a network property.
 
 Where as socket is how a network connection is expressed in software. Best explanation - UNIX socket is (in code) a data structure (or object) that you can use to send or receive data.
+This object has two queue fields. One for incoming data and one for outgoing data.
 
 :::info[Interesting Reads]
 
