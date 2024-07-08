@@ -47,3 +47,4 @@ img
 Websocket(.*)
 ws
 (?i)servlet(.*)
+performant
