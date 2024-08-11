@@ -33,6 +33,9 @@ h5 {
     --ifm-footer-padding-vertical: calc(var(--ifm-spacing-vertical) * 3);
 
     --ifm-global-radius: 0.3rem;
+    --ifm-footer-padding-vertical: 2rem;
+    --ifm-footer-padding-horizontal: 0;
+    --ifm-footer-link-horizontal-padding: 1rem;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -55,6 +58,7 @@ html[data-theme='dark'] .navbar {
 
 .footer {
     border-top: 1px solid var(--ifm-color-emphasis-200);
+    text-align: center;
 }
 
 .header-github-link {
