@@ -23,7 +23,7 @@
         "@docusaurus/plugin-content-docs": "^3.4.0",
         "@docusaurus/plugin-ideal-image": "^3.4.0",
         "@docusaurus/preset-classic": "^3.4.0",
-        "@docusaurus/theme-mermaid": "^3.4.0",
+        "@docusaurus/theme-mermaid": "^3.5.1",
         "@docusaurus/tsconfig": "3.4.0",
         "@docusaurus/types": "3.4.0",
         "@types/postcss-import": "^14.0.3",
