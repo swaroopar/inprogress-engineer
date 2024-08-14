@@ -21,7 +21,7 @@
     },
     "devDependencies": {
         "@docusaurus/plugin-content-docs": "^3.4.0",
-        "@docusaurus/plugin-ideal-image": "^3.4.0",
+        "@docusaurus/plugin-ideal-image": "^3.5.2",
         "@docusaurus/preset-classic": "^3.4.0",
         "@docusaurus/theme-mermaid": "^3.4.0",
         "@docusaurus/tsconfig": "3.4.0",
