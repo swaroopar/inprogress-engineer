@@ -20,18 +20,20 @@
         "react-dom": "^18.3.1"
     },
     "devDependencies": {
-        "@docusaurus/plugin-content-docs": "^3.4.0",
-        "@docusaurus/plugin-ideal-image": "^3.4.0",
-        "@docusaurus/preset-classic": "^3.4.0",
-        "@docusaurus/theme-mermaid": "^3.4.0",
+        "@docusaurus/plugin-content-docs": "^3.5.2",
+        "@docusaurus/plugin-ideal-image": "^3.5.2",
+        "@docusaurus/preset-classic": "^3.5.2",
+        "@docusaurus/theme-mermaid": "^3.5.2",
         "@docusaurus/tsconfig": "3.4.0",
         "@docusaurus/types": "3.4.0",
+        "@eslint/eslintrc": "^3.1.0",
+        "@eslint/js": "^9.9.0",
         "@types/postcss-import": "^14.0.3",
         "@types/react": "^18.3.3",
         "@typescript-eslint/eslint-plugin": "^8.0.1",
         "@typescript-eslint/parser": "^8.0.1",
         "autoprefixer": "^10.4.20",
-        "eslint": "^8.57.0",
+        "eslint": "^9.9.0",
         "eslint-plugin-react": "^7.35.0",
         "knip": "^5.27.2",
         "lucide-react": "^0.427.0",
@@ -56,33 +58,6 @@
     },
     "engines": {
         "node": ">=18.0"
-    },
-    "eslintConfig": {
-        "extends": [
-            "eslint:recommended",
-            "plugin:@typescript-eslint/recommended",
-            "plugin:@typescript-eslint/recommended-requiring-type-checking",
-            "plugin:@typescript-eslint/strict"
-        ],
-        "plugins": [
-            "react",
-            "@typescript-eslint"
-        ],
-        "rules": {
-            "react/jsx-uses-react": "error",
-            "react/jsx-uses-vars": "error",
-            "no-undef": "off",
-            "@typescript-eslint/no-inferrable-types": "off"
-        },
-        "ignorePatterns": [
-            "build/**",
-            "plugins/tailwind-config.ts"
-        ],
-        "root": true,
-        "parser": "@typescript-eslint/parser",
-        "parserOptions": {
-            "project": "tsconfig.json"
-        }
     },
     "knip": {
         "entry": [
