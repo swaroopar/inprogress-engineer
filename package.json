@@ -80,7 +80,6 @@
             "@docusaurus/useDocusaurusContext",
             "@theme/Layout",
             "@theme/IdealImage",
-            "postcss-import",
             "@docusaurus/theme-mermaid"
         ]
     }
