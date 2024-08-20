@@ -5,7 +5,7 @@ Then we share/access code from different modules using **import/export** or **re
 
 ## CommonJS
 
-CommonJS module is where we use export and require keywords to share code between modules.
+CommonJS module is where we use **export and require** keywords to share code between modules.
 
 Files can be explicitly have `.cjs` extension to say that the code is written in CommonJS format.
 
@@ -18,7 +18,7 @@ This was the first module system in the JavaScript ecosystem.
 
 ## ES Modules
 
-ES Modules is the latest form of modules where we use import and export key words to
+ES Modules is the latest form of modules where we use **import and export** key words to
 share code between modules
 
 Files can be explicitly have `.mjs` extension to say that the code is written in ES Module format.
