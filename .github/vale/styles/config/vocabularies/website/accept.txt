@@ -48,3 +48,5 @@ Websocket(.*)
 ws
 (?i)servlet(.*)
 performant
+Endian
+Lilliputans
