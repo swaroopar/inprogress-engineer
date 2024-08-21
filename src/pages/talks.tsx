@@ -46,7 +46,8 @@ const talks: TalkInfo[] = [
                 date: new Date(2024, 6, 3),
             },
         ],
-        slidesURL: 'https://github.com/eclipse-xpanse/xpanse-relops/blob/main/presentations/openinfra-2024-budapest-osc.pdf',
+        slidesURL:
+            'https://github.com/eclipse-xpanse/xpanse-relops/blob/main/presentations/openinfra-2024-budapest-osc.pdf',
         recordingURL: 'https://youtu.be/2pNo8F3AMrw?t=1630',
         repoURL: 'https://github.com/eclipse-xpanse',
     },
