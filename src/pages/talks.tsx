@@ -5,6 +5,7 @@ import { Talk, TalkInfo } from '../components/talks/Talk';
 
 import XpanseWithScs from './assets/xpanse-with-scs.md';
 import XpanseStandalone from './assets/xpanse-standalone.md';
+import XpanseOpenInfraDay from './assets/xpanse-open-infra-day.md';
 
 const talks: TalkInfo[] = [
     {
@@ -33,6 +34,20 @@ const talks: TalkInfo[] = [
         ],
         slidesURL: 'https://github.com/eclipse-xpanse/xpanse-relops/blob/main/presentations/eclipsecon-2023-xpanse.pdf',
         recordingURL: 'https://www.youtube.com/watch?v=99wqDZA1yVU&t',
+        repoURL: 'https://github.com/eclipse-xpanse',
+    },
+    {
+        title: 'OSC and SCS: A Full stack for deploying from instrastructure to applications',
+        description: <XpanseOpenInfraDay />,
+        events: [
+            {
+                name: 'Openinfra Day 2024',
+                location: 'Budapest, Hungary',
+                date: new Date(2024, 6, 3),
+            },
+        ],
+        slidesURL: 'https://github.com/eclipse-xpanse/xpanse-relops/blob/main/presentations/openinfra-2024-budapest-osc.pdf',
+        recordingURL: 'https://youtu.be/2pNo8F3AMrw?t=1630',
         repoURL: 'https://github.com/eclipse-xpanse',
     },
 ];
