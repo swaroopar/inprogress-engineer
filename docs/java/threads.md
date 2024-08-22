@@ -24,6 +24,14 @@ Threads can communicate between each other using **static**, **volatile**, **ato
    if the previous passed value is really the previous known value of the variable. Otherwise the update is rejected.
 4. synchronous - A block of code that can be executed by one thread at a time. Other threads are simply paused until then.
 
+## OS Threads vs JVM Threads
+
+For each JVM thread has a corresponding OS thread.
+This means the thread scheduling is managed by OS.
+JVM only queues tasks for the threads which are then scheduled and executed by the OS.
+
+![java-os-threads](../../static/img/java-thread-os-thread.excalidraw.png)
+
 :::tip[Important Links]
 
 -   https://dip-mazumder.medium.com/java-memory-model-a-comprehensive-guide-ba9643b839e

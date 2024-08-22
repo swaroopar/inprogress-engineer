@@ -23,6 +23,12 @@ There is no difference of the HTTP clients. The socket in which the request came
 It will remain connected until the timeout period.
 :::
 
+## Thread Creation
+
+The main threads created listener and worker threads at the boot.
+
+![thread-creation](../../static/img/java-listener-thread.excalidraw.png)
+
 ## Non-Blocking IO
 
 The term non-blocking IO means, the process which is polling the machine's IO system for data isn't

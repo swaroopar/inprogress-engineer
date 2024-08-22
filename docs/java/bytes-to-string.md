@@ -30,6 +30,11 @@ then converted to Unicode and encoded to UTF-8.
 
 Same process will be applied for request/response body.
 
+:::important[incoming data]
+Any data that enters the application is always in binary.
+It's only decoded based on whatever encoding was used to send the bytes out.
+:::
+
 ## Byte Order
 
 When bytes (binary data) are transported between systems,
@@ -66,5 +71,7 @@ This means, there is no any extra byte to define the start of a new character.
 1110xxxx: A three-byte character.
 11110xxx: A four-byte character.
 
-:::tip[important links] - https://betterexplained.com/articles/understanding-big-and-little-endian-byte-order/
-:::
+:::tip[important links]
+
+-   https://betterexplained.com/articles/understanding-big-and-little-endian-byte-order
+    :::

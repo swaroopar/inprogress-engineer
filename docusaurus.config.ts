@@ -42,6 +42,7 @@ const config: Config = {
                 docs: {
                     sidebarPath: require.resolve('./sidebars.ts'),
                     sidebarCollapsible: true,
+                    // necessary to set extra config on Vercel deployment https://github.com/vercel/vercel/discussions/5737#discussioncomment-8909996
                     showLastUpdateAuthor: true,
                     showLastUpdateTime: true,
                 },

@@ -29,6 +29,9 @@ So the thread in the BIO case is blocked by one connection until it's fully clos
 
 ![nio-message-processing](../../static/img/nio.excalidraw.png)
 
+:::tip[Information Sources]
+
 -   https://www.cnblogs.com/kukuxjx/p/18013373
 -   https://velog.io/@hyunjong96/Spring-NIO-Connector-BIO-Connector
 -   https://blog.liu-kevin.com/2022/07/26/tomcatwang-luo-mo-xing/
+    :::
