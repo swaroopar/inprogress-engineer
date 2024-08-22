@@ -32,12 +32,11 @@ and executed by any JavaScript engine which implements the Promise requirements 
 
 ## then and catch
 
-After the _resolve_ and _reject_ methods are called by the engine,
-the functions mentioned in the _then_ and _catch_ blocks are executed again asynchronously.
+After the promise is resolved or rejected, then the functions in **then** and **catch** are called
+with respective parameters.
 
 :::tip[Trigger Callbacks]
-The _then_ and _catch_ callbacks are automatically placed in the callback queue by the JavaScript engine as soon as the
-state of the Promise has changed.
+The _then_ and _catch_ callbacks are automatically placed in the callback queue by the JavaScript engine as soon as the state of the Promise has changed.
 :::
 
 ## async and awaits
