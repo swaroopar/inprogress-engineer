@@ -18,7 +18,7 @@ interface EventInfo {
 
 export function Talk({ talkInfo }: { talkInfo: TalkInfo }) {
     return (
-        <div className='border-1 w-full rounded-xl border-solid border-gray-100 p-10 sm:m-10'>
+        <div className='w-full rounded-xl border-2 border-solid border-gray-300 p-10 sm:m-10'>
             <div>
                 <div>
                     <h2>{talkInfo.title}</h2>
@@ -93,18 +93,18 @@ function EventDetails({ data }: { data: EventInfo[] }): React.JSX.Element {
         <div className='flex flex-row'>
             <div>
                 <ul>
-                    <li>
-                        <MessageSquareMore height={18} />
+                    <div className="flex items-center">
+                        <MessageSquareMore className="mr-2" height={18} />
                         {name}
-                    </li>
-                    <li>
-                        <MapPin height={18} />
+                    </div>    
+                    <div className="flex items-center">
+                        <MapPin className="mr-2" height={18} />
                         {location}
-                    </li>
-                    <li>
-                        <Calendar height={18} />
+                    </div>
+                    <div className="flex items-center">
+                        <Calendar className="mr-2" height={18} />
                         {formatDateString(date)}
-                    </li>
+                    </div>
                 </ul>
             </div>
             {data.length > 1 && (
