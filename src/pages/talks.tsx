@@ -59,11 +59,11 @@ const description = 'Spoke on various topics in multiple events. ';
 export default function Talks(): React.JSX.Element {
     return (
         <Layout title={title} description={description}>
-            <main className='container mx-auto pt-4'>
+            <main className='container mx-auto pt-10'>
                 <h1>{title}</h1>
                 <p>{description}</p>
 
-                <div className='row'>
+                <div>
                     {talks.map((talkData: TalkInfo) => (
                         <Talk key={talkData.title} talkInfo={talkData} />
                     ))}
