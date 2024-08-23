@@ -8,6 +8,14 @@ which make the JavaScript really usable.
 
 ![JavaScript Runtime](../../static/img/javascript-runtime.excalidraw.png)
 
+The web APIs here are the APIs of the browser.
+They're registered into the global object of the JavaScript engine.
+
+:::warning[DOM]
+DOM object is also inside the browser engine. It's not part of JavaScript.
+JavaScript only has access to the browser's methods which can then manipulate the DOM object.
+:::
+
 ## Embedded Library
 
 Coming from a Java background it's hard to understand how JavaScript runtime work.
