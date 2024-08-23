@@ -93,16 +93,16 @@ function EventDetails({ data }: { data: EventInfo[] }): React.JSX.Element {
         <div className='flex flex-row'>
             <div>
                 <ul>
-                    <div className="flex items-center">
-                        <MessageSquareMore className="mr-2" height={18} />
+                    <div className='flex items-center'>
+                        <MessageSquareMore className='mr-2' height={18} />
                         {name}
-                    </div>    
-                    <div className="flex items-center">
-                        <MapPin className="mr-2" height={18} />
+                    </div>
+                    <div className='flex items-center'>
+                        <MapPin className='mr-2' height={18} />
                         {location}
                     </div>
-                    <div className="flex items-center">
-                        <Calendar className="mr-2" height={18} />
+                    <div className='flex items-center'>
+                        <Calendar className='mr-2' height={18} />
                         {formatDateString(date)}
                     </div>
                 </ul>

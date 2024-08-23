@@ -18,7 +18,7 @@ Used to control the position of flex items over the **main axis** of the flex co
 
 Used to control the position of flex items over the **cross axis** of the flex container.
 
-For example, when you want have a row direction flex, using align-items option, we can place all the horizontal items at the same vertical level. 
+For example, when you want have a row direction flex, using align-items option, we can place all the horizontal items at the same vertical level.
 
 ## Justify and Align Individual Items
 
