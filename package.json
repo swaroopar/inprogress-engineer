@@ -31,7 +31,7 @@
         "@typescript-eslint/eslint-plugin": "^8.4.0",
         "@typescript-eslint/parser": "^8.4.0",
         "autoprefixer": "^10.4.20",
-        "eslint": "^9.9.0",
+        "eslint": "^9.9.1",
         "eslint-plugin-react": "^7.35.0",
         "knip": "^5.27.3",
         "lucide-react": "^0.438.0",
