@@ -50,3 +50,5 @@ ws
 performant
 Endian
 Lilliputans
+(?i)kafka
+Eclipselink

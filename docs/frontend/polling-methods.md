@@ -56,8 +56,8 @@ server and client.
 
 Here it means that the layer-4 TCP connection will be kept alive even after the HTTP session is closed.
 
-:::[danger](Multi Node Clusters)
-In case of polling, we must always consider that in a multi-node cluster the processing can happen on
-any node. So the node processing the polling request from the client must ensure to fetch data from
+:::danger[Multi Node Clusters]
+In case of polling, we must always consider that in a multi-node cluster the processing can happen on any node.
+So the node processing the polling request from the client must ensure to fetch data from
 a centralized system such as database.
 :::
