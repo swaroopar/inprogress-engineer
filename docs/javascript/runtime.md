@@ -61,6 +61,13 @@ In case of Java, the SDK encapsulates all low-level integrations and provides us
 In case of JavaScript, the logic is the same. All complex methods are implemented in the language which is hosting the runtime.
 We can call them directly from JavaScript engine and it gives the user an illusion that the methods exist within JavaScript runtime.
 
+## Event Handlers
+
+An HTML element is also a JavaScript object of type HTMLElement.
+When we add an event handler to an element, it only creates a property of type **function** to that object with the provided name.
+
+So when the event handler is executed, the function of that HTMLElement object is executed.
+
 :::info[Useful Links]
 
 -   https://eclipsesource.com/blogs/2015/06/06/registering-java-callbacks-with-j2v8/
@@ -70,10 +77,3 @@ We can call them directly from JavaScript engine and it gives the user an illusi
 -   https://stackoverflow.com/questions/68325731/how-do-the-render-engine-and-javascript-engine-communicate-in-a-browser
 -   https://codingnomads.com/javascript-runtime-environment-browser
     :::
-
-## Event Handlers
-
-An HTML element is also a JavaScript object of type HTMLElement.
-When we add an event handler to an element, it only creates a property of type **function** to that object with the provided name.
-
-So when the event handler is executed, the function of that HTMLElement object is executed.
