@@ -4,8 +4,13 @@
 
 In the past there was only SOP - Same-Origin Policy. Which means, the website could only interact with resources on the same domain.
 
-CORS was only introduced to relax this restriction. This also introduces a risk that if CORS isn't configured correctly, this can
-lead to security issues.
+CORS was only introduced to relax this restriction.
+This also introduces a risk that if CORS isn't configured correctly, this can lead to security issues.
+
+:::important[controlled by browsers]
+CORS headers are automatically added by the browsers when the HTTP requests are made.
+This can't be tweaked.
+:::
 
 ## Origin Header
 
@@ -15,7 +20,7 @@ This can also be controlled by the **referral-policy** header.
 
 :::tip[For Browsers]
 These headers are used by browsers to avoid sending the request to the web server if the preflight response doesn't satisfy the conditions.
-This provides security and also avoid unnecessary calls to web server.
+This provides security and also avoids unnecessary calls to the web server.
 :::
 
 ![origin-headers](../../static/img/cors.excalidraw.png)
