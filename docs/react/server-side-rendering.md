@@ -69,7 +69,7 @@ React pauses rendering that sub-tree until the promise is resolved, and then tri
 Uses HTML streaming to sending updated HTML chunks as and when the data is processed on the server.
 
 :::tip
-More on HTML streaming can be found in this [page](../html/html-streaming).
+More on HTML streaming can be found in this [page](../browsers/html-streaming).
 :::
 
 :::info
