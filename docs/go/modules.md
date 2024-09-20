@@ -8,6 +8,11 @@ The code remains **decentralized** in the GIT repositories.
 
 ![go-modules](../../static/img/go-modules.excalidraw.png)
 
+:::tip[Go Proxies]
+To avoid the load on GIT repositories, GO proxies provide caching mechanism and
+security such as checksum validations when dependent modules are downloaded.
+:::
+
 ## Modules, Packages and Imports
 
 1. Module is the main application or the library.
