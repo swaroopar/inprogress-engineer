@@ -17,3 +17,8 @@ But margins between two vertical elements auto collapse.
 This means, if two vertical elements having a margin of 1em,
 then the overall margin between these two elements will be 1em only.
 :::
+
+## Auto Margin
+
+This will automatically place the content in the center of the container
+or the width of the container.
