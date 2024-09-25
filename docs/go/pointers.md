@@ -41,6 +41,14 @@ p := &x
 fmt.Println(*p) // Prints 5
 ```
 
+:::danger access value at pointer
+To de-reference a pointer variable, we use \* symbol.
+But what's tricky is, \* is used to declare pointer variable and also to access the value at the address.
+
+In variable declaring, \* is on the type T.
+In de-referencing, \* is on the variable name.
+:::
+
 ### Ampersand Symbol.
 
 This is used to get the **address-of** the variable.
@@ -72,3 +80,5 @@ func main() {
     p.SayHello() // Implicitly dereferenced
 }
 ```
+
+![pointers](../../static/img/golang-pointers.excalidraw.png)

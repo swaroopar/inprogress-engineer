@@ -53,3 +53,4 @@ Lilliputans
 (?i)kafka
 Eclipselink
 Gradle
+Goroutine(.*)
