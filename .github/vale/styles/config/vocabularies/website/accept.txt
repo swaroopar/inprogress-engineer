@@ -54,3 +54,5 @@ Lilliputans
 Eclipselink
 Gradle
 Goroutine(.*)
+(?i)truststore
+(?i)trustmanager
