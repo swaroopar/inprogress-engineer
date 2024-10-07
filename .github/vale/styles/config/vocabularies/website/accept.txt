@@ -56,3 +56,5 @@ Gradle
 Goroutine(.*)
 (?i)truststore
 (?i)trustmanager
+userspace
+bootloader
