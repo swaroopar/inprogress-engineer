@@ -9,7 +9,7 @@ Only at boot, CPU executes the instructions from a pre-determined address which 
 
 After that, BIOS loads the bootloader into the memory and then CPU executes the bootloader.
 
-After that the kernel is loaded by the bootloader into the memory and CPU starts to execute it. 
+After that the kernel is loaded by the bootloader into the memory and CPU starts to execute it.
 Then kernel takes over the control of CPU and executes its instructions and initializes devices and
 then makes the system ready for userspace applications.
 
