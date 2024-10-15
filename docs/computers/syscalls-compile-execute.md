@@ -11,7 +11,7 @@ Native code means a code that's compiled to run a specific OS and CPU instructio
 This is mostly the machine language implemented using the CPU'S instruction set.
 :::
 
-![compile process](../../static/img/syscalls-compile.excalidraw.png)
+![compile process](../../static/img/syscall-compile.excalidraw.png)
 
 :::important C Libraries
 Linux is written in C and
