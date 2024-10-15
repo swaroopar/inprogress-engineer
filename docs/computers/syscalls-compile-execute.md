@@ -1,4 +1,4 @@
-# System Calls Compilation and Execution
+# System Calls
 
 ## Compilation Process
 
@@ -11,7 +11,7 @@ Native code means a code that's compiled to run a specific OS and CPU instructio
 This is mostly the machine language implemented using the CPU'S instruction set.
 :::
 
-![compile process](../../static/img/native-methods-compile.excalidraw.png)
+![compile process](../../static/img/syscalls-compile.excalidraw.png)
 
 :::important C Libraries
 Linux is written in C and
@@ -34,4 +34,5 @@ with the ID of the system call handler method which will then be used by the ker
 :::info interesting reads
 
 -   https://manybutfinite.com/post/system-calls/
-    :::
+
+:::
