@@ -1,8 +1,8 @@
 # JPA Transactions
 
-In Spring, when we use **@Transactional** annotations on any method,
-then the framework will start a session at the beginning of the method with the annotation.
-and then commit the entire session when the method returns.
+In Spring, when we use **@Transactional** annotation on any method,
+then the framework will start a session at the beginning of the method which is annotated
+and then commit the all transactions in the entire thread when the method returns.
 
 :::tip methods without **@transactional**
 For methods without don't have a dedicated annotation
@@ -22,7 +22,7 @@ The following components are thread-safe in a JPA transaction
 2. Persistent Context - Consider this as a map of DB entities known to the thread.
    This is also called the L1 cache.
 
-## Components shared across threads
+## Shared Components
 
 The following components are shared across threads
 
@@ -45,20 +45,20 @@ as long as the connection pool is active.
 
 ## Proxy Classes
 
-Spring framework doesn't weave connection start and end code into the actual class.
+Spring framework doesn't weave connection start and end code into the actual classes.
 Instead if a class has a **transactional** annotation,
-then a proxy class is created which are then used by the calling application.
+then a proxy class (and it's bean) is created which are then used by the calling application.
 
 This proxy bean then first starts the transaction and then calls the real bean.
 
-## SavePoint
+## Save Point
 
 Save point is a SQL feature that can help us group queries in a transaction before doing a commit.
 
 :::info rollback is only before a commit
 Rollback is a feature that can be used only before a commit.
 
-If a commit is done, then we must only use DELETE statements to remove changes.
+If a commit is done, then we can only use DELETE statements to remove changes.
 :::
 
 ![database-savepoints](../../static/img/database-savepoints.excalidraw.png)
