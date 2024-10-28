@@ -42,8 +42,7 @@ But the application must control the database on how it must be applied.
 
 By using special SQL syntax by the application, specific datasets can be locked.
 
-::: danger SQL server specific
+:::danger SQL server specific
 These aren't common syntax.
 Each SQL server has a different implementation of the pessimistic locking concept.
-
 :::
