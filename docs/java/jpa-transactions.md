@@ -31,7 +31,7 @@ The following components are shared across threads
 2. Connection Pool - The connections to the database are created and
    shared between threads.
 
-:::info connection pools
+:::important connection pools
 The connection pool threads ensures the connection to the DB is kept alive always.
 
 It's nothing but connection to the database URL, provide credentials
@@ -51,22 +51,16 @@ then a proxy class (and it's bean) is created which are then used by the calling
 
 This proxy bean then first starts the transaction and then calls the real bean.
 
-## Save Point
+## Locking
 
-Save point is a SQL feature that can help us group queries in a transaction before doing a commit.
+Database locking features is implemented by JPA and hibernate.
 
-:::info rollback is only before a commit
-Rollback is a feature that can be used only before a commit.
-
-If a commit is done, then we can only use DELETE statements to remove changes.
-:::
-
-![database-savepoints](../../static/img/database-savepoints.excalidraw.png)
+Read more about it [here.](../databases/locking.md)
 
 :::info sources
 
 -   https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth
 -   https://vladmihalcea.com/spring-transaction-connection-management
 -   https://vladmihalcea.com/hibernate-locking-patterns-how-do-pessimistic_read-and-pessimistic_write-work/
-
-:::
+-   https://vladmihalcea.com/a-beginners-guide-to-java-persistence-locking/
+    :::
