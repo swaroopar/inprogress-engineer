@@ -22,6 +22,7 @@ This includes extracting headers, session, parameters and request body.
 ![servlet-container](../../static/img/webserver-servlet.excalidraw.png)
 
 :::tip useful resources
-- https://www.linkedin.com/pulse/what-web-context-request-lifecycle-spring-application-ali-pty1f/
-- https://www.logicmonitor.com/blog/what-is-apache-tomcat-server-and-how-does-it-work
-:::
+
+-   https://www.linkedin.com/pulse/what-web-context-request-lifecycle-spring-application-ali-pty1f/
+-   https://www.logicmonitor.com/blog/what-is-apache-tomcat-server-and-how-does-it-work
+    :::
