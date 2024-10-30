@@ -18,6 +18,10 @@ The callback method which is on a different **master** thread is then called by 
 processing finishes and then the **master** thread places a task for the servlet thread pool to pickup
 the send response to the topic.
 
+:::tip Spring DeferredResult
+Example of asynchronous servlet is the Spring's DeferredResult implementation.
+:::
+
 :::info[No change for clients]
 There is no difference of the HTTP clients. The socket in which the request came in will remain connected.
 It will remain connected until the timeout period.
