@@ -20,6 +20,8 @@ In case of hardware interrupts, the table contains the list of device drivers.
 
 :::important Polling Interrupts
 In case of hardware interrupts, the CPU polls the interrupt flag at specific intervals.
+
+This is why interrupts are always **asynchronous**.
 :::
 
 ## Software Interrupts
@@ -32,6 +34,8 @@ These software interrupts are called as **system calls**.
 
 :::info ID of the software interrupt handler
 In case of Linux, the ID of the software interrupt handler in the IVT is always 128 (0x80)
+
+IRET is the instruction that switches the CPU mode back to user mode.
 :::
 
 ![system call](../../static/img/software-interrupt-handler.excalidraw.png)
