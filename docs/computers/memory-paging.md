@@ -71,3 +71,17 @@ Java provides higher level abstraction and checks and then throws Null Pointer E
 
 Swapping is similar to paging but in case of swapping the entire process memory is moved to disk
 whereas in case of paging, only specific pages from multiple processes are moved to disk.
+
+:::danger not to be confused with page cache
+Page cache is a completely different topic.
+It's about caching disk data into memory to avoid frequent disk IO.
+
+This is also called System \*_System Buffer_
+:::
+
+## Data between user and kernel memory space
+
+Due to security reasons, the user space can't access data from kernel space and vice versa.
+The data must be copied.
+
+The data between these two memory areas are always copied to the other area by the kernel.
