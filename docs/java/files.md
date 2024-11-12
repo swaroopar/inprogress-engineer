@@ -4,6 +4,11 @@ It's important to understand file management since everything is a file in Unix.
 Also since all IO involves files, understanding the foundation of it's necessary in building
 high-performance applications. Everything in this document can be simply applied to all IO and not just regular hard disk files.
 
+:::important Java file
+Creating a new Java **File** object doesn't open the file.
+Only creating a stream or channel will open the file.
+:::
+
 ## Byte Buffers
 
 ByteBuffer is a type in Java which allocates a fixed and continuous memory space
@@ -13,13 +18,23 @@ just to hold binary data. This is the type used in all IO operations.
 
 This is Java's implementation of MMIO.
 
-This means if a file is loaded into JVM using this type of buffer, then
-the [page cache](../computers/memory-paging.md#swapping) of that file is mapped directly into
-the memory region of the JVM process.
+In this case, the file is loaded into the memory and
+then this part of memory address is mapped into the JVM process's memory space.
 
-This means while writing or reading data, it will be directly happening on the page cache.
+:::important Why the name buffer
+Here there is no actual byte buffer used.
+It's called buffer since it just acts as a bridge between JVM and the underlying file system.
+:::
 
-:::tip writing to page cache
+Since loading any file from ROM into memory includes the [page cache](../computers/memory-paging.md#swapping),
+writing or reading data, it will be directly happening on the page cache.
+
+:::tip mmap()
+MappedByteBuffer is Java's wrapper to mmap() function.
+Even the fileChannel.map() does the same.
+:::
+
+:::note writing to page cache
 Writing to page cache avoid IO since updating page cache will mark the pages as dirty and
 kernel will automatically flush the changes to disk.
 :::
@@ -30,9 +45,8 @@ In this case, buffers are requested additionally from memory outside of JVM.
 
 The advantage is, the JVM memory is kept free for other tasks and IO operations are performed using buffers outside of the JVM.
 
-:::important Java file
-Creating a new Java **File** object doesn't open the file.
-Only creating a stream or channel will open the file.
+:::tip malloc()
+Direct buffers are wrappers to malloc() native methods.
 :::
 
 ## Stream vs Buffer
@@ -64,3 +78,9 @@ The file descriptor linked to the stream knows the last read byte (offset).
 :::
 
 ![stream and buffer](../../static/img/file-stream-buffer.excalidraw.png)
+
+:::tip Interesting Reads
+
+-   https://shawn-xu.medium.com/its-all-about-buffers-zero-copy-mmap-and-java-nio-50f2a1bfc05c
+
+:::
