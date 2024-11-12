@@ -13,8 +13,11 @@ updates:
           interval: daily
       open-pull-requests-limit: 10
       groups:
-          dev-dependencies:
+          docusaurus:
               applies-to: version-updates
               patterns:
                   - '@docusaurus/*'
+          typescript-eslint:
+              applies-to: version-updates
+              patterns:
                   - '@typescript-eslint/*'

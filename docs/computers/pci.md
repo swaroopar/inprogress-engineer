@@ -7,6 +7,9 @@ It provides an unified and standard way of accessing all IO devices.
 At boot, the kernel queries the PCI for all connected devices and its information.
 After that the devices are initialized and assigned memory in the same address space
 which the CPU uses to access memory.
+
+This means, the page table of the kernel memory space is updated to directly have mappings to IO devices as well.
+
 This feature is called **MMIO - Memory Mapped IO**
 
 :::important Helps in DMA
