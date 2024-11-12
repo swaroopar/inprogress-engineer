@@ -1,8 +1,8 @@
 # Files
 
-It is important to understand file management since everything is a file in Unix. 
-Also since all IO involves files, understanding the foundation of it is necessary in building 
-high-performance applications. Everything in this document can be simply applied to all IOs and not just regular hard disk files. 
+It's important to understand file management since everything is a file in Unix.
+Also since all IO involves files, understanding the foundation of it's necessary in building
+high-performance applications. Everything in this document can be simply applied to all IO and not just regular hard disk files.
 
 ## Byte Buffers
 
@@ -59,7 +59,7 @@ buffer directly as part of system call.
 
 :::danger read vs copy_to_user
 when a stream is directly used without buffer, it translates to **read** method to kernel.
-This method returns next byte. 
+This method returns next byte.
 The file descriptor linked to the stream knows the last read byte (offset).
 :::
 
