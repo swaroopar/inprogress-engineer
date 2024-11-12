@@ -2,10 +2,12 @@
 
 Each process has a file descriptor table.
 
-Every thread has task_struct. This structure has a pointer to **files_struct** and
+Every thread has **task_struct**.
+This structure has a pointer to **files_struct** and
 this is nothing but the file descriptor table.
 
-This table is just a map of file descriptor ID and the pointer to corresponding **file** structure.
+This file descriptor table is just a map of file descriptor ID and
+the pointer to corresponding **file** structure.
 
 :::tip file structure
 The **file** structure represents an open file.
