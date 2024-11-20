@@ -10,7 +10,7 @@ components are rendered. React uses the `type` field in the rendered output to c
 custom component or a native HTML tag. `type = function` means it's another component that must be rendered additionally.
 
 :::info
-Custom components are all component names that start with uppercase. 
+Custom components are all component names that start with uppercase.
 The lower case tags in JSX are considered as native HTML tags by React.
 :::
 
