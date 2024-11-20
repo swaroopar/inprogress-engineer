@@ -28,7 +28,7 @@ Such solution is then used to just add some colors or designs to an existing ele
 
 :::danger Pseudo elements in DOM
 when the DOM is inspected using the browser tools, the pseudo elements are simply shown as child element with the element name.
-Eg., as **::before** and clicking on that will show the correspoding CSS snippet behind it.
+Eg., as **::before** and clicking on that will show the corresponding CSS snippet behind it.
 They don't have their own HTML tags.
 :::
 
