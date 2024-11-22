@@ -45,6 +45,6 @@ second sibling must be right next to each other.
 In this case, first sibling and second sibling need not be immediate next to each other.
 It will select all second sibling elements of the mentioned type.
 
-:::note sibling
+:::note Siblings in DOM
 Sibling means elements at the same level in the DOM tree.
 :::
