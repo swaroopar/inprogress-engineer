@@ -25,7 +25,7 @@ Only for uniformity sake, these values are also written to the file system under
 
 ![steps to get a file](../../static/img/access-file-inode.excalidraw.png)
 
-:::Danger closing files
+:::danger closing files
 This why closing a file is important from userspace applications.
 Otherwise the file descriptors remain open and will consume memory.
 :::

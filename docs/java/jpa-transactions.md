@@ -2,7 +2,10 @@
 
 In Spring, when we use **@Transactional** annotation on any method,
 then the framework will start a session at the beginning of the method which is annotated
-and then commit the all transactions in the entire thread when the method returns.
+and then commit all transactions in the entire thread when the method returns.
+
+If there are multiple @Transactional annotated methods in the flow,
+then share the same transaction (the outermost) unless otherwise specified.
 
 :::tip methods without **@transactional**
 For methods without don't have a dedicated annotation
@@ -18,7 +21,7 @@ For methods without don't have a dedicated annotation
 
 The following components are thread-safe in a JPA transaction
 
-1. Entity Manager - All interactions to the database and persistent cache happens through this.
+1. Entity Manager - All interactions to the database and persistent context happens through this.
 2. Persistent Context - Consider this as a map of DB entities known to the thread.
    This is also called the L1 cache.
 
@@ -51,6 +54,10 @@ then a proxy class (and it's bean) is created which are then used by the calling
 
 This proxy bean then first starts the transaction and then calls the real bean.
 
+:::danger calling annotated classes directly
+If a class is directly instantiated and called then the proxy class isn't used and thereby the transaction isn't managed.
+:::
+
 ## Locking
 
 Database locking features is implemented by JPA and hibernate.
@@ -63,4 +70,5 @@ Read more about it [here.](../databases/locking.md)
 -   https://vladmihalcea.com/spring-transaction-connection-management
 -   https://vladmihalcea.com/hibernate-locking-patterns-how-do-pessimistic_read-and-pessimistic_write-work/
 -   https://vladmihalcea.com/a-beginners-guide-to-java-persistence-locking/
-    :::
+
+:::
