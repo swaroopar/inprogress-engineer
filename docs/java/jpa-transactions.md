@@ -55,7 +55,7 @@ then a proxy class (and it's bean) is created which are then used by the calling
 This proxy bean then first starts the transaction and then calls the real bean.
 
 :::danger calling annotated classes directly
-If a class is directly instantiated and called then the proxy class is not used and thereby the transaction is not managed.
+If a class is directly instantiated and called then the proxy class isn't used and thereby the transaction isn't managed.
 :::
 
 ## Locking
