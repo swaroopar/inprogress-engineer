@@ -64,3 +64,5 @@ inode
 files_struct
 copy_to_user
 combinator
+dentry
+dentries
