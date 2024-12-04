@@ -70,10 +70,10 @@ So when the event handler is executed, the function of that HTMLElement object i
 
 :::info[Useful Links]
 
--   https://eclipsesource.com/blogs/2015/06/06/registering-java-callbacks-with-j2v8/
--   https://eclipsesource.com/blogs/tutorials/getting-started-with-j2v8/
--   https://www.caoccao.com/Javet/tutorial/advanced/java_and_javascript_interop.html
--   https://dev.to/rahmanmajeed/javascript-the-runtime-environment-35a2
--   https://stackoverflow.com/questions/68325731/how-do-the-render-engine-and-javascript-engine-communicate-in-a-browser
--   https://codingnomads.com/javascript-runtime-environment-browser
-    :::
+- https://eclipsesource.com/blogs/2015/06/06/registering-java-callbacks-with-j2v8/
+- https://eclipsesource.com/blogs/tutorials/getting-started-with-j2v8/
+- https://www.caoccao.com/Javet/tutorial/advanced/java_and_javascript_interop.html
+- https://dev.to/rahmanmajeed/javascript-the-runtime-environment-35a2
+- https://stackoverflow.com/questions/68325731/how-do-the-render-engine-and-javascript-engine-communicate-in-a-browser
+- https://codingnomads.com/javascript-runtime-environment-browser
+  :::

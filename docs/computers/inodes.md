@@ -58,11 +58,12 @@ inode number of the final file is found in the **inode table**.
 ![file-search](../../static/img/file-finding-process.excalidraw.png)
 
 :::info uniqueness of inode number
-inode number is unique only within the corresponding file system. 
+inode number is unique only within the corresponding file system.
 
 If multiple filesystems are mounted on a same host, then same inode number can exist on multiple file systems.
 :::
 
 :::tip useful links
+
 - https://github.com/suvratapte/Maurice-Bach-Notes/blob/master/4-Internal-Representation-of-Files.md
-:::
+  :::

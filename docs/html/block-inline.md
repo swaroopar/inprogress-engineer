@@ -2,18 +2,18 @@
 
 Block elements
 
--   takes a new line in the HTML page.
--   takes the full available width of the parent container by stretching fully.
--   each block element can contain other child block or inline elements.
+- takes a new line in the HTML page.
+- takes the full available width of the parent container by stretching fully.
+- each block element can contain other child block or inline elements.
 
 Example - `<p>, <div>, <h1-7>, <header>, <footer>, <section>, <table>`, etc.
 
 Inline Elements
 
--   doesn't start on new line.
--   width is as much as the content length. If the content is more then the available size,
-    then content overflows to next line.
--   inline elements can't contain other block elements as its child elements.
+- doesn't start on new line.
+- width is as much as the content length. If the content is more then the available size,
+  then content overflows to next line.
+- inline elements can't contain other block elements as its child elements.
 
 Example - `<span>, <em>, <strong>, <a>, <img>,` etc.
 

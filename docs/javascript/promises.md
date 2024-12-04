@@ -74,7 +74,7 @@ Always using the caching reference to understand the usage of the static helper 
 
 :::info[Useful Links]
 
--   https://medium.com/@lydiahallie/javascript-visualized-promises-async-await-a3f1aad8a943
--   https://stackoverflow.com/questions/31324110/why-does-the-promise-constructor-require-a-function-that-calls-resolve-when-co/31324439#31324439
--   https://stackoverflow.com/questions/54723849/why-and-when-to-use-promise-resolve
-    :::
+- https://medium.com/@lydiahallie/javascript-visualized-promises-async-await-a3f1aad8a943
+- https://stackoverflow.com/questions/31324110/why-does-the-promise-constructor-require-a-function-that-calls-resolve-when-co/31324439#31324439
+- https://stackoverflow.com/questions/54723849/why-and-when-to-use-promise-resolve
+  :::

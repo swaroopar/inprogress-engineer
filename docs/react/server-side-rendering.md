@@ -98,10 +98,10 @@ and hydration would be avoided on such pages.
 :::info
 Content inspired and curated using
 
--   https://www.joshwcomeau.com/react/server-components/
--   https://github.com/reactwg/react-18/discussions/37 - A must-read for every beginner.
--   https://www.cloudflare.com/learning/performance/how-dcl-and-fcp-affect-seo/
--   https://www.plasmic.app/blog/how-react-server-components-work
--   https://neonpie.xyz/hydration/
--   https://github.com/vercel/next.js/discussions/60935
-    :::
+- https://www.joshwcomeau.com/react/server-components/
+- https://github.com/reactwg/react-18/discussions/37 - A must-read for every beginner.
+- https://www.cloudflare.com/learning/performance/how-dcl-and-fcp-affect-seo/
+- https://www.plasmic.app/blog/how-react-server-components-work
+- https://neonpie.xyz/hydration/
+- https://github.com/vercel/next.js/discussions/60935
+  :::

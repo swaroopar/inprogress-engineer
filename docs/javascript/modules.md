@@ -44,10 +44,10 @@ The same field is also used by bundlers to compile and transpile files.
 Since the **type** field isn't a mandatory configuration parameter,
 there are certain rules to detect which module type is used by a file.
 
--   file extensions `.mjs` and `.cjs` are always interpreted as ES module and CommonJS modules respectively.
-    This is irrespective of what's configured in package.json
--   If file extension is just `.js` then the **type** nearest package.json is used.
--   If the file extension is just `.js` and the **type** field doesn't exist in nearest package.json then it's by **default** assumed to be CommonJS.
+- file extensions `.mjs` and `.cjs` are always interpreted as ES module and CommonJS modules respectively.
+  This is irrespective of what's configured in package.json
+- If file extension is just `.js` then the **type** nearest package.json is used.
+- If the file extension is just `.js` and the **type** field doesn't exist in nearest package.json then it's by **default** assumed to be CommonJS.
 
 :::tip
 Default is still the CommonJS because CommonJS was the first module system.

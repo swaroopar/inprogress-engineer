@@ -90,11 +90,11 @@ For example, SSR consumes the output of RSC and generates HTML. So even SSR is c
 :::info
 content inspired and curated from
 
--   https://github.com/reactwg/server-components/discussions/5
--   https://github.com/reactwg/server-components/discussions/4
--   https://www.plasmic.app/blog/how-react-server-components-work
--   https://www.mux.com/blog/what-are-react-server-components
--   https://unicorn-utterances.com/posts/what-are-react-server-components
--   https://www.webscope.io/blog/server-components-vs-ssr
--   https://www.smashingmagazine.com/2024/05/forensics-react-server-components/
-    :::
+- https://github.com/reactwg/server-components/discussions/5
+- https://github.com/reactwg/server-components/discussions/4
+- https://www.plasmic.app/blog/how-react-server-components-work
+- https://www.mux.com/blog/what-are-react-server-components
+- https://unicorn-utterances.com/posts/what-are-react-server-components
+- https://www.webscope.io/blog/server-components-vs-ssr
+- https://www.smashingmagazine.com/2024/05/forensics-react-server-components/
+  :::

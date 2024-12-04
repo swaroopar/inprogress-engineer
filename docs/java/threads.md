@@ -34,5 +34,5 @@ JVM only queues tasks for the threads which are then scheduled and executed by t
 
 :::tip[Important Links]
 
--   https://dip-mazumder.medium.com/java-memory-model-a-comprehensive-guide-ba9643b839e
-    :::
+- https://dip-mazumder.medium.com/java-memory-model-a-comprehensive-guide-ba9643b839e
+  :::

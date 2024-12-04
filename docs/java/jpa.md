@@ -2,8 +2,8 @@
 
 These are the APIs and abstractions defined by the framework which can be used Java application irrespective of the database used.
 
--   Defines how the data in the database are converted to and from Java objects.
--   APIs to perform actions on the database.
+- Defines how the data in the database are converted to and from Java objects.
+- APIs to perform actions on the database.
 
 ## ORM - Object-Relational Mapping
 

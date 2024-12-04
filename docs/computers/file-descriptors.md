@@ -10,8 +10,8 @@ This file descriptor table is just a map of file descriptor ID and
 the pointer to corresponding **file** structure.
 
 :::tip file structure
-The **file** structure represents an open file. 
-It is also called the **open file description**. 
+The **file** structure represents an open file.
+It's also called the **open file description**.
 It has pointers to the corresponding [**inode**](./inodes.md) structure and
 also pointers to different operations that can be executed on it.
 :::
@@ -52,11 +52,9 @@ It only contains the major and minor number in its meta data which defines the d
 Any device driver must implement certain API methods defined by the kernel.
 For communication across devices, the same API methods are called by userspace/kernel applications.
 
-
-
 :::info Useful links
 
--   https://biriukov.dev/docs/fd-pipe-session-terminal/1-file-descriptor-and-open-file-description/
--   https://bottomupcs.com/ch01s03.html
+- https://biriukov.dev/docs/fd-pipe-session-terminal/1-file-descriptor-and-open-file-description/
+- https://bottomupcs.com/ch01s03.html
 
 :::
