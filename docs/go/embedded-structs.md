@@ -60,10 +60,10 @@ When an embedded struct is initialized with a zero value, the following happens
 
 :::tip Sources
 
--   https://stackoverflow.com/questions/27733854/embedding-when-to-use-pointer/27733969#27733969
--   https://stackoverflow.com/questions/13533681/when-do-gos-pointers-dereference-themselves
--   https://www.reddit.com/r/golang/comments/kit3da/whats_the_meaning_of_a_pointer_to_an_interface/
--   https://stackoverflow.com/questions/40823315/x-does-not-implement-y-method-has-a-pointer-receiver
--   https://www.hydrogen18.com/blog/golang-embedding.html
--   https://stackoverflow.com/questions/57236837/embedding-struct-vs-pointer-to-struct-in-struct-used-as-pointer
-    :::
+- https://stackoverflow.com/questions/27733854/embedding-when-to-use-pointer/27733969#27733969
+- https://stackoverflow.com/questions/13533681/when-do-gos-pointers-dereference-themselves
+- https://www.reddit.com/r/golang/comments/kit3da/whats_the_meaning_of_a_pointer_to_an_interface/
+- https://stackoverflow.com/questions/40823315/x-does-not-implement-y-method-has-a-pointer-receiver
+- https://www.hydrogen18.com/blog/golang-embedding.html
+- https://stackoverflow.com/questions/57236837/embedding-struct-vs-pointer-to-struct-in-struct-used-as-pointer
+  :::

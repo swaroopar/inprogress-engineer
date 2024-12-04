@@ -11,7 +11,8 @@ the pointer to corresponding **file** structure.
 
 :::tip file structure
 The **file** structure represents an open file.
-It has pointers to the corresponding **inode** structure and
+It's also called the **open file description**.
+It has pointers to the corresponding [**inode**](./inodes.md) structure and
 also pointers to different operations that can be executed on it.
 :::
 
@@ -53,7 +54,7 @@ For communication across devices, the same API methods are called by userspace/k
 
 :::info Useful links
 
--   https://biriukov.dev/docs/fd-pipe-session-terminal/1-file-descriptor-and-open-file-description/
--   https://bottomupcs.com/ch01s03.html
+- https://biriukov.dev/docs/fd-pipe-session-terminal/1-file-descriptor-and-open-file-description/
+- https://bottomupcs.com/ch01s03.html
 
 :::

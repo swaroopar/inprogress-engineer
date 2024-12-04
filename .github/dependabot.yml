@@ -10,8 +10,8 @@ updates:
       versioning-strategy: increase
       directory: /
       schedule:
-          interval: daily
-      open-pull-requests-limit: 10
+          interval: weekly
+      open-pull-requests-limit: 20
       groups:
           docusaurus:
               applies-to: version-updates
@@ -21,6 +21,7 @@ updates:
               applies-to: version-updates
               patterns:
                   - '@typescript-eslint/*'
+                  - 'typescript-eslint'
           eslint:
               applies-to: version-updates
               patterns:

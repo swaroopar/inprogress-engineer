@@ -81,6 +81,6 @@ The file descriptor linked to the stream knows the last read byte (offset).
 
 :::tip Interesting Reads
 
--   https://shawn-xu.medium.com/its-all-about-buffers-zero-copy-mmap-and-java-nio-50f2a1bfc05c
+- https://shawn-xu.medium.com/its-all-about-buffers-zero-copy-mmap-and-java-nio-50f2a1bfc05c
 
 :::

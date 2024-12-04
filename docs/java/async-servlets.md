@@ -51,8 +51,8 @@ This object has two queue fields. One for incoming data and one for outgoing dat
 
 :::info[Interesting Reads]
 
--   https://ijunc2.github.io/2018/02/01/seventh.html
--   https://www.codecentric.de/wissens-hub/blog/explain-non-blocking-i-o-like-im-five
--   https://velog.io/@hyunjong96/Spring-NIO-Connector-BIO-Connector
--   https://dzone.com/articles/understanding-spring-reactive-servlet-async
-    :::
+- https://ijunc2.github.io/2018/02/01/seventh.html
+- https://www.codecentric.de/wissens-hub/blog/explain-non-blocking-i-o-like-im-five
+- https://velog.io/@hyunjong96/Spring-NIO-Connector-BIO-Connector
+- https://dzone.com/articles/understanding-spring-reactive-servlet-async
+  :::

@@ -50,7 +50,7 @@ A good example is **::hover::after**. In this case, after the element is hovered
 
 :::tip[useful links]
 
--   https://ishadeed.com/article/clickable-area/
--   https://girlthatlovestocode.com/css-pseudo-elements-before-and-after
+- https://ishadeed.com/article/clickable-area/
+- https://girlthatlovestocode.com/css-pseudo-elements-before-and-after
 
 :::

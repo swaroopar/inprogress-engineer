@@ -133,7 +133,7 @@ const config: Config = {
                     ],
                 },
             ],
-            copyright: `Copyright ©️ 2024 Swaroop Raghupathy. Built with Docusaurus.`,
+            copyright: `Swaroop Raghupathy. Built with Docusaurus.`,
         },
         prism: {
             theme: prismThemes.github,
