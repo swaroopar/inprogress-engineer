@@ -1,8 +1,14 @@
 # inode
 
+:::tip inode is an ext4 concept
+inode is just an Linux ext4 file system concept.
+NTFS used in Windows also has a similar concept
+but it's called MFT - Master File Table.
+:::
+
 Every file and directory has an **inode** object linked to it.
 
-It's nothing but a C structure that's also serialized and stored in the super block of the corresponding disk which is hosting the file.
+It's nothing but a C structure that's also serialized and stored in the corresponding disk which is hosting the file.
 
 :::info inode number vs inode structure
 When speaking about inodes, we always refer to the number.
