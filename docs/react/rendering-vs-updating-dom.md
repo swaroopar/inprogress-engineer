@@ -4,7 +4,7 @@ Rendering and updating DOM are two completely different things.
 
 Rendering is where the React library executes a component and generates the output of the component function.
 
-Correct mental model to consider here is that the rendering is a **recursive** process. This means, if the rendering
+Correct mental model to consider here is that the rendering is a **recursive** process. This means, if rendering
 a component contains another component, then that component will be rendered. This will be done until all custom
 components are rendered. React uses the `type` field in the rendered output to check if the child tag is a
 custom component or a native HTML tag. `type = function` means it's another component that must be rendered additionally.
@@ -16,7 +16,12 @@ The lower case tags in JSX are considered as native HTML tags by React.
 
 This rendering process is what that generates the virtual DOM as well.
 
-ReactDOM library then uses the virtual DOM to generate the actual HTML code and update the real DOM.
+ReactDOM library then uses the virtual DOM to generate the actual native HTML for custom components and update the real DOM.
+
+## Rendering vs Mounting
+
+Mounting happens when a React component is added to the DOM for the first time.
+Whereas, rendering happens each time the state of the mounted component changes.
 
 ## Render ≠ UpdateDOM
 
@@ -35,7 +40,7 @@ If there are any changes, then the changes are handed over to ReactDOM which wil
 3. In RSC, this virtual DOM object is what's converted to String and sent to the client.
    :::
 
-:::info
+:::info useful links
 https://www.robinwieruch.de/react-element-component/
 https://stackoverflow.com/questions/73326943/who-converts-react-createelement-into-html-tags
 https://react.dev/learn/render-and-commit
