@@ -85,3 +85,10 @@ Due to security reasons, the user space can't access data from kernel space and 
 The data must be copied.
 
 The data between these two memory areas are always copied to the other area by the kernel.
+
+## Page Size and block size
+
+It's important to understand that
+
+- page size which is the smallest fragmentation of memory.
+- block size is the smallest fragmentation of storage.

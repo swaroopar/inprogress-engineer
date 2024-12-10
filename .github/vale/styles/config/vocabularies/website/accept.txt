@@ -66,3 +66,5 @@ copy_to_user
 combinator
 dentry
 dentries
+fstab
+keyframe(.*)
