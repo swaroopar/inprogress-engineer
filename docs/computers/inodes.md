@@ -1,5 +1,13 @@
 # inode
 
+:::danger inode is used for all IO
+Linux uses an inode structure for all IO operations even though it's mainly used for files.
+
+For other IO operations such as sockets, the inode structure has information that's necessary to access the sockets.
+
+But this page describes only about inode data structure for real files.
+:::
+
 :::tip inode is an ext4 concept
 inode is just an Linux ext4 file system concept.
 NTFS used in Windows also has a similar concept

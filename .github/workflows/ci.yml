@@ -20,10 +20,11 @@ jobs:
               working-directory: ./
               run: npm install
             - name: Run vale linter
-              uses: errata-ai/vale-action@reviewdog
+              uses: errata-ai/vale-action@v2.1.1
               with:
                   filter_mode: nofilter
                   fail_on_error: true
+                  version: 3.9.1
             - name: Run EsLint
               working-directory: ./
               run: npx eslint . --max-warnings=0
