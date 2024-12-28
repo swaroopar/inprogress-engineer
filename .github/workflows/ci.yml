@@ -24,6 +24,7 @@ jobs:
               with:
                   filter_mode: nofilter
                   fail_on_error: true
+                  version: 3.9.1
             - name: Run EsLint
               working-directory: ./
               run: npx eslint . --max-warnings=0
