@@ -18,10 +18,10 @@ Vercel
 ReactJS
 Contentful
 Abramov
-bundler(.*)
+bundlers?
 Webpack
 async
-EU(.*)
+EU
 CSP(.*)
 learnings
 Stringify
@@ -67,7 +67,7 @@ combinator
 dentry
 dentries
 fstab
-keyframes?
+(?i)keyframes?
 epoll
 inlining
 JVM
