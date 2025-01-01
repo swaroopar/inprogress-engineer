@@ -1,10 +1,11 @@
 # JVM
 
-It's called a virtual machine because it provides a layer of abstraction between Java application and the underlying physical machine.
+It's called a virtual machine because it provides a layer of abstraction between Java application and
+the underlying physical machine and additionally has it's own instruction set.
 
 ## Instruction Set
 
-Like how CPU has it's own instruction set, JVM also has its own instruction set and
+Like how CPU has it's own instruction set, JVM also has it's own instruction set and
 JVM knows then how to map these JVM specific instruction set to the underlying CPU specific instruction set.
 
 When Java class is compiled, the **.class** file generated will have a certain format which only the JVM can parse and understand.
@@ -18,7 +19,7 @@ which was just implemented to have a relation with coffee.
 
 It's called a stack based virtual machine since it uses a stack to manage the code execution.
 
-Stack frame is used to store state and also to control the execution flow.
+Stack frame is used to store state, local variables and also to control the execution flow.
 
 ## Program Counter
 
