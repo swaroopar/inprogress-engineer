@@ -1,6 +1,6 @@
 # JVM
 
-It's called a virtual machine because it provides a layer of abstraction between Java application and 
+It's called a virtual machine because it provides a layer of abstraction between Java application and
 the underlying physical machine and additionally has it's own instruction set.
 
 ## Instruction Set
