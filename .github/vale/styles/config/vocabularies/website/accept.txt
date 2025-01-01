@@ -69,3 +69,5 @@ dentries
 fstab
 keyframe(.*)
 epoll
+inlining
+JVM

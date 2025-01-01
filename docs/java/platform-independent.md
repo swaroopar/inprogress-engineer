@@ -35,4 +35,4 @@ This is why when you download JDK, you must specify the platform too.
 
 The only thing that JRE contains is the compiled version of built-in libraries.
 
-![jvm-jre-jdk](../../static/img/jdk-jre-jvm.excalidraw.png)
+![JVM-JRE-JDK](../../static/img/jdk-jre-jvm.excalidraw.png)
