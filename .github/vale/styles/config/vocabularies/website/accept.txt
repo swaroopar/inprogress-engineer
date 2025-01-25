@@ -5,7 +5,7 @@ namespace
 OAuth
 Docusaurus
 Lucide
-API
+API(.*)
 Grafana
 Pulumi
 stdout
@@ -60,10 +60,10 @@ userspace
 bootloader
 glibc
 task_struct
-inode
+inode(.*)
 files_struct
 copy_to_user
-combinator
+combinator(.*)
 dentry
 dentries
 fstab
