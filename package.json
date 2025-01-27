@@ -16,7 +16,7 @@
     },
     "devDependencies": {
         "@docusaurus/core": "^3.7.0",
-        "react": "^18.3.1",
+        "react": "^19.0.0",
         "react-dom": "^18.3.1",
         "@docusaurus/plugin-content-docs": "^3.7.0",
         "@docusaurus/plugin-ideal-image": "^3.7.0",
@@ -27,7 +27,7 @@
         "@eslint/eslintrc": "^3.1.0",
         "@eslint/js": "^9.16.0",
         "@types/postcss-import": "^14.0.3",
-        "@types/react": "^18.3.12",
+        "@types/react": "^19.0.8",
         "@typescript-eslint/eslint-plugin": "^8.20.0",
         "@typescript-eslint/parser": "^8.20.0",
         "autoprefixer": "^10.4.20",
