@@ -1,4 +1,4 @@
-# Storage
+# Disks
 
 ## Hard Disk Drives (HDD)
 
@@ -9,7 +9,7 @@ This is nothing but the smallest unit of storage.
 Example, if the sector size is 4KB.
 Then even if you want to create an empty file, on the hard disk a block of 4KB is allocated to it.
 
-![hdd-disk](../../static/img/hdd-sectors-tracks.excalidraw.png)
+![hdd-disk](../../../static/img/hdd-sectors-tracks.excalidraw.png)
 
 ## Physical vs Logical Sector Size
 
