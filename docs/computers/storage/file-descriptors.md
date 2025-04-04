@@ -14,7 +14,7 @@ this is nothing but the file descriptor table.
 This file descriptor table is just a map of file descriptor ID and
 the pointer to corresponding **file** structure.
 
-![file descriptors](../../static/img/vfs-linux.excalidraw.png)
+![file descriptors](../../../static/img/vfs-linux.excalidraw.png)
 
 :::tip file structure
 The **file** structure represents an open file.
@@ -31,7 +31,7 @@ File descriptor are C objects created by kernel and remain in it's memory.
 Only for uniformity sake, these values are also written to the file system under **/proc**.
 :::
 
-![steps to get a file](../../static/img/access-file-inode.excalidraw.png)
+![steps to get a file](../../../static/img/access-file-inode.excalidraw.png)
 
 :::danger closing files
 This why closing a file is important from userspace applications.

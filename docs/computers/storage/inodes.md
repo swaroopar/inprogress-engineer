@@ -23,7 +23,7 @@ When speaking about inodes, we always refer to the number.
 This is just an index number in the inode table which then has a mapping to the corresponding address of inode structure of the file.
 :::
 
-![inode-data](../../static/img/files-inode.excalidraw.png)
+![inode-data](../../../static/img/files-inode.excalidraw.png)
 
 ## inode contents
 
@@ -69,7 +69,7 @@ This is stored and is ready available in the superblock of that corresponding fi
 From the root directory, the kernel then keeps drilling down the next inode number until the
 inode number of the final file is found in the **inode table**.
 
-![file-search](../../static/img/file-finding-process.excalidraw.png)
+![file-search](../../../static/img/file-finding-process.excalidraw.png)
 
 :::info uniqueness of inode number
 inode number is unique only within the corresponding file system.

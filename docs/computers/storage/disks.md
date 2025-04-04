@@ -1,15 +1,15 @@
-# Storage
+# Disks
 
 ## Hard Disk Drives (HDD)
 
 They're mechanical drives and the entire disk is divided into tracks and sectors
-and the intersection between tracks and sectors are the [blocks](./memory-paging.md#page-size-and-block-size).
+and the intersection between tracks and sectors are the [blocks](./../memory-paging.md#page-size-and-block-size).
 
 This is nothing but the smallest unit of storage.
 Example, if the sector size is 4KB.
 Then even if you want to create an empty file, on the hard disk a block of 4KB is allocated to it.
 
-![hdd-disk](../../static/img/hdd-sectors-tracks.excalidraw.png)
+![hdd-disk](../../../static/img/hdd-sectors-tracks.excalidraw.png)
 
 ## Physical vs Logical Sector Size
 
