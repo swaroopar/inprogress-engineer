@@ -42,3 +42,11 @@ This site is deployed automatically from the `main` branch using [Vercel](https:
 4. Emojis - https://emojipedia.org/
 5. Logos - https://ui-avatars.com/
 6. Diagrams - https://excalidraw.com/
+
+## Run vale linter
+
+To run spell checks and other language rules, run the vale linter using the below command
+
+```shell
+docker run --rm -v $(pwd)/.github/vale/styles:/styles --pull=always --rm -v $(pwd):/docs -w /docs jdkato/vale .
+```
