@@ -34,7 +34,7 @@
         "autoprefixer": "^10.4.21",
         "eslint": "^9.23.0",
         "eslint-plugin-react": "^7.37.4",
-        "knip": "^5.46.5",
+        "knip": "^5.47.0",
         "lucide-react": "^0.487.0",
         "postcss": "^8.5.3",
         "prettier": "^3.5.3",
