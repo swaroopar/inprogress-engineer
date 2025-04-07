@@ -72,3 +72,6 @@ epoll
 inlining
 JVM
 LVM(.*)
+stdin
+stdout
+stderr
