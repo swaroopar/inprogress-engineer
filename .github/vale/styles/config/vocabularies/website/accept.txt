@@ -1,7 +1,7 @@
 NGINX
 yaml
 OpenAPI
-namespace
+(?i)namespace(.*)
 OAuth
 Docusaurus
 Lucide
@@ -75,3 +75,8 @@ LVM(.*)
 stdin
 stdout
 stderr
+Dockerfile
+cgroup
+hostname
+nsproxy
+fsns
