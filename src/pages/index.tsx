@@ -16,7 +16,7 @@ function HomepageHeader() {
                     Full-Stack Software Engineer.
                 </p>
                 <p className='text-md m-0 p-0 md:text-xl'>An engineer in-progress</p>
-                <p className='text-xs md:text-xl'>Simplicity is the ultimate sophistication - Leonardo da Vinci</p>
+                <p className='text-xs md:text-xl'>converting ephermal knowledege into eternal</p>
             </div>
         </header>
     );
