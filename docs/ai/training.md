@@ -5,7 +5,7 @@ Training an LLM has two goals.
 1. Learns the natural language using the vast amounts of text.
 2. Also gathers knowledge.
 
-::: Tip Don't think training to inserting data to database
+:::tip Don't compare training to inserting data to database
 It's more like learning to speak fluently by reading millions of books, you learn the language itself,
 and along the way, you absorb a tremendous amount of information about the world discussed in those books.
 :::
@@ -38,7 +38,6 @@ then the most probable next text to this would be a value that's sum of the two 
 
 So even in the case of arithmetic operations, the answer isn't a fixed it.
 It will always predict a list of various answers with different probabilities.
-
 :::
 
 ![training-process](../../static/img/training.excalidraw.png)
