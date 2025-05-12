@@ -14,17 +14,6 @@ it can easily interpret the meaning of unhappiness without adding it as a separa
 
 The vocabulary of an LLM isn't just words. It can be characters, symbols, etc.
 
-## Embedding Models
-
-Embedding is about representing existing text, images or videos as numerical values.
-
-:::tip why the word embedding
-The term "embedding" in AI comes from the idea of embedding something complex into a simpler,
-often lower-dimensional space while preserving its essential characteristics and relationships.
-
-This means, placing the text, images and videos inside another representation space.
-:::
-
 ## Vectors
 
 Vectors in general means having a multi-dimensional values to represent anything.
