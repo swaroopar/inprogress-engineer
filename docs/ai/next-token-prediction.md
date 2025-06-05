@@ -39,4 +39,11 @@ Takes only a subset of tokens based on temperature, Top-P, and Top-K values.
 
 ## Greedy Decoding
 
-When greedy decoding is used, the model always selects the token with the highest probability as the next token. For example, temperature with value 0.0, Top-P with value 0.0, and Top-K with value 1.0.
+When greedy decoding is used, the model always selects the token with the highest probability as the next token.
+For example, temperature with value 0.0, Top-P with value 0.0, and Top-K with value 1.0.
+
+:::danger No causal understanding
+LLMs only knows the relationship between two things.
+They don't know the cause-effect relationship
+
+:::
