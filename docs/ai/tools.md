@@ -10,4 +10,4 @@ In case of function calling and MCP, the LLM asks the client to call the externa
 then the client calls the external API and sends the response back to the LLM.
 :::
 
-![function-calling](../../static/img/function-calling-mcp.excalidraw.png)
+![function-calling](../../static/img/ai-tools-calling.excalidraw.png)
