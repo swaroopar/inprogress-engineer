@@ -36,7 +36,7 @@
         "eslint-plugin-react": "^7.37.4",
         "knip": "^5.60.2",
         "lucide-react": "^0.515.0",
-        "postcss": "^8.5.3",
+        "postcss": "^8.5.5",
         "prettier": "^3.5.3",
         "prettier-plugin-tailwindcss": "^0.6.11",
         "prism-react-renderer": "^2.4.1",
