@@ -21,7 +21,7 @@ When the session of the JavaScript starts, it adds all necessary variables and f
 
 In JavaScript, scripts are just standalone files. Any import and export statements will cause syntax error in this case.
 
-:::important[Global Object]
+:::warning[Global Object]
 Global object is only available on the scripts by default and all top-level `var` variables are directly added to the
 global object by default.
 :::
