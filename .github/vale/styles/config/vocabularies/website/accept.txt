@@ -85,3 +85,5 @@ un
 (?i)agentic(.*)
 Toolformer
 mvn
+const
+(?i)hoisting
