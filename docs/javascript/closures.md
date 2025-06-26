@@ -1,16 +1,16 @@
 # Closures
 
-They're nothing but stateful functions.
-This means, the function takes a variable as input and holds the state of the variable.
+Closures are **functions** that refers to variables that are neither part of their arguments nor created in their body.
 
-:::tip Comparison to a class
-It's nothing but a short form of writing a class which has some properties and
-a function that reads or writes these properties.
-
-This similar to Java's lambdas where an anonymous class is created just with one function.
-Only difference is that in Java, the variables can only be read.
-It can't be updated.
+:::tip What accounts to variables
+In JavaScript, a variable can be a primitive, object or a function.
+So any of these outside references in the function makes it a closure.
 :::
+
+## Closure execution
+
+A function is a closure irrespective of when it's executed.
+It can be executed immediately, executed by the caller or it can be passed around.
 
 ## Meaning of word closure
 

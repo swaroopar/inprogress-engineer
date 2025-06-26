@@ -87,3 +87,6 @@ Toolformer
 mvn
 const
 (?i)hoisting
+useState
+useCallback
+useEffect
