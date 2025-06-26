@@ -13,4 +13,6 @@ Normal functions - reference created once when the function is referred for the 
 After that the same reference is reused.
 
 Child functions - the function objects are created each time the parent function is executed.
+This is because every function has it's own lexical environment which is created during the execution
+and its garbage-collected after that.
 :::
