@@ -10,6 +10,10 @@ This is done by comparing the numerical values of the text, images or videos and
 
 :::info RAG concept
 This how RAG concept works where additional contextual data is retrieved from the vector database and passed to LLM to generate the final output.
+
+Note that the LLM doesn't call the vector database directly.
+The agent must call the vector database and retrieve the relevant data
+and pass it as context to the LLM.
 :::
 
 ![embedding-models](../../static/img/embedding-models.excalidraw.png)
