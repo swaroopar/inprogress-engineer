@@ -18,4 +18,4 @@ In this talk, we will see:
 4. Make services available in the service catalog.
 5. Deploy services using the current reference implementation clouds - Any vanilla Openstack based clouds,
 SCS based clouds, HUAWEI cloud and Flexible Engine.
-<!-- markdownlint-enable -->
+ <!-- markdownlint-enable -->
