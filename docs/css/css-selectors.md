@@ -22,7 +22,9 @@ of its parent element. The parent element can be anything and anywhere in the DO
 Here div is just an example.
 :::
 
-**parent > child** - This is called **child combinator**. For the parent mentioned in the left hand side, takes all it's **direct** child elements in the right hand side.
+**parent > child** - This is called **child combinator**.
+For the parent mentioned in the left hand side,
+takes all it's **direct** child elements in the right hand side.
 
 The parent and child can be at any stage of the DOM.
 

@@ -38,10 +38,13 @@ If there are any changes, then the changes are handed over to ReactDOM which wil
 1. React.createElement - converts JSX to JS.
 2. When element is rendered - the out of the JS function is a virtual DOM object.
 3. In RSC, this virtual DOM object is what's converted to String and sent to the client.
-   :::
+
+    :::
 
 :::info useful links
-https://www.robinwieruch.de/react-element-component/
-https://stackoverflow.com/questions/73326943/who-converts-react-createelement-into-html-tags
-https://react.dev/learn/render-and-commit
+
+- [React Element vs Component (robinwieruch.de)](https://www.robinwieruch.de/react-element-component/)
+- [Who converts React.createElement into HTML tags? (stackoverflow.com)](https://stackoverflow.com/questions/73326943/who-converts-react-createelement-into-html-tags)
+- [Render and Commit – React Docs](https://react.dev/learn/render-and-commit)
+
 :::

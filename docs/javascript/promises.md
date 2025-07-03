@@ -36,7 +36,8 @@ After the promise is resolved or rejected, then the functions in **then** and **
 with respective parameters.
 
 :::tip[Trigger Callbacks]
-The _then_ and _catch_ callbacks are automatically placed in the callback queue by the JavaScript engine as soon as the state of the Promise has changed.
+The _then_ and _catch_ callbacks are automatically placed in the callback queue by the JavaScript engine
+as soon as the state of the Promise has changed.
 :::
 
 ## async and awaits
@@ -74,7 +75,8 @@ Always using the caching reference to understand the usage of the static helper 
 
 :::info[Useful Links]
 
-- https://medium.com/@lydiahallie/javascript-visualized-promises-async-await-a3f1aad8a943
-- https://stackoverflow.com/questions/31324110/why-does-the-promise-constructor-require-a-function-that-calls-resolve-when-co/31324439#31324439
-- https://stackoverflow.com/questions/54723849/why-and-when-to-use-promise-resolve
-  :::
+- [JavaScript Visualized: Promises & Async/Await (medium.com)](https://medium.com/@lydiahallie/javascript-visualized-promises-async-await-a3f1aad8a943)
+- [Why does the Promise constructor require a function that calls resolve? (stackoverflow.com)](https://stackoverflow.com/questions/31324110/why-does-the-promise-constructor-require-a-function-that-calls-resolve-when-co/31324439#31324439)
+- [Why and when to use Promise.resolve (stackoverflow.com)](https://stackoverflow.com/questions/54723849/why-and-when-to-use-promise-resolve)
+
+:::

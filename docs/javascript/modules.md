@@ -26,7 +26,8 @@ Files can be explicitly have `.mjs` extension to say that the code is written in
 This specification was created by the ECMA for supported modules (multi-file) scripts in browser.
 
 :::danger[Naming Convention]
-In case of ES Module, it called just `module`. That's also why the files have extension `mjs` and also package.json have type value as `module` or `commonjs`.
+In case of ES Module, it called just `module`.
+That's also why the files have extension `mjs` and also package.json have type value as `module` or `commonjs`.
 :::
 
 ## Type Field in Package.json
@@ -47,7 +48,8 @@ there are certain rules to detect which module type is used by a file.
 - file extensions `.mjs` and `.cjs` are always interpreted as ES module and CommonJS modules respectively.
   This is irrespective of what's configured in package.json
 - If file extension is just `.js` then the **type** nearest package.json is used.
-- If the file extension is just `.js` and the **type** field doesn't exist in nearest package.json then it's by **default** assumed to be CommonJS.
+- If the file extension is just `.js`
+  and the **type** field doesn't exist in nearest package.json then it's by **default** assumed to be CommonJS.
 
 :::tip
 Default is still the CommonJS because CommonJS was the first module system.
@@ -79,5 +81,7 @@ first bundler of sort which transpiled CJS code to AMD code and
 also bundled code to one single file.
 
 :::info
-https://8thlight.com/insights/a-history-of-javascript-modules-and-bundling-for-the-post-es6-developer
+
+- [A History of JavaScript Modules and Bundling for the Post-ES6 Developer (8th Light)](https://8thlight.com/insights/a-history-of-javascript-modules-and-bundling-for-the-post-es6-developer)
+
 :::

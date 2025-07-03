@@ -37,7 +37,8 @@ and it's directly sent.
 
 What this means is, the first page in RSC is an SSR generated HTML but together with this, RSC also ships the root
 JSX for this page. And all subsequent JSX received from server will be used to update this original root JSX and
-eventually also the DOM. Using this, the state isn't lost, and React only replaces/adds components which were newly received in the streamed JSX.
+eventually also the DOM. Using this, the state isn't lost,
+and React only replaces/adds components which were newly received in the streamed JSX.
 
 #### Advantages
 
@@ -80,7 +81,7 @@ component depends only on static data, then it will directly render HTML.
 For example, SSR consumes the output of RSC and generates HTML. So even SSR is considered as a React Client.
 :::
 
-##### Notes
+### Notes
 
 1. Separate memory spaces - browser-server. This why serialization (JSX in RSC) is needed.
 2. Serialize it on server and de-serialize it on client.
@@ -90,11 +91,12 @@ For example, SSR consumes the output of RSC and generates HTML. So even SSR is c
 :::info
 content inspired and curated from
 
-- https://github.com/reactwg/server-components/discussions/5
-- https://github.com/reactwg/server-components/discussions/4
-- https://www.plasmic.app/blog/how-react-server-components-work
-- https://www.mux.com/blog/what-are-react-server-components
-- https://unicorn-utterances.com/posts/what-are-react-server-components
-- https://www.webscope.io/blog/server-components-vs-ssr
-- https://www.smashingmagazine.com/2024/05/forensics-react-server-components/
-  :::
+- [React Server Components: Discussion #5 (reactwg/server-components)](https://github.com/reactwg/server-components/discussions/5)
+- [React Server Components: Discussion #4 (reactwg/server-components)](https://github.com/reactwg/server-components/discussions/4)
+- [How React Server Components Work (plasmic.app)](https://www.plasmic.app/blog/how-react-server-components-work)
+- [What Are React Server Components? (mux.com)](https://www.mux.com/blog/what-are-react-server-components)
+- [What Are React Server Components? (unicorn-utterances.com)](https://unicorn-utterances.com/posts/what-are-react-server-components)
+- [Server Components vs SSR (webscope.io)](https://www.webscope.io/blog/server-components-vs-ssr)
+- [Forensics of React Server Components (smashingmagazine.com)](https://www.smashingmagazine.com/2024/05/forensics-react-server-components/)
+
+:::

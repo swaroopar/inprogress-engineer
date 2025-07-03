@@ -2,7 +2,8 @@
 
 It's important to understand file management since everything is a file in Unix.
 Also since all IO involves files, understanding the foundation of it's necessary in building
-high-performance applications. Everything in this document can be simply applied to all IO and not just regular hard disk files.
+high-performance applications.
+Everything in this document can be simply applied to all IO and not just regular hard disk files.
 
 :::important Java file
 Creating a new Java **File** object doesn't open the file.
@@ -43,7 +44,8 @@ kernel will automatically flush the changes to disk.
 
 In this case, buffers are requested additionally from memory outside of JVM.
 
-The advantage is, the JVM memory is kept free for other tasks and IO operations are performed using buffers outside of the JVM.
+The advantage is, the JVM memory is kept free for other tasks
+and IO operations are performed using buffers outside of the JVM.
 
 :::tip malloc()
 Direct buffers are wrappers to malloc() native methods.
@@ -81,6 +83,6 @@ The file descriptor linked to the stream knows the last read byte (offset).
 
 :::tip Interesting Reads
 
-- https://shawn-xu.medium.com/its-all-about-buffers-zero-copy-mmap-and-java-nio-50f2a1bfc05c
+- [It's all about buffers, zero-copy, mmap, and Java NIO (Shawn Xu, Medium)](https://shawn-xu.medium.com/its-all-about-buffers-zero-copy-mmap-and-java-nio-50f2a1bfc05c)
 
 :::

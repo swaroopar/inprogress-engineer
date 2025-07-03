@@ -32,7 +32,8 @@ React.createElement isn't for generating HTML elements. It's only for converting
 
 ## Using the new 'react/jsx-runtime'
 
-The old way of using `React.CreateElement` had a problem of having `React` in the import always and also this method had some performance problems.
+The old way of using `React.CreateElement` had a problem of having `React` in the import always
+and also this method had some performance problems.
 
 So `jsx-runtime` was introduced and this compiles JSX to the below JS code.
 
@@ -56,7 +57,8 @@ Babel compiler can be used to compile JSX to JS as described above.
 If using typescript, then `JSX` file are written as `TSX` files.
 The `tsconfig.json` has a configuration to say which way must be used for compiling TSX to JS.
 
-The configuration parameter `jsx` can be `react` to compile to `createElement` or `react-jsx` to compile to use 'react/jsx-runtime' library.
+The configuration parameter `jsx` can be `react` to compile to
+`createElement` or `react-jsx` to compile to use 'react/jsx-runtime' library.
 
 ## Why JSX
 
@@ -78,6 +80,8 @@ JSX doesn't directly create the HTML output. It only creates JS which is capable
 :::info
 Information sources
 
-1. https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
-2. https://www.typescriptlang.org/tsconfig/#jsxFactory
-3. https://dodov.dev/blog/origins-of-jsx-and-why-it-exists
+- [Introducing the New JSX Transform (React Blog)](https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html)
+- [TypeScript tsconfig: jsxFactory Option](https://www.typescriptlang.org/tsconfig/#jsxFactory)
+- [Origins of JSX and Why It Exists (dodov.dev)](https://dodov.dev/blog/origins-of-jsx-and-why-it-exists)
+
+:::

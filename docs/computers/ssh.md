@@ -38,7 +38,8 @@ This means, the packets have a special header so that the client can different b
 
 ## TCP Session
 
-When an SSH connection is established, the same TCP sessions exists between the SSH client and server until the connection is closed manually or
+When an SSH connection is established, the same TCP sessions exists between the SSH client
+and server until the connection is closed manually or
 if the session is idle for a long time.
 
 ## PTY - Pseudo Terminal

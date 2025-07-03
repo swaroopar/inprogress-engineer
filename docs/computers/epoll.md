@@ -8,9 +8,10 @@ For all IO tasks, the kernel updates the file descriptor flags to signal if ther
 
 This would mean, the user space applications must pass all the file descriptors that they need to check and
 kernel will have to update back if any flag has changed.
-This polling has complexity of 0(n) and the polling also involves system call which needs data to be copied between userspace and kernel space.
+This polling has complexity of 0(n) and the polling also involves system call
+which needs data to be copied between userspace and kernel space.
 
-## epoll
+## Protection Layer
 
 epoll avoids userspace from polling the file descriptors.
 Instead we ask kernel to create an epoll instance and ask it to monitor which ever file descriptors we're interested in.

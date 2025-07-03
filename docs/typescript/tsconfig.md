@@ -9,5 +9,7 @@
    If the application is for browser, then it must be any ES Module based setting such as esnext, es2022, etc.
 
 :::tip
-https://www.typescriptlang.org/docs/handbook/modules/theory.html#the-module-output-format
+
+- [TypeScript Handbook: Module Output Format](https://www.typescriptlang.org/docs/handbook/modules/theory.html#the-module-output-format)
+
 :::

@@ -1,6 +1,8 @@
+<!-- markdownlint-disable MD041 MD033-->
 <p align="center">
- <img src="https://raw.githubusercontent.com/swaroopar/inprogress-engineer/main/static/img/icon-light.png" width="75">
+ <img alt="logo" src="https://raw.githubusercontent.com/swaroopar/inprogress-engineer/main/static/img/icon-light.png" width="75">
 </p>
+<!-- markdownlint-disable MD041 MD033-->
 
 # In-progress Engineer - Personal Website
 
@@ -20,7 +22,8 @@ npm install
 npm start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+This command starts a local development server and opens up a browser window.
+Most changes are reflected live without having to restart the server.
 
 ### Build
 
@@ -28,7 +31,8 @@ This command starts a local development server and opens up a browser window. Mo
 npm build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+This command generates static content into the `build` directory
+and can be served using any static contents hosting service.
 
 ## Deployment
 
@@ -36,12 +40,12 @@ This site is deployed automatically from the `main` branch using [Vercel](https:
 
 ## Libraries/Tools Used
 
-1. Tailwind Gradient Generator - https://tailwindcomponents.com/gradient-generator/
-2. Lucide Icons - https://lucide.dev/icons
-3. Vale Linter - https://vale.sh/
-4. Emojis - https://emojipedia.org/
-5. Logos - https://ui-avatars.com/
-6. Diagrams - https://excalidraw.com/
+1. Tailwind Gradient Generator - <https://tailwindcomponents.com/gradient-generator/>
+2. Lucide Icons - <https://lucide.dev/icons>
+3. Vale Linter - <https://vale.sh/>
+4. Emojis - <https://emojipedia.org/>
+5. Logos - <https://ui-avatars.com/>
+6. Diagrams - <https://excalidraw.com/>
 
 ## Run vale linter
 

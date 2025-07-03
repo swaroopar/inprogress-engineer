@@ -10,7 +10,8 @@ This is usually an array of numbers that represents something where each number 
 In AI, vectors are an array of floating point numbers that represents a token. Either by
 
 :::important high dimensional arrays
-Think vectors as high dimensional arrays where every dimension has a meaning and only LLM knows the meaning of each dimension.
+Think vectors as high dimensional arrays
+where every dimension has a meaning and only LLM knows the meaning of each dimension.
 :::
 
 In case of natural language processing, each word is described using an array of co-ordinates in the word space.
@@ -20,7 +21,8 @@ You can also think of this like location co-ordinates.
 :::tip space vs Graph
 In case of a graph, the nodes are connected to each other and the relation between the nodes is defined by the edges.
 
-where as in a dimensional space, the relation between the points is defined by the co-ordinates of the points that's the distance between them.
+where as in a dimensional space,
+the relation between the points is defined by the co-ordinates of the points that's the distance between them.
 :::
 
 ## Vocabulary Size

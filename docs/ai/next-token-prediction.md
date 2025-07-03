@@ -5,13 +5,15 @@ Output in an LLM is always about predicting the next best token a.k.a the next w
 Example - Which is the capital of France?
 The output will be next best word after the full text that is, Which is the capital of France? `{$answer token}`.
 
-Like, this the entire input + generated token (word by word) is passed to LLM to generate the next best word until the full output is generated.
+Like, this the entire input + generated token (word by word) is passed to LLM
+to generate the next best word until the full output is generated.
 
 ![output-token](../../static/img/auto-regressive-ai.excalidraw.png)
 
 ## Probability
 
-The output of the neural network computation will always be another array of floating values for each token in the LLM's vocabulary.
+The output of the neural network computation will always be another
+array of floating values for each token in the LLM's vocabulary.
 
 This value is then converted into probabilities.
 

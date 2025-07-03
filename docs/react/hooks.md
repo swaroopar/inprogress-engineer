@@ -17,7 +17,8 @@ It uses this to compare the new values, store current values and re-render as ne
 ## useCallback
 
 This hook is used to cache the [object Id](../javascript/functions.md) of the function itself.
-This is important not because the creation of a new reference of a child function happens always when the parent function is called.
+This is important not because the creation of a new reference of a child function happens always
+when the parent function is called.
 
 :::danger How React uses child functions
 In react, every component is just a JavaScript function.
@@ -38,11 +39,13 @@ then this method compares old function body with new function body and additiona
 
 This is again just another method which is executed whenever the component is rendered.
 
-The useEffect method then executes the function passed in the first argument, if the values of the dependencies have changed.
+The useEffect method then executes the function passed in the first argument,
+if the values of the dependencies have changed.
 The old dependency values are stored in the ReactJS's internal storage.
 
 ## useState
 
 1. Whenever there is a new render, the useState() function returns the current value and a new closure setter method.
-2. The returned setter method has also the call to the function that queues the re-render of the component using the new state.
+2. The returned setter method has also the call to the function
+   that queues the re-render of the component using the new state.
    This is executed whenever there is an event that triggers the execution of this setter method.

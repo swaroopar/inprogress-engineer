@@ -66,9 +66,9 @@ Read more about it [here.](../databases/locking.md)
 
 :::info sources
 
-- https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth
-- https://vladmihalcea.com/spring-transaction-connection-management
-- https://vladmihalcea.com/hibernate-locking-patterns-how-do-pessimistic_read-and-pessimistic_write-work/
-- https://vladmihalcea.com/a-beginners-guide-to-java-persistence-locking/
+- [Spring Transaction Management: @Transactional In-Depth (marcobehler.com)](https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth)
+- [Spring Transaction & Connection Management (vladmihalcea.com)](https://vladmihalcea.com/spring-transaction-connection-management)
+- [Hibernate Locking Patterns: PESSIMISTIC_READ and PESSIMISTIC_WRITE (vladmihalcea.com)](https://vladmihalcea.com/hibernate-locking-patterns-how-do-pessimistic_read-and-pessimistic_write-work/)
+- [A Beginner’s Guide to Java Persistence Locking (vladmihalcea.com)](https://vladmihalcea.com/a-beginners-guide-to-java-persistence-locking/)
 
 :::

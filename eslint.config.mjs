@@ -5,6 +5,9 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import js from '@eslint/js';
 import { FlatCompat } from '@eslint/eslintrc';
+import markdownlintPlugin from 'eslint-plugin-markdownlint';
+import markdownlintParser from 'eslint-plugin-markdownlint/parser.js';
+import { config } from 'node:process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -45,6 +48,23 @@ export default [
             'no-undef': 'off',
             '@typescript-eslint/no-inferrable-types': 'off',
             'no-console': 'error',
+        },
+    },
+    {
+        files: ['**/*md', '**/*mdx'],
+        plugins: {
+            markdownlint: markdownlintPlugin,
+        },
+
+        languageOptions: {
+            parser: markdownlintParser,
+        },
+        rules: {
+            ...Object.fromEntries(
+                Object.keys(typescriptEslint.rules).map((rule) => [`@typescript-eslint/${rule}`, 'off']),
+            ),
+            ...markdownlintPlugin.configs.recommended.rules,
+            'markdownlint/md013': ['error', { line_length: 120 }],
         },
     },
 ];
