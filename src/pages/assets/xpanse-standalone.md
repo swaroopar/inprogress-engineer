@@ -16,6 +16,6 @@ In this talk, we will see:
 2. Xpanse architecture - Runtime, API and UI.
 3. Define managed services using the Xpanse Service Descriptor.
 4. Make services available in the service catalog.
-5. Deploy services using the current reference implementation clouds - Any vanilla Openstack based clouds,
-SCS based clouds, HUAWEI cloud and Flexible Engine.
- <!-- markdownlint-enable -->
+5. Deploy services using the current reference implementation clouds - Any vanilla Openstack based clouds, SCS based clouds, HUAWEI cloud and Flexible Engine.
+
+<!-- markdownlint-enable -->
