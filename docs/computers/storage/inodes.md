@@ -20,7 +20,8 @@ It's nothing but a C structure that's also serialized and stored in the correspo
 
 :::info inode number vs inode structure
 When speaking about inodes, we always refer to the number.
-This is just an index number in the inode table which then has a mapping to the corresponding address of inode structure of the file.
+This is just an index number in the inode table
+which then has a mapping to the corresponding address of inode structure of the file.
 :::
 
 ![inode-data](../../../static/img/files-inode.excalidraw.png)
@@ -57,7 +58,8 @@ There is a dentries cache maintained by kernel on memory.
 It keeps adding data to it whenever files are accessed.
 
 :::tip . and .. in directories
-dentries map also contains entries with **.** and **..** which points to inode of current directory and parent directory respectively.
+dentries map also contains entries with **.** and **..**
+which points to inode of current directory and parent directory respectively.
 :::
 
 ## Recursive Search
@@ -79,5 +81,5 @@ If multiple filesystems are mounted on a same host, then same inode number can e
 
 :::tip useful links
 
-- https://github.com/suvratapte/Maurice-Bach-Notes/blob/master/4-Internal-Representation-of-Files.md
+- [Maurice Bach Notes: Internal Representation of Files](https://github.com/suvratapte/Maurice-Bach-Notes/blob/master/4-Internal-Representation-of-Files.md)
   :::

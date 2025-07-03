@@ -33,8 +33,10 @@ All knowledge is stored as weights and bias in the neural network.
 :::danger Not even arithmetic is calculated
 LLMs don't compute anything. It's just always **predicting the next word**.
 
-When we ask any arithmetic operation, the LLM from its training knows that if 2 + 3 is 5, then two characters separated by a '+' symbol,
-then the most probable next text to this would be a value that's sum of the two input tokens separated by a plus symbol token.
+When we ask any arithmetic operation,
+the LLM from its training knows that if 2 + 3 is 5, then two characters separated by a '+' symbol,
+then the most probable next text to this would be a value
+that's sum of the two input tokens separated by a plus symbol token.
 
 So even in the case of arithmetic operations, the answer isn't a fixed it.
 It will always predict a list of various answers with different probabilities.

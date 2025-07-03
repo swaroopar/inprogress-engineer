@@ -1,7 +1,8 @@
 # File Descriptor
 
 File descriptor is an integer that uniquely identifies an opened file or other I/O resource within a process.
-It's used by the kernel to manage access to files, devices, pipes (inter process communication), sockets( network communication) etc.
+It's used by the kernel to manage access to
+files, devices, pipes (inter process communication), sockets( network communication) etc.
 
 Essentially, anything that can be "opened" for I/O operations.
 
@@ -56,14 +57,16 @@ This is because network adapters work completely different and use packets to co
 ## Device Files
 
 These are files in /dev directory. They don't contain any data.
-It only contains the major and minor number in its meta data which defines the device driver that handles the underlying device.
+It only contains the major and minor number in its meta data which
+defines the device driver that handles the underlying device.
 
 This will include character files such as keyboards, mouse, printers, terminals, etc.
 and also block devices such as hard disk, RAM, CD/DVD, USB, etc.
 
 :::important All real interaction is via /dev
 For writing/reading to any device, the writing or reading is always routed via the device located in /dev.
-VFS uses the major and minor number from there to get the corresponding device driver to execute methods on the underlying device.
+VFS uses the major and minor number from there to get the corresponding device driver
+to execute methods on the underlying device.
 :::
 
 ### Device Drivers
@@ -75,8 +78,8 @@ These are the methods then invoked by VFS.
 
 :::info Useful links
 
-- https://biriukov.dev/docs/fd-pipe-session-terminal/1-file-descriptor-and-open-file-description/
-- https://bottomupcs.com/ch01s03.html
+- [File Descriptor and Open File Description (biriukov.dev)](https://biriukov.dev/docs/fd-pipe-session-terminal/1-file-descriptor-and-open-file-description/)
+- [Bottom Up Computer Science: File Descriptors](https://bottomupcs.com/ch01s03.html)
 
 :::
 

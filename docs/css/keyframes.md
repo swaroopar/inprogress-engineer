@@ -16,7 +16,8 @@ Or with **%** values to create keyframes at specific percentage of the animation
 Animation generally means creating visual effects by using **still** images.
 :::
 
-**animation** CSS property allows to create an animation like visual effect by moving an HTML element which is otherwise a **still** element.
+**animation** CSS property allows to create an animation
+like visual effect by moving an HTML element which is otherwise a **still** element.
 
 Using this property, we can define the duration of animation, direction of animation, etc.
 

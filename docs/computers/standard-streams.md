@@ -16,4 +16,5 @@ This is exactly why the command output is simply written to same place from wher
 Every process has a file descriptor for all IO as well.
 The first 3 file descriptors for any process are 0, 1 and 2 which is stdin, stdout and stderr respectively.
 
-The file descriptors fo these standard streams are address to a buffer object (backed by arrays or linked lists) from which the data is read or written.
+The file descriptors fo these standard streams are address to a buffer object
+(backed by arrays or linked lists) from which the data is read or written.

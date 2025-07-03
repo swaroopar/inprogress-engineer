@@ -1,6 +1,7 @@
 # ARIA
 
-ARIA(Accessible Rich Internet Applications) is a set of specifications developed to enhance accessibility of web content for people with disabilities.
+ARIA(Accessible Rich Internet Applications) is a set of specifications developed
+to enhance accessibility of web content for people with disabilities.
 
 Every browser implements these specifications which are then consumed by assistive technology devices.
 

@@ -2,7 +2,8 @@
 
 ## Why CORS - Cross Origin Resource Sharing
 
-In the past there was only SOP - Same-Origin Policy. Which means, the website could only interact with resources on the same domain.
+In the past there was only SOP - Same-Origin Policy.
+Which means, the website could only interact with resources on the same domain.
 
 CORS was only introduced to relax this restriction.
 This also introduces a risk that if CORS isn't configured correctly, this can lead to security issues.
@@ -19,7 +20,8 @@ This is similar to **referer** header but doesn't disclose the path of the sourc
 This can also be controlled by the **referral-policy** header.
 
 :::tip[For Browsers]
-These headers are used by browsers to avoid sending the request to the web server if the preflight response doesn't satisfy the conditions.
+These headers are used by browsers to avoid sending the request to the web server
+if the preflight response doesn't satisfy the conditions.
 This provides security and also avoids unnecessary calls to the web server.
 :::
 
@@ -40,5 +42,5 @@ Origin and referer contains the information of the browser sending the request.
 Host contains the information of the server to which the request is being sent to.
 
 :::tip[Important Links]
-https://portswigger.net/web-security/cors#what-is-cors-cross-origin-resource-sharing
+[What's CORS? (PortSwigger)](https://portswigger.net/web-security/cors#what-is-cors-cross-origin-resource-sharing)
 :::

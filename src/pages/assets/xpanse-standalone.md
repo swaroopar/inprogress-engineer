@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 Project Eclipse Xpanse aims to implement configurable and portable managed services based on principles and ideas of "Eclipse Open Services Cloud initiative."
 This project allows service providers to offer their managed services across multiple clouds easily by abstracting all critical aspects of a cloud service
 such as catalog, life-cycle management, deployment, monitoring and metering.
@@ -14,5 +16,6 @@ In this talk, we will see:
 2. Xpanse architecture - Runtime, API and UI.
 3. Define managed services using the Xpanse Service Descriptor.
 4. Make services available in the service catalog.
-5. Deploy services using the current reference implementation clouds - Any vanilla Openstack based clouds,
-   SCS based clouds, HUAWEI cloud and Flexible Engine.
+5. Deploy services using the current reference implementation clouds - Any vanilla Openstack based clouds, SCS based clouds, HUAWEI cloud and Flexible Engine.
+
+<!-- markdownlint-enable -->

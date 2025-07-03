@@ -44,5 +44,8 @@ parent container.
 :::tip[Remember Parent-Child]
 We can remember it this way: a parent wraps itself around his/her child, to show it loves them. :D
 
-So container is just a box, basically, empty until something goes inside it. Parent is the relationship to the thing inside it (the child). You can make an empty `<div>` that's a container, but it isn't a parent until there's a child element for it to wrap itself around (like an `<img>`).
+So container is just a box, basically, empty until something goes inside it.
+Parent is the relationship to the thing inside it (the child).
+You can make an empty `<div>` that's a container,
+but it isn't a parent until there's a child element for it to wrap itself around (like an `<img>`).
 :::

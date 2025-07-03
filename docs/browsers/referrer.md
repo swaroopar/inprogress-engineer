@@ -1,6 +1,6 @@
 # Referer and Referrer-Policy
 
-# Referer
+## Referer
 
 This the HTTP request header set by the browser so that the web server then knows from where's the request coming from.
 

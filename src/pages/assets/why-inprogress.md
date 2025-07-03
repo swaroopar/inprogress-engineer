@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD041-->
+
 After listening to a quite a few people who write great technical blogs and documentation,
 I'm convinced that **writing** about a topic is one of the greatest ways to better your understanding about it.
 By trying to write something in simple and easy words will push anyone to also dig deep on basics of the topic.
@@ -22,7 +24,8 @@ It's not easy for someone who isn't a natural writer to write a great piece of t
 The only way to achieve this is by strengthening the writing muscle and this happens only by writing more and more.
 These notes are an effort towards this goal.
 
-_“If you can't fly then run, if you can't run then walk, if you can't walk then crawl, but whatever you do you have to keep moving forward.”
+_“If you can't fly then run, if you can't run then walk, if you can't walk then crawl,
+but whatever you do you have to keep moving forward.”
 ― Martin Luther King Jr._
 
 ## Just Another Blog?
@@ -51,4 +54,10 @@ But what remains constant are the foundational concepts. Irrespective of how man
 will be created tomorrow, the basic concepts of software engineering remains same.
 Learning here is necessary to better our understanding of such fundamentals concepts.
 
+<!-- markdownlint-disable MD036-->
+
 _If I don't practice one day, I know it; two days, the critics know it; three days, the public knows it. - Jascha Heifetz_
+
+<!-- markdownlint-enable MD036-->
+
+<!-- markdownlint-enable MD041-->

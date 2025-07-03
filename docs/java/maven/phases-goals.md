@@ -30,7 +30,8 @@ Every plugin has an unique group ID similar to dependencies.
 When a plugin is executed, the plugins are downloaded from the plugin repositories defined in the POM file or settings.xml.
 
 :::important Default Group Ids
-When you run **mvn versions:set** command, it will use the default group ID of `org.apache.maven.plugins` to search for the plugin.
+When you run **mvn versions:set** command,
+it will use the default group ID of `org.apache.maven.plugins` to search for the plugin.
 
 Maven has a list of default group IDs in which it searches for plugins.
 This list can be extended in the **settings.xml** file.

@@ -18,7 +18,8 @@ Used to control the position of flex items over the **main axis** of the flex co
 
 Used to control the position of flex items over the **cross axis** of the flex container.
 
-For example, when you want have a row direction flex, using align-items option, we can place all the horizontal items at the same vertical level.
+For example, when you want have a row direction flex,
+using align-items option, we can place all the horizontal items at the same vertical level.
 
 ## Justify and Align Individual Items
 
@@ -28,5 +29,6 @@ flex item on main and cross axis respectively.
 
 :::info[useful links]
 
-- https://openclassrooms.com/en/courses/5295881-create-web-page-layouts-with-css/5415181-align-items-and-justify-content
-  :::
+- [Align Items and Justify Content - OpenClassrooms](https://openclassrooms.com/en/courses/5295881-create-web-page-layouts-with-css/5415181-align-items-and-justify-content)
+
+:::

@@ -46,13 +46,15 @@ IO requests is more scalable.
 
 Port is a network property.
 
-Where as socket is how a network connection is expressed in software. Best explanation - UNIX socket is (in code) a data structure (or object) that you can use to send or receive data.
+Where as socket is how a network connection is expressed in software.
+Best explanation - UNIX socket is (in code) a data structure (or object) that you can use to send or receive data.
 This object has two queue fields. One for incoming data and one for outgoing data.
 
 :::info[Interesting Reads]
 
-- https://ijunc2.github.io/2018/02/01/seventh.html
-- https://www.codecentric.de/wissens-hub/blog/explain-non-blocking-i-o-like-im-five
-- https://velog.io/@hyunjong96/Spring-NIO-Connector-BIO-Connector
-- https://dzone.com/articles/understanding-spring-reactive-servlet-async
-  :::
+- [Understanding Servlet 3.0 Async Processing](https://ijunc2.github.io/2018/02/01/seventh.html)
+- [Non-blocking I/O Explained Like I'm Five](https://www.codecentric.de/wissens-hub/blog/explain-non-blocking-i-o-like-im-five)
+- [Spring NIO Connector vs BIO Connector Overview](https://velog.io/@hyunjong96/Spring-NIO-Connector-BIO-Connector)
+- [Spring Reactive and Servlet Async Explained](https://dzone.com/articles/understanding-spring-reactive-servlet-async)
+
+:::

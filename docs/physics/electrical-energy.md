@@ -129,7 +129,8 @@ Higher current means you're pushing faster.
 The resistance is the weight of the box.
 The power is the amount of energy you're able to invest (on average in a set amount of time).
 
-Bigger weights mean you have to push stronger to move the box (higher voltage). Given a fixed amount of power available, you're going to move the weight slower (lower current).
+Bigger weights mean you have to push stronger to move the box (higher voltage).
+Given a fixed amount of power available, you're going to move the weight slower (lower current).
 
 [source can be found here.](https://www.reddit.com/r/explainlikeimfive/comments/r3hj8c/comment/hmbfo00/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
 :::

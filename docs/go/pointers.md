@@ -23,23 +23,21 @@ This one symbol is used for multiple things. This is a bit confusing.
 
 1. Declaring pointer types.
    This is used to declare a variable that refers to address of the given type.
+   Same is also used to declare function arguments that are pointers.
+   and also for declaring pointer fields in structs.
 
-Same is also used to declare function arguments that are pointers.
-
-and also for declaring pointer fields in structs.
-
-```go
-var p *int
-```
+    ```go
+    var p *int
+    ```
 
 2. De-referencing pointers.
    It's used to access the value available at the pointer.
 
-```go
-x := 5
-p := &x
-fmt.Println(*p) // Prints 5
-```
+    ```go
+    x := 5
+    p := &x
+    fmt.Println(*p) // Prints 5
+    ```
 
 :::danger access value at pointer
 To de-reference a pointer variable, we use \* symbol.
@@ -49,7 +47,7 @@ In variable declaring, \* is on the type T.
 In de-referencing, \* is on the variable name.
 :::
 
-### Ampersand Symbol.
+### Ampersand Symbol
 
 This is used to get the **address-of** the variable.
 

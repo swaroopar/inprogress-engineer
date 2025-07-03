@@ -29,9 +29,11 @@ into it's buffer and then update that full physical sector and write it back.
 
 ## IO Size vs Sector Size
 
-IO size refers to the maximum size of data that can be handled within a single read or write operation. Whereas, sector size is the smallest unit of data that can be addressed and read in the storage.
+IO size refers to the maximum size of data that can be handled within a single read or write operation.
+Whereas, sector size is the smallest unit of data that can be addressed and read in the storage.
 
-For instance, if the I/O size is 4096 bytes and the logical sector size is 512 bytes, up to eight logical sectors can be processed in one go.
+For instance, if the I/O size is 4096 bytes and the logical sector size is 512 bytes,
+up to eight logical sectors can be processed in one go.
 This batching reduces overhead and improves throughput.
 
 ## Disk Hardware
@@ -50,6 +52,6 @@ places it in the memory.
 
 :::info useful links
 
-- https://hardwaresecrets.com/anatomy-of-a-hard-disk-drive/
+[Anatomy of a Hard Disk Drive](https://hardwaresecrets.com/anatomy-of-a-hard-disk-drive/)
 
 :::

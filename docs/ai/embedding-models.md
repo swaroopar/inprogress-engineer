@@ -6,10 +6,12 @@ These models helps to convert the text, images and videos into a numerical repre
 store them in vector database.
 
 Later, these numerical representations can be used to find similar text, images or videos.
-This is done by comparing the numerical values of the text, images or videos and finding the closest match. This is called as vector search.
+This is done by comparing the numerical values of the text, images or videos
+and finding the closest match. This is called as vector search.
 
 :::info RAG concept
-This how RAG concept works where additional contextual data is retrieved from the vector database and passed to LLM to generate the final output.
+This how RAG concept works where additional contextual data is retrieved from the vector database
+and passed to LLM to generate the final output.
 
 Note that the LLM doesn't call the vector database directly.
 The agent must call the vector database and retrieve the relevant data

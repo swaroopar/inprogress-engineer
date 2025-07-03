@@ -3,7 +3,8 @@
 ## Engine and Runtime
 
 JavaScript has two parts. One is the **engine** and other is the **runtime**.
-The engine is just the code parser, compiler and executor whereas runtime is the combination of engine plus other libraries and components (such as event loop)
+The engine is just the code parser, compiler and executor
+whereas runtime is the combination of engine plus other libraries and components (such as event loop)
 which make the JavaScript really usable.
 
 ![JavaScript Runtime](../../static/img/javascript-runtime.excalidraw.png)
@@ -58,22 +59,26 @@ In case of browser, methods such as `setTimeout` or `fetch` are written in C++ a
 These are the methods written in programming language that's embedding JavaScript engine into it.
 In case of Java, the SDK encapsulates all low-level integrations and provides us easy APIs to work with it.
 
-In case of JavaScript, the logic is the same. All complex methods are implemented in the language which is hosting the runtime.
-We can call them directly from JavaScript engine and it gives the user an illusion that the methods exist within JavaScript runtime.
+In case of JavaScript, the logic is the same.
+All complex methods are implemented in the language which is hosting the runtime.
+We can call them directly from JavaScript engine
+and it gives the user an illusion that the methods exist within JavaScript runtime.
 
 ## Event Handlers
 
 An HTML element is also a JavaScript object of type HTMLElement.
-When we add an event handler to an element, it only creates a property of type **function** to that object with the provided name.
+When we add an event handler to an element,
+it only creates a property of type **function** to that object with the provided name.
 
 So when the event handler is executed, the function of that HTMLElement object is executed.
 
 :::info[Useful Links]
 
-- https://eclipsesource.com/blogs/2015/06/06/registering-java-callbacks-with-j2v8/
-- https://eclipsesource.com/blogs/tutorials/getting-started-with-j2v8/
-- https://www.caoccao.com/Javet/tutorial/advanced/java_and_javascript_interop.html
-- https://dev.to/rahmanmajeed/javascript-the-runtime-environment-35a2
-- https://stackoverflow.com/questions/68325731/how-do-the-render-engine-and-javascript-engine-communicate-in-a-browser
-- https://codingnomads.com/javascript-runtime-environment-browser
-  :::
+- [Registering Java Callbacks with J2V8 (eclipsesource.com)](https://eclipsesource.com/blogs/2015/06/06/registering-java-callbacks-with-j2v8/)
+- [Getting Started with J2V8 (eclipsesource.com)](https://eclipsesource.com/blogs/tutorials/getting-started-with-j2v8/)
+- [Java and JavaScript Interoperability (caoccao.com)](https://www.caoccao.com/Javet/tutorial/advanced/java_and_javascript_interop.html)
+- [JavaScript: The Runtime Environment (dev.to)](https://dev.to/rahmanmajeed/javascript-the-runtime-environment-35a2)
+- [How do the render engine and JavaScript engine communicate in a browser? (stackoverflow.com)](https://stackoverflow.com/questions/68325731/how-do-the-render-engine-and-javascript-engine-communicate-in-a-browser)
+- [JavaScript Runtime Environment in the Browser (codingnomads.com)](https://codingnomads.com/javascript-runtime-environment-browser)
+
+:::

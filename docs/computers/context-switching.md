@@ -38,7 +38,9 @@ which is then used by the CPU to restore and continue execution.
 This stack is used to store the current value in CPU registers, flag registers, etc.
 
 On top of this stack, is the interrupt handler executed.
-So when the interrupt handler returns, the stored values from the interrupted user process are restored by the handler and executes the **IRET/sysret** instruction.
+So when the interrupt handler returns,
+the stored values from the interrupted user process are restored by the handler
+and executes the **IRET/sysret** instruction.
 
 :::danger nested interrupts
 If there is a new interrupt during the execution of interrupt,
@@ -49,7 +51,8 @@ then even that execution is paused and saved to the same interrupt stack.
 
 For every thread in Linux, there is a kernel stack and user stack.
 Whenever there is a system call to be done, the CPU is switched to kernel mode and
-the system call handler then updates CPU registers to use the kernel stack to execute all system calls and exceptions (such as page faults).
+the system call handler then updates CPU registers to use the kernel stack
+to execute all system calls and exceptions (such as page faults).
 
 :::warning kernel stack vs interrupt stack
 There is one interrupt stack per CPU and this is used only for hardware interrupt handling.
