@@ -23,7 +23,7 @@ This includes extracting headers, session, parameters and request body.
 
 :::tip useful resources
 
-- [What is Web Context & Request Lifecycle in Spring Application (linkedin.com)](https://www.linkedin.com/pulse/what-web-context-request-lifecycle-spring-application-ali-pty1f/)
-- [What is Apache Tomcat Server and How Does It Work? (logicmonitor.com)](https://www.logicmonitor.com/blog/what-is-apache-tomcat-server-and-how-does-it-work)
+- [What's Web Context & Request Lifecycle in Spring Application (linkedin.com)](https://www.linkedin.com/pulse/what-web-context-request-lifecycle-spring-application-ali-pty1f/)
+- [What's Apache Tomcat Server and How Does It Work? (logicmonitor.com)](https://www.logicmonitor.com/blog/what-is-apache-tomcat-server-and-how-does-it-work)
 
 :::

@@ -45,6 +45,6 @@ If there are any changes, then the changes are handed over to ReactDOM which wil
 
 - [React Element vs Component (robinwieruch.de)](https://www.robinwieruch.de/react-element-component/)
 - [Who converts React.createElement into HTML tags? (stackoverflow.com)](https://stackoverflow.com/questions/73326943/who-converts-react-createelement-into-html-tags)
-- [Render and Commit – React Docs](https://react.dev/learn/render-and-commit)
+- [Render and Commit - React Docs](https://react.dev/learn/render-and-commit)
 
 :::

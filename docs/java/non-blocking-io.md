@@ -1,4 +1,4 @@
-# Blocking and Non Blocking IOs
+# Blocking and Non Blocking IO
 
 NIO is about not constantly blocking a thread by waiting for any IO to happen.
 

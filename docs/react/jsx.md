@@ -81,7 +81,7 @@ JSX doesn't directly create the HTML output. It only creates JS which is capable
 Information sources
 
 - [Introducing the New JSX Transform (React Blog)](https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html)
-- [TypeScript tsconfig: jsxFactory Option](https://www.typescriptlang.org/tsconfig/#jsxFactory)
+- [TypeScript tsconfig: JSX Factory Option](https://www.typescriptlang.org/tsconfig/#jsxFactory)
 - [Origins of JSX and Why It Exists (dodov.dev)](https://dodov.dev/blog/origins-of-jsx-and-why-it-exists)
 
 :::

@@ -54,7 +54,7 @@ a new virtual element is added/styled next to the element.
 
 :::tip[useful links]
 
-- [Clickable Area – Ahmad Shadeed](https://ishadeed.com/article/clickable-area/)
-- [CSS Pseudo Elements: ::before and ::after – Girl That Loves To Code](https://girlthatlovestocode.com/css-pseudo-elements-before-and-after)
+- [Clickable Area](https://ishadeed.com/article/clickable-area/)
+- [CSS Pseudo Elements: ::before and ::after - Girl That Loves To Code](https://girlthatlovestocode.com/css-pseudo-elements-before-and-after)
 
 :::

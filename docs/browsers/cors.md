@@ -42,5 +42,5 @@ Origin and referer contains the information of the browser sending the request.
 Host contains the information of the server to which the request is being sent to.
 
 :::tip[Important Links]
-[What is CORS? (PortSwigger)](https://portswigger.net/web-security/cors#what-is-cors-cross-origin-resource-sharing)
+[What's CORS? (PortSwigger)](https://portswigger.net/web-security/cors#what-is-cors-cross-origin-resource-sharing)
 :::

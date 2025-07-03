@@ -82,6 +82,6 @@ also bundled code to one single file.
 
 :::info
 
-- [A History of JavaScript Modules and Bundling for the Post-ES6 Developer (8th Light)](https://8thlight.com/insights/a-history-of-javascript-modules-and-bundling-for-the-post-es6-developer)
+- [A History of JavaScript Modules and Bundling for the Post-ES6 Developer (eighth Light)](https://8thlight.com/insights/a-history-of-javascript-modules-and-bundling-for-the-post-es6-developer)
 
 :::

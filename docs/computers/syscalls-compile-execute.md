@@ -33,6 +33,6 @@ with the ID of the system call handler method which will then be used by the ker
 
 :::info interesting reads
 
-- [System Calls – manybutfinite.com](https://manybutfinite.com/post/system-calls/)
+- [System Calls - manybutfinite.com](https://manybutfinite.com/post/system-calls/)
 
 :::

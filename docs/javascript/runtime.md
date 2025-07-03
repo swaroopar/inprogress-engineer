@@ -76,7 +76,7 @@ So when the event handler is executed, the function of that HTMLElement object i
 
 - [Registering Java Callbacks with J2V8 (eclipsesource.com)](https://eclipsesource.com/blogs/2015/06/06/registering-java-callbacks-with-j2v8/)
 - [Getting Started with J2V8 (eclipsesource.com)](https://eclipsesource.com/blogs/tutorials/getting-started-with-j2v8/)
-- [Java and JavaScript Interop with Javet (caoccao.com)](https://www.caoccao.com/Javet/tutorial/advanced/java_and_javascript_interop.html)
+- [Java and JavaScript Interoperability (caoccao.com)](https://www.caoccao.com/Javet/tutorial/advanced/java_and_javascript_interop.html)
 - [JavaScript: The Runtime Environment (dev.to)](https://dev.to/rahmanmajeed/javascript-the-runtime-environment-35a2)
 - [How do the render engine and JavaScript engine communicate in a browser? (stackoverflow.com)](https://stackoverflow.com/questions/68325731/how-do-the-render-engine-and-javascript-engine-communicate-in-a-browser)
 - [JavaScript Runtime Environment in the Browser (codingnomads.com)](https://codingnomads.com/javascript-runtime-environment-browser)

@@ -36,6 +36,6 @@ Even if multiple `script` tags exist in the HTML page, still all are executed un
 :::info[Useful Links]
 
 - [How many JavaScript programs are executed for a single web page in the browser? (stackoverflow.com)](https://stackoverflow.com/questions/3735406/how-many-javascript-programs-are-executed-for-a-single-web-page-in-the-browser)
-- [Global Objects in JavaScript (O'Reilly)](https://docstore.mik.ua/orelly/webprog/jscript/ch12_03.htm)
+- [Global Objects in JavaScript](https://docstore.mik.ua/orelly/webprog/jscript/ch12_03.htm)
 
 :::

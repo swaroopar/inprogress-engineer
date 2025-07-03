@@ -29,6 +29,6 @@ flex item on main and cross axis respectively.
 
 :::info[useful links]
 
-- [Align Items and Justify Content – OpenClassrooms](https://openclassrooms.com/en/courses/5295881-create-web-page-layouts-with-css/5415181-align-items-and-justify-content)
+- [Align Items and Justify Content - OpenClassrooms](https://openclassrooms.com/en/courses/5295881-create-web-page-layouts-with-css/5415181-align-items-and-justify-content)
 
 :::
