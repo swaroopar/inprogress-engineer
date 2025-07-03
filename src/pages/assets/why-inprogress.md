@@ -54,10 +54,10 @@ But what remains constant are the foundational concepts. Irrespective of how man
 will be created tomorrow, the basic concepts of software engineering remains same.
 Learning here is necessary to better our understanding of such fundamentals concepts.
 
-<!-- markdownlint-disable-next-line MD036-->
+<!-- markdownlint-disable MD036-->
 
 _If I don't practice one day, I know it; two days, the critics know it; three days, the public knows it. - Jascha Heifetz_
 
-<!-- markdownlint-disable-next-line MD036-->
+<!-- markdownlint-enable MD036-->
 
 <!-- markdownlint-enable MD041-->
