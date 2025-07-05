@@ -91,3 +91,7 @@ useState
 useCallback
 useEffect
 mmap
+nushell
+zsh
+(?i)tty
+(?i)stdout

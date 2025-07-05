@@ -33,8 +33,8 @@ but whatever you do you have to keep moving forward.”
 Mostly No. All that's documented here are sort of **quick-notes** rather than a blog or technical documentation.
 
 The happiness of finally understanding a topic after searching through multiple blogs and documents through
-Google or Perplexity.ai is hard to explain. The whole idea of this is to curate information from multiple sources and
-pen down my understanding in my words.
+Google or LLMs is hard to explain. The whole idea of this is to curate information from multiple sources and
+pen down my understanding in my own words and refer to it later when necessary.
 
 ## Why In-Progress Engineer?
 
