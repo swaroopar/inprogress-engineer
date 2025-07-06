@@ -42,12 +42,7 @@ When an SSH connection is established, the same TCP sessions exists between the 
 and server until the connection is closed manually or
 if the session is idle for a long time.
 
-## PTY - Pseudo Terminal
-
-When we make an SSH connection to a remote server,
-we get terminal which gives the user a feeling that the user is directly connected to the server terminal.
-This is why it's called a **pseudo** terminal.
-
-This terminal only reads the stdin and writes to server via SSH protocol
-and receives responses from SSH remote server and writes it in the SSH terminal.
-But the user feels as if he is really on the remote server.
+:::danger Terminal-shell connection
+How terminals on local machine are connected to bash on
+the remote machine can be read [here](./terminals.md#terminal-configuration).
+:::

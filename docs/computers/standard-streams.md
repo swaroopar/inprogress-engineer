@@ -18,3 +18,16 @@ The first 3 file descriptors for any process are 0, 1 and 2 which is stdin, stdo
 
 The file descriptors fo these standard streams are address to a buffer object
 (backed by arrays or linked lists) from which the data is read or written.
+
+## Standard Streams for GUI applications
+
+The standard streams exists for all process - Terminals as well as GUI/desktop applications.
+
+In desktop applications, the standard streams are sometimes connected to '/dev/null'.
+
+:::danger UI standard streams are different
+Stdout of a UI application isn't what we see on the UI.
+
+Stdout here is used to write some debug logs to log file
+or send some data to some network socket.
+:::

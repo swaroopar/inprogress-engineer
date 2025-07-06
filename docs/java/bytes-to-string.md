@@ -8,7 +8,7 @@ But what's not clear is how this binary data is finally decoded and displayed as
 When the source system generates a message for the destination system,
 the application on the producer side already encodes the string to byte data.
 
-:::important[unicode vs UTF-8]
+:::important[Unicode vs UTF-8]
 Unicode is the universal standard that defines a hexadecimal code point for all each character across all possible languages.
 
 UTF-8 is just the Unicode Transformation Format which encodes these Unicode code points to a variable byte representation.
