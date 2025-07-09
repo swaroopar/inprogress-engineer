@@ -95,3 +95,6 @@ nushell
 zsh
 (?i)tty
 (?i)stdout
+coinbase
+cryptocurrency
+mempool
