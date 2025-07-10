@@ -4,7 +4,7 @@ Bitcoin is the first cryptocurrency and the most popular one.
 At the same time the underlying bitcoin network is also open sourced
 and can be used to build other solutions such as SSI.
 
-It is also the first practical implementation of blockchain technology.
+It's also the first practical implementation of blockchain technology.
 
 ## How mining works?
 

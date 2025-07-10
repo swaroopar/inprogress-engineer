@@ -2,7 +2,7 @@
 
 ## Verifiable Credential
 
-A verifiable credential is nothing but a credential that can be verified by a 3rd party without asking the issuer.
+A verifiable credential is nothing but a credential that can be verified by a third party without asking the issuer.
 
 :::important similar to PKI infrastructure
 In case of SSL, the certificates issued by a CA is blindly trusted.
