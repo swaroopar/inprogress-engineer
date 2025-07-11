@@ -14,6 +14,7 @@ They're in the network and get the list of transactions that are yet to be added
 They run compute intensive hashing task to generate an hash of the block header.
 It's important that the variable is the **nonce** value which is constantly changed until the hash value
 is less than the target hash value.
+Here the **puzzle** is to find the nonce value.
 
 :::tip meaning of nonce
 **nonce** means number used once.
