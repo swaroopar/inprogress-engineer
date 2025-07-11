@@ -25,7 +25,5 @@ The main USP of block chain technology is the **trustless** and **no single auth
 ## Validation
 
 The validating nodes must validate and approve the blocks generated.
-Normally not all validating nodes must approve.
-The protocol or the framework might say that at least 2/3 rd of the full node must approve.
-
-If any node doesn't approve, the block is discarded and not added to the chain.
+Each full node will validate the block, if its valid, it will add it to its local copy of the blockchain and
+also forward it to its peers.
