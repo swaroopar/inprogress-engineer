@@ -36,13 +36,16 @@ The standards are defined already on who writes to which block of PCR.
 So every underlying part of the platform is aware of what and where it should write to PCR.
 :::
 
-Every part of the platform that writes to PCR, always calculates it's state and creates an **hash** of that state
+Every part of the platform that writes to PCR, always calculates the state of the next component
+that it will execute and creates an **hash** of that component
 and write to its PCR slot.
 This means, any small change will change the hash and thus the PCR value.
 
 ## Extending Values
 
 A specific PCR value of a slot is updated by multiple stages of the boot process.
+
+
 Example, the operating system will extend the PCR value with the hash of the kernel,
 and then the kernel will extend it with the hash of the initrd, systemd and many more.
 This is done using the `TPM2_Extend` command, which appends the new hash to the existing PCR value.
@@ -77,8 +80,9 @@ This is the feature used by BitLocker to encrypt the disk encryption key.
 
 :::important Sealed Key Generation and Reading
 
-Generation - Send key to be sealed -> Encrypt Key -> Attach PCR values -> Return Sealed Key
-Reading - Send Sealed Key -> Decrypt Key -> Verify PCR values -> Return original key if PCR values match.
+**Generation** - Send key to be sealed -> Encrypt Key -> Attach PCR values -> Return Sealed Key.
+
+**Reading** - Send Sealed Key -> Decrypt Key -> Verify PCR values -> Return original key if PCR values match.
 
 Here, the system asking for a sealed key must inform which PCR values must be used to seal the key.
 This is nothing but the PCR policy.
