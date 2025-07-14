@@ -45,7 +45,6 @@ This means, any small change will change the hash and thus the PCR value.
 
 A specific PCR value of a slot is updated by multiple stages of the boot process.
 
-
 Example, the operating system will extend the PCR value with the hash of the kernel,
 and then the kernel will extend it with the hash of the initrd, systemd and many more.
 This is done using the `TPM2_Extend` command, which appends the new hash to the existing PCR value.
