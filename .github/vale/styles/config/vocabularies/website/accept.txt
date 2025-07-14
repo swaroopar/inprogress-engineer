@@ -99,3 +99,5 @@ coinbase
 cryptocurrency
 mempool
 (?i)blockchain
+initrd
+systemd
