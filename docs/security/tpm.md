@@ -76,6 +76,7 @@ This is similar to SSL. Here the CA is already known to the verifier.
 
 This is a feature that's used to protect sensitive data using TPM.
 This is the feature used by BitLocker to encrypt the disk encryption key.
+The sealed key feature can be used by any application to
 
 :::important Sealed Key Generation and Reading
 

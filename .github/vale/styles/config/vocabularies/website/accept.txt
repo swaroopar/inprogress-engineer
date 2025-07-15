@@ -101,3 +101,5 @@ mempool
 (?i)blockchain
 initrd
 systemd
+udev
+uevent
