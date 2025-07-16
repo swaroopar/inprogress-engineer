@@ -54,7 +54,7 @@ Direct buffers are wrappers to malloc() native methods.
 ## Stream vs Buffer
 
 :::important IO Stream in Kernel
-Streams in Java are nothing but the operating system's IO using [file descriptors](../computers/storage/file-descriptors.md).
+Streams in Java are nothing but the operating system's IO using [file descriptors](../storage/file-descriptors.md).
 
 For example, when a file input stream is opened then the corresponding file descriptor is created.
 A **read** call on the file descriptor then reads the file associated with the file descriptor.

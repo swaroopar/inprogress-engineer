@@ -10,7 +10,7 @@ to have an hierarchical directory structure on top of a plain disk,
 control its permissions, etc.
 The filesystem software then decides how it would like to use this plain storage.
 
-![filesystem-integration](../../../static/img/filesystems.excalidraw.png)
+![filesystem-integration](../../static/img/filesystems.excalidraw.png)
 
 ## Preparing Disks
 

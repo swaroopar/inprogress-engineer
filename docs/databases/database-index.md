@@ -1,6 +1,6 @@
 # Indexes
 
-Like we learnt in the [disks](../computers/storage/disks.md#physical-vs-logical-sector-size) section,
+Like we learnt in the [disks](../storage/disks.md#physical-vs-logical-sector-size) section,
 the storage is split into blocks and all IO happens at the block level.
 
 This means, when a row is written to disk, we must read the entire block
