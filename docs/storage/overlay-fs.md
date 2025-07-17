@@ -1,7 +1,7 @@
 # Overlay File System
 
 Overlay file system is a feature of Linux.
-It's simply another [file system](./file-system) type similar to EXT4.
+It's simply another [file system](./file-systems) type similar to EXT4.
 This means, when a directory is mounted with type as **overlay**,
 then the VFS calls the read and write function provided by the OverlayFS.
 
