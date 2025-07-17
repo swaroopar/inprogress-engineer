@@ -15,7 +15,7 @@ this is nothing but the file descriptor table.
 This file descriptor table is just a map of file descriptor ID and
 the pointer to corresponding **file** structure.
 
-![file descriptors](../../../static/img/vfs-linux.excalidraw.png)
+![file descriptors](../../static/img/vfs-linux.excalidraw.png)
 
 :::tip file structure
 The **file** structure represents an open file.
@@ -32,7 +32,7 @@ File descriptor are C objects created by kernel and remain in it's memory.
 Only for uniformity sake, these values are also written to the file system under **/proc**.
 :::
 
-![steps to get a file](../../../static/img/access-file-inode.excalidraw.png)
+![steps to get a file](../../static/img/access-file-inode.excalidraw.png)
 
 :::danger closing files
 This why closing a file is important from userspace applications.
@@ -63,6 +63,8 @@ defines the device driver that handles the underlying device.
 This will include character files such as keyboards, mouse, printers, terminals, etc.
 and also block devices such as hard disk, RAM, CD/DVD, USB, etc.
 
+More information can be found at [virtual file systems](./virtual-file-systems.md).
+
 :::important All real interaction is via /dev
 For writing/reading to any device, the writing or reading is always routed via the device located in /dev.
 VFS uses the major and minor number from there to get the corresponding device driver
@@ -82,8 +84,3 @@ These are the methods then invoked by VFS.
 - [Bottom Up Computer Science: File Descriptors](https://bottomupcs.com/ch01s03.html)
 
 :::
-
-## VFS
-
-VFS is involved for all actions that happens via the file descriptor.
-It's the VFS layer that extracts the functions linked to the file descriptor and executes them.

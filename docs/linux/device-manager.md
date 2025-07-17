@@ -70,3 +70,25 @@ the devices are re-detected and the `/dev` directory is recreated with the curre
 
 But it's important to know that udev ensures the userspace names of devices are kept consistent across reboots.
 :::
+
+## Difference between /dev and /sys file systems
+
+Both /dev and /sys are virtual filesystems in Linux to manage devices, but they serve different purposes.
+
+**/dev**:
+
+- Contains device files that represent hardware devices.
+- Provides a way for userspace applications to interact with devices.
+- Device files are created and managed by udev.
+
+**/sys**:
+
+- Contains information about devices and their attributes.
+- Provides a way to access kernel data structures related to devices.
+- Used for querying and modifying device properties.
+
+:::tip example of /dev and /sys
+
+- `/dev/sda` is a device file for a disk.
+- `/sys/block/sda` contains information about the disk, such as its size, type, and other attributes.
+  :::
