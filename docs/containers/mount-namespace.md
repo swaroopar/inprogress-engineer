@@ -19,7 +19,7 @@ So any of the system calls will go via the host kernel.
 
 ## Isolation
 
-1. Docker mounts all new virtual filesystems - /dev, /proc, /sys , etc.
+1. Docker mounts all new virtual filesystems - /dev, /proc, /sys, etc.
    These are just mostly read only dynamic kernel information.
    When executed, the kernel returns whatever information the process's namespace can see.
 
