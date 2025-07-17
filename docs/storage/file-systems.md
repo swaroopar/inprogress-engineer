@@ -1,16 +1,25 @@
-# Filesystem
+# Filesystems
 
-Filesystems means how the storage is used organized and used by the operating system.
+## Filesystem vs Filesystem Type
 
-The storage systems refer to hardware which has physical space and
-firmware on top of it which physically reads and writes to specific addresses.
+**Filesystem Type** is a specific implementation of storing and organizing data in physical storage.
+During formatting, a normal storage device is then with super blocks on how the underlying storage is managed.
 
-While filesystems refer to the software which then utilizes the storage system
-to have an hierarchical directory structure on top of a plain disk,
-control its permissions, etc.
-The filesystem software then decides how it would like to use this plain storage.
+**Filesystem** is what a plain storage becomes after it's formatted.
 
-![filesystem-integration](../../static/img/filesystems.excalidraw.png)
+:::note: class vs instance
+Filesystem type is the class and a filesystem is an object of it.
+
+The filesystem type software then decides how it would like to use this plain storage.
+:::
+
+![filesystem-and-tye](../../static/img/file-system-type.excalidraw.png)
+
+## Reading data from storage
+
+Reading a file from storage goes through multiple layers of software abstraction.
+
+![filesystem-abstraction](../../static/img/filesystems.excalidraw.png)
 
 ## Preparing Disks
 

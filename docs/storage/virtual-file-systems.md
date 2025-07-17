@@ -23,6 +23,8 @@ Only the content is dynamic and comes from internal data structures of the kerne
 The **/proc** file system is a virtual file system that provides an interface to kernel data structures.
 It contains information about each process - such as how it's started, its memory usage, and other details.
 
+The filesystem type is **procfs**.
+
 :::tip use of /proc file system
 It's mostly fo read only except for some files that allow writing to change kernel parameters.
 For example, you can change the maximum number of open files by writing to **/proc/sys/fs/file-max**.
@@ -34,7 +36,7 @@ Tools like top, btop read data from **/proc** file system
 ### /run
 
 This is also a virtual file system but backed by RAM.
-Such filesystems are called **tmpfs**.
+Such filesystems are of type **tmpfs**.
 
 This file system is used as a temporary storage for runtime data.
 It's also used for communication between processes and services.
@@ -51,6 +53,8 @@ So **any** userspace programs that need to store temporary data can use **/run**
 The **/sys** file system is a virtual file system that provides an interface to kernel device data structures.
 It contains information about devices, their attributes, and configuration options.
 
+The filesystem type is **sysfs**.
+
 :::danger write operations
 Write operations on **/sys** file system changes the configuration of the underlying device.
 Updating a value here, is same as updating a device configuration using a command line tool like **sysctl**.
@@ -60,6 +64,8 @@ Updating a value here, is same as updating a device configuration using a comman
 
 The **/dev** file system is a virtual file system that provides an interface to hardware devices.
 It contains device files that represent hardware devices, such as disks, network interfaces, and USB devices.
+
+This is also of type **tmpfs**.
 
 :::tip /dev vs /sys
 /dev is used to interact with devices, while /sys is used to query and modify device properties.

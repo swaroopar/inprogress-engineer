@@ -26,32 +26,12 @@ with all necessary namespaces to ensure complete isolation.
 
 ![namespace](../../static/img/namespaces.excalidraw.png)
 
-:::info Not fully separated virtual machines
-Even though Docker gives a feeling that applications are running on its individual machine, it's not true.
-
-It's just another isolated environment to execute a process
-since the docker image doesn't have the kernel packaged into it.
-:::
-
 ## nsproxy struct
 
 As we know every process in Linux has a corresponding **struct task_struct**. See [here.](./processes.md#processthread-structure)
 
 This struct has a pointer to another structure called **struct nsproxy**.
 This structure has references to all namespaces objects of the process.
-
-### /proc Filesystem
-
-All data about processes and its namespaces are stored in /proc/ filesystem
-where each namespace of the user has file to it.
-
-Since every file has a inode number in Linux,
-the kernel holds a map of this inode number to the actual underlying namespace object of the process.
-
-:::tip namespaces in docker
-In case of docker, when a container is started, the Docker CLI reads the entrypoint from
-the Dockerfile, creates necessary namespaces and starts that application process in that namespace.
-:::
 
 ## Standard Streams
 

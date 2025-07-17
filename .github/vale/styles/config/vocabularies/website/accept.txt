@@ -57,7 +57,7 @@ Goroutines?
 (?i)truststore
 (?i)trustmanager
 userspace
-bootloader
+(?i)bootloader
 glibc
 task_struct
 inode(.*)
@@ -106,3 +106,7 @@ uevent
 tmpfs
 btop
 sysctl
+rootfs
+sysfs
+procfs
+runtimes

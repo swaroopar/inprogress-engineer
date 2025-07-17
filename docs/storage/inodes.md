@@ -1,5 +1,8 @@
 # inode
 
+inode is a short form for **index node**.
+This is just like an index to access the file itself.
+
 :::danger inode is used for all IO
 Linux uses an inode structure for all IO operations even though it's mainly used for files.
 
