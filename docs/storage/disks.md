@@ -3,7 +3,7 @@
 ## Hard Disk Drives (HDD)
 
 They're mechanical drives and the entire disk is divided into tracks and sectors
-and the intersection between tracks and sectors are the [blocks](../computers/memory-paging.md#page-size-and-block-size).
+and the intersection between tracks and sectors are the [blocks](../linux/memory-paging.md#page-size-and-block-size).
 
 This is nothing but the smallest unit of storage.
 Example, if the sector size is 4KB.
