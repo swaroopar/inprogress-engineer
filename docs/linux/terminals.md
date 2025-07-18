@@ -25,6 +25,14 @@ In a terminal, the **line discipline** is the way input and output are handled.
 Whatever you type in the terminal isn't the bash feature.
 Terminal just displays whatever events it receives from the keyboard.
 
+:::warning terminal applications needs to know which terminal
+
+Terminal applications such as vim, less, top, etc needs to know which terminal is executing it.
+It's necessary since shell generates output and escape characters based on terminals.
+
+It gets the value from **$TERM** and then uses the value to get information from **/usr/share/terminfo**.
+:::
+
 Receives input -> displays it on screen -> send to master ->
 TTY driver sends it to slave -> slave is connected to bash -> bash reads input from slave.
 
