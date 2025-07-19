@@ -72,6 +72,9 @@ It's [digitally signed](digital-signatures) using the private AIK of the client 
 The verifier then gets the corresponding certificate from client and
 verifies the signature and then trusts the PCR quote values.
 
+Attestation key is only for digitally signing.
+It's never used for encryption.
+
 :::tip Why Attestation Needed?
 Attestation here is same as the real world attestation, where a trusted entity verifies the authenticity of a claim.
 
