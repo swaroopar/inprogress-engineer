@@ -1,6 +1,6 @@
 # Digital Signatures
 
-Digital signatures are also involve public and private keys
+Digital signatures also involve public and private keys
 but it doesn't work similar to how things work in SSL.
 
 ## Authenticity and Integrity
