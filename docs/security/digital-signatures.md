@@ -20,5 +20,5 @@ Digital signatures only help to ensure that the data what was generated at sourc
 
 :::warning digital signature and e-signature aren't same
 What we do with adding signatures in PDF are e-signatures.
-They **NOT** digital signature.
+They're **NOT** digital signature.
 :::
