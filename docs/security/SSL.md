@@ -20,6 +20,19 @@ Look at it like a JSON schema which describes the message structure.
 
 ![ssl-handshake-flow](../../static/img/ssl-certificate-process.excalidraw.png)
 
+## Certificate Verification
+
+1. The CA signs by generating an hash of the certificate contents.
+2. The CA uses its private key to encrypt the hash.
+3. The encrypted hash is included in the certificate.
+4. The hash algorithm used to hash the certificate is also included in the certificate.
+
+The client then first decrypts the signature using the public key of the CA.
+Then it hashes the certificate contents using the same hash algorithm.
+Finally, it compares the decrypted signature with the newly generated hash.
+
+**This is a combination of hashing and encryption technologies.**
+
 ## ECDHE Key Pair
 
 This is an **ephemeral** key pair that's generated on both client and server sides when a new TLS connection is started.
