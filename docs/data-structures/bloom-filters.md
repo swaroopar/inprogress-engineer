@@ -49,7 +49,7 @@ We need not use strong and expensive cryptographic hashing functions such has SH
 Instead use hashing algorithms such as Murmur.
 
 If we want to use multiple bits to represent a key,
-then we can use mutiple hash functions and pass the same key to it.
+then we can use multiple hash functions and pass the same key to it.
 Then use the output of each of them to represent a key in the bloom filter.
 
 ## Size of Bloom filter
