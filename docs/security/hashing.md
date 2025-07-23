@@ -13,6 +13,7 @@ We can't get the original data back from the hash.
 1. Digital signatures.
 2. Storing passwords.
 3. Verifying data integrity.
+4. Data shortening - Eg., URL shortening.
 
 ## HMAC - Hash-based Message Authentication Code
 

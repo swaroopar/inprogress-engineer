@@ -20,6 +20,12 @@ and the memory address of block on the disk.
 With the invent of b-trees, the indexes are now stored in a tree structure.
 This means, we can traverse the tree to find out the actual disk block which contains the row.
 
+:::danger b-tree with disk address
+Normally when we speak about b-trees, we refer to the in-memory data structure.
+Where the address are the memory addresses.
+But in case of database, the addresses are the disk block addresses.
+:::
+
 :::tip why b-trees
 b-tree provides a log(n) time complexity for searching, inserting and deleting.
 This is much better than the linear search which has a time complexity of O(n).
@@ -32,7 +38,7 @@ This is necessary because every add, delete and update must update the index tre
 Each node of the B-tree is again size of the disk's block size which is also known as page size.
 
 This means, the number of child node addresses each index node can store
-depends no the size of the block.
+depends on the size of the block.
 
 :::important read b-tree
 Even though b-tree is a data structure,
