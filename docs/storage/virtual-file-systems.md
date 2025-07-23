@@ -7,7 +7,8 @@ and more importantly, the contents of these files are dynamic.
 :::important dynamic file content
 The VFS layer, routes the open, read, write, and close calls to the appropriate file system implementation.
 In case of virtual file systems,
-these functions are implemented by the kernel to read or write it's internal data structures.
+these functions are implemented by the kernel where it returns it's information from internal data structure
+or writes back to it's internal objects.
 :::
 
 :::danger Directories and files in virtual file systems
@@ -70,3 +71,9 @@ This is also of type **tmpfs**.
 :::tip /dev vs /sys
 /dev is used to interact with devices, while /sys is used to query and modify device properties.
 :::
+
+### /dev/random
+
+This is one of the implementations of kernel.
+It's a character device when read(), the kernel's function behind it will return random characters.
+The client of the device must wait and read the random number of characters it needs.
