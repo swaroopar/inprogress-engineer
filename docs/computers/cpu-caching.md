@@ -23,18 +23,23 @@ Entire cache area is split into fixed size blocks called cache lines.
 
 ## Cache Addressing
 
-The CPU asks for a value at a specific address.
+The CPU asks for data at a specific address.
 To get the data from that specific address,
-the CPU cache has a logic to use that address itself as cache key to search in the cache.
+the CPU cache controller has a logic to use the corresponding physical address itself 
+as cache key to search in the cache.
 
-Also, to note that the entire caching happens using the physical address and not the virtual address.
+:::warning Only physical address is used
+Note that the entire caching happens using the physical address and not the virtual address.
+:::
 
 ![Cache Addressing](../../static/img/cpu-cache-mmu.excalidraw.png)
 
-:::important Index Key Calculate
-a. Divide the entire cache size by the cache line size to get the number of cache lines.
-b. Then divide the number of cache lines possible by number of 'associativity' to get the number of sets.
-c. Then use the index bits to calculate the index key.
+:::important Index Key Calculation
+1. Divide the entire cache size by the cache line size to get the number of cache lines it can hold.
+2. Then divide the number of cache lines per set to get the number of sets. 
+This is the **associativity** of the cache.
+   For example, if the cache is 4-way associative, then each set will have 4 cache lines.
+3. Then use the index bits to calculate the index key.
 
 In case of L1 Cache of 32 KB with 64 B cache line size and 4-way associativity:
 
@@ -54,12 +59,17 @@ When the LSU component of CPU asks for data at a specific address,
 the cache controller always sets the last 'N' bits depending on the cache line size to zero.
 
 If the cache line is 64 bytes, then the last 6 bits are set to zero.
-This is necessary to fetch the data before and after the requested address to provide **spatial locality**
+This is necessary to fetch the data before and after the requested address to provide **spatial locality**.
 
-The LSU then uses the multiplexer to extract the relevant data from the cache line.
+:::danger last N bits zeroing out
+This is because the cache line has 64 bytes
+and the last 6 bits are necessary to address each of this byte individually.
+:::
+
+The LSU then uses it's multiplexer to extract the relevant data from the cache line.
 It means, LSU knows the exact byte it needs to extract from the cache line data it received from the cache controller.
 
-## Writing Data To Memory
+## Writing data back to memory
 
 Most common way is to use 'Write-Back' policy.
 
