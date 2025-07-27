@@ -25,7 +25,7 @@ Entire cache area is split into fixed size blocks called cache lines.
 
 The CPU asks for data at a specific address.
 To get the data from that specific address,
-the CPU cache controller has a logic to use the corresponding physical address itself 
+the CPU cache controller has a logic to use the corresponding physical address itself
 as cache key to search in the cache.
 
 :::warning Only physical address is used
@@ -35,9 +35,10 @@ Note that the entire caching happens using the physical address and not the virt
 ![Cache Addressing](../../static/img/cpu-cache-mmu.excalidraw.png)
 
 :::important Index Key Calculation
+
 1. Divide the entire cache size by the cache line size to get the number of cache lines it can hold.
-2. Then divide the number of cache lines per set to get the number of sets. 
-This is the **associativity** of the cache.
+2. Then divide the number of cache lines per set to get the number of sets.
+   This is the **associativity** of the cache.
    For example, if the cache is 4-way associative, then each set will have 4 cache lines.
 3. Then use the index bits to calculate the index key.
 
@@ -49,6 +50,8 @@ In case of L1 Cache of 32 KB with 64 B cache line size and 4-way associativity:
 
 **This same logic is used to split all 3 levels of cache.
 Just different 'N-way' associativity is used to split the cache lines into sets.**
+
+This is very similar to how we calculate the index key for hash tables.
 :::
 
 ![Cache Key Generation](../../static/img/cpu-cache-split.excalidraw.png)
