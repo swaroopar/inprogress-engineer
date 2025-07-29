@@ -42,7 +42,7 @@ It's interesting to know that the storage disks comes with an inbuilt
 firmware and a micro controller which executes this firmware.
 
 This firmware is responsible for logical to physical sector mappings,
-LBA mappings, processes read and write requests from CPU and many more.
+LBA (Logical Block Addressing) mappings, processes read and write requests from CPU and many more.
 
 :::tip data transfer process
 when CPU asks for data at a specific location,
