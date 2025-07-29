@@ -12,7 +12,7 @@ There are no checks if the queued updates are making any changes
 that could be writing unwanted changes.
 :::
 
-:::tip Readers-Writer Lock
+:::important Readers-Writer Lock
 This default locking mechanism of a database is called
 [Readers—writer lock](https://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock)
 :::
