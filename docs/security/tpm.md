@@ -98,7 +98,7 @@ and the response's digital signature is verified using the public key.
 
 This is a feature that's used to protect sensitive data using TPM.
 This is the feature used by BitLocker to encrypt the disk encryption key.
-The sealed key feature can be used by any application to
+The sealed key feature can be used by any application to store a secret.
 
 :::important Sealed Key Generation and Reading
 
@@ -109,3 +109,15 @@ The sealed key feature can be used by any application to
 Here, the system asking for a sealed key must inform which PCR values must be used to seal the key.
 This is nothing but the PCR policy.
 :::
+
+## Remote Sealing
+
+This means, the remote system must first trust the TPM and then create a local seal on the TPM.
+
+:::warning difference to local sealing
+In case of local sealing process used by BitLocker, the key is generated locally and sealed in the TPM.
+
+But in case of remote sealing, a remote system first has to trust the TPM and then asks the TPM to seal the key.
+:::
+
+![remote-sealing](../../static/img/tpm-remote-sealing.excalidraw.png)
