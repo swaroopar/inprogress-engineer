@@ -7,7 +7,8 @@ This means, any random byte can be addressed and accessed without any need to re
 
 ![ram-structure](../../static/img/ram-physical-structure.excalidraw.png)
 
-1. **Channels** - It's the number of data paths between the RAM and the CPU. More channels mean more data can be transferred simultaneously.
+1. **Channels** - It's the number of data paths between the RAM and the CPU.
+   More channels mean more data can be transferred simultaneously.
    Dual channel means two channels are used but we must use two identical RAM sticks for this to work.
 2. **DIMM** - Dual In-line Memory Module is a type of RAM that has pins on both sides of the module.
    These pins work independently, allowing for more data to be transferred at once.
