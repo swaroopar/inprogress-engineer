@@ -88,3 +88,13 @@ This is how it can be used to read or write data.
 The picture above shows only a small size of the matrix.
 In reality, the matrix can be very large with many rows and columns.
 :::
+
+## Bus Size
+
+In most modern systems, the bus size is 64 bits.
+This means, the data transferred between the RAM and CPU is 64 bits at a time.
+This is why the RAM chips are designed to have 64 bits of data in each rank.
+
+But the CPU cache lines are 64 bytes.
+So the RAM must transfer 8 times the data to fill the cache line.
+This happens in bursts and multiple CPU cycles.
