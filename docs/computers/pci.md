@@ -48,7 +48,11 @@ This is exactly why each device configures it's BAR with this allocated physical
 
 ![wiki-root-complex](../../static/img/pci-root-complex.png)
 
+:::note image source
+The picture above is taken from [Wikipedia](https://en.wikipedia.org/wiki/PCI_Express).
+:::
+
 :::warning PCI devices via chipset
 For PCI devices connected via the chipset,
-the chipset only validates and forwards the request to the root complex to CPU.
+the chipset only validates and forwards the request to the root complex of CPU.
 :::
