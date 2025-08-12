@@ -3,8 +3,9 @@
 TPM is a chip on the motherboard that provides security functions.
 
 It's important to keep in mind that TPM is just a tamper proof recorder.
-Neither does TPM does any verification of the data that's written to it nor
-the systems writing data to it does any verification.
+TPM doesn't do any verification of the data being written to it.
+It's important to understand that TPM doesn't do anything by itself.
+The clients of TPM must use the functionalities by invoking the methods exposed by TPM.
 
 :::tip **platform** in TPM
 The word "platform" in TPM refers to the entire hardware and software that's running on the
@@ -64,16 +65,16 @@ This is set during the reboot of the system.
 1. Sealed key - for locally running applications.
 2. Attestation - for remote verification of PCR values.
 
-## PCR Quotes and Attestation
+## Key Attestation
 
-PCR quotes is nothing but the current values of PCR values.
-But the quote isn't returned as is.
-It's [digitally signed](digital-signatures) using the private AIK of the client requesting it.
-The verifier then gets the corresponding certificate from client and
-verifies the signature and then trusts the PCR quote values.
+Each client of the TPM must ask for it's own AIP Public and private key pair.
+The client gets the public key (similar to SSL CSR)
+and send this to privacy CA to get a certificate for it.
+This is called **Key Attestation** where the key provided by the TPM is attested by the CA
+and provides
 
-Attestation key is only for digitally signing.
-It's never used for encryption.
+All quote responses are then signed with this private key from TPM
+and the response's digital signature is verified using the public key.
 
 :::tip Why Attestation Needed?
 Attestation here is same as the real world attestation, where a trusted entity verifies the authenticity of a claim.
@@ -83,16 +84,24 @@ In this case, the certificate is issued by TPM, attested by privacy CA and verif
 Real world example - College issues certificate, Government Authority attests it, third party relies on the attestation.
 :::
 
-### Attestation Process
-
-Each client of the TPM must ask for it's own AIP Public and private key pair.
-The client gets the public key (similar to SSL CSR)
-and send this to privacy CA to get a certificate for it.
-
-All quote responses are then signed with this private key from TPM
-and the response's digital signature is verified using the public key.
-
 ![attestation-process](../../static/img/tpm-attestation-process.excalidraw.png)
+
+## PCR Quotes and Signing
+
+**PCR quotes** is nothing but the current values of PCR values.
+But the quote isn't returned as is.
+It's [digitally signed](digital-signatures) using the private AIK of the client requesting it.
+The verifier then gets the corresponding certificate from client (which was already [attested](#key-attestation)) and
+verifies the signature to trust the PCR quote values.
+
+**Attestation key** is used only for digitally signing.
+It's never used for encryption.
+
+## Attestation Report
+
+Attestation Report is just an extended report of the PCR quotes.
+It has more information on the history, timestamp, etc.
+Rest of the signing, certificate process remains same.
 
 ## Sealed Key
 
@@ -121,3 +130,10 @@ But in case of remote sealing, a remote system first has to trust the TPM and th
 :::
 
 ![remote-sealing](../../static/img/tpm-remote-sealing.excalidraw.png)
+
+## Roots of Trust
+
+**Static Root of Trust** - Here the root of trust is the BIOS/UEFI and it assumes that the BIOS/UEFI are trustworthy.  
+The BIOS then measures bootloader and then bootloader measures OS Kernel and
+the OS Kernel measures the next component in the boot process.
+**Dynamic Root of Trust** - The root isn't trusted by default. The measurement happens from root.

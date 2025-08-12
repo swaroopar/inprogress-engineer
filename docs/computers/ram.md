@@ -64,7 +64,7 @@ The values from all banks are concatenated to form the full 64 bit data.
 
 Each memory cell in the RAM is made up of a capacitor and a transistor.
 The transistor acts as a switch that can either allow or block the flow of current to the capacitor.
-It's used to read data from the capacitor or to write data to it.^
+It's used to read data from the capacitor or to write data to it.
 
 ![ram-cell](../../static/img/ram-memory-cell.excalidraw.png)
 

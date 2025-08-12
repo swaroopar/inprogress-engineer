@@ -111,3 +111,8 @@ sysfs
 procfs
 runtimes
 Merkel
+Anycast
+(?i)chipset(.*)
+Cloudfare
+PCIe
+NVMe
