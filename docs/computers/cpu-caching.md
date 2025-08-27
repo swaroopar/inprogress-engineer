@@ -40,9 +40,9 @@ Note that the entire caching happens using the physical address and not the virt
 
 ![Cache Addressing](../../static/img/cpu-cache-mmu.excalidraw.png)
 
-### Cache Key Calcuation
+### Cache Key Calculation
 
-1. Offset bits - set ot zero. Means the address of the starting byte of the cache line.
+1. Offset bits - set to zero. Means the address of the starting byte of the cache line.
 2. Index bits - used to identify which cache set.
 3. Tag bits - This is the actual **cache key**. This must match.
 

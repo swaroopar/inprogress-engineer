@@ -4,4 +4,4 @@
 
 This means, the CPU also have registers with size 64 bits.
 Using this, the CPU can hold 64 bit addresses.
-This inturn means, the RAM can be large enough which can be addressed using 64 bits.
+This in turn means, the RAM can be large enough which can be addressed using 64 bits.
