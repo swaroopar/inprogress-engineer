@@ -8,6 +8,12 @@ and L3 being the largest and slowest.
 2. Slow - The cache key has to be searched from the largest data set and
    also the cache must move from different levels to L1 and then finally to the register.
 
+:::important All flows through CPU Cache
+All data reading and writing happens via CPU cache.
+This is because the assumption is that whatever data is currently requested,
+is also required in the near future.
+:::
+
 ![cpu-cache](../../static/img/cpu-cache-lines.excalidraw.png)
 
 ## Cache Lines
@@ -34,6 +40,18 @@ Note that the entire caching happens using the physical address and not the virt
 
 ![Cache Addressing](../../static/img/cpu-cache-mmu.excalidraw.png)
 
+### Cache Key Calcuation
+
+1. Offset bits - set ot zero. Means the address of the starting byte of the cache line.
+2. Index bits - used to identify which cache set.
+3. Tag bits - This is the actual **cache key**. This must match.
+
+:::warning unique cache key
+Since the index bits are repeated across multiple cache lines, the tag bits are used to uniquely identify the cache line.
+:::
+
+![Cache Key Generation](../../static/img/cpu-cache-split.excalidraw.png)
+
 :::important Index Key Calculation
 
 1. Divide the entire cache size by the cache line size to get the number of cache lines it can hold.
@@ -54,12 +72,11 @@ Just different 'N-way' associativity is used to split the cache lines into sets.
 This is very similar to how we calculate the index key for hash tables.
 :::
 
-![Cache Key Generation](../../static/img/cpu-cache-split.excalidraw.png)
-
 ## Zeroing-Out Bits
 
-When the LSU component of CPU asks for data at a specific address,
-the cache controller always sets the last 'N' bits depending on the cache line size to zero.
+When the LSU(Load/Store Unit) component of CPU asks for data at a specific address,
+the MMU gets the physical address of it and sends it to the cache controller.
+The cache controller then always sets the last 'N' bits depending on the cache line size to zero.
 
 If the cache line is 64 bytes, then the last 6 bits are set to zero.
 This is necessary to fetch the data before and after the requested address to provide **spatial locality**.
@@ -86,3 +103,13 @@ Most common way is to use 'Write-Back' policy.
 When a write happens during a cache miss,
 then the data is loaded all the way from the main memory to the cache
 and then written back to the cache and the **dirty** flag is set.
+:::
+
+## Aligned and non-aligned access
+
+When the CPU wants 4 byte data
+but if the start of the first byte falls under an address that leads to a cache line boundary,
+then it may need to access two cache lines to fetch the complete 4 bytes.
+
+In this case, the hardware will have to do two memory fetches and
+then concatenate the bytes and send to CPU.

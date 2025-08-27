@@ -11,21 +11,22 @@ Trigon in Greek means triangle.
 
 ## Polar to Cartesian Conversion
 
-Cartesian conversion is the usual way of representing co-ordinates using x and y axis.
-
-Where as [Polar](https://en.wikipedia.org/wiki/Polar_coordinate_system)
-is where the length of the radius and the angle from the x-axis are used.
+Cartesian conversion is the most common way of representing the co-ordinates using x and y axis.
+Whereas, [Polar System](https://en.wikipedia.org/wiki/Polar_coordinate_system)
+uses the length of the radius and the angle from the x-axis to represent the position.
 
 Trigonometry exactly provides a way to convert between these two co-ordinate systems.
 
+```sh
 x = r(cos(θ))
 y = r(sin(θ))
+```
 
 :::important multiplicate with radius
 All trigonometric functions are multiplied with the radius.
 This is because the sine and cosine functions assume 'unit circle', meaning a circle with radius 1.
 
-Circumference - 2πR - 2π
+Circumference - 2πR and this is 2π in case of unit circle.
 
 This is also why all graphs show the x-axis with π or 2π as the time required for a full cycle.
 :::
@@ -33,10 +34,10 @@ This is also why all graphs show the x-axis with π or 2π as the time required 
 ## Circle
 
 This is the origin of the sine and cosine functions.
-Here a rotating point on the unit circle traces out the sine and cosine values.
+Here the co-ordinates of the point rotating on the circumference of the circle represent the sine and cosine values.
 
-cosine - x co-ordinate of the point on the circle.
-sine - y co-ordinate of the point on the circle.
+- cosine - x co-ordinate of the point on the circle.
+- sine - y co-ordinate of the point on the circle.
 
 :::tip Radian in a circle
 Radian is the length of the circular arc in a circle and
@@ -51,9 +52,11 @@ Sine and cosine values can be calculated using the properties of a right triangl
 Here the triangle can be placed inside a unit circle and
 the sine and cosine values can be calculated using the below formulas:
 
+```sh
 sine - opposite / hypotenuse
 
 cosine - adjacent / hypotenuse
+```
 
 :::warning opposite and adjacent is relative
 Opposite and adjacent values are relative to the angle θ
@@ -80,8 +83,10 @@ The movement forms the same sinusoidal shape and hence it's used or referred to.
 
 Whenever sine and cosine functions are evaluated, the angle (often denoted as θ, or "theta") is the input.
 But this input variable not really used by the function.
+
 It just denotes that the x and y variables are related to the angle θ in the unit circle.
-As the angle changes, the values of x and y co-ordinates which is nothing but cosine and sine function output also change.
+As the angle changes, the values of x and y co-ordinates which is nothing
+but the output of the cosine and sine functions also change.
 
 ## Time
 
