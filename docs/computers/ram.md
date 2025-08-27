@@ -98,3 +98,32 @@ This is why the RAM chips are designed to have 64 bits of data in each rank.
 But the CPU cache lines are 64 bytes.
 So the RAM must transfer 8 times the data to fill the cache line.
 This happens in bursts and multiple CPU cycles.
+
+## SRAM vs DRAM
+
+1. **SRAM (Static RAM)** - This is fast and expensive but needs more space for each bit.
+   It's used in CPU caches.
+   It's called static because it doesn't need to be refreshed like DRAM.
+   The charge written to the cell remains as long as it's needed.
+
+    :::important no capacitors needed
+    In SRAM, each bit is stored in a flip-flop made of transistors, eliminating the need for capacitors.
+    It needs 6 transistors instead.
+    :::
+
+2. **DRAM (Dynamic RAM)** - This is slower due to refresh cycles and cheaper
+   since it needs just one transistor and one capacitor for each bit.  
+   It's dynamic because the capacitors lose charge and must be refreshed periodically to maintain the data.
+   DRAM is commonly used for the main memory in computers.
+
+## Refresh Cycle
+
+There are two types of refresh happening in DRAM:
+
+1. **Row Refresh** - This is when a specific row in the memory is refreshed.
+   The memory controller will read the data from the row
+   and write it back to the same row to restore the charge in the capacitors.
+
+2. **Global Refresh** - This is when all rows in the memory are refreshed.
+   This is done to ensure that all data is preserved,
+   especially if the memory isn't being accessed frequently.

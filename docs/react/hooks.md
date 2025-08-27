@@ -17,7 +17,7 @@ It uses this to compare the new values, store current values and re-render as ne
 ## useCallback
 
 This hook is used to cache the [object Id](../javascript/functions.md) of the function itself.
-This is important not because the creation of a new reference of a child function happens always
+This is important because the creation of a new reference of a child function happens always
 when the parent function is called.
 
 :::danger How React uses child functions
