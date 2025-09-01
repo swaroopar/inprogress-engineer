@@ -14,6 +14,7 @@ and how page faults are thrown.
 
 CPU architecture defines the bit structure which defines which bit represents what.
 Last part of the entire bit array then has the actual physical address.
+This can be either the physical address in memory, or swap address when it's swapped.
 
 This bit structure is updated by MMU and also by CPU based on the scenario.
 
