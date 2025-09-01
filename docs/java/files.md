@@ -27,7 +27,7 @@ Here there is no actual byte buffer used.
 It's called buffer since it just acts as a bridge between JVM and the underlying file system.
 :::
 
-Since loading any file from ROM into memory includes the [page cache](../linux/memory-paging.md#swapping),
+Since loading any file from ROM into memory includes the [page cache](../computers/memory-paging.md#swapping),
 writing or reading data, it will be directly happening on the page cache.
 
 :::tip mmap()
