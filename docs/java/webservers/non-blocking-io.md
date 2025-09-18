@@ -67,8 +67,8 @@ Instead it represents the state of the socket it's interested in.
 1. The worker or the async thread knows when the response has been fully processed and ready to be sent.
 2. The final method call basically sets the interest for OP_WRITE event and the buffers with response data.
 3. The selector thread is anyways already monitoring for all events.
-4. When there is an OP_WRITE event, 
-it will copy the data to the response buffers of the connection socket file descriptor object.
+4. When there is an OP_WRITE event,
+   it will copy the data to the response buffers of the connection socket file descriptor object.
 
 :::important copying data between kernel space buffers and userspace buffers
 As part of the OP_READ and OP_WRITE,
