@@ -36,4 +36,17 @@ Port is just logical.
 Socket is just an C object used to read data from buffer and also write response back to buffer.
 :::
 
-![Ports and sockets](../../static/img/ports-sockets.excalidraw.png)
+![Ports and sockets](../../../static/img/ports-sockets.excalidraw.png)
+
+:::warning port is virtual and socket is virtual representation of the physical connection
+
+Port is a network property.
+It's important to understand that it's only virtual.
+Operation system simply **binds** the requested port to the process.
+It's the responsibility of the port to accept connections
+whenever the kernel's network stack sees that there is a packet for a specific port.
+
+Where as socket is how a network connection is expressed in software.
+Best explanation - UNIX socket is (in code) a data structure (or object) that you can use to send or receive data.
+This object has two queue fields. One for incoming data and one for outgoing data.
+:::
