@@ -46,7 +46,7 @@ HTMLElement
 img
 (?i)websockets?
 ws
-(?i)servlets?
+(?i)servlet(.*)
 performant
 Endian
 Lilliputans
