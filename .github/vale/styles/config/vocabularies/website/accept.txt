@@ -116,3 +116,6 @@ Anycast
 Cloudfare
 PCIe
 NVMe
+boolean
+gz
+rwx
