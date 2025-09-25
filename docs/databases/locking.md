@@ -14,12 +14,18 @@ that could be writing unwanted changes.
 
 :::important Readers-Writer Lock
 This default locking mechanism of a database is called
-[Readers—writer lock](https://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock)
+[Readers—writer lock](https://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock).
+Here the read requests can happen in parallel but write happens sequentially.
 :::
+
+![pessimistic-optimistic-locking](../../static/img/pessimistic-optmistic-locking.excalidraw.png)
 
 ## Optimistic Locking
 
 It's the locking mechanism that happens at **application level**.
+This means, the application must verify if something has changed and
+if something has changed, then the query must be updated and retried or
+handled based on the situation.
 
 :::tip why the name optimistic
 It's called so because this locking mechanism is very optimistic
@@ -37,6 +43,8 @@ isn't already updated by another concurrent transaction.
 
 It's the locking mechanism implemented by the **database** itself.
 But the application must control the database on how it must be applied.
+This is **specified in the query** it sends to the database and
+database then handles it.
 
 ### SQL syntax
 
