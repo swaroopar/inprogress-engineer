@@ -119,3 +119,6 @@ NVMe
 boolean
 gz
 rwx
+(?i)datagram
+connectionless
+teardown
