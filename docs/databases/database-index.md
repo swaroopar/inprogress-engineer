@@ -33,6 +33,18 @@ This is much better than the linear search which has a time complexity of O(n).
 This is necessary because every add, delete and update must update the index tree as well.
 :::
 
+## Sorting of index
+
+B-trees maintain sorted data, allowing for efficient range queries.
+The keys in the B-tree are stored in a sorted order,
+
+:::important data itself can be stored anywhere
+The indexes have the keys sorted and stored.
+But the actual data can be stored anywhere on the disk.
+
+Only in case of clustered indexes, the data is stored in the order of index.
+:::
+
 ## Size of B-tree Nodes
 
 Each node of the B-tree is again size of the disk's block size which is also known as page size.
@@ -56,13 +68,21 @@ It's the type of index where the data is 'clustered' together in the order of in
 If an index node in the tree points to a specific range of key,
 all the data in that range is stored in the stored together.
 
+:::warning Database defaults
+Whether a primary index is by default clustered or no is a database feature.
+Some databases such as MySQL have clustered primary indexes by default.
+:::
+
+:::important data order in the disk
+The physical order of rows on disk matches the index order.
+Only one clustered index per table is possible.
+:::
+
 ## Non clustered Indexes
 
 In this type of index, the data isn't stored in order.
 They can be put in any data block.
 
 :::warning Only one clustered index
-There can be only one clustered index per table because it controls the location of the data.
-
 All secondary indexes are non clustered indexes.
 :::
