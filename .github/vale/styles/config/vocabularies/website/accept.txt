@@ -122,3 +122,8 @@ rwx
 (?i)datagram
 connectionless
 teardown
+(?i)inorder
+(?i)preorder
+(?i)postorder
+(?i)Pre
+(?i)Sharding

@@ -25,13 +25,16 @@ const config: Config = {
     organizationName: 'swaroopar',
     projectName: 'website',
     onBrokenLinks: 'throw',
-    onBrokenMarkdownLinks: 'warn',
     i18n: {
         defaultLocale: 'en',
         locales: ['en'],
     },
     markdown: {
         mermaid: true,
+        hooks: {
+            onBrokenMarkdownLinks: 'throw',
+            onBrokenMarkdownImages: 'throw',
+        },
     },
     themes: ['@docusaurus/theme-mermaid'],
     presets: [
