@@ -1,6 +1,7 @@
-## Initial Ram Disk
+# Initial Ram Disk
 
-**initrd** is a [temporary file system](../storage/temporary-file-system.md) that's loaded from [boot](./boot-directory.md) into memory.
+**initrd** is a [temporary file system](../storage/temporary-file-system.md)
+that's loaded from [boot](./boot-directory.md) into memory.
 It contains the main **init** program that will be executed the kernel
 
 1. It starts the init process which starts the **systemd**.

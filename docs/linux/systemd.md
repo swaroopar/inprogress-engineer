@@ -8,7 +8,7 @@ It's part of the initramfs that's loaded during boot.
 3. Handles logging
 4. Takes over orphan processes
 5. If any new devices are detected, it will be handled via udev
-6. Also starts the graphical server to take over the system.
+6. Also starts the graphical server to take over the system
 
 :::danger systemd isn't an orchestrator
 systemd even though has the PID 1,
