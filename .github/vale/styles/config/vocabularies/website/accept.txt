@@ -100,7 +100,7 @@ cryptocurrency
 mempool
 (?i)blockchain
 initrd
-systemd
+(?i)systemd
 udev
 uevent
 tmpfs
@@ -127,3 +127,8 @@ teardown
 (?i)postorder
 (?i)Pre
 (?i)Sharding
+initramfs
+dnf
+vmlinuz
+bootable
+initrd

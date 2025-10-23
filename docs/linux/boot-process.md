@@ -1,4 +1,4 @@
-# CPU
+# Boot Process
 
 All a CPU can work on is the instructions that are supported by its instruction set.
 Only thing that matters is, who controls which instructions are executed.
@@ -20,3 +20,15 @@ ROM and disk devices are always referred as storage.
 :::
 
 ![boot process](../../static/img/cpu-bootload-process.excalidraw.png)
+
+## First steps after boot
+
+kernel loads [initramfs](./initrd.md) and executes the /init script inside it.
+
+:::warning hardware detected and drivers exist
+Kernel recognizes hardware and loads all drivers at the boot.
+It only hands over to initramfs after these steps are completed.
+
+When initramfs is loaded, it also looks for a standard location for the drivers
+and loads from there as well.
+:::
