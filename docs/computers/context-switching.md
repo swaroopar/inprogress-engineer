@@ -20,6 +20,16 @@ Whenever the OS reschedules a thread, it then copies all data from PCB
 so that the CPU can continue where it actually left off.
 :::
 
+### Process with multiple threads
+
+When a process has multiple threads,
+the OS maintains one data structure for each thread of the process.
+This is called Thread Control Block (TCB).
+One PCB contains a list of TCB objects for all threads of the process.
+
+When a thread is scheduled, OS uses the TCB of the thread to
+store and restore the context of the thread.
+
 ## Context Switch by CPU
 
 When CPU is executing instructions and in between if an interrupt signal is received
