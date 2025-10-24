@@ -17,11 +17,11 @@ But important is, the top most address of the stack is **tracked**.
 
 ## Stack Operations
 
-Whenever we push data, the top address is incremented and the data is added at that address.
-When we pop data, the top address is decremented and the data is removed from that address.
+Whenever we say **push data**, the top address is incremented and the data is added at that address.
+When we say **pop data**, the top address is decremented and the data is removed from that address.
 
 :::warning Stack Overflow
-If the stack is full and we try to push data, it results in a stack overflow.
+If the stack is full and we try to push more data, it results in a stack overflow.
 :::
 
 ## Frame concept
