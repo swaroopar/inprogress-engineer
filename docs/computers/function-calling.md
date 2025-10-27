@@ -17,6 +17,12 @@ When a function is called, the CPU needs to do the following:
 Stack is region in the process's [memory space](./process-memory.md).
 This is just the regular [stack and frame data structure](../data-structures/stacks.md#frame-concept).
 
+:::warning CPU doesn't know about stacks and frames
+It just executes instructions in the native code.
+This code manages stacks and
+ensures native code access stack memory with correct offsets from RBP and RSP registers.
+:::
+
 ## Registers Used
 
 RBP - Base Pointer Register: Points to the base of the current stack frame.

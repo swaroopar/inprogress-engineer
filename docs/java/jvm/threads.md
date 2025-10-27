@@ -13,7 +13,26 @@ Threads are created and are in an infinite loop waiting for tasks.
 When the main thread of the application receives the request,
 it just passes the request to the task queue from which the already created threads will pick up the work.
 
-![thread pool](../../static/img/threads.excalidraw.png)
+![thread-layers](../../../static/img/jvm-threads-relation.excalidraw.png)
+
+:::warning Sleeping Threads
+The Java's thread object has a link to OS thread.
+
+So when there is nothing running on the thread,
+the OS method is called to put the thread to sleep.
+This means the OS won't schedule the thread for CPU time until it's woken up.
+:::
+
+![thread pool](../../../static/img/threads.excalidraw.png)
+
+## Starting multiple threads
+
+JVM always creates the main thread itself and
+if the application code creates more threads,
+it will just execute the thread creation code in the main thread.
+
+When a new thread is created, JVM will create a new thread object in the heap memory
+and will also create a corresponding OS thread.
 
 ## Inter Thread Communication
 
@@ -34,7 +53,7 @@ For each JVM thread has a corresponding OS thread.
 This means the thread scheduling is managed by OS.
 JVM only queues tasks for the threads which are then scheduled and executed by the OS.
 
-![java-os-threads](../../static/img/java-thread-os-thread.excalidraw.png)
+![java-os-threads](../../../static/img/java-thread-os-thread.excalidraw.png)
 
 :::tip[Important Links]
 

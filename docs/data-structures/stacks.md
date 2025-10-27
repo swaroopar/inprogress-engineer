@@ -30,6 +30,8 @@ Even the frame concept is just virtual.
 It's left to the application to decide how to use the stack.
 You can ideally push any data and move the pointer.
 
+**Frames are just boundaries created by RBP**.
+
 :::important Offsets to access data
 The offsets are used to access the data in the stack.
 There is no specific size for each frame of the stack.
