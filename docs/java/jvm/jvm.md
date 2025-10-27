@@ -53,14 +53,14 @@ schedules execution of that code.
 Each application thread inside the JVM has an instance of the execution engine which
 executes the application byte code.
 
-![execution engine](../../static/img/jvm-execution-engine.excalidraw.png)
+![execution engine](../../../static/img/jvm-execution-engine.excalidraw.png)
 
 ## Transition between interpreter and JIT code
 
 While executing, the JVM encounters methods that are interpreted and also some which are JIT compiled.
 JVM can handle the transition between these modes of execution seamlessly.
 
-![execution mode transition](../../static/img/jvm-execution-transition.excalidraw.png)
+![execution mode transition](../../../static/img/jvm-execution-transition.excalidraw.png)
 
 :::important stack traces
 The stack trace in error logs what we see is the logical representation of the execution flow.
