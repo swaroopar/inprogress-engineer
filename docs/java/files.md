@@ -18,6 +18,15 @@ just to hold binary data. This is the type used in all IO operations.
 ## MappedByteBuffer
 
 This is Java's implementation of MMIO.
+The difference is, MMIO is for allowing CPU and kernel to access hardware devices directly using memory addresses.
+Whereas **mmap** is for mapping files into memory space of the process and
+access it as if it were part of the process's memory.
+
+:::warning avoid system calls
+Since system calls are very expensive, using memory mapped files avoid multiple system calls.
+This is because, once the file is mapped into memory, all read/write operations are done using
+memory access instructions and not system calls.
+:::
 
 In this case, the file is loaded into the memory and
 then this part of memory address is mapped into the JVM process's memory space.

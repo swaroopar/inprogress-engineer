@@ -5,7 +5,7 @@ Context switching in CPU happens in two different ways.
 1. OS scheduling different threads as part of preemptive scheduling.
 2. CPU itself switching context's due to hardware, software interrupts and exceptions.
 
-## Context Switch by OS
+## Context Switch by OS - S
 
 When OS switches the context, it stores the current context of the CPU using a
 concept called **Process Control Block**.
@@ -30,7 +30,7 @@ One PCB contains a list of TCB objects for all threads of the process.
 When a thread is scheduled, OS uses the TCB of the thread to
 store and restore the context of the thread.
 
-## Context Switch by CPU
+## Context Switch by CPU - Hardware Switch
 
 When CPU is executing instructions and in between if an interrupt signal is received
 (from any device or from system calls),

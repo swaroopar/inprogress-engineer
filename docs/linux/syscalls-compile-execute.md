@@ -36,3 +36,13 @@ with the ID of the system call handler method which will then be used by the ker
 - [System Calls - manybutfinite.com](https://manybutfinite.com/post/system-calls/)
 
 :::
+
+## System Call Flow
+
+The most important part of system calls is the context switching back from kernel space to userspace.
+
+The kernel executes the **SYSRET** instruction to switch back to userspace.
+When this is executed, the CPU switches the kernel's ring mode and
+also updates the IP, stack pointer and the page tables to point to userspace process.
+
+![system call flow](../../static/img/syscall-switching-process.excalidraw.png)
