@@ -18,9 +18,9 @@ When we say visiting a node, it means just going to that node without doing any 
 
 There are three ways to do DFS.
 
-1. Pre-order Traversal - Visit the root, then the left sub-tree, and finally the right sub-tree.
-2. In-order Traversal - Visit the left sub-tree, then the root, and finally the right sub-tree.
-3. Post-order Traversal - Visit the left sub-tree, then the right sub-tree, and finally the root.
+1. Pre-order Traversal - Process the root, then the left sub-tree, and finally the right sub-tree.
+2. In-order Traversal - Process the left sub-tree, then the root, and finally the right sub-tree.
+3. Post-order Traversal - Process the left sub-tree, then the right sub-tree, and finally the root.
 
 :::danger meaning of root
 Here when we say root, it means the current node.
@@ -30,8 +30,8 @@ It means, when we reach a node, we start considering that node as root of its ow
 **Knowing this small nuance then is very important to understand the traversal algorithms.**
 :::
 
-:::important meaning of word order in names
-Here the order in the names refer to the order in which the **root** of a node is processed.
+:::important meaning of word 'order' in names
+Here the 'order' in the names refer to the order in which the **root** of a node is processed.
 
 - **Pre** means, root is processed first.
 - **Post** means root is processed last.

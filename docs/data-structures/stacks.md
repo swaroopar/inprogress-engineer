@@ -39,3 +39,14 @@ The application popping must know how much data to pop.
 
 Also, this applies to the POP statements in assembly language as well as bytecode instructions in higher level languages.
 :::
+
+## Stack in programming languages
+
+- stack based language - here there are no registers. All operations are done using stack only.
+  Means even the return value is by default stored on stack.
+  Means there is no return statement as such.
+
+- [register based language](../computers/function-calling.md#function-call-instructions) - here registers are used for operations.
+  Stack is used only for function calls and local variables.
+  Means the return value is stored in a register and
+  only the code address of the called function is stored on stack.
