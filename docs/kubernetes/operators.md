@@ -1,6 +1,7 @@
 # Operators
 
-An **Operator** is a method of packaging, deploying, and managing a Kubernetes application.
+An **Operator** is an idea where software is used to manage applications and services.
+It provides a ways to automate deployment, upgrades, scaling, backup, etc.
 
 :::important Why the word operator?
 Operators in general are people who work in IT operations.
