@@ -1,6 +1,6 @@
 # Isolation in Containers
 
-This is achieved by using [namespaces](../linux/namesapces).
+This is achieved by using [namespaces](../linux/namespaces).
 
 :::info Not fully separated virtual machines
 Even though Docker gives a feeling that containers are individual machines, it's not true.
