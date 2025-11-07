@@ -43,3 +43,16 @@ Even simple commands such as ps or ls are also fork in the background.
 When a process forks another child process, the fork() system call will always create a child process as duplicate of itself.
 
 ![process fork](../../static/img/fork-process-duplication.excalidraw.png)
+
+## Process versus program
+
+Process is just a kernel object and the program is the one that's attached to the program.
+The kernel schedules the process for execution which in turn executes the program attached to it.
+
+:::important process comes first
+Process is created first and only after that a program is attached is it.
+
+A process without a program is called Zombie.
+:::
+
+![process-vs-program](../../static/img/linux-process-programs.excalidraw.png)

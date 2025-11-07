@@ -133,3 +133,4 @@ vmlinuz
 bootable
 initrd
 CRD(.*)
+kubelet

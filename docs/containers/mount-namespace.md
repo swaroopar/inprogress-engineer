@@ -1,6 +1,7 @@
 # Mount Namespaces
 
-When a container is started, docker creates a mount namespace with all necessary directories.
+When a container process is started, the process is attached to it's unique namespace.
+After that, the directories on the disk are mounted to this new mount namespace
 
 ## rootfs
 
@@ -23,4 +24,4 @@ So any of the system calls will go via the host kernel.
    These are just mostly read only dynamic kernel information.
    When executed, the kernel returns whatever information the process's namespace can see.
 
-2. **rootfs** is part of the container.
+2. **rootfs** is part of the image.
