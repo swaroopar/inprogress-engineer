@@ -12,6 +12,12 @@ The default application the terminal starts is the **shell**
 and is part of the user configuration.
 :::
 
+## Real vs Pseudo Terminals
+
+The pseudo terminal applications just emulate what the physical terminals did in the past.
+
+![terminal-comparison](../../static/img/linux-pseudo-vs-real-terminals.excalidraw.png)
+
 ## Line Discipline
 
 In a terminal, the **line discipline** is the way input and output are handled.
