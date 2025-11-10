@@ -20,8 +20,30 @@ So any of the system calls will go via the host kernel.
 
 ## Isolation
 
-1. Docker mounts all new virtual filesystems - /dev, /proc, /sys, etc.
+1. Docker binary bind mounts all required virtual filesystems from host - /dev, /proc, /sys, etc.
    These are just mostly read only dynamic kernel information.
    When executed, the kernel returns whatever information the process's namespace can see.
-
 2. **rootfs** is part of the image.
+3. Old root namespace from the host is unmounted from the container's mount namespace.
+
+## Mount Namespace Setup
+
+This is the most important and interesting one.
+Understanding this makes it easy to understand how Kubernetes pods work.
+
+The 'OverlayFS' what Docker uses is something that's prepared on the host system.
+The Docker binary does it when we execute the **docker run** command.
+
+:::warning interesting hack
+
+1. when docker starts the **runc** process,
+   it first creates a new mount namespace as a copy of the host's mount namespace.
+2. It means, the entire host file system is visible inside this new mount namespace.
+3. Then it will change the rootfs to point to the OverlayFS mount point.
+4. This step will move the old root mount point to another location.
+5. This backup location is used to [bind the volumes](../linux/bind-mounts.md) requested via **-v** option.
+6. Finally it will un-mount the backup location to hide the host file system.
+
+NOTE - But the bind mounted volume remains visible even thought it was mounted from the backup location.
+This is because the kernel still knows the actual inode and dentry of the underlying file or directory.
+:::

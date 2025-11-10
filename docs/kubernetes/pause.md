@@ -16,7 +16,7 @@ docker run --name k8s_app_my-pod \
   --network container:k8s_POD_my-pod \  # Join pause's network NS
   --ipc container:k8s_POD_my-pod \      # Join pause's IPC NS
   --pid container:k8s_POD_my-pod \      # If shareProcessNamespace
-  --volume /var/lib/kubelet/pods/.../mount:/data \
+  --volume /var/lib/kubelet/pods/.../mount:/data \ # Bind mount volume from pause's mount namespace
   my-app-image
 ```
 
