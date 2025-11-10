@@ -10,7 +10,7 @@ Process is one such structure.
 
 It's this structure **task_struct** that the kernel uses to manage the anything that must be executed.
 This has all information related to the process such as PID, page table location,
-register information such as current instruction pointer of the thread, etc.
+register information such as current instruction pointer of the thread, all necessary register values, etc.
 
 :::important threads and processes
 There is no big distinction between thread and process for the kernel when it comes to executing it.
@@ -38,11 +38,68 @@ It's started by the Kernel and it then forks all other system services at boot.
 Even simple commands such as ps or ls are also fork in the background.
 :::
 
-### Process Duplication
+### Process creation
 
 When a process forks another child process, the fork() system call will always create a child process as duplicate of itself.
 
 ![process fork](../../static/img/fork-process-duplication.excalidraw.png)
+
+For example, when bash wants to start another process,
+it will execute a fork or clone of the existing process.
+
+This new process is created by the kernel which means a new **process structure** is created.
+This fork() function implementation of kernel sets the return value of fork() as 0 in the child process
+and the actual PID of the child process for the parent process.
+
+Since the child process also continues the same parent program
+from the same instruction pointer which called the fork() system call,
+the child process's program takes a different path when it sees fork() returned 0.
+
+This path then calls the other system call called execve()
+which then replaces the parent program with something else that was requested.
+
+:::important responsibility of parent process
+It's the responsibility of the parent process to have the below mentioned logic.
+:::
+
+```c
+# Example code to show how programs that start another programs are implemented.
+pid_t pid = fork();
+if (pid == 0) {
+    // Child Process enters this path
+    setup_io_redirection();
+    execve("/bin/ls", args, envp);
+} else {
+    // Parent process continues to wait.
+    // If its background process, then it will exit immediatly.
+    waitpid(pid, &status, 0);
+}
+```
+
+:::important different examples
+
+1. This is how bash executes other commands.
+   The stdio values of the new command is also set to the values of bash process.
+   That's why we see the output in the bash process still.
+2. Docker runtime starts different container processes also in this way.
+3. Kubelet also starts containers in this way.
+   :::
+
+:::danger logic based on return value of fork()
+It's a [POSIX](./posix.md) standard that fork() returns a 0 to the cloned child process.
+:::
+
+## Process is always forked or cloned from a parent
+
+Processes are always started from another process.
+[systemd](./systemd.md) is the only process that kernel starts itself.
+After that every process must come out of another process.
+
+:::tip Example parent processes
+
+1. Kubelet - it's configured as system service. So systemd will fork and then start kubelet program.
+2. containers - kubelet then forks other containers and start the container program.
+   :::
 
 ## Process versus program
 

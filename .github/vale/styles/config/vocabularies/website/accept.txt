@@ -133,4 +133,6 @@ vmlinuz
 bootable
 initrd
 CRD(.*)
-kubelet
+(?i)kubelet
+runc
+pivot_root

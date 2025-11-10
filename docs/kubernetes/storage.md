@@ -38,7 +38,7 @@ link it to the PVC.
 This is similar to what we saw in [ingress](ingress.md).
 Every storage class represents a different provisioner.
 
-:::info Default storage class
+:::tip Default storage class
 Every cluster has a default storage class.
 Every PVC created without specifying a storage class will use the default storage class.
 :::
@@ -48,10 +48,20 @@ Every PVC created without specifying a storage class will use the default storag
 Storage access modes defines what kind of access is required for the volume.
 It's the storage class and the access modes which determines the provisioner that will handle the request.
 
-:::info Access modes are for Nodes
+:::danger Access modes are for Nodes
 Access modes aren't for Pods. It's at node level.
 
 For example, if a volume is mounted on a node in ReadWriteOnce mode,
 then it's mounted on a single node and all pods on that node can access it.
 But if we use the RWOP mode, then the volume can be also used by only one pod at a time.
+:::
+
+## Volume Mount Location
+
+The CSI specifies where the volume must be mounted on the host.
+Kubelet expects the volume at that very specific location after the volume provisioning is complete.
+
+:::tip volume path example
+This is defined by the specifications -
+`/var/lib/kubelet/pods/${pod-uid}/volumes/${plugin-name}/${volume-name}/`
 :::

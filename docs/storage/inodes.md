@@ -55,7 +55,8 @@ This is because storing inode also takes space in the disk's super block.
 ## dentries
 
 Directory entries (dentries) are the **map** between the file/directory name and its inode number.
-This map is the content of the directory data blocks.
+This map is the content of the directory.
+The inode of a directory contains address of the data block which holds this map data.
 
 There is a dentries cache maintained by kernel on memory.
 It keeps adding data to it whenever files are accessed.
