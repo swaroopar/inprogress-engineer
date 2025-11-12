@@ -136,3 +136,10 @@ CRD(.*)
 (?i)kubelet
 runc
 pivot_root
+(?i)liveness
+(?i)readiness
+etcd
+daemonSet
+emptyDir
+hostPath
+configMap

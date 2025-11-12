@@ -1,17 +1,30 @@
-# Storage
+# Persistent Storage
 
-In Kubernetes, storage has multiple concepts which represent the entire storage lifecycle.
+In Kubernetes, there are many types of volumes and persistent storage is just one type of volume.
+It has multiple concepts which represent the entire storage lifecycle.
 
-1. **Provisioner** - Main controller which handles provisioning of storage.
-   It handles creating of storage on the underlying infrastructure.
-2. **Driver** - It's the controller that implements the Container Storage Interface (CSI) specification.
-   It's running on each node and is responsible for mounting and un-mounting volumes to/from nodes.
+This type of volume supports static or dynamic provisioning.
+Which means, the volume provisioning is fully abstracted to the user.
+
+1. **plugin** - It's just the interfaces defined by Kubernetes
+   which must be implemented by any storage provider to offer volume to the cluster.
+   There are many types of plugin and most of them are implemented natively within the kubelet itself.
+   Only CSI plugin was introduced where the implementations come externally.
+2. **Driver** - It's the controller that implements the plugin specification.
+   It's running mostly as controller on admin layer and the node driver is running as a daemonSet on each node.
 3. **Storage Class** - Represents different types of storage available.
    Depending on storage class requested, different provisioners will handle the request.
 4. **Persistent Volume Claim** - Request for storage by a user.
+   This is the [**volume type**](volumes.md) requested by the user.
 5. **Persistent Volume** - Actual storage resource created on the infrastructure.
    Every persistent volume claim will be bound to a persistent volume.
 6. **VolumeClaimTemplate** - Used in StatefulSets to create a persistent volume claim for each pod.
+
+:::important volume plugins vs drivers
+Plugins are just pure interfaces and drivers are the implementation.
+This is exactly why there are multiple types of plugin such as CSI, NFS, local, etc.
+Drivers for some are already part of vanilla Kubernetes.
+:::
 
 :::warning PVC vs VolumeClaimTemplate
 When we've a deployment with 3 replicas,
@@ -21,10 +34,12 @@ But in case of StatefulSets, we need to use a VolumeClaimTemplate.
 In this case, each pod will get it's own Persistent Volume Claim (PVC) using the requested template.
 :::
 
+## CSI Plugin Workflow
+
 ![k8s-storage-components](../../static/img/k8s-storage-building-blocks.excalidraw.png)
 
 :::important PV is dynamically created
-When a Persistent Volume Claim (PVC) is created, the Provisioner dynamically creates a Persistent Volume.
+When a Persistent Volume Claim (PVC) is created, the PVC controller creates the PV resource by itself.
 The user need not create a Persistent Volume (PV) manually.
 
 In cases where the storage provisioning isn't automated,
@@ -65,3 +80,15 @@ Kubelet expects the volume at that very specific location after the volume provi
 This is defined by the specifications -
 `/var/lib/kubelet/pods/${pod-uid}/volumes/${plugin-name}/${volume-name}/`
 :::
+
+## Different types of volumes
+
+1. **emptyDir** - Means the directory is empty when started and also is emptied/deleted when the pod is deleted on the node.
+   It can also be memory backed storage.
+2. **hostPath** - The data in the volume is specific to the host.
+   When a pod is scheduled to another host, then it sees completely different data volume on that host.
+3. **persistentVolumeClaim** - Long-term storage. The volume and its data survives pod restarts.
+4. **configMap** - injects configMap data as files.
+5. **secret** - Injects secrets as files or environment variables.
+6. **downwardAPI** - Pod metadata is provided as files inside the pod.
+7. NFS, iSCSI, local, many more.
