@@ -143,3 +143,4 @@ daemonSet
 emptyDir
 hostPath
 configMap
+classpath

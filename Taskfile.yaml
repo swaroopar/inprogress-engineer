@@ -1,0 +1,51 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+    format-lint:
+        desc: run all lint commands togeter
+        cmds:
+            - npx prettier --config .prettierrc --write .
+            - npx eslint . --max-warnings=0
+
+    vale-lint:
+        cmds:
+            - docker run --rm -v $(pwd)/.github/vale/styles:/styles --pull=always --rm -v $(pwd):/docs -w /docs jdkato/vale .
+    rename:
+        desc: 'Detect changed excalidraw.png files in Git and rename them in place'
+        silent: true
+        cmds:
+            - |
+                #!/usr/bin/env sh
+                set -euo pipefail
+
+                echo "Detecting changed excalidraw files (from git status)..."
+
+                CHANGED_FILES=$(git status --porcelain | awk '{print $2}' | grep '\.excalidraw.png$' || true)
+
+                if [ -z "$CHANGED_FILES" ]; then
+                echo "No changed excalidraw files found."
+                exit 0
+                fi
+
+                echo "Renaming changed files..."
+                for f in $CHANGED_FILES; do
+                    if [ -f "$f" ]; then
+                        dir=$(dirname "$f")
+                        base=$(basename "$f" .png)
+                        mv "$f" "${dir}/${base}"
+                        mv "${dir}/${base}" "$f"
+                        echo "→ $f renamed in place"
+                    fi
+                done
+
+                echo "Done renaming changed excalidraw files."
+
+    build:
+        desc: Run all tasks requried for a full clean build
+        # It's fine to run these tasks in parallel.
+        deps:
+            - format-lint
+            - vale-lint
+            - rename
