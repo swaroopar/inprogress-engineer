@@ -27,7 +27,7 @@ This exactly why the epoch time is just a long value.
 It's the number of seconds elapsed from 00:00::00 Jan 1, 1972.
 :::
 
-:::danger Time standards and Time zones
+:::tip Time standards and Time zones
 UTC or GMT doesn't have the concept of timezone.
 It's applied on the client side only.
 :::
