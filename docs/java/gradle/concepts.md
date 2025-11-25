@@ -31,7 +31,7 @@ For example, in **this.executeFunctionName()**, **this** is the receiver.
    Which means, all functions and variable assignments in this anonymous function
    will be executed with the argument object as **this**.
 
-:::tip example for lambdas with receiver (anonynomous functions)
+:::tip example for lambdas with receiver (anonymous functions)
 
 ```kts
 repositories { # repositories() is a method on project receiver.
@@ -39,10 +39,10 @@ The repositories method has defintion fun Project.repositories(configure: Reposi
     mavenCentral(); # mavenCentral() method is then executed with receiver as RepositoryHandler. Means repositoryHandler.mavenCentral();
 }
 ```
+
 :::
 
 :::note Argument in groovy DSL
 Arguments in groovy DSL are closures.
-But in Kotlin DSL, they are just passed as function thats executed
+But in Kotlin DSL, they're just passed as function that's executed with a specific receiver.
 :::
-
