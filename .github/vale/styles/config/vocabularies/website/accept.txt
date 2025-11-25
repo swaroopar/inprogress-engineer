@@ -144,3 +144,4 @@ emptyDir
 hostPath
 configMap
 classpath
+(?i)gradle
