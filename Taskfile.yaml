@@ -8,6 +8,7 @@ tasks:
         cmds:
             - npx prettier --config .prettierrc --write .
             - npx eslint . --max-warnings=0
+            - npx knip
 
     vale-lint:
         cmds:
