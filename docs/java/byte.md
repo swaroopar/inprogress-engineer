@@ -1,7 +1,7 @@
 # Byte Data Type
 
 In Java, Byte is a data that represents an **8 bit** signed integer.
-It can hold values from (–128) to 127.
+It can hold values from (—128) to 127.
 
 :::important Its the smallest int possible
 Other integer types in Java include short (16 bit), int (32 bit), and long (64 bit).

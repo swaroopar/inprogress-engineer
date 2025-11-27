@@ -22,8 +22,8 @@ it's impractical to store this information in a traditional database.
 - **set** - We will need one set for each user and
   search in the set is 0(1) time but the size of the set will be too big.
 - **binary tree** - We will need a big tree meaning, we will be spending too much memory for just holding the internal nodes.
-- **database** - If number of users is 1 million (10^6) and number of shorts is 1 billion (10^9),
-  then the total number of entries in the database would be 10^15.
+- **database** - If number of users is 1 million (10⁶) and number of shorts is 1 billion (10⁹),
+  then the total number of entries in the database would be 10¹⁵.
 
 :::tip trade-off provided
 This data structure provides space and time efficiency but correction loss.
