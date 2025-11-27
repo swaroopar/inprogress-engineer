@@ -2,7 +2,7 @@
 
 1. **ALU** - Responsible only for integer operations.
 2. **FPU** - Responsible only for floating point operations.
-3. **SIMD** - Single Input Multiple Dimensions.
+3. **SIMD** - Single Instruction, Multiple Data.
 4. **Registers** - Holding data.
 5. **LSU** - Load and store unit responsible for handling memory operations.
 6. **CU** - Control unit responsible for the execution.
