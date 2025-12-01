@@ -9,3 +9,10 @@ The data link layer of a subnet is extended by making a router part of the netwo
 
 This is exactly why any broadcast messages reach the gateway interface as well.
 :::
+
+## Software behind Gateway
+
+Whenever a gateway is created, there is a software behind it that handles and
+routes all request coming in and going out.
+
+![network-gateway](../../static/img/network-gateway.excalidraw.png)
