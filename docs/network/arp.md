@@ -49,5 +49,5 @@ In case of switches with VLANs, it broadcasts the ARP request only to devices wi
 ## ARP between switches
 
 When a switch is connected to another switch,
-the ARP requests are even broadcasted to the other switch.
+the ARP broadcast is sent also to the other switch.
 Just consider it as another switch or another way of adding more ports to the same switch.
