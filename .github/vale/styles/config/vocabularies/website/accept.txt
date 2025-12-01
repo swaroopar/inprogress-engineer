@@ -145,3 +145,8 @@ hostPath
 configMap
 classpath
 (?i)gradle
+veth
+net_device
+ip_forward
+subnet
+VLANs
