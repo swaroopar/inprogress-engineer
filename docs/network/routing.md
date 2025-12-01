@@ -18,3 +18,17 @@ then the L2 address resolution happens to find the MAC address of the next hop.
 Even though router has multiple ports, the router has one single routing table.
 This is how the data coming from one port is routed to another port by the router.
 :::
+
+Since router is one single program which just handles data from multiple interfaces,
+the routing between two domains happen together with the help of switches.
+
+## Router and Switch Integration
+
+![switch-router-interaction](../../static/img/network-switches-router-integration.excalidraw.png)
+
+:::warning Routers with switches
+It's important to keep in mind that, routers always open up the frame until layer 3 and do the routing based on that.
+Whereas, switches will open only the frame to check MAC address and route based on that.
+
+Both have their software written which reads data from and to multiple ports.
+:::

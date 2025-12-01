@@ -73,9 +73,13 @@ It doesn't matter how many IP addresses a device has.
 What matters is, using this IP, the device is part of which network and
 how the routing rules are setup between these networks.
 
+1. If there are multiple IP addresses, the ARP request must respond to all IP addresses with MAC address.
+2. Once received, kernel will check if there is any process listening on the given IP and the port.
+   If yes, forward data to that process.
+
 ![kernel-the-single-router](../../static/img/network-multiple-ips.excalidraw.png)
 
-:::danger kernel is just one single router
+:::warning kernel is just one single router
 The most important mental model is to understand that on every host,
 kernel is the main and the only router.
 

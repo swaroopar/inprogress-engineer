@@ -44,12 +44,16 @@ allow communication between different namespaces as long as the devices are conn
 
 ## Why docker subnet can't be reached from outside network?
 
-1. When external system sends an ARP request,
-   none of the physical switches really know about this network.
-   So no request ever reaches the host itself.
+When external system sends an ARP request,
+none of the physical switches really know about this network.
+so no request ever reaches the host itself.
+See [routing](../network/routing.md#router-and-switch-integration) document for more information.
 
 :::tip What happens if the packet reaches host
-If the ARP reaches the host router, it's routing table will forward it to the gateway.
-Gateway will then do ARP and forward it to the container.
+If at all somehow the ARP reaches the host router, the host will answer with MAC address.
+Then the host will receive the data, check the destination IP and consult the routing table.
+Then it will forward the frame to the container gateway.
+
+The container network's gateway will perform do ARP on the destination IP and forward it to the container.
 But this will never happen since the internal network isn't exposes outside at all.
 :::
