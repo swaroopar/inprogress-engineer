@@ -2,14 +2,23 @@
 
 ## Kernel as Router
 
-Routing happens at namespace level.
+A Öinux host has just one router. It's this router that handles all namespaces.
+
 Each network namespace has its own routing table.
-Every network space gets its own instance of the **ip_forward** kernel C structure.
+This means, whenever there the packet comes from or to a virtual device on a specific namespace,
+then it will switch all configuration data of that corresponding namespace and handle accordingly.
 
 :::warning not container level
-It feels like routing happens at container level or host level.
-But it's actually one router per namespace.
+It feels like routing happens at container level.
+But it's actually all happening at host level.
 :::
+
+## Enable Kernel as router
+
+To enable kernel to act as router, we set parameter `net.ipv4.ip_forward=1`.
+See [router definition](../network/routing.md#router) to understand the background.
+When this is set to 0, kernel doesn't do IP packet forwarding and
+it can handle only whatever comes to it's own IP address.
 
 ## C Structure for NIC
 

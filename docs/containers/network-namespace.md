@@ -1,8 +1,8 @@
 # Network Namespaces
 
-Container runtime first executes such a command and
+Container runtime first executes a command like below to create necessary virtual network devices and
 then moves the source virtual port to container's network namespace.
-What exactly happens in the kernel can be understood [here](../linux/network-devices.md#how-physical-and-virtual-devices-created).
+What exactly happens inside the kernel during this can be understood [here](../linux/network-devices.md#how-physical-and-virtual-devices-created).
 
 ```bash
 # System call to kernel to create device veth0 of type veth and connect it to peer veth1
@@ -13,6 +13,7 @@ ip link add veth0 type veth peer name veth1
 
 It's this isolation that provides each container its own memory structures for network devices,
 routing tables, firewall rules, and other network-related configurations.
+See [Linux network device](../linux/network-devices.md#kernel-as-router) to understand how this is achieved.
 
 :::warning no restriction on connection between namespaces
 Namespaces only provides isolation of memory structures.
@@ -31,7 +32,8 @@ See [this page](../linux/network-devices.md#how-multiple-ips-on-the-same-device-
 ## Docker Networking Model
 
 :::important Docker implementation and not kernel restriction
-Lot of setup what we see in Docker networking model is it's own implementation.
+The setup what we see in Docker networking model is it's own design,
+on how it would like to use the network capabilities of the kernel.
 Kernel doesn't enforce any such rules or models.
 :::
 
@@ -49,7 +51,7 @@ none of the physical switches really know about this network.
 so no request ever reaches the host itself.
 See [routing](../network/routing.md#router-and-switch-integration) document for more information.
 
-:::tip What happens if the packet reaches host
+:::tip What happens if the ARP reaches host
 If at all somehow the ARP reaches the host router, the host will answer with MAC address.
 Then the host will receive the data, check the destination IP and consult the routing table.
 Then it will forward the frame to the container gateway.

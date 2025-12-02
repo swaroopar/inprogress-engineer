@@ -1,6 +1,18 @@
 # Routing
 
-It's the rules that simply states
+## Router
+
+A router is a device that can forward packets **between it's own interfaces**
+using IP address and the routing table.
+
+:::tip Router extracts IP data
+Router extracts the IP from the Ethernet frame and then uses its routing table
+and forwards it to another interface.
+:::
+
+## Routing Rules
+
+It's the rule that simply states
 
 1. which network interface to use.
 2. 'next hop' IP address to use (if any).
