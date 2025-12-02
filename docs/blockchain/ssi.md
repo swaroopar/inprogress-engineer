@@ -37,7 +37,7 @@ It's the verifiable credential that's presented by the **holder** to the **verif
 2. The credential contains also the signature from the issuer.
 3. Signed by the holder to prove his identity.
 
-:::warning Mutiple proofs
-The verifiable presentation has an parent proof for the entire DID document, 
+:::warning Multiple proofs
+The verifiable presentation has an parent proof for the entire DID document,
 and the DID document internally contains the proof details of the issuer.
 :::
