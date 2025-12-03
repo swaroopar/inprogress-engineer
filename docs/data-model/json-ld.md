@@ -13,6 +13,8 @@ JSON Linked Data is a JSON based payload where
 It's mainly for global interoperability of data across different systems.
 For example, multiple organization can share common data definitions in a central place
 and refer to them in their own data models with any names they wish.
+
+It's coming from a concept called **Semantic Web** where data is linked across different sources on the web.
 :::
 
 ![JSON-LD Example](../../static/img/data-model-json-ld.excalidraw.png)
@@ -31,9 +33,10 @@ JSON-LD is one of the serializations of RDF.
 So JSON-LD is a way to represent RDF data model in JSON format.
 
 :::danger example mapping
-**subject** is the @Id in JSON-LD..
-**predicate** is the field name.
-**object** is the field value.
+
+- **subject** is the @Id in JSON-LD..
+- **predicate** is the field name.
+- **object** is the field value.
 
 **NOTE**: @type is a special predicate in RDF which is also used in JSON-LD.
 :::
