@@ -19,9 +19,9 @@ It's coming from a concept called **Semantic Web** where data is linked across d
 
 ![JSON-LD Example](../../static/img/data-model-json-ld.excalidraw.png)
 
-## JSON-LD and RDF
+## JSON-LD versus RDF
 
-RDF (Resource Description Framework) is a data model for linked data.
+RDF (Resource Description Framework) is an abstract data model for representing linked data.
 Which means, it allows us to represent data as a graph of relationships.
 RDF represents data as triples: subject, predicate (property/relationship), object.
 Everything is a 3-tuple.
@@ -29,8 +29,13 @@ Everything is a 3-tuple.
 - Every entity (subject or object) can be identified globally via a URI. (IDs)
 - Predicates (properties) are also URIs, giving them precise, machine-readable meaning (Context).
 
-JSON-LD is one of the serializations of RDF.
+JSON-LD is one of the implementations and serialization methods of RDF.
 So JSON-LD is a way to represent RDF data model in JSON format.
+
+:::warning URI vs URL
+It's very important to understand that the IDs here are URIs and not URLs.
+They look like URLs can also be resolved but they're just unique identifiers.
+:::
 
 :::danger example mapping
 
@@ -49,7 +54,7 @@ So JSON-LD is a way to represent RDF data model in JSON format.
 3. JSON can't refer to external data
 4. HATE-OS in REST APIs only provide URIs to access data, but not the data itself.
 
-:::warning different from Hate-OS
+:::info different from Hate-OS
 In Hate-OS, the clients must use the links to fetch or do other actions on the resource.
 But in JSON-LD, they URIs just refer to other resources from other sources.
 The clients can still use the data in the payload directly.
@@ -63,3 +68,8 @@ The clients can still use the data in the payload directly.
   This refers to any resource, anywhere on the web or local.
   It's the **subject**.
 - **@type**: defines the meaning/type of the object itself.
+- **"vocab**: When used, call fields are simply referred directly from this vocab.
+  Again the client doesn't go the URL mentioned here,
+  instead implicitly takes the context URI of the field name as 'vocab URI + field name'.
+
+## Standards vs Implementation
