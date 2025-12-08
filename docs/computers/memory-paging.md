@@ -28,7 +28,7 @@ it's not referring to the actual address in the physical memory (RAM).
 Instead it's referring to the virtual address pointer and
 then uses MMU (Memory Management Unit) to translate it to the actual physical address pointer.
 
-![page table](../../static/img/memory-pages.excalidraw.png)
+![page table](../../static/img/computer-memory-pages.excalidraw.png)
 
 ## Page Fault Types
 
