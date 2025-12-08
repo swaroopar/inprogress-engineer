@@ -2,7 +2,7 @@
 
 When a program is executed, the operating system allocates a dedicated memory space for the process.
 
-![Process Memory Layout](../../static/img/process-memory.excalidraw.png)
+![Process Memory Layout](../../static/img/computer-process-memory.excalidraw.png)
 
 ## Memory Segments
 

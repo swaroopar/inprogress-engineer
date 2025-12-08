@@ -14,7 +14,7 @@ Then kernel takes over the control of CPU and executes its instructions and init
 then makes the system ready for userspace applications.
 
 :::important memory means RAM only
-When we say memory means only and only RAM.
+When we say memory, it means only and only RAM.
 
 ROM and disk devices are always referred as storage.
 :::

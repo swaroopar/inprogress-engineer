@@ -56,7 +56,7 @@ Gradle
 Goroutines?
 (?i)truststore
 (?i)trustmanager
-userspace
+(?i)userspace
 (?i)bootloader
 glibc
 task_struct
