@@ -7,7 +7,7 @@ It receives the requests and
 then runs through the HTTP filters and
 then calls the actual Java class/method which will handle the request.
 
-![servlet-container](../../../static/img/webserver-servlet.excalidraw.png)
+![servlet-container](../../../static/img/java-webserver-servlet.excalidraw.png)
 
 :::tip Servlet containers vs HTTP Servers
 Plain HTTP servers only implement HTTP protocol and even serve only static content.
