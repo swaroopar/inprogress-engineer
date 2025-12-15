@@ -116,7 +116,7 @@ Anycast
 Cloudfare
 PCIe
 NVMe
-boolean
+(?i)boolean
 gz
 rwx
 (?i)datagram
