@@ -4,10 +4,12 @@ Since I have mostly worked with Maven,
 it's important to understand basics of Gradle to use it in the right way.
 
 1. **project** - This is the main object. All what we do in the Kotlin DSL files is to update this object.
-1. **plugins** - They're the components with the main logic. They group 1:N tasks.
+2. **plugins** - They're the components with the main logic. They group 1:N tasks.
    Gradle runtime just executes plugin code.
-1. **apply** and **plugin** - Adds tasks in the plugin to the project object.
-1. **extensions** - Plugin properties that can be configured during the build.
+   In the build script file, this plugin block is handled by the compiler differently.
+   It's parsed and applied before the script runs.
+3. **apply** and **plugin** - Adds tasks in the plugin to the project object.
+4. **extensions** - Plugin properties that can be configured during the build.
 
 ![gradle-components](../../../static/img/gradle-components.excalidraw.png)
 
