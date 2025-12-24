@@ -23,12 +23,12 @@ It's about classifying or grouping the function based on its growth rate.
 :::tip Big O wasn't for computer science initially
 Big O notation was initially used in number theory and analysis of algorithms came later.
 
-When it was created,f = O(N) meant the following:
+When it was created, f = O(N) meant the following:
 
-"f belongs to the order/class defined by N"
-"f is in the category of functions that grow like N"
-"f and N are of the same order of magnitude"
-:::
+- "f belongs to the order/class defined by N"
+- "f is in the category of functions that grow like N"
+- "f and N are of the same order of magnitude"
+  :::
 
 ## Theoretical vs Practical Usage
 
@@ -133,3 +133,38 @@ the N term dominates the log N term, so the shape of the graph is determined by 
 **This means, the constants don't change the rate of growth.
 The difference in the rate of growth still remains the same even if the constants are present.**
 :::
+
+:::tip mental model for constants in loops
+
+Whenever there is loop, the work done inside the loop is considered constant.
+This is because, this adds a constant amount of work per iteration.
+
+So how to look at this is, if the entire runtime is log N
+and this means the loop runs log N times.
+In this case, if there are two statements inside the loop,
+it will be O(2) per iteration and
+then the overall running time is O(2 log N) which is O(log N) after dropping the constant.
+:::
+
+## Big O doesn't mean best case
+
+- Big O notation just gives us a way to classify functions based on their growth rates.
+- It doesn't say if anything is the best or worst case.
+- Since we ignore the constants and non-dominant terms,
+  it can happen that in some cases even O(N) can be slower than O(N log N) if the constants are large enough.
+
+**It's very important to keep in mind that different algorithms behave better at different input sizes.
+Hence it's important to understand the input size while designing algorithms.**
+
+:::important Big O doesn't say which algorithm is better
+Big O is about the limiting behavior as n → ∞, not about which algorithm is faster for your actual use case.
+
+Consider it as just a **guideline** to get a rough idea of performance.
+:::
+
+## Limiting Behavior
+
+The term **limiting behavior** is used to refer to Big O notation.
+This must be understood what this exactly means since the terms doesn't mean what it usually means in day to day life.
+Here we must see it as behaviour of the function at limit and
+in this case, the limit is when the input approaches infinity.
