@@ -158,3 +158,5 @@ URIs
 Arithmos
 inversing
 Ordnung
+recurse
+Linearithmic

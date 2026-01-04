@@ -3,6 +3,12 @@
 This is the branch of mathematics that deals with permutations and combinations.
 In this page, I only try to build mental models such that the concepts are easier to remember.
 
+:::tip position vs choice - important terms
+
+- **position** - Assigning items to different positions.
+- **choices** - Which items are available for assigning items.
+  :::
+
 ## Permutations
 
 Permutation is an arrangement of objects where the order **does** matter.
