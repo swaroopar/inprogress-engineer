@@ -25,4 +25,9 @@ It's just that the binary is used to represent boolean values.
 | **NOR**  | ↓, ⊽   | Opposite of OR               | Both False                  | Any True                     |
 | **XNOR** | ⊙, ≡   | True if inputs are the same  | Inputs same                 | Inputs differ                |
 
-s
+:::tip different from bitwise operators
+Bitwise operators aren't part of boolean algebra.
+Normally we refer everything as bitwise operations but they aren't actually.
+
+Bit right/left shift, rotate right/left are bitwise operators.
+:::

@@ -158,3 +158,8 @@ URIs
 Arithmos
 inversing
 Ordnung
+recurse
+Linearithmic
+(?i)bitwise
+(?i)bitmask
+nowrap

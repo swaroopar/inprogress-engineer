@@ -7,6 +7,13 @@ The remainder value is the mod value of that number.
 This is also called as **clock** arithmetic since the numbers here go in a circle.
 In N modulo, we can have only 0 to N-1 numbers.
 
+:::info modulo vs division
+Modulo returns the reminder whereas division returns the quotient.
+
+For example, when we want to get digits out of a large number,
+we use modulo of 10 and division by 10 to get the digits.
+:::
+
 ![modular-arithmetic](../../static/img/maths-modular-arithmetic.excalidraw.png)
 
 :::tip Mental model for modular operations
