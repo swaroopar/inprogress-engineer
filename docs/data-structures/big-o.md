@@ -209,6 +209,13 @@ Everything matters during Big O calculation.
 
 <!-- markdownlint-restore-->
 
+:::important What's $N \log N$
+For problems with $N \log N$ Big O normally means,
+
+- Problem space is halved at each step.
+- But some steps then runs on all halves at each step.
+  :::
+
 :::tip meaning of words
 
 - **Quadratic** - the word has **quad** in it but it refers only to **square** of a number.
@@ -217,3 +224,8 @@ Everything matters during Big O calculation.
 - **Linearithmic** - Linear plus logarithmic.
   This isn't a real mathematical word. Used only in Big O.
   :::
+
+## Number Series tricks
+
+Refer to the [number series](../mathematics/number-series.mdx) page for details.
+It's mandatory to know these for solving Big O.

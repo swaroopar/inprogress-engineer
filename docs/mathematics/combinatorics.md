@@ -27,14 +27,12 @@ In this case, for first position, we've N options, for second position we've N-1
 So the number of permutations possible is, $N \times N-1 \times N-2 ...$ until K positions are filled.
 The formula exactly does this.
 Takes the full factorial of the available choices and removes all unused positions by dividing it.
-
-<!-- vale Vale.Spelling = NO -->
+It means, when the problem statement only asks for K permutations(positions) from N available choices,
+the remaining N-K positions are simply removed from the result.
 
 $$
 _n P_k = \frac{n!}{(n-k)!}
 $$
-
-<!-- vale Vale.Spelling = YES -->
 
 :::danger Permutations with repetition
 Even though permutation always speaks about order of items and
@@ -72,8 +70,6 @@ The word combination is used so much in day-to-day life that it's easy to rememb
 Combination formula is same as permutation one
 but additionally it removes the possible duplicates since order doesn't matter here.
 
-<!-- vale Vale.Spelling = NO -->
-
 $$
 \begin{aligned}
 _n C_k = \frac{n!}{k!(n-k)!}
@@ -82,11 +78,31 @@ _n C_k = \frac{permutations}{\text {Number Of Permutations Per Combination}}  \t
 \end{aligned}
 $$
 
-<!-- vale Vale.Spelling = YES -->
-
 :::warning Combination is permutations with grouping
 We group all permutations into groups, where each group corresponds to one unique combination of the items.
 
 Division is nothing but grouping.
 This is exactly what happens here.
 :::
+
+## Subsets
+
+Another important topic that sounds similar to this is the **subset**.
+This confuses since the concepts are very similar. Subsets are similar to combination but only difference is the **size**.
+A subset can have no elements to all elements.
+
+:::tip Size of possible subsets - Power set
+For a given set of elements with size N,
+the possible subsets is always $$2^N$$.
+
+This is also called a **power set**
+since it contains the original set as well as an empty set.
+:::
+
+Let the set be $$S = \{a, b, c\}.$$
+
+**1. Subsets (all sizes):** $$\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}.$$
+
+**2. Combinations (size 2):**$$\{a,b\}, \{a,c\}, \{b,c\}.$$
+
+**3. Permutations (size 2):**$$(a,b), (b,a), (a,c), (c,a), (b,c), (c,b).$$
