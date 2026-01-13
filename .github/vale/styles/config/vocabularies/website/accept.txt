@@ -5,7 +5,7 @@ OpenAPI
 OAuth
 Docusaurus
 Lucide
-API(.*)
+(?i)API(.*)
 Grafana
 Pulumi
 stdout
