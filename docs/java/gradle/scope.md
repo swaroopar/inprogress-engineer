@@ -24,3 +24,26 @@ This means, the **api** scoped dependencies are actually larger than the ones wh
 At runtime Gradle doesn't exist.
 Gradle will only ensure to build the jar accordingly and if there are any missing classes then the JVM will throw an error.
 :::
+
+## Test Fixtures
+
+Gradle handles shared libraries related to tests differently.
+In Maven, we usually write all tests and shared code related to test under **tests** folder.
+Whereas in Gradle, we can use **testFixtures** folder for hosting all shared test code.
+
+:::tip Test fixtures specific scope
+Test fixtures have their own scopes - **testFixturesImplementation** and **testFixturesApi**.
+These scopes works exactly like what **api** and **implementation** scopes does for productive code.
+
+Gradle ensures such scoped dependencies are used only for the code in **testFixtures** folder.
+So on one side it brings in different classpath for test fixtures and
+at the same time, it will ensure what the consumers of the test fixtures module see.
+:::
+
+:::danger which code sees which dependencies?
+
+1. Productive code - sees only **api** and **implementation** dependencies.
+2. Test code - sees productive code plus **testImplementation** dependencies.
+3. Test fixtures code - sees only **testFixturesImplementation** and **testFixturesApi** dependencies.
+
+:::
