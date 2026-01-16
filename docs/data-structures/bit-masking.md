@@ -18,4 +18,3 @@ Without bit mask concept, to get a permission of a specific scope the client mus
 With bitmask, AND operation is applied between the actual bits and the bit mask.
 The bitmask in this case will have 1's at bit positions of interest.
 Thereby the end result can be then used to read the values of bits of interest directly.
-:::

@@ -24,4 +24,4 @@ When a process starts multiple threads,
 then the same memory space is shared among all threads of the process.
 But each thread gets its own stack segment for function calls and local variables.
 
-It's described in detail [here.](./context-switching.md#context-switch-by-os#process-with-mulitple-threads)
+It's described in detail [here.](./context-switching.md#process-with-multiple-threads)

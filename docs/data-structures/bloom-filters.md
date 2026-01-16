@@ -76,3 +76,9 @@ or any case where it's fine to have a small probability of wrong 'true' check.
 3. Caching.
 4. CDN - avoid calls to origin.
 5. Many more.
+
+:::tip use bit vectors for reading values
+Refer to the [bit masking](../data-structures/bit-masking.md) and
+[bit vectors](../mathematics/boolean-alegbra.md#using-boolean-algebra-in-bit-vectors)
+to understand how bits can be read from the bloom filter.
+:::

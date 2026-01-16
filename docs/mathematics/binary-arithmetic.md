@@ -24,6 +24,8 @@ This means, what's carry-out for one position is the carry-in for the next posit
 3. Sign Flag (SF) - This flag is set based on the sign of the result of an operation.
    It reflects the most significant bit (MSB) of the result,
    where 0 indicates a positive result and 1 indicates a negative result.
+   It's just a copy of whatever the MSB is.
+   No special calculation done to generate the value of this flag.
 
 4. Overflow Flag (OF) - This flag is set when the result of a signed arithmetic operation exceeds the range that can be
    represented with the given number of bits. It indicates that the result is too large or too small to be represented correctly.

@@ -27,6 +27,8 @@ const config: Config = {
     organizationName: 'swaroopar',
     projectName: 'website',
     onBrokenLinks: 'throw',
+    onBrokenAnchors: 'throw',
+    onDuplicateRoutes: 'throw',
     i18n: {
         defaultLocale: 'en',
         locales: ['en'],
