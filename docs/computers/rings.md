@@ -21,7 +21,7 @@ For every instruction it executes, it only knows about it.
 2. Based on this, CPU knows which IO the instruction can access, which memory areas the instruction can access.
 
 :::warning Memory area protected
-[Page table](./memory-paging.md#memory-paging) allocated to a process has permissions on each page.
+[Page table](./memory-paging.md#page-table-structure) allocated to a process has permissions on each page.
 All page tables in the kernel memory space has **supervisor** permissions.
 When the instruction with CPL 3 is accessing a page table which needs higher permissions,
 then CPU will throw a fault.

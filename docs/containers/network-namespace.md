@@ -25,7 +25,7 @@ Then the bridge (acting as L2 switch) is also on the host namespace.
 :::
 
 Even though there are namespaces, the kernel acts as one single router that handles all data movement.
-See [this page](../linux/network-devices.md#how-multiple-ips-on-the-same-device-work) for more information.
+See [this page](../linux/network-devices.md#how-multiple-ip-addresses-on-the-same-device-work) for more information.
 
 ![kernel-the-single-router](../../static/img/network-multiple-ips.excalidraw.png)
 
