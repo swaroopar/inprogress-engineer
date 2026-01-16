@@ -5,7 +5,7 @@ OpenAPI
 OAuth
 Docusaurus
 Lucide
-API(.*)
+(?i)API(.*)
 Grafana
 Pulumi
 stdout
@@ -163,3 +163,5 @@ Linearithmic
 (?i)bitwise
 (?i)bitmask
 nowrap
+testFixtures
+testImplementation
