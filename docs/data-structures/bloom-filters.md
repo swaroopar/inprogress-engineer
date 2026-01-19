@@ -79,6 +79,6 @@ or any case where it's fine to have a small probability of wrong 'true' check.
 
 :::tip use bit vectors for reading values
 Refer to the [bit masking](../data-structures/bit-masking.md) and
-[bit vectors](../mathematics/boolean-alegbra.md#using-boolean-algebra-in-bit-vectors)
+[bit vectors](../computers/bit-manipulation.md)
 to understand how bits can be read from the bloom filter.
 :::
