@@ -45,3 +45,18 @@ The authorization module then uses this subject name to get it's roles to perfor
 :::info storage for subject to role mapping
 This information about subject to roles is also stored in etcd of the cluster.
 :::
+
+## Integrations to vault
+
+In case of applications running inside a pod and would like to get secrets from vaults such as HashiCorp vault,
+then the service account token can be used for this purpose.
+
+1. Application uses it's service account token to authenticate to the vault.
+2. Vault validates the token with the API server of the cluster.
+
+![k8s-vault-auth](../../static/img/k8s-vault-auth.excalidraw.png)
+
+:::important role of vault in validation
+Vault doesn't directly validate the token.
+It sends the token to the API server of the cluster to validate if it's really valid.
+:::
