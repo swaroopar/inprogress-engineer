@@ -53,6 +53,8 @@ then the service account token can be used for this purpose.
 
 1. Application uses it's service account token to authenticate to the vault.
 2. Vault validates the token with the API server of the cluster.
+3. If the validation is successful, it will return another **vault token**.
+4. The application must use this token to then read secrets.
 
 ![k8s-vault-auth](../../static/img/k8s-vault-auth.excalidraw.png)
 
