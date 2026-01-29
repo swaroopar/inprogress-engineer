@@ -1,0 +1,20 @@
+# Docker Daemon
+
+Docker daemon is the core service that handles all container operations.
+The docker CLI only acts as a client to communicate with the docker daemon.
+
+:::danger Docker daemons are just JSON APIs
+Docker daemons are just JSON APIs but exposed over a Unix socket.
+
+The docker CLI writes JSON requests to the docker daemon socket,
+and the docker daemon reads these requests, processes them,
+and writes JSON responses back to the socket.
+:::
+
+## Listen on multiple sockets
+
+By default, docker daemon listens on a Unix socket located at `/var/run/docker.sock`.
+See [Unix Domain Sockets](../linux/sockets.md#unix-domain-sockets) for more details.
+
+But this can be changed to configured to listen on TCP sockets as well.
+In this case, even remote docker clients can connect to the docker daemon over the network.
