@@ -1,0 +1,33 @@
+# Privileged Containers
+
+Normally, when containers are started,
+they only have restricted access to the host system and kernel capabilities.
+This is a security feature that helps to isolate containers from the host.
+
+When started as privileged,
+containers have access which are almost equivalent to the host system.
+
+## DIND
+
+DIND or "Docker in Docker" is a common use case for privileged containers.
+This is where a Docker container runs a Docker daemon inside it,
+allowing it to build and run other Docker containers.
+
+Such DIND containers will have access to kernel capabilities such as creating network interfaces,
+mounting filesystems, and managing control groups,
+which are necessary for running a docker container.
+
+![docker-dind](../../static/img/containers-dind-privileged.excalidraw.png)
+
+:::important What host docker daemon can see?
+The host docker daemon can't see the containers running inside the DIND container.
+This is because the DIND container has its own Docker daemon,
+and the host docker daemon doesn't have any metadata about these containers.
+:::
+
+:::warning Namespaces aren't nested
+When DIND creates containers,
+it creates containers as siblings to itself in the host system,
+and not as nested containers inside itself.
+This is because Linux namespaces don't support nesting.
+:::
