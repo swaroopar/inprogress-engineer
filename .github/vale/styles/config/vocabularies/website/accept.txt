@@ -165,3 +165,4 @@ Linearithmic
 nowrap
 testFixtures
 testImplementation
+(?i)rebase(.*)
