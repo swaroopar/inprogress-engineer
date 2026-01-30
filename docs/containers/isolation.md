@@ -16,7 +16,7 @@ which are mounted into a new [mount namespace](mount-namespace.md).
 
 ## Prepare Namespaces
 
-When a container is started, the docker command first creates all necessary namespaces.
+When a container is started, the docker binary first creates all necessary namespaces.
 These new namespaces will be a copy of the parent process's corresponding namespaces.
 
 Then it will start the **init** process which then updates the namespace content accordingly.
@@ -29,7 +29,7 @@ The application process mentioned in the Dockerfile is started using this method
 This method provides an option to specific which namespaces are required to be created for this new process.
 
 :::important example of namespaces flags
-When we say **--network=host** to the docker command,
+When we pass **--network=host** to the docker command,
 it will simply avoid creating network namespace.
 :::
 
