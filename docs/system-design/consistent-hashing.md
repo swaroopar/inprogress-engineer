@@ -1,6 +1,9 @@
 # Consistent Hashing
 
 It's a system design concept which is used in load balancing and partitioning in distributed systems.
+This is one of the ideas used also by
+[database sharding](../databases/sharding-partitioning.md#sharding) techniques
+to distribute data across multiple database instances.
 
 :::important why the name consistent?
 Here consistent means, the hashing is implemented in such a way that,
