@@ -27,6 +27,30 @@ The line here is actually a specific block of memory in the cache.
 Entire cache area is split into fixed size blocks called cache lines.
 :::
 
+### Cache lines between cores
+
+It's important to keep in mind that for a specific physical address,
+the cache line that will be used on all levels of cache will be the same always.
+The data will arrive on the same line.
+
+This is exactly why, even if a specific memory address is **locked** by one of the CPU cores,
+it won't be accessible on other cores as well.
+CPU ensures this serial accessing of the address when such an atomic access instruction is issued.
+
+![cpu-cache-lines-shared](../../static/img/computer-cpu-shared-lines.excalidraw.png)
+
+:::info cache line serialization
+In the diagram we see that the L3 cache line is shared across multiple cores.
+But when a core accesses a specific cache line,
+it must first acquire a lock on that cache line to ensure data consistency.
+
+At the same time, this concept also refers to **atomic memory operations**.
+When a specific memory address must be atomically accessed,
+then CPU ensures that all access to this address happens serially.
+
+This the **Mutex cost** referred in all multi-core CPU architectures.
+:::
+
 ## Cache Addressing
 
 The CPU asks for data at a specific address.
@@ -60,9 +84,9 @@ Since the index bits are repeated across multiple cache lines, the tag bits are 
    For example, if the cache is 4-way associative, then each set will have 4 cache lines.
 3. Then use the index bits to calculate the index key.
 
-In case of L1 Cache of 32 KB with 64 B cache line size and 4-way associativity:
+In case of L1 Cache of 32 KB with 64 Byte cache line size and 4-way associativity:
 
-- Number of cache lines = 32 KB / 64 B = 512 lines.
+- Number of cache lines = 32 KB / 64 Byte = 512 lines.
 - Number of sets = 512 lines / 4-way associativity = 128 sets.
 - Index key = 7 bits to get address 128 sets.
 
@@ -70,6 +94,8 @@ In case of L1 Cache of 32 KB with 64 B cache line size and 4-way associativity:
 Just different 'N-way' associativity is used to split the cache lines into sets.**
 
 This is very similar to how we calculate the index key for hash tables.
+Meaning, in a hash table the key is always the same for a specific input.
+Similarly, here a cache line on which a memory address will be loaded is always the same.
 :::
 
 ## Zeroing-Out Bits
