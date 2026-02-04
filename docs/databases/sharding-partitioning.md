@@ -10,6 +10,15 @@ Each shard is a separate database that holds a subset of the data.
 Sharding is typically done based on a specific key, such as user ID or geographic location.
 Each shard can be hosted on a different server, allowing for horizontal scaling.
 
+:::important How sharding is achieved?
+
+1. [Consistent hashing](../system-design/consistent-hashing.md)
+   can be used to determine which shard a particular piece of data belongs to.
+2. Application logic or a database load balancer can route queries to the appropriate shard based on the sharding key.
+3. Database load balancer can also help when there is query that spans multiple shards.
+   One such example is **Vitess** for MySQL.
+   :::
+
 ## Partitioning
 
 Partitioning, on the other hand, is about dividing a single database into smaller, more manageable pieces called partitions.
