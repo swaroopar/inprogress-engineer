@@ -166,3 +166,5 @@ nowrap
 testFixtures
 testImplementation
 (?i)rebase(.*)
+(?i)mutex
+Vitess
