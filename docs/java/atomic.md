@@ -9,7 +9,7 @@ CPU provides this feature of serializing access to a memory address via a specia
 Java simply uses it to achieve this.
 :::
 
-### CAS - Compare and Save
+## CAS - Compare and Save
 
 Compare and Save is just one of the features of atomic variables.
 
