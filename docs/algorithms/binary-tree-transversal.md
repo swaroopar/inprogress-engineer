@@ -89,7 +89,7 @@ This will also help to understand what these different orders really mean.
 - Binary Search Trees (BST) traversal to get sorted order of elements.
   The output is always the sorted order of elements.
   This is by default necessary in case of databases.
-- [Expression trees](./expression-trees).
+- [Expression trees](../data-structures/expression-trees.md).
   Ideally this is something that's usable in all 3 types of traversals.
 
 ### Postorder
