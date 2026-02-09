@@ -1,6 +1,4 @@
-# Binary Tree
-
-## Binary Tree Transversal
+# Binary Tree Transversal
 
 There are two ways to mainly do it.
 
@@ -14,7 +12,7 @@ When we say processing a node, it means doing some operation on the node like pr
 When we say visiting a node, it means just going to that node without doing any operation on it.
 :::
 
-### Depth First Search (DFS)
+## Depth First Search (DFS)
 
 There are three ways to do DFS.
 

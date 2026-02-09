@@ -5,7 +5,7 @@ The last element added to the stack is the first one to be removed.
 
 ![Stack Illustration](../../static/img/stack-data-structure.excalidraw.png)
 
-Stack is preferred for use cases where the write and read need O(1) time complexity.
+Stack is preferred for use cases where the write and read need $$O(1)$$ time complexity.
 It's because all happens using the current pointer to the top of the stack.
 
 :::danger It's all virtual
@@ -42,11 +42,12 @@ Also, this applies to the POP statements in assembly language as well as bytecod
 
 ## Stack in programming languages
 
-- stack based language - here there are no registers. All operations are done using stack only.
+- **stack based language** - here there are no registers. All operations are done using stack only.
   Means even the return value is by default stored on stack.
   Means there is no return statement as such.
 
-- [register based language](../computers/function-calling.md#function-call-instructions) - here registers are used for operations.
+- [**register based language**](../computers/function-calling.md#function-call-instructions) -
+  here registers are used for operations.
   Stack is used only for function calls and local variables.
   Means the return value is stored in a register and
   only the code address of the called function is stored on stack.

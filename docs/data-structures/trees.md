@@ -28,7 +28,8 @@ So every small tree also has the same characteristics as a big tree mentioned ab
 
 :::important recursive programming
 This is exactly why we use recursion to traverse trees.
-Specially in [binary DFS traversals](./binary-tree.md#depth-first-search-dfs) (preorder, inorder, postorder),
+Specially in [binary DFS traversals](../algorithms/binary-tree-transversals.md#depth-first-search-dfs)
+(preorder, inorder, postorder),
 we recursively work on sub trees until we reach the leaf nodes.
 :::
 
