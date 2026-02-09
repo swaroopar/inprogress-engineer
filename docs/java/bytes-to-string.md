@@ -11,7 +11,8 @@ the application on the producer side already encodes the string to byte data.
 :::important[Unicode vs UTF-8]
 Unicode is the universal standard that defines a hexadecimal code point for all each character across all possible languages.
 
-UTF-8 is just the Unicode Transformation Format which encodes these Unicode code points to a variable byte representation.
+UTF-8 is just the Unicode Transformation Format which encodes these Unicode code points to a variable sized byte representation.
+See [here](../computers/character-sets.md#utf-8-encoding) for more details.
 :::
 
 ## Byte Data Representation
