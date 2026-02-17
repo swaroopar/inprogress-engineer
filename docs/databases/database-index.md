@@ -11,19 +11,26 @@ we need to load all blocks into memory and then find out which block contains th
 With index, we only load the index data into memory
 and then we can find out the block which contains the row.
 The index is a data structure which contains the mapping between the row
-and the memory address of block on the disk.
+and the address of block on the disk.
 
 ![database-indexes](../../static/img/database-indexes.excalidraw.png)
 
 ## Data Structures for Indexes
 
+:::warning b-tree isn't binary tree
+The **B** in the b-tree doesn't refer to binary tree.
+This is because the number of child nodes isn't 2 always.
+
+There is no fixed definition of what it stands for.
+:::
+
 With the invent of b-trees, the indexes are now stored in a tree structure.
 This means, we can traverse the tree to find out the actual disk block which contains the row.
 
 :::danger b-tree with disk address
-Normally when we speak about b-trees, we refer to the in-memory data structure.
-Where the address are the memory addresses.
-But in case of database, the addresses are the disk block addresses.
+Normally when we speak about b-trees, we refer to the in-memory data structure
+where the address are the memory addresses.
+But in case of databases, the addresses are the disk block addresses.
 :::
 
 :::tip why b-trees

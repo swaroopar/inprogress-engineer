@@ -18,10 +18,19 @@ We must build the LPS array of the entire pattern string beforehand to use LPS.
 
 :::important LPS and KMP looks similar
 While creating the LPS array of the pattern string,
-It looks similar to KMP since even here we don't go through the entire string to find prefixes and suffixes.
+it looks similar to KMP since even here we don't go through the entire string to find prefixes and suffixes.
 :::
 
 ![lps-solution-explained](../../static/img/algorithm-kmp-lps.excalidraw.png)
+
+:::warning Mental Model
+When a mismatch happens
+
+- we go the prefix of the previous match.
+- Check if any character after previous prefixes matches the mismatch.
+
+![lps-mental-model](../../static/img/algorithms-lps-mental-model.excalidraw.png)
+:::
 
 :::danger why $$length - 1$$ is mentioned everywhere
 **length** variable in all the explanations means the length of the last found longest prefix-suffix.
@@ -38,10 +47,12 @@ We move both whenever there are matches.
 But when there is a mismatch, we move only the pointer of the pattern string back.
 How much we must move back is what the LPS index provides.
 
-In KMP, whenever a pattern mismatch happens,
+The approach of moving the pointer back is actually bit counter intuitive.
+We're not moving anything back.
+In fact, we're sliding the matching window forward because we know that characters equal to longest prefix suffix
+until the previous match will anyways still match.
 
-- It checks whats the LPS value at index of previous match.
-- We move the pointer of the pattern string back to that position.
+![kmp-mental-model](../../static/img/algorithm-kmp-mental-model.excalidraw.png)
 
 :::important why does LPS help with KMP pattern search?
 The LMP array tells us that the last $$lps[len - 1]$$ characters

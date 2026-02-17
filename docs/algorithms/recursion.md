@@ -33,7 +33,7 @@ The only thing that a **for loop** additionally adds is **branching**.
 It lets the code to choose a branch and then recurse on that branch
 and on **return**, choose the next possible branch.
 This is exactly what's referred as **Backtracking** or
-in other words also called **[DFS](../algorithms/binary-tree-transversal.md#postorder)**.
+in other words also called **[DFS](../algorithms/graph-search.md#postorder)**.
 :::
 
 ### Using DFS in permutation problems
