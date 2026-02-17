@@ -1,0 +1,14 @@
+# Graphs
+
+1. Directed and Undirected - Means either one way or two way connection.
+2. Cyclic and Acyclic - Meaning if the graph has cyclic relation between it's nodes.
+3. Connected and Non-Connected Graph - Whether all nodes in the graph is reachable from other nodes of the graph.
+
+:::important Graphs have no root
+Unlike trees, graphs don't have any root node.
+So in all problems, ideally any node can be treated as root or starting point in the graph.
+:::
+
+## Graph Search Techniques
+
+Refer to the [graph search algorithms](../algorithms/graph-search.md) page to understand available techniques.

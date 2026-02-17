@@ -168,3 +168,5 @@ testImplementation
 (?i)rebase(.*)
 (?i)mutex
 Vitess
+Bogo
+(?i)Kadane
