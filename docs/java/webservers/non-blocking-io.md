@@ -47,8 +47,8 @@ and also update the interest for OP_WRITE event for that **selection key**.
 
 1. Selector thread creates epoll table in kernel.
 2. Asks kernel to update the table whenever there is an OP_ACCEPT event for it.
-3. Thread then blocks and monitors if there are any changes in the table.
-4. When available, it will accept.
+3. Thread is then put to sleep and kernel monitors if there are any changes in the table.
+4. When available, kernel wakes up the accept thread.
 5. This will create a new Socket() object in kernel and also equivalent Java object.
 6. We register this new socket object to the epoll table to update when data is available in buffers.
    This is done by updating interest in OP_READ event.
