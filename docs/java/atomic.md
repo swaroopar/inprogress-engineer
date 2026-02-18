@@ -41,3 +41,8 @@ When thread tires to acquire the lock,
 it uses the CPU's atomic instruction to set the metadata of the object.
 This ensures that only one thread can set the metadata at a time.
 :::
+
+## Blocking Data Structures
+
+In case of blocking data structures such as BlockingQueue,
+the process is similar but uses kernel's [Futex feature](../computers/futex.md) to implement it.

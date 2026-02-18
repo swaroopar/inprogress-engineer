@@ -21,6 +21,9 @@ The Java's thread object has a link to OS thread.
 So when there is nothing running on the thread,
 the OS method is called to put the thread to sleep.
 This means the OS won't schedule the thread for CPU time until it's woken up.
+
+By meaning OS, it means kernel here.
+Only kernel can schedule threads.
 :::
 
 ![thread pool](../../../static/img/threads.excalidraw.png)
