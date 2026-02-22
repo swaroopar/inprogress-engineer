@@ -13,9 +13,16 @@ tasks:
     vale-lint:
         cmds:
             - docker run --rm -v $(pwd)/.github/vale/styles:/styles --pull=always --rm -v $(pwd):/docs -w /docs jdkato/vale .
+
+    check-theme-image:
+        desc: Check that all Excalidraw images use ThemeImage component
+        cmds:
+            - node scripts/check-theme-image-usage.mjs
+
     build:
         desc: Run all tasks requried for a full clean build
         # It's fine to run these tasks in parallel.
         deps:
             - format-lint
             - vale-lint
+            - check-theme-image

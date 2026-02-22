@@ -1,0 +1,21 @@
+# Volumes
+
+Volumes refer to storage and there many types of volume available.
+These types depends on where's the storage is coming from, lifecycle of the storage, location, etc.
+
+We define the type of the of the volume in the [pod level volume](./pods.mdx#pod-information-in-manifests)
+and it's corresponding details.
+
+```yaml
+volumes:
+    - name: my-storage
+      persistentVolumeClaim: # volume type
+          claimName: my-pvc
+```
+
+:::danger Persistent Volume Claim is a Type
+It's very confusing to me that PVC is a volume type.
+When we compare with other names such as NFS, local, hostPath, etc., this name isn't intuitive.
+
+We must look it as a volume type that **proxies** to the actual storage via a PV.
+:::

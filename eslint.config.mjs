@@ -19,7 +19,7 @@ const compat = new FlatCompat({
 
 export default [
     {
-        ignores: ['build/**/*', 'plugins/tailwind-config.ts', '.docusaurus/**/*', 'eslint.config.mjs'],
+        ignores: ['build/**/*', 'plugins/tailwind-config.ts', '.docusaurus/**/*', 'eslint.config.mjs', 'scripts/**/*'],
     },
     ...compat.extends(
         'plugin:@typescript-eslint/recommended',
@@ -65,6 +65,10 @@ export default [
             ),
             ...markdownlintPlugin.configs.recommended.rules,
             'markdownlint/md013': ['error', { line_length: 120 }],
+            // Allow import statements before first heading in MDX files
+            'markdownlint/md041': 'off',
+            // Allow JSX components (like ThemeImage) in MDX files
+            'markdownlint/md033': ['error', { allowed_elements: ['ThemeImage'] }],
         },
     },
 ];

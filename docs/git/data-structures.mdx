@@ -1,0 +1,66 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# GIT Data Structures
+
+It's always very confusing to understand what exactly is behind a commit.
+We've the entire code base that's tracked by the GIT
+and at the same time we say a commit contains everything.
+Here I'm trying to build a strong mental model of how GIT stores data internally.
+This will definitely help to also understand while working with branches, merges, rebases, etc.
+
+:::warning data structures used in a GIT repository
+GIT has two different parallel data structures.
+It's important to keep both in mind while working with repositories.
+
+1. **Commit History** - This is just one acyclic graph data structure.
+2. **Trees** - There are 1 to N trees based on different branches, different heads, etc.
+
+**NOTE**: All these data structures exist on the filesystem
+as files inside the `.git/objects` directory.
+
+:::
+
+<ThemeImage src='/img/git-storage-structure.excalidraw.png' alt='Git Storage Structure' />
+
+Every node (which is a file on the filesystem) of the tree contains
+the a pointers to the underlying objects that are inside to it.
+A directory contains pointers to files and sub-directories.
+The pointers are nothing but the file name of the underlying object.
+It can then look for the files with the names of the hash to retrieve its next level objects.
+
+:::danger Every commit is a snapshot
+Every commit in GIT points to a root tree object.
+This means, every commit gets it's own **filesystem snapshot** of the entire project.
+:::
+
+:::important Change leading to new tree objects
+Whenever a change is made to any file or directory, or just permissions,
+the hash of that object contents changes.
+This change is propagated up to the root of the tree,
+leading to new tree objects being created for all parent directories up to the root.
+
+But all other unchanged objects are reused from previous commits.
+This shared structure is what makes GIT efficient in terms of storage
+and at the same time keeping full files separately and not just differences makes it fast.
+:::
+
+## Commit to tree link
+
+Every commit object contains a link to the root tree object.
+This is how the when a commit is checked out,
+GIT retrieves the entire tree structure for the root of the tree.
+
+## Data structures
+
+GIT has two graphs to represent data as well as the history.
+
+1. A commit history - stored as a directed acyclic graph.
+2. A tree - holding the project directory and file snapshot.
+
+## Root commit
+
+Every tree object is immutable.
+If anything inside a folder changes (file or subdirectory),
+GIT creates a new tree for that folder and all parent folders up to the root.
+
+Unchanged sub-trees are reused across commits.
