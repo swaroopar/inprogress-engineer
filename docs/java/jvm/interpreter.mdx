@@ -1,0 +1,49 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# Interpreter
+
+Consider JVM interpreter as a script reader that reads .class files.
+Similar to how bash reads shell scripts line by line and executes them,
+JVM interpreter reads the byte code instructions one by one and executes them.
+
+:::tip JVM is an infinite while loop and switch case.
+JVM is essentially an infinite loop that keeps reading byte code instructions and
+the code then has a big switch case that executes the instruction based on the opcode.
+:::
+
+When the code is compiled, the compiled code is just an array of instructions.
+This array is what the interpreter reads one by one and executes.
+
+<ThemeImage src='/img/jvm-interpreter.excalidraw.png' alt='JVM-interpreter' />
+
+## Interpreter isn't efficient
+
+Interpreter always uses more memory since it works using local variable array and operand stack.
+Also, the execution is slower since each instruction is read one by one and
+corresponding native code is executed.
+
+But this is needed for simplicity and portability reasons.
+By maintaining its own stack and local variable array, it doesn't have to worry about registers.
+Also, byte code is smaller when it just has to maintain stack operations instead of register operations.
+
+:::important stack makes the bytecode smaller
+By using stack, the byte code instructions are smaller since they don't have to specify registers.
+For example, when we say `iadd`, we don't specify the operands.
+It's implied that the operands are on the top of the stack.
+We never pass any operands to it.
+:::
+
+## Handover between application code and interpreter
+
+When JVM is started, it will look for the byte code of the main class and
+start executing it.
+
+There is no **handover** between the application code and interpreter.
+The interpreter will keep reading the byte code instructions of the main class
+and execute them one by one.
+
+:::warning interpreter is the code that runs
+When interpreter is running, there is no application code running.
+The interpreter is the code that's running and
+it's executing the native code instructions mapped to every application byte code instruction.
+:::
