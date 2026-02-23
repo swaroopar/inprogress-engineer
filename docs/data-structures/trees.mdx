@@ -143,3 +143,30 @@ Since it's only use case is to ensure retrieving the max or min value in $$O(1)$
 once the current value is used up, the next root value must be **bubbled up** to the root.
 This happens in $$O(log N)$$ runtime.
 :::
+
+## Binary Search Trees
+
+In this data structure, there is nothing about the shape of the tree.
+It's only about the values each node can hold.
+The ancestor nodes control and decide what values the descendant nodes can have.
+
+- Left child will have a value lesser than the parent.
+- Right child will have a value greater than the parent.
+
+This is the only requirement.
+This makes it very easy to search for a value in the tree.
+
+:::tip one side will have equal to condition
+Depending on the implementation, one side of the tree will have value equal to the parent node.
+:::
+
+<ThemeImage src='/img/datastructure-binary-search.excalidraw.png' alt='sample-tree' />
+
+As we can see in the above image,
+the right side always has by default a minimum value limit and
+the left side always has by default a maximum value limit.
+
+:::important No tree shape requirement
+Even if a tree has just right or left children for any number of levels,
+it's still a valid tree as long as the values follow the binary search tree rules.
+:::
