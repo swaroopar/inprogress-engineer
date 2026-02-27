@@ -27,6 +27,11 @@ updates:
               patterns:
                   - 'eslint'
                   - '@eslint/js'
+              ignore:
+                  - dependency-name: 'eslint'
+                    versions: ['10.x']
+                  - dependency-name: '@eslint/js'
+                    versions: ['10.x']
           react:
               applies-to: version-updates
               patterns:
