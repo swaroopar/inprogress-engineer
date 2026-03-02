@@ -16,7 +16,7 @@ jobs:
               uses: actions/checkout@v6
             - name: Ensure latest npm
               run: |
-                  sudo npm install -g npm@11.7.0
+                  sudo npm install -g npm@10.9.4
                   npm --version
             - name: Check if package-lock.json is up to date
               run: npx --yes package-lock-utd@1.1.3
