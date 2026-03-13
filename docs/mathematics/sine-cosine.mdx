@@ -19,10 +19,12 @@ uses the length of the radius and the angle from the x-axis to represent the pos
 
 Trigonometry exactly provides a way to convert between these two co-ordinate systems.
 
-```sh
-x = r(cos(θ))
+$$
+\begin{aligned}
+x = r(cos(θ)) \\
 y = r(sin(θ))
-```
+\end{aligned}
+$$
 
 :::important multiplicate with radius
 All trigonometric functions are multiplied with the radius.
@@ -54,11 +56,12 @@ Sine and cosine values can be calculated using the properties of a right triangl
 Here the triangle can be placed inside a unit circle and
 the sine and cosine values can be calculated using the below formulas:
 
-```sh
-sine - opposite / hypotenuse
-
-cosine - adjacent / hypotenuse
-```
+$$
+\begin{aligned}
+sine = \frac{\text{opposite}}{\text{hypotenuse}} \\
+cosine = \frac{\text{adjacent}}{\text{hypotenuse}}
+\end{aligned}
+$$
 
 :::warning opposite and adjacent is relative
 Opposite and adjacent values are relative to the angle θ
@@ -84,7 +87,7 @@ The movement forms the same sinusoidal shape and hence it's used or referred to.
 ## Theta
 
 Whenever sine and cosine functions are evaluated, the angle (often denoted as θ, or "theta") is the input.
-But this input variable not really used by the function.
+But this input variable isn't really used by the function.
 
 It just denotes that the x and y variables are related to the angle θ in the unit circle.
 As the angle changes, the values of x and y co-ordinates which is nothing
@@ -117,3 +120,20 @@ Computers have no idea of angles or triangles.
 They only understand numbers and can compute the sine and cosine values using mathematical formulas.
 
 So the libraries that build trigonometric functions use Taylor series formulae to calculate these values.
+
+## GPS Co-ordinates
+
+GPS co-ordinates are represented in terms of latitude and longitude which are angles.
+These angles are then converted to Cartesian co-ordinates using sine and cosine functions
+to determine the position on the Earth's surface.
+
+Without the Cartesian co-ordinates,
+it's not possible to calculate the exact distance between two different GPS co-ordinates.
+
+:::important GPS is just angles
+
+- **Latitude** - It's the angle from the equator to the point on the Earth's surface.
+  It's represents the north-south position of the point on the Earth's surface.
+- **Longitude** - It's the angle from the prime meridian to the point on the Earth's surface.
+  It represents the east-west position of the point on the Earth's surface.
+  :::
