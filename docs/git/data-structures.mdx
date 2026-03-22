@@ -12,7 +12,7 @@ This will definitely help to also understand while working with branches, merges
 GIT has two different parallel data structures.
 It's important to keep both in mind while working with repositories.
 
-1. **Commit History** - This is just one acyclic graph data structure.
+1. **Commit History** - This is just ONE acyclic graph data structure.
 2. **Trees** - There are 1 to N trees based on different branches, different heads, etc.
 
 **NOTE**: All these data structures exist on the filesystem
@@ -23,7 +23,7 @@ as files inside the `.git/objects` directory.
 <ThemeImage src='/img/git-storage-structure.excalidraw.png' alt='Git Storage Structure' />
 
 Every node (which is a file on the filesystem) of the tree contains
-the a pointers to the underlying objects that are inside to it.
+pointers to the underlying objects that are inside it.
 A directory contains pointers to files and sub-directories.
 The pointers are nothing but the file name of the underlying object.
 It can then look for the files with the names of the hash to retrieve its next level objects.
@@ -47,7 +47,7 @@ and at the same time keeping full files separately and not just differences make
 ## Commit to tree link
 
 Every commit object contains a link to the root tree object.
-This is how the when a commit is checked out,
+This is how when a commit is checked out,
 GIT retrieves the entire tree structure for the root of the tree.
 
 ## Data structures
