@@ -1,0 +1,22 @@
+# Branches
+
+Every branch we create locally has no relation to the branch on the remote at all.
+Only there is one small reference in the metadata,
+which says that a specific local branch is linked to a specific remote branch.
+
+They are two **parallel** branches, which aren't connected in any way.
+
+:::tip remote to local relation
+All relation to GIT local to remote branches are stored in the metadata of the local repository.
+It's defined in the `.git/config` file.
+:::
+
+## Fetch
+
+What your local repository knows is just from the when the last pull or fetch was done. 
+If you further changes are made in the remote, the local GIT client has no idea about them. 
+
+When you are making changes to your local branch, 
+- GIT diffs shows changes only whats done on top of your local branch history.
+- GIT fetch updates the local repository of the origin branch.
+- This is then used to 
