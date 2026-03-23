@@ -21,8 +21,6 @@ jobs:
               run: |
                   sudo npm install -g npm@latest
                   npm --version
-            #- name: Check if package-lock.json is up to date
-              run: echo "Skipped package-lock check"
             - name: Install Dependencies
               working-directory: ./
               run: npm install
