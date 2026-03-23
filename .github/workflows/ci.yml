@@ -19,7 +19,7 @@ jobs:
                   node-version: 22
             - name: Ensure latest npm
               run: |
-                  sudo npm install -g npm@11.7.0
+                  sudo npm install -g npm@latest
                   npm --version
             - name: Check if package-lock.json is up to date
               run: npx --yes package-lock-utd@1.1.3
