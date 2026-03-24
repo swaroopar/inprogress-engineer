@@ -18,7 +18,15 @@ which needs data to be copied between userspace and kernel space.
 epoll avoids userspace from polling the file descriptors.
 Instead we ask kernel to create an epoll instance and ask it to monitor which ever file descriptors we're interested in.
 
-After this epoll monitors the file descriptors independently.
-The application will have to only monitor the epoll instance which will be updated as soon as there is any state change.
+After this, epoll monitors the file descriptors independently.
+The application will automatically by the kernel notified when there is any state change.
+
+:::important State change notification
+In most cases, the thread state is changed to **TASK_INTERRUPTIBLE**,
+this means the thread isn't scheduled anymore by the kernel.
+
+When there is a state change,
+the thread state is changed back to **TASK_RUNNING** and the thread is scheduled again by the kernel.
+:::
 
 <ThemeImage src='/img/epoll.excalidraw.png' alt='epoll' />

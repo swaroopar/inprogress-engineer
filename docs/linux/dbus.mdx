@@ -1,0 +1,43 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# DBus
+
+DBus stands for Desktop Bus.
+It's a message bus system provided by Linux to allow communication between different processes.
+
+<ThemeImage src='/img/linux-dbus.excalidraw.png' alt='DBus' />
+
+## Built on top of Unix Domain Sockets
+
+DBus daemon uses Unix Domain Sockets to allow communication between different processes.
+The producer and the consumer processes connect to the DBus daemon using the sockets.
+
+:::important Unix Domain Sockets are fully duplex
+For every connection set to the DBus daemon socket,
+there are two file descriptors created - one for reading and one for writing.
+
+As we learnt in [file descriptors](../storage/file-descriptors.mdx),
+every connection to a file creates a file descriptor.
+That's how every connection becomes a full duplex connection.
+
+See [sockets](./sockets.mdx#file-descriptors-for-sockets) for more details.
+:::
+
+## Use cases
+
+For example, when you connect to a new WiFi network, the Network Manager daemon needs to notify the user about it.
+This is done via DBus.
+The network manager sends if the connection was successful or not to the DBus daemon and
+the DBus daemon then forwards the message to the Desktop application which then shows the notification to the user.
+
+Another use case, hardware controls such as volume control, brightness control, etc. are also done via DBus.
+
+## Types of DBus
+
+1. System DBus - This is used for system level services such as Network Manager, Bluetooth, etc.
+2. Session DBus - This is used for user level services such as desktop notifications, media control, etc.
+
+:::tip Multiple session DBus
+For each user session, there is a separate session DBus daemon running.
+The daemon is started when the user logs in and is stopped when the user logs out.
+:::
