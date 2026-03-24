@@ -24,6 +24,9 @@ The **file** structure represents an open file.
 It's also called the **open file description**.
 It has pointers to the corresponding [**inode**](./inodes.mdx) structure and
 also pointers to different operations that can be executed on it.
+
+A same file can have multiple instances of file structure if it's opened multiple times.
+This is useful when multiple processes want to access the same file from different offsets.
 :::
 
 This file structure then contains all necessary information such as the device's major number, minor number,
