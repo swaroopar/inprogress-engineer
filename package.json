@@ -69,7 +69,6 @@
             "*.js"
         ],
         "ignore": [
-            "babel.config.js",
             "src/components/ThemeImage/**/*"
         ],
         "ignoreDependencies": [
