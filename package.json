@@ -65,11 +65,11 @@
     "knip": {
         "project": [
             "**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}",
-            "*.ts",
-            "*.js"
+            "docs/**/*.mdx"
         ],
-        "ignore": [
-            "src/components/ThemeImage/**/*"
+        "entry": [
+            "src/components/ThemeImage/index.ts",
+            "src/components/ThemeImage/ThemeImage.tsx"
         ],
         "ignoreDependencies": [
             "@docusaurus/useDocusaurusContext",
