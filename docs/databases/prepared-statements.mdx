@@ -1,0 +1,39 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# Prepared Statements
+
+Prepared statements is a database engine's concept
+where a query template is created and stored in the database server.
+
+While execution, the client only passes the prepared statement's name and
+the parameters to the database server,
+which then executes the query using the provided parameters.
+
+:::important Question marks in the DB Query
+The question marks what we see in the database logs are
+the placeholders and when we see that,
+it means that the query is being executed as a prepared statement.
+:::
+
+:::warning Prepared statements and SQL Injection Protection
+Prepared statements are used by database engines for query caching.
+
+SQL Injection protection is a side effect of using prepared statements.
+:::
+
+<ThemeImage src='/img/database-prepared-statements.excalidraw.png' alt='hash-tables' />
+
+## SQL Injection Protection
+
+When we use prepared statements, the database engine treats the parameters as data and not as part of the query.
+
+:::tip How does it work?
+When prepared statements aren't used,
+the entire query is treated as string and
+the database engine parses the query and executes it.
+This is what causes SQL Injection vulnerability.
+
+But when prepared statements are used,
+the query is fixed,
+the values are directly passed into the query with **specific types**.
+:::
