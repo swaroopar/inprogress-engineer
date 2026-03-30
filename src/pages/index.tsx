@@ -1,7 +1,7 @@
 import Layout from '@theme/Layout';
 import React from 'react';
-import { Biography } from '@site/src/components/biography/Biography';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { Biography } from '../components/biography/Biography';
 
 function HomepageHeader() {
     return (
