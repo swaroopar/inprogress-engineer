@@ -1,7 +1,6 @@
 {
     "extends": "@docusaurus/tsconfig",
     "compilerOptions": {
-        "baseUrl": ".",
         "types": ["@docusaurus/plugin-ideal-image"]
     },
     "include": [
