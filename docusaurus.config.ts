@@ -110,7 +110,7 @@ const config: Config = {
                     title: 'GitHub Profile',
                 },
                 {
-                    href: 'https://cv-swaroop.vercel.app/',
+                    href: 'https://swaroop-resume.pages.dev/',
                     className: 'header-resume-link',
                     position: 'right',
                     title: 'CV',

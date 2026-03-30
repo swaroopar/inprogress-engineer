@@ -1,7 +1,7 @@
 import Layout from '@theme/Layout';
 import React from 'react';
-import { Biography } from '@site/src/components/biography/Biography';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { Biography } from '../components/biography/Biography';
 
 function HomepageHeader() {
     return (
@@ -13,7 +13,7 @@ function HomepageHeader() {
                         Swaroop Raghupathy
                     </span>
                     <br />
-                    Full-Stack Software Engineer.
+                    Software Generalist.
                 </p>
                 <p className='text-md m-0 p-0 md:text-xl'>An engineer in-progress</p>
                 <p className='text-xs md:text-xl'>converting ephermal knowledege into eternal</p>
