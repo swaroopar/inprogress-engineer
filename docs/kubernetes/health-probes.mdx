@@ -9,18 +9,19 @@ There are two types of probes possible - **Liveness** and **Readiness**.
   Until then no request will read the pod.
 
 :::tip Mental model to remember
+
 - Liveness is like a heartbeat check to check if the application is alive.
-If not alive, it try to restart the pod.
-Similar to a health check in a hospital, if the patient is not alive, we try to resuscitate them.
+  If not alive, it try to restart the pod.
+  Similar to a health check in a hospital, if the patient isn't alive, we try to resuscitate them.
 - Readiness is like a check to see if the application is ready to serve requests.
-If not ready, it will not send traffic to the pod.
-Similar to a check before a patient is discharged from the hospital,
-we want to make sure they are ready to go home and take care of themselves.
-:::
+  If not ready, it won't send traffic to the pod.
+  Similar to a check before a patient is discharged from the hospital,
+  we want to make sure they're ready to go home and take care of themselves.
+  :::
 
 :::warning Not only at startup
-Liveness and readiness probes are not only checked at startup,
-but they are continuously checked during the lifecycle of the pod.
+Liveness and readiness probes aren't only checked at startup,
+but they're continuously checked during the lifecycle of the pod.
 :::
 
 :::important Liveness and Readiness are the same in some cases
