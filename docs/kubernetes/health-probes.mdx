@@ -4,8 +4,25 @@ There are two types of probes possible - **Liveness** and **Readiness**.
 
 - **Liveness** - this means we only check if the port is really reachable from outside the pod.
 - **Readiness** - This means we check if the app is full up and can really start accepting requests.
-  Only when this is true, the endpoint of the pod is added to the service.
+  Only when this is true, the endpoint of the pod is added to the service
+  or it will remove the pod from service if the readiness check fails.
   Until then no request will read the pod.
+
+:::tip Mental model to remember
+
+- Liveness is like a heartbeat check to check if the application is alive.
+  If not alive, it try to restart the pod.
+  Similar to a health check in a hospital, if the patient isn't alive, we try to resuscitate them.
+- Readiness is like a check to see if the application is ready to serve requests.
+  If not ready, it won't send traffic to the pod.
+  Similar to a check before a patient is discharged from the hospital,
+  we want to make sure they're ready to go home and take care of themselves.
+  :::
+
+:::warning Not only at startup
+Liveness and readiness probes aren't only checked at startup,
+but they're continuously checked during the lifecycle of the pod.
+:::
 
 :::important Liveness and Readiness are the same in some cases
 In frameworks like tomcat, the server is available on the port only when the complete initialization is complete.
