@@ -34,22 +34,27 @@ We then use shift operators to move this 1 at different positions.
 
 <!-- markdownlint-restore-->
 
-:::tip why $$x-1$$ is important?
+:::info why $$x-1$$ is important?
 $$x-1$$ mentioned above is another concept to remember.
 When we minus 1 from any number, it will always toggle all ending zeros to ones and
 the first available 1 to 0.
 Then performing an **AND** between these two values will operate on the rightmost 1 bit.
+
+Such a solution can be useful to check if the bit vector has **only one bit** set to 1 or not.
+$$\text{x } \& \text{ (x-1)}$$ will be zero only when there is only one bit set to 1 in the bit vector.
 :::
 
-:::tip what $$x\&-x$$ means?
+:::tip what $$\text{x } \& \text{ -x}$$ means?
 Important nuance to keep in mind is,
-between x and -x the bits are same until the first/lowest 1,
+between x and -x the bits are same until the first/lowest 1 (starting from the right bit),
 after that all bits are opposite between x and -x.
+
+See [arithmetic negation](../mathematics/boolean-alegbra.mdx#arithmetic-negation) for more details.
 :::
 
 :::danger whats the variable in bit shift operators
 It always means the **number of times** the bit sequence must be moved left or right.
-Or other way to look at it's, to say move the bit at that **index** position to $$0^{th}$$ position.
+Or other way to look at it, is to say move the bit at that **index** position to $$0^{th}$$ position.
 :::
 
 :::warning smallest mental model to remember
@@ -62,6 +67,7 @@ Or other way to look at it's, to say move the bit at that **index** position to 
 :::important checking vs extracting
 
 - Checking returns boolean - true or false.
+This is done by performing an AND operation and checking whether the result is zero or not.
 - Extracting returns actual value - 0 or 1
 
 It's important to know this distinction.
