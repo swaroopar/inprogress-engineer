@@ -16,8 +16,8 @@ The network driver will open up the TCP-IP packets until layer 4 to see the dest
 This is the actual object which basically lets the server application to hook into the port.
 Here socket can be considered as the electrical socket where any appliance must connect if it needs to get power.
 
-Whenever the application receives a wake up call from the kernel that there is data for the application,
-then the application will **accept** this and return a **socket** object.
+When kernel sees data for a specific thread, it then schedules the thread that was put to sleep for a specific file descriptor.
+The application will continue executing which means, it will **accept** this and return a **socket** object.
 
 This is an infinite loop which will be polling/waiting for new connections.
 
@@ -32,10 +32,10 @@ This is the actual object that's used by the application to read and send data b
 
 The acceptor thread then hands over the task to worker thread to process the data coming from socket.
 
-:::info[Port and Sockets]
+:::important[Port and Sockets]
 Port is just logical.
 
-Socket is just an C object used to read data from buffer and also write response back to buffer.
+Socket is just an C object which is used to read data from buffer and also write response back to buffer.
 :::
 
 <ThemeImage src='/img/ports-sockets.excalidraw.png' alt='Ports and sockets' />

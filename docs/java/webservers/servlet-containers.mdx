@@ -82,8 +82,9 @@ public class NioServer {
         serverChannel.register(selector, SelectionKey.OP_ACCEPT);
 
         while (true) {
-            // Block until at least one channel is ready
+            // Block until at least one channel is ready. Meaning its put to sleep.
             // calls the epoll_wait() method to wait until an event occurs.
+            // This part of thread is put to sleep until there is an event for any of the registered channels.
             selector.select();
 
             // Process ready channels

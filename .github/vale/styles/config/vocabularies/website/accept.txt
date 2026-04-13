@@ -173,3 +173,6 @@ Bogo
 Futex
 Uber
 DBus
+futex_wait
+futex_wake
+epoll_wait
