@@ -1,0 +1,40 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# Semaphore
+
+## Why the name?
+
+The word semaphore in Greek means "sign-bearer" or "signal-bearer."
+It was used in the past to send signals between two locations using flags or lights between ships or between towers.
+
+:::info Exchanging information between threads
+In case of threads, the semaphore is used to exchange information between threads.
+**But it's not directly between the threads.**
+
+One thread which wants to acquire a resource which is protected via semaphore,
+will be put to sleep if there is no resource available.
+
+The other thread then informs the semaphore when its frees the resource,
+and the semaphore then wakes up one of the waiting threads.
+:::
+
+<ThemeImage src='/img/computers-semaphores-threads.excalidraw.png' alt='semaphores-threads' />
+
+:::warning difference between mutex, semaphore and blocking queues
+
+- **Mutex** - its a lock which can be used by only one thread at a time.
+- **Semaphore** - its a lock which can be used by multiple threads at a time.
+  It has a counter to keep track of the number of threads that can acquire the lock at a time.
+- **Blocking queue** - its a data structure which can be used to exchange data between threads.
+  It's mainly used to hold data and how the producers and consumers exchange data between them using the queue.
+  :::
+
+## Kernel Level Semaphores
+
+Kernel also has it's own semaphores which are used to synchronize access to kernel resources.
+
+Some of the example use cases of kernel level semaphores are:
+
+1. If two processes wants to access a shared memory location,
+   then application level semaphore isn't enough.
+2. If multiple device drivers try to access hardware registers.

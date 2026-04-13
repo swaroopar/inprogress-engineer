@@ -46,3 +46,27 @@ This ensures that only one thread can set the metadata at a time.
 
 In case of blocking data structures such as BlockingQueue,
 the process is similar but uses kernel's [Futex feature](../computers/futex.mdx) to implement it.
+
+- The main thread tries to fetch data on the queue.
+- If the queue is empty,
+  the fetch method will call the **futex_wait** system call,
+  which puts the thread to sleep until there is data in the queue.
+- When the producer thread adds data to the queue,
+  it will call the **futex_wake** system call,
+  which wakes up one or more threads that are waiting on the queue.
+
+:::important Is any hardware or CPU feature used in this case?
+No. This is purely implemented in the kernel.
+The kernel ensures the thread is put to sleep after atomically ensuring that the value is still empty.
+
+Rest, it does the regular job of putting a thread to sleep and waking it up whenever requested.
+:::
+
+## Distributed Systems
+
+In case of distributed messaging servers,
+the clients can't do the same.
+In such cases, the queue clients will use the standard Socket I/O to send requests to the server and wait for the response.
+The server will use the same socket to send the response back to the client.
+
+The threads are still put to sleep and woken up by the kernel as explained [here.](../linux/epoll.mdx)

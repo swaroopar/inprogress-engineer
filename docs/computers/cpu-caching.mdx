@@ -66,6 +66,16 @@ Note that the entire caching happens using the physical address and not the virt
 
 <ThemeImage src='/img/cpu-cache-mmu.excalidraw.png' alt='Cache Addressing' />
 
+### Cache Coherence
+
+Cache coherence is the mechanism where when a specific memory address that's currently cached
+is updated by one of the cores,
+then the cache lines of all other cores are also marked as dirty.
+
+:::important cache coherence and CAS
+All [CAS](../java/atomic.mdx#cas---compare-and-save) features are implemented using this hardware feature of cache coherence.
+:::
+
 ### Cache Key Calculation
 
 1. Offset bits - set to zero. Means the address of the starting byte of the cache line.
