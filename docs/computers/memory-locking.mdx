@@ -1,0 +1,10 @@
+# Memory Locking
+
+Similarly to how database have locking mechanism, the operating system also has a locking mechanism for memory.
+The terminologies are exactly the same as the database locking, but the concept is a bit different.
+
+1. **Pessimistic Locking**- Lock the memory first. Release it only after the work is done.
+   Example - Mutex, Semaphores, Reentrant Locks.
+2. **Optimistic Locking** - Do the work first. Check if the memory is still in the same state.
+   If not, then retry or handle it based on the situation.
+   Example - CAS (Compare and Swap) instruction, etc.
