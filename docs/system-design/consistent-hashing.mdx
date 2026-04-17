@@ -54,7 +54,26 @@ Hence not very often the ring is full.
 
 <ThemeImage src='/img/system-design-consistent-hashing.excalidraw.png' alt='consistent hashing' />
 
+## Virtual Nodes
+
 :::info use of virtual nodes
 In case there is lot of keys being assigned to the same server,
 we split create virtual copies of it and use the same hash function to determine its position.
+
+Virtual nodes are just labels. They still point to the same physical shard.
 :::
+
+## Key Replication
+
+Key replication is another technique where the shard is actually replicated to multiple servers.
+Which means, when we see that most of the customers are hashed to the same shared, 
+to avoid overloading that shared, we create multiple replicas of it.
+
+## Implementation
+
+There is no circle or ring in the memory to implement this.
+It's just a regular hash map where hashes are the keys and values are the shards.
+
+But it's important that this hash map must be sorted so that we can easily find the nearest shard in the clockwise direction.
+For this purpose, we can use a TreeMap in Java or a sorted list in Python.
+
