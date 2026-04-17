@@ -1,0 +1,37 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# Thread Communication
+
+We in many topics about how one thread hands over the task to threads in other thread pool or
+how one thread uses a **callback** to handover the task to another thread.
+In reality, no such callbacks really exists.
+It's all about simply submitting a task to another thread pool.
+
+:::tip Callbacks in DeferredResult
+In case of Spring DeferredResult, we call the setResult() method to return the response to the client.
+But this method only submits a task to the servlet thread pool to send the response back to the client.
+
+```java
+public void setResult(Object result) {
+    this.result = result;                    // store in heap
+    this.asyncContext.dispatch();            // this is the key call
+}
+
+// roughly what dispatch() does:
+containerThreadPool.submit(() -> {
+    response.write(this.result);   // write HTTP response
+    asyncContext.complete();       // close connection
+});
+```
+
+:::
+
+<ThemeImage src='/img/java-futures-threads.excalidraw.png' alt='thread-communication' />
+
+:::warning How Completable Futures work?
+This applies to completable futures as well.
+When we chain methods, we only submit tasks to the thread pool at each step.
+
+Completable Futures aren't about returning anything.
+It's about chaining tasks one after the other as separate threads in the thread pool.
+:::
