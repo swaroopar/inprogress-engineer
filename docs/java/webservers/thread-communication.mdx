@@ -27,3 +27,11 @@ containerThreadPool.submit(() -> {
 :::
 
 <ThemeImage src='/img/java-futures-threads.excalidraw.png' alt='thread-communication' />
+
+:::warning How Completable Futures work?
+This applies to completable futures as well.
+When we chain methods, we only submit tasks to the thread pool at each step.
+
+Completable Futures aren't about returning anything.
+It's about chaining tasks one after the other as separate threads in the thread pool.
+:::
