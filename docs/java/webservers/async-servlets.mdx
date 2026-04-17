@@ -18,12 +18,12 @@ The entire processing consists of 3 threads.
 
 1. Selector and Worker Thread - Accepts the request from client and hands over the asynchronous thread.
 2. Asynchronous Processing Thread - Which does the actual processing of the request.
-3. Selector/Poller Thread - Write the response back to client.
+3. Worker Thread - Write the response back to client.
 
-It's important to understand that the request servlet thread sends a callback method to asynchronous thread.
-The callback method which is on a different **master** thread is then called by asynchronous thread when the
-processing finishes and then the **master** thread places a task for the servlet thread pool to pickup
-the send response to the topic.
+It's important to understand that the request servlet thread sends the response object to asynchronous thread.
+The callback method on this object is then called by asynchronous thread when the
+processing finishes. This method then starts submits a task to worker thread pool
+to pickup the send response to the topic. See [this](./thread-communication.mdx) for more details on thread communication.
 
 :::tip Spring DeferredResult
 Example of asynchronous servlet is the Spring's DeferredResult implementation.

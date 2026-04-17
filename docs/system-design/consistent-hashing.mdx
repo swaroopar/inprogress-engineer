@@ -66,7 +66,7 @@ Virtual nodes are just labels. They still point to the same physical shard.
 ## Key Replication
 
 Key replication is another technique where the shard is actually replicated to multiple servers.
-Which means, when we see that most of the customers are hashed to the same shared, 
+Which means, when we see that most of the customers are hashed to the same shared,
 to avoid overloading that shared, we create multiple replicas of it.
 
 ## Implementation
@@ -76,4 +76,3 @@ It's just a regular hash map where hashes are the keys and values are the shards
 
 But it's important that this hash map must be sorted so that we can easily find the nearest shard in the clockwise direction.
 For this purpose, we can use a TreeMap in Java or a sorted list in Python.
-

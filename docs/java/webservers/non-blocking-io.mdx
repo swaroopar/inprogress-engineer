@@ -3,8 +3,9 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 # Blocking and Non Blocking IO
 
 NIO is about not constantly blocking a thread while waiting for any IO to be completed.
+In this case, the IO refers to the network IO which is used to exchange HTTP messages between clients and servers.
 
-<ThemeImage src='/img/nio.excalidraw.png' alt='nio-message-processing' />
+<ThemeImage src='/img/java-nio.excalidraw.png' alt='nio-message-processing' />
 
 :::info[NIO is the default]
 NIO is the default way of processing HTTP requests in Apache Tomcat.
@@ -29,8 +30,8 @@ So the thread in the BIO case is blocked by one connection until it's fully clos
 
 1. JVM listens on the server port. Eg., 8080. This is the acceptor/main thread.
 2. The acceptor thread forwards the socket object to poller queue.
-3. Poller then checks/polls the socket for messages.
-4. Forwards it to worker thread poll when there is a message.
+3. Poller thread is scheduled by kernel if there is any file descriptor waiting for it.
+4. Poller then queues the request and wakes up a worker thread using [Futex.](../../computers/futex.mdx).
 
 :::danger misconception of callbacks
 All documents speak about **callbacks** used by worker threads to update the response.
