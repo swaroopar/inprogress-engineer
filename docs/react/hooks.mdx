@@ -37,6 +37,11 @@ When a component re-renders, the useCallback method is called and
 then this method compares old function body with new function body and additionally compares the dependencies too.
 :::
 
+## useMemo
+
+This is similar to useCallback but instead of caching the function reference, it caches the return value of the function.
+This is useful when the function is expensive to execute and we want to avoid executing it unnecessarily.
+
 ## useEffect
 
 This is again just another method which is executed whenever the component is rendered.
