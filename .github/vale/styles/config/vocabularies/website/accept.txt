@@ -90,6 +90,7 @@ const
 useState
 useCallback
 useEffect
+useMemo
 mmap
 nushell
 zsh

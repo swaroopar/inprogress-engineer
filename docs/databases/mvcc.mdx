@@ -1,0 +1,37 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# MVCC
+
+MVCC (Multi-Version Concurrency Control)
+is a database feature where multiple transactions can read and write
+to the same data in parallel without blocking each other.
+
+:::tip Comes before locking
+MVCC is something that comes before locking.
+[locking](./locking.mdx) is induced when there is a commit of the transaction
+but there is a conflict.
+:::
+
+## How MVCC works
+
+1. Every database holds the correct sequence of transactions that are executed on the database.
+   This is part of the database's metadata.
+2. Every transaction then also gets a transaction ID.
+3. With this ID, the database engine knows the transactions that must be visible
+   and the ones that must not be visible to the transaction.
+4. If there is a transaction that's actually lower then the current transaction,
+   but if the transaction is still not committed,
+   then changes from such transactions won't be visible to the current transaction.
+
+<ThemeImage src='/img/database-mvcc.excalidraw.png' alt='mvcc' />
+
+:::warning Data written to files before commit
+The data from the transaction is actually written to the files before the commit.
+Main history stays in the WAL or the REDO log files.
+Database engines then uses this to ensure if the data must be visible to the transaction or not.
+:::
+
+:::info transactions exist always
+Even though we don't explicitly write 'BEGIN TRANSACTION' in our SQL queries,
+there is always a transaction that's created for the execution of the query.
+:::
