@@ -1,0 +1,31 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# Joins
+
+Joins in SQL are about really joining data from two tables
+based on a specific common column between them
+and return a new table with the combined data.
+
+:::tip In Terms of Java
+In Java, we can think of it as a method that takes two lists of objects of different types and
+returns a new list with object that contains properties form both lists.
+:::
+
+## Visualization of Joins
+
+Only when we visualize joins,
+it become easier to understand how and what the queries are doing.
+
+:::info Mental model for joins
+
+1. Two tables need to find a common column to join on. This is called the **join key**.
+2. Based on which side gets all the rows and which side gets only matching rows, we can determine the type of join.
+   :::
+
+:::warning INNER vs OUTER JOINS
+
+- INNER means take only what matches on both sides.
+- OUTER means take all what that matches plus all what doesn't match on one or both sides.
+  :::
+
+<ThemeImage src='/img/database-joins.excalidraw.png' alt='Database Joins' />
