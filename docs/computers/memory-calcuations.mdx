@@ -1,0 +1,30 @@
+# Memory Size Calculations
+
+This is one thing that's often misunderstood and confused by me.
+There are two different things referred to when memory sizes are mentioned in discussions.
+
+1. **Simply number of bits or bytes** - Then we need to know how much memory is needed to store the bits.
+2. **Size of the payload** - Then we already know the size. No further calculation needed.
+
+We can just convert between bits and bytes by dividing or multiplying by 2³.
+
+:::danger different ways of representing
+
+- When number of bits are given - if it's power of 2,
+  then we can directly refer to the table.
+- When the number of bits isn't power of 2,
+  then we can directly calculate the size required.
+  :::
+
+| Number of bits | Required Memory to Store |
+| :------------: | :----------------------: |
+|      2¹⁰       |           1 KB           |
+|      2²⁰       |           1 MB           |
+|      2³⁰       |           1 GB           |
+|      2⁴⁰       |           1 TB           |
+|      2⁵⁰       |           1 PB           |
+|      2⁶⁰       |           1 EB           |
+
+:::warning Important to remember
+It's important to remember this table for interviews in system design to quickly analyse space requirements.
+:::
