@@ -1,0 +1,30 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# Parallel Change
+
+Parallel change a.k.a as Expand and Contract,
+is a technique used to make changes in a system without causing downtime
+or changes to the client immediately.
+
+It's important to remember the sequence and
+keep in mind that at a given point in time, we will be supporting both the old and new versions of the system.
+
+:::warning Not just a database concept
+This is a generic concept and not just a database concept.
+Even though I have used it only in database migrations,
+this applies even to the application interface changes.
+:::
+
+<ThemeImage src='/img/system-design-parallel-change.excalidraw.png' alt='parallel change' />
+
+:::important dual writes
+Dual writes can be replaced using [CDC](./cdc.mdx) as well.
+Then there is one step less for the application to do.
+:::
+
+:::tip important links
+
+- [Parallel Change in APIs](https://martinfowler.com/bliki/ParallelChange.html)
+- [Expand and Contract in database](https://www.prisma.io/dataguide/types/relational/expand-and-contract-pattern)
+
+:::
