@@ -1,0 +1,27 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# Cookies
+
+:::important why the word cookie?
+Cookie is a concept that came from the old Unix world,
+where the term "magic cookie" was used to refer to a
+token or a piece of **opaque** data that's passed between programs.
+
+This is exactly what the cookies in browsers are.
+They receive a small piece of data from the server
+and then it sends it back to the server with every request blindly.
+:::
+
+Cookies are set via the _set-cookie_ header in the response from the server.
+This is a browser standard which reads the values in this header
+and by default send it back in the further requests sent to the same server.
+
+## Types of cookies
+
+1. **Session Cookies** -
+   These are cookies used by server to maintain user sessions.
+   See [sessions](./sessions.mdx) for more details.
+2. **Tracking Cookies** -
+   These are cookies set and used by advertisers or any third party to track user behavior across websites.
+
+<ThemeImage src='/img/browser-cookies.excalidraw.png' alt='browser cookies' />
