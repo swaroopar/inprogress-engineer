@@ -7,7 +7,7 @@ Also since all IO involves files, understanding the foundation of it's necessary
 high-performance applications.
 Everything in this document can be simply applied to all IO and not just regular hard disk files.
 
-:::important Java file
+:::important Java file creation
 Creating a new Java **File** object doesn't open the file.
 Only creating a stream or channel will open the file.
 :::
@@ -17,41 +17,53 @@ Only creating a stream or channel will open the file.
 ByteBuffer is a type in Java which allocates a fixed and continuous memory space
 just to hold binary data. This is the type used in all IO operations.
 
-## MappedByteBuffer
+:::tip Why the name buffer
+Here there is no actual byte buffer used.
+It's called buffer since it just acts as a bridge between JVM and the underlying file system.
+:::
+
+### HeapByteBuffer
+
+In case of files, buffers are just a bridge between JVM and the underlying file system.
+It's fixed amount of memory allocated in JVM heap and
+the system call copies data from kernel space to this buffer and then JVM can read from it.
+
+When we ask for the next set of bytes,
+the system call will copy the next set of bytes to the same buffer.
+
+:::warning Only type with actual buffer
+This is the only type which actually has a buffer.
+The rest of the types have the word buffer in it,
+but they don't have actual buffer.
+:::
+
+### MappedByteBuffer
 
 This is Java's implementation of MMIO.
 The difference is, MMIO is for allowing CPU and kernel to access hardware devices directly using memory addresses.
 Whereas **mmap** is for mapping files into memory space of the process and
 access it as if it were part of the process's memory.
 
-:::warning avoid system calls
+:::danger avoid system calls
 Since system calls are very expensive, using memory mapped files avoid multiple system calls.
 This is because, once the file is mapped into memory, all read/write operations are done using
 memory access instructions and not system calls.
+
+Since loading any file from ROM into memory includes the [page cache](../computers/memory-paging.mdx#swapping),
+writing or reading data, it will be directly happening on the page cache.
+Writing to page cache avoid IO since updating page cache will mark the pages as dirty and
+kernel will automatically flush the changes to disk.
 :::
 
 In this case, the file is loaded into the memory and
 then this part of memory address is mapped into the JVM process's memory space.
-
-:::important Why the name buffer
-Here there is no actual byte buffer used.
-It's called buffer since it just acts as a bridge between JVM and the underlying file system.
-:::
-
-Since loading any file from ROM into memory includes the [page cache](../computers/memory-paging.mdx#swapping),
-writing or reading data, it will be directly happening on the page cache.
 
 :::tip mmap()
 MappedByteBuffer is Java's wrapper to mmap() function.
 Even the fileChannel.map() does the same.
 :::
 
-:::note writing to page cache
-Writing to page cache avoid IO since updating page cache will mark the pages as dirty and
-kernel will automatically flush the changes to disk.
-:::
-
-## Direct Buffers
+### DirectByteBuffer
 
 In this case, buffers are requested additionally from memory outside of JVM.
 
@@ -60,6 +72,10 @@ and IO operations are performed using buffers outside of the JVM.
 
 :::tip malloc()
 Direct buffers are wrappers to malloc() native methods.
+Not that they're nothing to do with files and
+are normally not used at all for file IO.
+It's internally used by network IO to copy data directly
+to and from JVM memory.
 :::
 
 ## Stream vs Buffer
