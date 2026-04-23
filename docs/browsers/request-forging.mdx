@@ -1,0 +1,24 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# Request Forging
+
+There are two types of request forgery attacks
+
+1. CSRF - Cross Site Request Forgery
+2. SSRF - Server Side Request Forgery
+
+## CSRF - Cross Site Request Forgery
+
+<ThemeImage src='/img/browser-csrf.excalidraw.png' alt='browser-csrf' />
+
+It's all about how the attacker tricks the browser
+to send a request to the server with the credentials of the user.
+
+## SSRF - Server Side Request Forgery
+
+It's about how a server is tricked to make a forged call to another server.
+
+:::important not just a browser attack
+It can be for example even letting an AI agent just open an URL
+in the pretext of asking it to access a website using browser.
+:::

@@ -16,6 +16,12 @@ Cookies are set via the _set-cookie_ header in the response from the server.
 This is a browser standard which reads the values in this header
 and by default send it back in the further requests sent to the same server.
 
+:::warning Which cookies are sent to whom?
+The domain name in the cookie header is the decider.
+For any requests that goes from the browser to that domain name and path
+will have the corresponding cookies attached to it.
+:::
+
 ## Types of cookies
 
 1. **Session Cookies** -
