@@ -2,10 +2,20 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # CORS
 
+:::tip Browser only enforcement
+CORS is a browser standard.
+Meaning, it uses the HTTP headers to decide if the response from server can be shown to the user or not.
+The server can simply process the request fully
+and then add the CORS headers for the browser to decide.
+
+**NOTE:** In case of Spring,
+the server also verifies and reject requests that doesn't match the CORS configuration.
+:::
+
 ## Why CORS - Cross Origin Resource Sharing
 
 In the past there was only SOP - Same-Origin Policy.
-Which means, the website could only interact with resources on the same domain.
+Which means, the website could only consume resources from the same origin.
 
 CORS was only introduced to relax this restriction.
 This also introduces a risk that if CORS isn't configured correctly, this can lead to security issues.
@@ -14,6 +24,16 @@ This also introduces a risk that if CORS isn't configured correctly, this can le
 CORS headers are automatically added by the browsers when the HTTP requests are made.
 This can't be tweaked.
 :::
+
+:::warning Access-Control-\* Headers
+
+- Complex requests - Preflight request is made with access-control headers
+  to the servers. This has the information on what the browser intend to do.
+  The server then returns if this is allowed or not.
+- Simple requests - No preflight request is made.
+  The server can add the access-control headers which then
+  is used by the browser to decide if the response can be shown to the user or not.
+  :::
 
 ## Origin Header
 
@@ -32,9 +52,7 @@ This provides security and also avoids unnecessary calls to the web server.
 ## Origin vs Referer Header
 
 Origin and Referer are similar HTTP headers but only the purpose is different.
-
 Referer is used to know from which source the request is coming. This is mainly for **statistical** purposes.
-
 Whereas, Origin is used to restrict control of access to resources on other domains.
 
 ## Origin vs Host Header
