@@ -5,9 +5,14 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 In Java, all threads are created during the startup of the application.
 This is because creating threads is a resource intensive process.
 
-:::tip[Thread Resources]
+:::tip Thread Resources
 Every thread also has memory allocated in RAM
 and will remain until the thread is alive.
+:::
+
+:::danger Thread stack
+It's important to understand how stacks work under each thread.
+See [code execution](./code-execution.mdx) page to understand how the stack is used for code execution.
 :::
 
 Threads are created and are in an infinite loop waiting for tasks.
@@ -18,14 +23,14 @@ it just passes the request to the task queue from which the already created thre
 <ThemeImage src='/img/jvm-threads-relation.excalidraw.png' alt='thread-layers' />
 
 :::warning Sleeping Threads
-The Java's thread object has a link to OS thread.
+Once the thread is created,
+it's only task is to pick up tasks from the task queue.
+The code of the thread starts with this loop.
 
-So when there is nothing running on the thread,
-the OS method is called to put the thread to sleep.
-This means the OS won't schedule the thread for CPU time until it's woken up.
-
-By meaning OS, it means kernel here.
-Only kernel can schedule threads.
+This is a blocking queue,
+which means when the queue is empty,
+the logic behind the **take** method will put the thread to sleep
+until anything is added to the queue.
 :::
 
 <ThemeImage src='/img/threads.excalidraw.png' alt='thread pool' />
@@ -49,7 +54,7 @@ Threads can communicate between each other using **static**, **volatile**, **ato
    only when you pass the previous value and
    if the previous passed value is really the previous known value of the variable.
    Otherwise the update is rejected.
-4. synchronous - A block of code that can be executed by one thread at a time.
+4. synchronous - A block of code that can be executed by only one thread at a time.
    Other threads are simply paused until then.
 
 ## OS Threads vs JVM Threads

@@ -1,0 +1,65 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# Code Execution
+
+:::warning mental model about stacks
+Never confuse the Java's stack with the stack trace what we see in errors.
+They aren't related at all.
+
+The Java stack is used only for interpreted mode of execution.
+:::
+
+Each application thread inside the JVM has an instance of the execution engine which
+executes the application byte code.
+
+<ThemeImage src='/img/jvm-execution-engine.excalidraw.png' alt='execution engine' />
+
+Java code execution happens in two modes - interpreted and JIT compiled.
+Additionally it can also switch between these two modes of execution seamlessly.
+
+## Interpreted Mode
+
+This is an infinite loop where the JVM reads the byte code and executes it instruction by instruction.
+It's already native compiled code which just has a large switch case statement
+which reads each byte code instruction
+and executes a set of native instructions for each byte code instruction.
+
+:::warning Interpreted mode details
+Read the [interpreter](./interpreter.mdx) page for more details on how the interpreted mode works.
+:::
+
+## JIT Compiled Mode
+
+Here the JVM compiles the byte code to native code and then executes that native code directly.
+
+:::important Java's stack isn't used at all
+In this mode, the Java stack isn't used at all.
+the native code and the native stack is used for execution.
+:::
+
+## Integration between two modes
+
+It's common that not all methods are JIT compiled and some are interpreted.
+JVM can seamlessly switch between these two modes of execution.
+
+<ThemeImage src='/img/jvm-execution-transition.excalidraw.png' alt='execution mode transition' />
+
+:::important stack traces
+The stack trace in error logs what we see is the logical representation of the execution flow.
+It need not follow the same in reality.
+
+It translates the internal state of execution (which includes native code, interpreted bytecode,
+and possibly multiple layers of abstraction like method inlining or JIT optimizations) into a human-readable,
+logical view of how Java methods were called.
+
+IDEs use JVM's debugging APIs to present this logical stack trace.
+:::
+
+## Local Variables Stack
+
+Every stack frame in a JVM thread stack has it's own local variables stack.
+
+When a method is called,
+the arguments passed to the method are pushed onto the **local variables** stack of the frame.
+JVM reads this data and copies them to the local variable area of the newly created stack frame.
+And after the method returns, JVM copies the returned value to the operand stack of the calling stack frame.

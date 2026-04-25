@@ -1,32 +1,35 @@
 import { ThemeImage } from '@site/src/components/ThemeImage';
 
-# JDK-JRE-JVM
+# Platform Independency
 
 Java is always told to be platform independent.
 Which means, the code is written just once but can be executed on any platform.
 
-## How's independence achieved
+## How's independence achieved?
 
 This comes from the 'byte code' which java generates.
 It's an intermediate format of the code that can be understood only by the JVM.
+JVM then does the two things to achieve platform independence:
 
-And JVM is then capable of converting this intermediate byte code to the native code
-based on the platform on which the Java program is executed.
+1. Every byte code has a platform specific native code mapping.
+2. Or complete bytecode is compiled to a full native code which is platform specific.
 
 :::info JIT compiler
 Just-in-Time compiler of Java means how the JVM converts the byte code into native code
 during the execution itself.
 
-This is the difference compared to C or Go. The compiled output is already the native code.
+See [code execution](./code-execution.mdx) to understand what JIT compilation exactly is.
 :::
 
 ### Example
 
 If we write a file open code in Java,
 then the file handling code is automatically converted to Windows or Linux based on the platform
-on which the JVM is running.
+on which the JVM is running. There is no special handling needed by the developer to handle different platforms.
 
-There is no special handling needed by the developer to handle different platforms.
+:::warning JRE contents  
+The only thing that JRE contains is the compiled version of built-in libraries.
+:::
 
 :::tip only JVM is platform dependent
 Only JVM has platform dependent implementation.
@@ -34,7 +37,5 @@ But since JRE contains the JVM and JDK contains JRE, even they become platform d
 
 This is why when you download JDK, you must specify the platform too.
 :::
-
-The only thing that JRE contains is the compiled version of built-in libraries.
 
 <ThemeImage src='/img/jdk-jre-jvm.excalidraw.png' alt='JVM-JRE-JDK' />
