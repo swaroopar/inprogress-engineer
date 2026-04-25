@@ -1,0 +1,22 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# Class Loading
+
+In Java, class loading refers to how a **.class** file
+is loaded, parsed and stored into memory by the JVM.
+
+:::tip class files are irrelevant after loading
+Once the class file is loaded and parsed,
+the JVM doesn't need the class file anymore.
+:::
+
+<ThemeImage src='/img/java-classloading.excalidraw.png' alt='java-classloading' />
+
+:::important Byte code is array of bytes
+All code must be packed in a method.
+When the method code is read by the loader,
+it's stored as an array of bytes in the method area.
+
+Every position in the array is the byte code followed by the operands.
+The program counter just knows the offset from the start of this byte code array.
+:::
