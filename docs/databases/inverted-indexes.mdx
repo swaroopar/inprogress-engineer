@@ -1,0 +1,32 @@
+# Inverted Indexes
+
+Inverted indexes are used in text systems,
+where the data structure holds the map of which keywords exist in which part of the document.
+
+:::tip use the name to build mental model
+
+- Index - Always in the beginning of the book.
+  Says which chapter can be found at which page.
+  So its a page number to chapter mapping.
+
+- Inverted index - Always at the back of the book.
+  It says which words can be found at which pages.
+
+In database perspective,
+inverted indexes refers to the map between terms and the document and location in the document
+where the terms appear in the dataset.
+:::
+
+## Why is it a special data structure?
+
+It's not simple key-value map.
+The value is actually a complex structure with a lot of information
+to determine the value positions in the documents as quick as possible.
+
+:::info Where it's used?
+Any system that needs fast “word → documents” lookup at scale almost certainly uses an inverted index under the hood.
+
+- Elastic search
+- PostgreSQL, MySQL for text columns
+- MongoDB
+- Many more.

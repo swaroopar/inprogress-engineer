@@ -1,0 +1,52 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# LSM Trees
+
+Log-Structured Merge-tree is a data structure that's optimized for write-heavy workloads.
+
+:::tip B-Trees are optimized for read-heavy workloads.
+B-Trees are really good for reads.
+But when it comes to writes, the index needs to be updated
+and data has to written to the disk.
+Sometimes even multiple pages needs to be updated when index re-balances.
+:::
+
+:::warning Name is confusing
+
+- **Log-structured** - because all transactions are just appended to the memory table.
+- **Merge-tree** - Data is then merged into different SSTables on disk.
+  :::
+
+## How SST works?
+
+- Each table has it's own set of SSTables
+- Every file has string stored data.
+- Sorting happens based on the key specified for the table.
+- An SSTables spans across multiple disk pages.
+- There is also an index in each SSTables file which says which range of entries are on which page.
+
+## How Log-Structured file works?
+
+The data is just appended like a log to the mem-table.
+But the mem-table is actually a tree.
+So every insert just re-adjusts the tree.
+
+<ThemeImage src='/img/database-lsm-trees.excalidraw.png' alt='lsm trees' />
+
+## How's reading and writing not blocking?
+
+- **Writing** is always non-blocking because the write goes atomically to WAL and to the mem-table.
+  When the mem-table is full, it's locked scheduled for flush.
+  A new mem-table comes into force.
+  The flushing and compaction runs in background without blocking any writes.
+
+- **Reading** is also always non-blocking because reads are go the old mem-tables until they're flushed to L0.
+  Even for other levels, the read queries goes via old bloom filters and old SSTables
+  until the flush and compaction has created new files and deleted the old ones.
+
+:::important Internal implementation details
+Even though every compaction leads to a new SSTable file created,
+not all files are recreated at a single time.
+It happens in an incremental fashion and
+bloom filter is also recreated whenever there is a new file.
+:::
