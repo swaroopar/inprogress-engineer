@@ -178,3 +178,4 @@ futex_wait
 futex_wake
 epoll_wait
 Reentrant
+SSTable(.*)
