@@ -1,0 +1,53 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# Percentiles
+
+:::tip Different directions to same data
+
+- **Percentile Rank**-
+  We had the set of data and we find out what percentile is a particular data is.
+  This is what we did while calculating exam scores.
+
+- **Percentile** -
+  Here, we know the percentile rank
+  and we want to find out the actual value behind it.
+  That's to get the actual score of the student.
+  This is represented using the notation - $$p{95}$$.
+  :::
+
+Percentiles are calculated by **sorting the data**
+and then find the number of data points that are less than the value we're interested in.
+The formula for calculating the percentile rank of a value is:
+
+$$
+\begin{aligned}
+\text{percentile rank} = \frac{\text{Number of values less or equal to the value}}{\text{Total number of values}} * 100
+\end{aligned}
+$$
+
+## Using percentiles in system design
+
+When they mention **p95**,
+they're referring to the **percentile rank**.
+Meaning the data is already sorted
+and they already picked the actual value that has 95% of the data points below it.
+
+:::info Example about the p95 latency
+A service's response time is measures and sorted.
+Meaning the fastest response time is at the beginning and the slowest response time is at the end.
+
+**Now if they say p95, it means the actual value that has 95% of the response times below it.**
+:::
+
+:::warning translation between percentile rank and value
+When they say p95, they're referring to the percentile rank.
+
+But when they say $$95^{\text{th}}$$ percentile, they're referring to the value that has 95% of the data points below it.
+:::
+
+<ThemeImage src='/img/maths-percentile.excalidraw.png' alt='percentiles' />
+
+## Median is the $$50^{\text{th}}$$ percentile
+
+Median is also a special case of percentile.
+Median is just the value that has 50% of the data points below it.
