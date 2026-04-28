@@ -3,16 +3,21 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 # Function Calling
 
 In most documents, it's mentioned that CPU just executes the instructions one by one.
-But how does the CPU handle function calls?
+But how does the CPU handle function calls using stack?
 
-When a function is called, the CPU needs to do the following:
+When a function is called, the CPU does the following:
 
 1. Save the current execution context (for example, registers, program counter) onto the stack.
-2. Jump to the function's code location.
-3. Execute the function's code.
-4. Restore the previous execution context from the stack when the function returns.
+2. The program counter must point to the **next instruction**.
+3. Jump to the function's code location.
+4. Execute the function's code.
+5. Restore the previous execution context from the stack when the function returns.
+6. When the next instruction runs,
+   the if the function is returning any value,
+   then the instruction will definitely be a copy from a specific register back to stack.
+   If not, then the code runs from next line simply.
 
-<ThemeImage src='/img/return-statement-handling.excalidraw.png' alt='Function Call Stack' />
+<ThemeImage src='/img/computers-return-statement-handling.excalidraw.png' alt='Function Call Stack' />
 
 ## Stack in Native Execution
 
@@ -27,8 +32,8 @@ ensures native code access stack memory with correct offsets from RBP and RSP re
 
 ## Registers Used
 
-RBP - Base Pointer Register: Points to the base of the current stack frame.
-RSP - Stack Pointer Register: Points to the top of the current stack frame.
+- **RBP (Base Pointer Register)** - Points to the base of the current stack frame.
+- **RSP (Stack Pointer Register)** - Points to the top of the current stack frame.
 
 :::tip pointers in stacks
 These are nothing but memory addresses in the process's memory space.
