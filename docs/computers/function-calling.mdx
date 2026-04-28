@@ -9,12 +9,13 @@ When a function is called, the CPU does the following:
 
 1. Save the current execution context (for example, registers, program counter) onto the stack.
 2. The program counter must point to the **next instruction**.
-2. Jump to the function's code location.
-3. Execute the function's code.
-4. Restore the previous execution context from the stack when the function returns.
-5. When the next instruction runs,
-the if the function is returning any value, then the instruction will definitely be a copy from a specific register back to stack.
-If not, then the code runs from next line simply.
+3. Jump to the function's code location.
+4. Execute the function's code.
+5. Restore the previous execution context from the stack when the function returns.
+6. When the next instruction runs,
+   the if the function is returning any value,
+   then the instruction will definitely be a copy from a specific register back to stack.
+   If not, then the code runs from next line simply.
 
 <ThemeImage src='/img/computers-return-statement-handling.excalidraw.png' alt='Function Call Stack' />
 
