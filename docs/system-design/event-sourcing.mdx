@@ -1,0 +1,26 @@
+# Event Sourcing
+
+This is a system design pattern where
+any state changes are written as history of events
+and this history is the single source of truth.
+
+:::info How this is used?
+
+- All other systems use this to trigger other tasks.
+- The event history is then represented in different ways using projections.
+  :::
+
+:::tip How projections are used?
+For example,
+the event data is used to build a view which shows just the final state of an object.
+:::
+
+:::warning different from [CDC](cdc.mdx)
+In case of CDC,
+the final state is written to database and
+the database log is used to trigger other processes.
+
+Whereas in case of event sourcing,
+only the history is the single source of truth.
+All events and states are triggered from it.
+:::
