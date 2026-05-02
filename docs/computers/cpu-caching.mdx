@@ -16,7 +16,7 @@ This is because the assumption is that whatever data is currently requested,
 is also required in the near future.
 :::
 
-<ThemeImage src='/img/cpu-cache-lines.excalidraw.png' alt='cpu-cache' />
+<ThemeImage src='/img/computers-cpu-cache-lines.excalidraw.png' alt='cpu-cache' />
 
 ## Cache Lines
 
@@ -29,6 +29,22 @@ The line here is actually a specific block of memory in the cache.
 Entire cache area is split into fixed size blocks called cache lines.
 :::
 
+## L3 Directory
+
+L3 has a directory component which knows which address is currently in the cache of which core.
+This is also what's used for serializing lock requests.
+
+:::danger Lock requests for memory
+If a core wants to lock an address,
+it will send out the 'LOCK' control command to the L3 controller,
+which then sets the ownership of the memory address to the specific core
+and then sends another control message to all other cores which has the same address in it's cache.
+
+If two threads ask for the lock on same address,
+then this is where the requests get serialized and
+only the first request gets the lock acquired.
+:::
+
 ### Cache lines between cores
 
 It's important to keep in mind that for a specific physical address,
@@ -39,7 +55,7 @@ This is exactly why, even if a specific memory address is **locked** by one of t
 it won't be accessible on other cores as well.
 CPU ensures this serial accessing of the address when such an atomic access instruction is issued.
 
-<ThemeImage src='/img/computer-cpu-shared-lines.excalidraw.png' alt='cpu-cache-lines-shared' />
+<ThemeImage src='/img/computers-cpu-shared-lines.excalidraw.png' alt='cpu-cache-lines-shared' />
 
 :::info cache line serialization
 In the diagram we see that the L3 cache line is shared across multiple cores.
@@ -64,13 +80,14 @@ as cache key to search in the cache.
 Note that the entire caching happens using the physical address and not the virtual address.
 :::
 
-<ThemeImage src='/img/cpu-cache-mmu.excalidraw.png' alt='Cache Addressing' />
+<ThemeImage src='/img/computers-cpu-cache-mmu.excalidraw.png' alt='Cache Addressing' />
 
 ### Cache Coherence
 
 Cache coherence is the mechanism where when a specific memory address that's currently cached
 is updated by one of the cores,
 then the cache lines of all other cores are also marked as dirty.
+See [L3 Directory](#l3-directory) section for more details.
 
 :::important cache coherence and CAS
 All [CAS](../java/atomic.mdx#cas---compare-and-save) features are implemented using this hardware feature of cache coherence.
