@@ -15,7 +15,7 @@
         "typecheck": "tsc"
     },
     "devDependencies": {
-        "@docsearch/react": "^4.6.2",
+        "@docsearch/react": "^4.6.3",
         "@docusaurus/core": "^3.10.0",
         "@docusaurus/plugin-content-docs": "^3.10.0",
         "@docusaurus/plugin-ideal-image": "^3.10.0",
