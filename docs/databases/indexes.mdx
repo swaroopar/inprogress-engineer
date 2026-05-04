@@ -2,6 +2,14 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Indexes
 
+:::important Mental model for indexes
+See indexes as a hash map for fetching the actual data based on a key.
+
+- The key is the index value.
+- Value can be the actual value or the pointer to the actual value's location
+- Map can be implemented using any data structure - a regular hash map, a tree, a graph, etc.
+  :::
+
 As we learnt in the [disks](../storage/disks.mdx#physical-vs-logical-sector-size) section,
 the storage is split into blocks and all IO happens at the block level.
 
@@ -86,10 +94,11 @@ This means, the root node has the widest key range and the leaf nodes have the n
 
 ## Clustered Indexes
 
-It's the type of index where the data is 'clustered' together in the order of index.
-
+It's the type of index where the rows with nearby index values are physically **clustered(stored)** together on disk/pages.
 If an index node in the tree points to a specific range of key,
 all the data in that range is stored in the stored together.
+
+<ThemeImage src='/img/database-clustered-non-clustered-index.excalidraw.png' alt='clustered-indexes' />
 
 :::warning Database defaults
 Whether a primary index is by default clustered or no is a database feature.
@@ -106,6 +115,33 @@ Only one clustered index per table is possible.
 In this type of index, the data isn't stored in order.
 They can be put in any data block.
 
-:::warning Only one clustered index
+:::danger Only one clustered index
 All secondary indexes are non clustered indexes.
 :::
+
+## Bitmap Indexes
+
+This is another type of index, which are relevant where the number of rows are huge
+but the possible values in a column is very small.
+Examples such as gender, country, age, etc.
+
+The index is a map where key is the actual value and
+the value is a simple Bitmap where 1's refer to the row which has this value
+and 0 where the value is different.
+
+:::tip Example of bitmap
+In case of Gender,
+the key **M** contains a bitmap which has 1 for all rows that have value **M**
+and 0 for the ones that doesn't have **M**.
+Similarly the key **F** contains a bitmap which has 1 for all rows that have value **F**
+and 0 for the ones that doesn't have **F**.
+
+Even if we've a million rows, we just need a million bits to store this data.
+:::
+
+The queries are executed then directly using the bitmap.
+For a single condition, then directly the value from bitmap index is used
+and for multiple conditions,
+we perform an OR operation on the bitmap index's values for both columns
+to fetch only columns where both values match.
+Example, filter rows which have country **DE** and gender **M**.
