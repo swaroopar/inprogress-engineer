@@ -2,6 +2,19 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Floating Point Numbers
 
+:::tip Whats really floating here?
+It's called floating point because the point in the number is really floating to different positions.
+This nothing but the [scientific notations](../mathematics/scientific-notation.mdx)
+where we can float the point anywhere using exponents.
+:::
+
+:::warning Decimals vs Floating Points
+Decimals is now we write numbers in base 10.
+It can be both whole and fractional numbers.
+
+Floating point is just computer's version of [scientific notations](../mathematics/scientific-notation.mdx).
+:::
+
 I always assumed that the floating point numbers are simply handled as two different integers with dot separated.
 But this is completely wrong.
 Floating point values are just stored as one single value in floating point specific registers
@@ -12,7 +25,23 @@ but with very different binary manipulation and standards.
 Integer and fractional parts are handled differently.
 They're not treated as just two integers separated by decimal point.
 
-<ThemeImage src='/img/floating-point-conversion.excalidraw.png' alt='floating-to-binary' />
+<ThemeImage src='/img/computers-floating-point-conversion.excalidraw.png' alt='floating-to-binary' />
+
+## Floating points aren't accurate
+
+<ThemeImage src='/img/computers-floating-point-filling.excalidraw.png' alt='floating-point-not-accurate' />
+
+:::warning Why not accurate?
+The above diagram is only a mental model for understanding why it isn't accurate.
+
+In reality, for computers to convert a decimal number to a floating representation, it does the following
+
+1. if the number is 585.22, it will convert it into regular number as -
+   $$\frac{58522}{10^2} \text{ or } \frac{58522}{100}$$
+2. Then it will convert both numerator and denominator to binary.
+3. Perform division on these binary numbers until the quotient is 53 bits.
+4. Then converts the answer to the format mentioned [below](./floating-point.mdx#standards-for-binary-representation-of-floating-numbers).
+   :::
 
 ## Standards for binary representation of floating numbers
 
@@ -26,7 +55,7 @@ When we convert a decimal to binary, there will be **1** at some location for su
 The normalization will keep moving the decimal point to **left** until it reaches the first **1**.
 :::
 
-Finally what's stored is - sign bit + exponent + mantissa (fractional part) only.
+Finally what's stored is - sign bit + exponent + mantissa (binary value after the decimal point) only.
 Here the main assumptions are -
 
 - The integer part is understood that it's always 1.
@@ -42,7 +71,9 @@ depending on how decimal is moved to get just **1** before the decimal point.
 ### Adding Bias to Exponent
 
 In this floating point representation standard,
-the exponents has to be just positive to make the comparison easier.
+we use the scientific notation to represent the mantissa
+and the exponent can then be positive or negative.
+But the idea is to make exponents just positive to make the comparison easier.
 Meaning, the size of the exponent can be directly used to determine if a number is greater or smaller.
 
 :::tip Meaning of bias in this context
@@ -52,8 +83,9 @@ The actual value of exponent is biased with a fixed value.
 :::
 
 For example, in case of 32 bit float, the bias value is 127.
-This is because 32 bit float register has 8 bit reserved to represent exponent.
-This means, the exponent can be 2⁻¹²⁷ to 2¹²⁸ and the bits will hold (—127) to 128.
+This is because 32 bit float register has 8 bits reserved to represent exponent.
+This means, the exponent can be $$2^{-127}$$ to $$2^{128}$$
+and the exponent bits must hold values $$-127$$ to $$128$$.
 But we will add 127 to each of them to ensure only positive numbers are stored.
 
 ## Floating point in programming languages
@@ -61,6 +93,11 @@ But we will add 127 to each of them to ensure only positive numbers are stored.
 When we instantiate floating point numbers in Java,
 it already converts it to IEE 758 format before storing it into memory.
 It's an hardware requirement that's directly fulfilled by all programming languages.
+
+:::warning Programming language specific implementation
+In JavaScript, all numbers are represented in IEE754 format.
+Meaning even for whole numbers, it has only 53 bits available.
+:::
 
 ## FPU in CPU
 

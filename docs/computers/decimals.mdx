@@ -1,0 +1,29 @@
+# Decimals
+
+As we saw in [floating point](./floating-point.mdx),
+they're fast but not accurate due to binary division.
+This is exactly why programming languages also have **Decimal** data type.
+
+:::important How decimals work?
+Programming languages take full control of the **Decimal** data type.
+It first scales the numbers in the operation to the value such that
+both operands are in the same level.
+Then performs the actual arithmetic operation
+and then scales the result down.
+
+This is exactly why Decimal is accurate and used in use cases such as balance where accuracy matters.
+But it's slow.
+
+$
+\begin{aligned}
+10.5 + 0.1234 \\
+V_A = 105, scale = 1 \\
+V_B = 1234, scale = 4 \\
+V_A (\text{new}) = 105 \times 10 \times 10 \times 10 \\
+V_A (\text{new}) = 105,000 \\
+105,000 + 1,234 = 106,234 \\
+\text{Final Result} = \frac{106,234}{10^4} \\
+\mathbf{10.6234}
+\end{aligned}
+$
+:::
