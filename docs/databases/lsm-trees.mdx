@@ -28,7 +28,7 @@ Sometimes even multiple pages needs to be updated when index re-balances.
 ## How Log-Structured file works?
 
 The data is just appended like a log to the mem-table.
-But the mem-table is actually a tree.
+But the mem-table is actually a **tree**.
 So every insert just re-adjusts the tree.
 
 <ThemeImage src='/img/database-lsm-trees.excalidraw.png' alt='lsm trees' />
