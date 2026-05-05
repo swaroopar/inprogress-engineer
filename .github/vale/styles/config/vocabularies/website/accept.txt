@@ -180,3 +180,4 @@ epoll_wait
 Reentrant
 SSTable(.*)
 (?i)Ject
+(?i)worktree(.*)
