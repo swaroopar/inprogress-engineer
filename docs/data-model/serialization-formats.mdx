@@ -1,0 +1,40 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# Data Serialization
+
+I come across the statement always that JSON is text based
+whereas protobuf is binary.
+But what confused me always is the fact that,
+everything is binary at the end.
+
+<ThemeImage src='/img/data-model-serialization.excalidraw.png' alt='text-binary' />
+
+## Text Based
+
+In case of text based methods such as JSON, the entire payload is text based.
+Meaning, every character is just encoded using UTF-8 or whatever encoding the encoding is.
+
+1. Integers, decimals are also considered as characters and each character in it's encoded.
+2. Even for boolean values true and false are encoded as 4 and 5 characters respectively.
+3. Every quote, brackets are all encoded as characters.
+
+:::important Text based serialization provides human readability
+Due to the encoding methods used here,
+it's easy to decode the entire payload and view the contents.
+:::
+
+## Binary Based
+
+In case of binary based methods such as Protobuf, the encoding aims to reduce the payload size
+by directly generating binary values for data.
+
+1. Integers are fully converted to binary using VARINT.
+2. Decimals are converted to binary using IEE754 based floating point numbers.
+3. Strings are still encoded using UTF-8.
+4. Boolean as just 1 byte.
+
+:::warning protobuf features
+Binary encoding is just one of the features of protobuf.
+There are other features such as not sending the key names,
+is what makes the payload even smaller.
+:::

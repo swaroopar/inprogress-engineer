@@ -1,0 +1,26 @@
+# Variable Length Encoding
+
+In general, when we declare a type as integer,
+then it must be 32 bits or 64 bits.
+But in case of smaller numbers, we don't need so many bits at all to represent small numbers.
+This is where variable length encoding is used.
+
+:::important Used only for storing and transmission
+This is a technique that's used only for storing to save disk space
+and during transmission to reduce payload space.
+
+When the same data is loaded into the CPU registers,
+it must be padded with additional zeros to fit into the register.
+This is the task of the application.
+
+This is only an encoding technique.
+:::
+
+## How it's achieved?
+
+1. **Integers (VARINT)** - First bit of the byte is used to signal if it's the last byte.
+   If it's 1, it means it's not the last byte and it must read the next byte as well.
+   It reads through the entire data like this and forms the actual value with it.
+
+2. **Strings (VARCHAR)** - The initial bits store the length of the string,
+   followed by the actual string.

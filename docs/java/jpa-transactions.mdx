@@ -9,7 +9,7 @@ and then commit all transactions in the entire thread when the method returns.
 If there are multiple @Transactional annotated methods in the flow,
 then share the same transaction (the outermost) unless otherwise specified.
 
-:::tip methods without **@transactional**
+:::tip methods without **@Transactional**
 For methods without don't have a dedicated annotation
 
 1. If calls are done via spring-data CrudRepository,
