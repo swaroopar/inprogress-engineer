@@ -181,3 +181,4 @@ Reentrant
 SSTable(.*)
 (?i)Ject
 (?i)worktree(.*)
+(?i)protobuf
