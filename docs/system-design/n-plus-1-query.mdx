@@ -1,0 +1,26 @@
+# N + 1 Query Problem
+
+:::tip What does the name mean?
+It actually means the positive.
+It means, for every 1 query, we do an additional N queries which can be avoided.
+:::
+
+## N + 1 in API
+
+$$N + 1$$ query is a problem that's not just database specific.
+Even for simple REST APIs,
+one microservice call can trigger further N calls before it returns the final response.
+
+## N + 1 in Databases
+
+In databases, $$N + 1$$ is pretty common since we can load the parent table first
+and then for every row in the parent table,
+we can load data from child tables to build the full data set.
+
+:::info Lazy vs Eager loading
+
+- **Lazy loading** is what exactly leads to $$N + 1$$ query problem.
+- **Eager loading** avoids this problem.
+  ORM libraries usually issue JOIN statements so that just one query is sent out
+  and we prepare the objects accordingly using the single query response.
+  :::
