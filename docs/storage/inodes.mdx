@@ -40,6 +40,7 @@ Every inode structure contains information such as
 3. Access permissions.
 4. File type
 5. Pointers to data blocks.
+6. Actual size of the file - this is needed to know where to stop in the last disk page used by the file.
 
 :::important inode doesn't hold the most important information
 It's very important to keep in mind that the inode neither contains the file name nor
