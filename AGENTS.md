@@ -8,7 +8,7 @@ You must only inform the user that the PR is opened.
 1. `task build` must execute successfully.
 2. If `taskfile` isn't installed it. You must install it.
 3. All PRs MUST be rebased and merged.
-This option must be used in GitHub to merge PRs.
+   This option must be used in GitHub to merge PRs.
 
 ## Dependency upgrade PRs
 
