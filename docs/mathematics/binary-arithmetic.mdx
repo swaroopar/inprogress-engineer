@@ -16,21 +16,38 @@ This means, what's carry-out for one position is the carry-in for the next posit
 
 ## Status Flags
 
-1. Carry Flag (CF) - This flag is set when there is a carry out from the most significant bit (MSB) in addition,
+1. **Carry Flag (CF)** - This flag is set when there is a carry out from the most significant bit (MSB) in addition,
    or a borrow in subtraction. It indicates that the result of an operation exceeds the maximum value that can be represented
    with the given number of bits.
 
-2. Zero Flag (ZF) - This flag is set when the result of an operation is zero. It indicates that the operands were equal
-   in a comparison operation.
+2. **Zero Flag (ZF)** - This flag is set when the result of an operation is zero.
+   It indicates that the operands were equal in a comparison operation.
 
-3. Sign Flag (SF) - This flag is set based on the sign of the result of an operation.
+3. **Sign Flag (SF)** - This flag is set based on the sign of the result of an operation.
    It reflects the most significant bit (MSB) of the result,
    where 0 indicates a positive result and 1 indicates a negative result.
    It's just a copy of whatever the MSB is.
    No special calculation done to generate the value of this flag.
 
-4. Overflow Flag (OF) - This flag is set when the result of a signed arithmetic operation exceeds the range that can be
-   represented with the given number of bits. It indicates that the result is too large or too small to be represented correctly.
+4. **Overflow Flag (OF)** - This flag is set when the result of a signed arithmetic operation
+   exceeds the range that can be represented with the given number of bits.
+   It indicates that the result is too large or too small to be represented correctly.
+
+:::warning MSB value
+In signed calculations, MSB isn't only used to define if the value is positive or negative.
+MSB still contributes to the actual value just that the value is negative.
+
+For binary $$1000100$$,the value is calculated as $$-2^7 + 0 + 0 + 0 + 0 + 2^2 + 0 + 0 = -124$$
+:::
+
+:::danger Small integers in CPU registers
+When we work with small integers and we want to implement something that exactly fits certain bits,
+this will be tricky since the registers are always 32 or 64 bits.
+So even if you say, you want a maximum value to be 15 (assuming 4 bit),
+the overflow will simply use all other available bits in the register.
+
+This is why, we use an AND with exact number of bits you want to retain to filter out unwanted bits.
+:::
 
 :::important RFLAG register
 RFLAG register is a single register which contains all the status flags.

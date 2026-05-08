@@ -38,3 +38,11 @@ Modular arithmetic is the concept that's also implemented in binary overflow.
 In case of binary arithmetic,
 the overflow bit is just ignored which brings the value back to the beginning of the circle.
 See [binary arithmetic](./binary-arithmetic.mdx#mental-model-for-carry-and-overflow) article for more details.
+
+:::warning Setting zeros makes module of different systems
+If we've a N bit width value, setting MSB will give us the module value for N-1 bit width.
+This is exactly why, doing an AND with just a specific set of lower of bits to 1,
+gives modulo directly and we need not perform a CPU expensive modulo operation.
+
+But note that this pattern works only when the AND is performed by all ones.
+:::
