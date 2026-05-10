@@ -20,3 +20,15 @@ Quorum is used in the context of distributed systems in two different ways.
    we need to read or write to a minimum number of replicas to ensure consistency.
 2. Where we've multiple nodes in a cluster and we need to ensure that a minimum number must exist.
 3. We need a minimum number of votes to elect a leader in a cluster.
+
+:::important Reading from minimum number of replicas
+In case of reading, the data is read from configured number of replicas.
+It's then the responsibility of the client to compare and figure out which one has the latest data
+and use the data accordingly.
+:::
+
+:::warning Application need not make multiple calls
+Normally the application doesn't have to worry about ensuring quorum.
+The driver or the co-ordindator on the server side takes care of it.
+The client only sends the regular request to the co-ordinator.
+:::
