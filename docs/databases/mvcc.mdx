@@ -6,11 +6,20 @@ MVCC (Multi-Version Concurrency Control)
 is a database feature where multiple transactions can read and write
 to the same data in parallel without blocking each other.
 
-:::tip Comes before locking
-MVCC is something that comes before locking.
-[locking](./locking.mdx) is induced when there is a commit of the transaction
-but there is a conflict.
+:::tip Different from locking
+MVCC is only about storing **Multiple Versions** of the same object
+and allowing parallel reads depending on when the read transaction started.
+Where as [locking](./locking.mdx) is only about allowing concurrent writes.
 :::
+
+:::info Also known as repeatable read and snapshot isolation
+
+- **Repeatable Read** - Means, the same query can be repeatedly executed
+  within the a transaction and the value will be same even if it has been changed
+  by another transaction that was executed in parallel.
+- **snapshot isolation** - Means, every transaction sees an isolated snapshot
+  of the database state.
+  :::
 
 ## How MVCC works
 
@@ -34,4 +43,12 @@ Database engines then uses this to ensure if the data must be visible to the tra
 :::info transactions exist always
 Even though we don't explicitly write 'BEGIN TRANSACTION' in our SQL queries,
 there is always a transaction that's created for the execution of the query.
+:::
+
+:::danger How indexes work?
+In case of MVCC, there are multiple versions of data so the index also needs special handling.
+Some databases have the same index to point to multiple locations and the index must be
+additionally queried.
+
+Some databases simply create multiple index tree roots for different versions.
 :::
