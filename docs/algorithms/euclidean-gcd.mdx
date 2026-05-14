@@ -1,0 +1,35 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# Euclidean Algorithm
+
+This is used to calculate the [GCD](../mathematics/common-denominator.mdx#applications-of-gcd) of a number
+without having to get all factors a number.
+The geometric understanding of GCD is what Euclid thought about
+and the same is implemented programmatically.
+
+<ThemeImage src='/img/algorithm-euclidean.excalidraw.png' alt='lcm' />
+
+:::important
+**The rule is, if a number divides both a and b, it must also divide a mod b**.
+This is why we use the mod function to reduce the problem size.
+Otherwise, we will have to find all factors of both numbers to get the greatest common value.
+:::
+
+## Steps to follow
+
+1. Fill the rectangle with the square with the size of smallest of two numbers.
+   See what's remaining. This is nothing but mod.
+2. Now fill the remaining again with equal squares of previous mod result.
+3. Keep doing this until everything is filled.
+4. The last square size is the GCD of the size of the rectangle.
+
+```java
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+```
