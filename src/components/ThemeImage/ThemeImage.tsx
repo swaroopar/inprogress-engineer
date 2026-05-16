@@ -47,5 +47,3 @@ export function ThemeImage({ src, alt, className }: ThemeImageProps): React.JSX.
         </>
     );
 }
-
-export default ThemeImage;
