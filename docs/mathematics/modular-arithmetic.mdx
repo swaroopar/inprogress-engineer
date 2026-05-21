@@ -46,3 +46,12 @@ gives modulo directly and we need not perform a CPU expensive modulo operation.
 
 But note that this pattern works only when the AND is performed by all ones.
 :::
+
+:::info Circular data structures
+This is also the technique used by circular queues and circular linked lists.
+The circular nature of the data structure is implemented by using modular arithmetic to wrap around the indices.
+
+Meaning when we do a next operation and if the value has already reached the end of the queue or list,
+then we can just wrap around to the beginning by using modulo operation.
+This will then again point to the start of the queue or list.
+:::
