@@ -7,11 +7,20 @@ resolve, reject, then, catch, async, await.
 :::
 
 Promise is in JavaScript is nothing but the CompletableFuture in Java.
+The only difference is that JavaScript is single-threaded and Java is multi-threaded.
+This means, same thread is used to execute the code and also to execute the asynchronous tasks.
 
 This is used to start asynchronous processes and then we tell the executor about the functions that must be executed
 when the execution of this asynchronous process is completed.
 We don't return anything.
 Directly execute something else whenever the first async step completes.
+
+:::important How handover happens?
+When the async process completes,
+it calls the functions on the Promise object which asks the JavaScript engine
+to restart the paused execution of the main code by placing the result in the place
+where the async process was called.
+:::
 
 <ThemeImage src='/img/promise.excalidraw.png' alt='JavaScript Promises' />
 
