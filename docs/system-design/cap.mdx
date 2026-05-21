@@ -1,0 +1,31 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# CAP Theorem
+
+CAP stands for - Consistency, Availability and Partition tolerance
+and the theorem states that a distributed system can have only 2 out of 3.
+An implementation of the distributed system must chose any 2 out of these 3 features
+and implement accordingly.
+
+:::tip Meaning of the word partition
+In distributed systems, partition means some nodes can't communicate with each other and
+the cluster gets split.
+:::
+
+- **Consistency** - Return accurate data when partition happens. If not possible, then return error.
+- **Availability** - Return any data when partition happens. Just ensure the system remains available.
+- **Partition tolerance** - Systems are tolerant to partition and continue to work.
+
+:::warning Partition isn't optional.
+In most explanations, its stated that the system must chose between two of C, A and P.
+
+But the correct understanding is,
+When P happens, the distributed system's design must choose between C and A.
+Meaning, when a network partition happens, the system can either be consistent or available.
+
+This also means, when we chose only consistency and availability,
+it means the system isn't partition tolerant which mostly means the system
+is actually not distributed at all.
+:::
+
+<ThemeImage src='/img/system-design-cap-theorem.excalidraw.png' alt='cap-theorm' />
