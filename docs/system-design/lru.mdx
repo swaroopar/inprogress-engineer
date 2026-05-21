@@ -1,0 +1,50 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# LRU Cache
+
+Least Recently Used (LRU) cache is a type of cache that evicts the least recently used items
+when the cache reaches its capacity.
+
+:::warning LRU Cache isn't timestamp based
+I always thought LRU cache based on usage timestamps but it's not.
+The cache implementation only maintains an order of cache entries and
+keeps updating it whenever an entry is accessed or added.
+
+- It always adds/moves the accessed/added entry to the front of the order.
+- When the cache exceeds its capacity, it evicts the entry at the end of the order
+  :::
+
+:::info Implementation Details
+
+- Uses a doubly linked list of cache items to maintain the order of usage.
+- Uses a hash map to store the key and its corresponding node in the linked list for O(1) access.
+  :::
+
+<ThemeImage src='/img/system-design-lru-cache.excalidraw.png' alt='lru-cache' />
+
+## Concurrency Problems
+
+The biggest bottleneck here is to maintain the order of cache entries in a concurrent environment.
+Even though moving an entry to the front of the order is O(1) operation,
+it still requires locking the entire cache to ensure thread safety.
+
+:::danger Linked list corruption
+If multiple threads try to access the cache,
+then the LRU cache implementation will try to update the linked list order concurrently.
+This will corrupt the linked list.
+:::
+
+Some solutions for the concurrency problem are:
+
+1. **2-Random** - In this method, there is no linked list used at all.
+   Each entry also holds a counter or a timestamp to track its usage.
+   When the cache needs to evict an entry, it randomly selects two entries
+   and evicts the one that's less recently used based on the counter or timestamp.
+2. **Segmented LRU** - In this method, the cache is divided into multiple segments.
+   Each segment maintains its own LRU order and eviction policy.
+   When an entry is accessed, it's moved to the front of its segment's order.
+   When the cache needs to evict an entry,
+   it evicts the least recently used entry from the segment that has the least recently used entry overall.
+3. **Bulk Updates** - In this method, instead of updating the order of cache entries on every access,
+   the cache maintains a separate data structure to track the usage of entries.
+   The order of cache entries is updated in bulk at regular intervals or when the cache reaches a certain threshold.
