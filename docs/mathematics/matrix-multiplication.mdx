@@ -1,0 +1,52 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# Matrix Multiplication
+
+Matrix multiplication is interesting since the way we calculate is different
+and also the use cases are different from regular multiplication.
+
+:::tip Important use cases
+Its mostly about transforming data from one form to another.
+For example, in graphics, we use matrix multiplication to perform transformations such as rotation, scaling,
+:::
+
+:::warning Rules of matrix multiplication
+
+1. The number of columns in the first matrix must be equal to the number of rows in the second matrix.
+2. The resulting matrix will have the number of rows of the first matrix and
+   the number of columns of the second matrix.
+
+Example - If the matrix A is of size m x n and matrix B is of size n x p,
+then the resulting matrix C will be of size m x p.
+:::
+
+<ThemeImage src='/img/maths-matrix-multiplication-rules.excalidraw.png' alt='matrix-multiplication-rules' />
+
+## Multiply Accumulate
+
+:::info Multiply Accumulate (MAC)
+Matrix multiplication is essentially a series of **multiply accumulate** operations.
+Meaning, we perform a set of multiplications and add those products together
+to get the final value for each element in the resulting matrix.
+:::
+
+To calculate the value of an element in the resulting matrix,
+we take the corresponding row from the first matrix and the corresponding column from the second matrix,
+multiply the elements of the row and column together, and then sum up those products.
+
+## Code Implementation
+
+```java
+// 1. Loop through rows of A
+for (int i = 0; i < rowsA; i++) {
+    // 2. Loop through columns of B
+    for (int j = 0; j < colsB; j++) {
+    // 3. Loop to calculate the dot product
+        for (int k = 0; k < colsA; k++) {
+            result[i][j] += matrixA[i][k] * matrixB[k][j];
+        }
+    }
+}
+```
+
+<ThemeImage src='/img/maths-matrix-multiplication.excalidraw.png' alt='matrix-multiplication-code' />
