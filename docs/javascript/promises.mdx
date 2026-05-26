@@ -20,6 +20,12 @@ When the async process completes,
 it calls the functions on the Promise object which asks the JavaScript engine
 to restart the paused execution of the main code by placing the result in the place
 where the async process was called.
+
+When the compiler sees an async function,
+it replaces that code with a state machine where the existing execution is paused
+and the state of the execution is stored in the heap.
+When the async process completes,
+the state machine uses this heap object to resume the execution from where it exactly stopped.
 :::
 
 <ThemeImage src='/img/promise.excalidraw.png' alt='JavaScript Promises' />
