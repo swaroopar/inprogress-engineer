@@ -1,0 +1,32 @@
+# Multiplexers
+
+Multiplexers in computers are used almost everywhere.
+For example, if we want to read a value from a register, the capacitor holding data on those registers 
+must release the charge and the multiplexer must let the charge flow to ALU or FPU for processing.
+
+:::tip One mux for one bit
+It's not about reading the entire register at once.
+Each bit in the register has its own multiplexer to let the charge flow to the ALU
+or FPU.
+
+Meaning if we need to read from a 32 bit register,
+we will have 32 multiplexers to read each bit separately and then combine them together to get the final value.
+:::
+
+## Multiplexer Components
+
+Multiplexer are made of just AND and OR gates mainly.
+
+1. Number of selector bits, determines how many input lines we can have.
+   Example if there are 8 lines, then we have 3 selector bits since $$2^3 = 8$$.
+2. Depending on the bit that the CPU wishes to read,
+the selector bits will be set with corresponding values.
+**But the multiplexer will ensure that only one line gets a 1 on all inputs.**
+3. The output of these lines is then passed to an OR gate.
+Since all other lines have atleast one input as 0,
+the output of the OR gate will be the value of the line that has 1 on all inputs.
+
+:::warning CPU already knows the selector value
+The CPU is built so that the instruction bits are already connected to the register file hardware.
+Meaning if the read instruction is for a 32 bit register,
+this instruction is already 
