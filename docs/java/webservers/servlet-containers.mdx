@@ -77,7 +77,8 @@ public class NioServer {
         serverChannel.configureBlocking(false);
 
         // Register ServerSocketChannel with Selector for OP_ACCEPT
-         // adds the created channel to the created epoll_create() table and tells about the events that are useful for it.
+         // adds the created channel to the created epoll_create() table
+         // and tells about the events that are useful for it.
          // this means its ready to be accepted. Inform any channels that are ready to be accepted.
         serverChannel.register(selector, SelectionKey.OP_ACCEPT);
 

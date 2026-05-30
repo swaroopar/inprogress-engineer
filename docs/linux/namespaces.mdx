@@ -91,7 +91,7 @@ and linked to the process's [nsproxy](#nsproxy-struct) structure.
 ## nsproxy struct
 
 As we know every process in Linux has a corresponding **struct task_struct**.
-See [here.](./processes.mdx#processthread-structure)
+See [the linux process structure doc for more details.](./processes.mdx#processthread-structure)
 
 This struct has a pointer to another structure called **struct nsproxy**.
 This structure has references to all namespaces objects of the process.
