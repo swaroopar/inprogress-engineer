@@ -38,7 +38,7 @@ These methods just read and write data between different memory buffers of two d
 ## File Descriptors for Sockets
 
 Normally for regular file operations,
-there is just one file descriptor created for a file which is used for both reading and writing.
+There exists just one file descriptor created for a file which is used for both reading and writing.
 
 But in case of sockets, the kernel creates two file descriptors.
 One for reading and one for writing.
@@ -47,6 +47,6 @@ and the consumer gets the another file descriptor to which it can write response
 
 :::warning why do sockets have two file descriptors?
 Sockets are simply backed by buffers in memory.
-So when a single buffer is used for both reading and writing,
+When a single buffer is used for both reading and writing,
 then same process will write and also read from the same buffer which is useless.
 :::

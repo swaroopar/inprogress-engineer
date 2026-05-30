@@ -39,7 +39,7 @@ Otherwise the kernel will enable the a connection even if the application isn't 
 Kernel keep alive packets doesn't reach the application level.
 It just sends an empty packet with the sequence number of an already acknowledged packet.
 
-So the TCP packet processor on the receiver just checks and
+The TCP packet processor on the receiver just checks and
 returns the same ACK again to the sender.
 The packet never goes up to the next level in the network stack.
 

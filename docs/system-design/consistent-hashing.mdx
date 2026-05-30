@@ -31,7 +31,7 @@ server = hash(key) % number_of_servers
 :::warning problems with regular hashing
 
 1. The **mod N** depends always on the size of the partition.
-   So adding and removing partitions will always lead to lot of data migration.
+   Hence adding and removing partitions will always lead to lot of data migration.
 2. Irrespective of how good the hash function is, applying **mod** on it at the end will always create same issues.
    :::
 
@@ -71,7 +71,7 @@ to avoid overloading that shared, we create multiple replicas of it.
 
 ## Implementation
 
-There is no circle or ring in the memory to implement this.
+There exists no circle or ring in the memory to implement this.
 It's just a regular hash map where hashes are the keys and values are the shards.
 
 But it's important that this hash map must be sorted so that we can easily find the nearest shard in the clockwise direction.

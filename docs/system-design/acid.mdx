@@ -14,7 +14,7 @@ It's a feature of how transactions behave in a system.
    This means, the system state obeys system's rules after the transaction.
    For example, any data written to the database must be valid according to all defined rules,
    including constraints, PK, FK, cascades, and triggers.
-   So only valid data will be written to the database.
+   Only valid data will be written to the database.
 3. **Isolation** - Concurrent transactions won't interfere with each other.
    Which means, any uncommitted transactions won't be visible to other transactions.
    [Locking](../databases/locking.mdx) and [MVCC](../databases/mvcc.mdx) are techniques that provides isolation.
@@ -41,7 +41,7 @@ to provide data consistency.
 :::
 
 :::danger Isolation vs Concurrency
-There is a subtle difference these two topics.
+There exists a subtle difference these two topics.
 Concurrency is about allowing parallel clients access the same data.
 Whereas, isolation is about ensuring they multiple clients don't corrupt data.
 :::

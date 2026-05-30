@@ -59,7 +59,7 @@ When an embedded struct is initialized with a zero value, the following happens
 
 1. If the embedded struct is a value, even the fields of this struct is initialized with zero values.
 2. If the embedded struct is a pointer,
-   then the pointer is simply initialized to nil. So calling any method on that struct will fail.
+   then the pointer is simply initialized to nil. Then the calling any method on that struct will fail.
 
 :::tip Sources
 

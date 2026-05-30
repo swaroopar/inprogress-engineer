@@ -39,7 +39,7 @@ pen down my understanding in my own words and refer to it later when necessary.
 ## Why In-Progress Engineer?
 
 This name was picked because for an Engineer (any profession for that matter) learning never stops.
-**So an Engineer is never complete.**
+**An Engineer is never complete.**
 
 Learning here has two aspects
 

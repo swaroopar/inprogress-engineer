@@ -1,6 +1,6 @@
 # Health Probes
 
-There are two types of probes possible - **Liveness** and **Readiness**.
+There exists two types of probes possible - **Liveness** and **Readiness**.
 
 - **Liveness** - this means we only check if the port is really reachable from outside the pod.
 - **Readiness** - This means we check if the app is full up and can really start accepting requests.
@@ -31,5 +31,5 @@ But this isn't true for all cases.
 
 For example, even in tomcat the server maybe fully started but we can implement custom readiness probes,
 where we can additionally check if certain required microservices are reachable or not and decide the readiness answer.
-So such case, the app is live but it's not yet ready to really serve requests.
+such case, the app is live but it's not yet ready to really serve requests.
 :::

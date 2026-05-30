@@ -7,7 +7,7 @@ Since a method receiver can be both a value or a pointer, the compiler decides t
 
 :::danger Regular methods vs interface methods
 In case of regular methods, a T or *T type can call a methods with T or*T receiver.
-There is no restriction.
+There exists no restriction.
 
 The restriction of T variable not being able to call methods of \*T receiver **applies only to interfaces**.
 
@@ -32,10 +32,10 @@ the compiler knows which methods are available for the type based on the method 
 ## Method Sets of interface
 
 1. Value receivers operate on the copies of the original value.
-   So this can be called using a T or \*T.
+   this can be called using a T or \*T.
    This is because, if T is known then the compiler automatically gets the address (using &) to call the method.
 2. Pointer receivers can be called only using pointer types.
-   So only type an interface type \*T can call.
+   only type an interface type \*T can call.
 
 :::important Method vs Function
 

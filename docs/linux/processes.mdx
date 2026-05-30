@@ -15,7 +15,7 @@ This has all information related to the process such as PID, page table location
 register information such as current instruction pointer of the thread, all necessary register values, etc.
 
 :::important threads and processes
-There is no big distinction between thread and process for the kernel when it comes to executing it.
+There exists no big distinction between thread and process for the kernel when it comes to executing it.
 In fact, kernel knows only threads.
 
 Both are represented using the same structure.
@@ -99,7 +99,7 @@ After that every process must come out of another process.
 
 :::tip Example parent processes
 
-1. Kubelet - it's configured as system service. So systemd will fork and then start kubelet program.
+1. Kubelet - it's configured as system service. systemd will fork and then start kubelet program.
 2. containers - kubelet then forks other containers and start the container program.
    :::
 

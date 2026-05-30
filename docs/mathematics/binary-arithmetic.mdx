@@ -43,7 +43,7 @@ For binary $$1000100$$,the value is calculated as $$-2^7 + 0 + 0 + 0 + 0 + 2^2 +
 :::danger Small integers in CPU registers
 When we work with small integers and we want to implement something that exactly fits certain bits,
 this will be tricky since the registers are always 32 or 64 bits.
-So even if you say, you want a maximum value to be 15 (assuming 4 bit),
+Even if you say, you want a maximum value to be 15 (assuming 4 bit),
 the overflow will simply use all other available bits in the register.
 
 This is why, we use an AND with exact number of bits you want to retain to filter out unwanted bits.
@@ -59,12 +59,12 @@ Each flag is represented by a specific bit in this register.
 For every arithmetic operation, the CPU provides result of both signed and unsigned operations.
 It's up to the caller to consider the output according to it's choice.
 
-So for every operation, CPU will set the result as well as CF and OF flags
+for every operation, CPU will set the result as well as CF and OF flags
 considering signed and unsigned operations.
 
 :::tip Java uses only signed
 For example, Java has only signed integer types.
-So, when Java code performs arithmetic operations, it relies on the Overflow Flag (OF)
+when Java code performs arithmetic operations, it relies on the Overflow Flag (OF)
 to detect overflow conditions in signed arithmetic.
 :::
 
@@ -87,7 +87,7 @@ In case of unsigned numbers, consider the sequence as a straight line.
 When carry happens, the result exceeds the maximum limit.
 
 :::warning Cases where both carry and overflow happens.
-There are some cases, such as specific combinations of negative and positive numbers,
+There exist some cases, such as specific combinations of negative and positive numbers,
 where both carry and overflow can happen simultaneously.
 :::
 

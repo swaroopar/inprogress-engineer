@@ -14,7 +14,7 @@ For methods without don't have a dedicated annotation
 
 1. If calls are done via spring-data CrudRepository,
    these methods already have this annotation.
-   So the transaction is handled at that level.
+   The transaction is handled at that level.
 2. If direct calls are done, then every single query is handled
    as a separate transaction, executed and committed individually.
    :::

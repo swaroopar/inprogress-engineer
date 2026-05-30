@@ -22,8 +22,8 @@ This is exactly why we see the thread with name **http-nio-** in Spring Boot
 5. If all threads are used up, then no new sockets can be accepted and the client requests hangs.
 
 :::info[TCP is Persistent]
-There is always one TCP session used to exchange multiple HTTP messages between clients.
-So the thread in the BIO case is blocked by one connection until it's fully closed.
+There exists always one TCP session used to exchange multiple HTTP messages between clients.
+the thread in the BIO case is blocked by one connection until it's fully closed.
 :::
 
 ## Non-Blocking IO (NIO)
@@ -35,7 +35,7 @@ So the thread in the BIO case is blocked by one connection until it's fully clos
 
 :::danger misconception of callbacks
 All documents speak about **callbacks** used by worker threads to update the response.
-There is no callback as such.
+There exists no callback as such.
 
 The actual objects that the poller thread creates after registering a socket for polling is sent across thread pools.
 The worker or async threads simply call the method on these objects which sets the buffer directly on the object

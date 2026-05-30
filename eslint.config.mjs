@@ -19,7 +19,14 @@ const compat = new FlatCompat({
 
 export default [
     {
-        ignores: ['build/**/*', 'plugins/tailwind-config.ts', '.docusaurus/**/*', 'eslint.config.mjs', 'scripts/**/*'],
+        ignores: [
+            'build/**/*',
+            'plugins/tailwind-config.ts',
+            '.docusaurus/**/*',
+            'eslint.config.mjs',
+            'scripts/**/*',
+            '.github/vale/styles/*',
+        ],
     },
     ...compat.extends(
         'plugin:@typescript-eslint/recommended',
