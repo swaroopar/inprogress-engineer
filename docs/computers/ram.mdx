@@ -28,7 +28,7 @@ This means, any random byte can be addressed and accessed without any need to re
 
 :::warning no firmware
 The RAM stick itself doesn't contain any firmware.
-There is just a serial presence detect (SPD) chip that contains information about the RAM stick,
+There exists just a serial presence detect (SPD) chip that contains information about the RAM stick,
 such as its size, ranks, speed, and timings.
 This information is used by the CPU memory controller.
 :::
@@ -43,7 +43,7 @@ This is the concept that uses the **Ranks** and also **Bank Groups**.
 :::important dual channel and multiple ranks
 With dual channel memory, the number of ranks increases.
 This means, there are 2 memory sticks with 2 ranks each.
-So, the 4 ranks and out of which 2 can be accessed at a time.
+The 4 ranks and out of which 2 can be accessed at a time.
 :::
 
 ## Address Translation
@@ -98,7 +98,7 @@ This means, the data transferred between the RAM and CPU is 64 bits at a time.
 This is why the RAM chips are designed to have 64 bits of data in each rank.
 
 But the CPU cache lines are 64 bytes.
-So the RAM must transfer 8 times the data to fill the cache line.
+The RAM must transfer 8 times the data to fill the cache line.
 This happens in bursts and multiple CPU cycles.
 
 ## SRAM vs DRAM
@@ -120,7 +120,7 @@ This happens in bursts and multiple CPU cycles.
 
 ## Refresh Cycle
 
-There are two types of refresh happening in DRAM:
+There exist two types of refresh happening in DRAM:
 
 1. **Row Refresh** - This is when a specific row in the memory is refreshed.
    The memory controller will read the data from the row

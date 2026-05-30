@@ -69,7 +69,7 @@ then the process sees the same filesystem that the parent process sees.
 Each namespace provides different levels of isolation based on the type of resource.
 
 - PID namespace - this is an hierarchical one.
-  So the parent process can still see the process of the child namespace.
+  The parent process can still see the process of the child namespace.
 - Net namespace - It's completely isolated since network namespaces aren't hierarchical.
   They both communicate with the network hardware two complete separate networks.
 - Mount namespace - The entire data on the host is visible to all mount namespaces.

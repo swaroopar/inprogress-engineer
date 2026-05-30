@@ -10,7 +10,7 @@ Which means, the volume provisioning is fully abstracted to the user.
 
 1. **plugin** - It's just the interfaces defined by Kubernetes
    which must be implemented by any storage provider to offer volume to the cluster.
-   There are many types of plugin and most of them are implemented natively within the kubelet itself.
+   There exists many types of plugin and most of them are implemented natively within the kubelet itself.
    Only CSI plugin was introduced where the implementations come externally.
 2. **Driver** - It's the controller that implements the plugin specification.
    It's running mostly as controller on admin layer and the node driver is running as a daemonSet on each node.

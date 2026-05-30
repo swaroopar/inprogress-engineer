@@ -17,7 +17,7 @@ This has a special data structure which OS uses to store the current state of MM
 Data necessary to reschedule the thread is copied to process control block's properties.
 
 Whenever the OS reschedules a thread, it then copies all data from PCB
-so that the CPU can continue where it actually left off.
+such that the CPU can continue where it actually left off.
 :::
 
 ### Process with multiple threads
@@ -37,7 +37,7 @@ When CPU is executing instructions and in between if an interrupt signal is rece
 then the CPU saves the current execution to process's memory called the **kernel stack** of the process.
 
 :::info Number of kernel interrupt stacks
-There is one kernel interrupt stack per CPU.
+There exists one kernel interrupt stack per CPU.
 
 It's on this stack the CPU stores the current execution context first and
 then executes the interrupt handler code and
@@ -48,7 +48,7 @@ which is then used by the CPU to restore and continue execution.
 This stack is used to store the current value in CPU registers, flag registers, etc.
 
 On top of this stack, is the interrupt handler executed.
-So when the interrupt handler returns,
+when the interrupt handler returns,
 the stored values from the interrupted user process are restored by the handler
 and executes the **IRET/sysret** instruction.
 
@@ -65,7 +65,7 @@ the system call handler then updates CPU registers to use the kernel stack
 to execute all system calls and exceptions (such as page faults).
 
 :::warning kernel stack vs interrupt stack
-There is one interrupt stack per CPU and this is used only for hardware interrupt handling.
+There exists one interrupt stack per CPU and this is used only for hardware interrupt handling.
 
 Whereas kernel stack is one per thread and is used by system calls and exceptions.
 :::

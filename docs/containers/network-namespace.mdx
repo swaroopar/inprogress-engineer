@@ -19,7 +19,7 @@ See [Linux network device](../linux/network-devices.mdx#kernel-as-router) to und
 
 :::warning no restriction on connection between namespaces
 Namespaces only provides isolation of memory structures.
-There is no restriction on how the devices in different namespaces can be connected.
+There exists no restriction on how the devices in different namespaces can be connected.
 
 This is exactly why the **veth pair** works.
 One end of the veth pair can be in host namespace and other end in container namespace.
@@ -50,7 +50,7 @@ allow communication between different namespaces as long as the devices are conn
 
 When external system sends an ARP request,
 none of the physical switches really know about this network.
-so no request ever reaches the host itself.
+no request ever reaches the host itself.
 See [routing](../network/routing.mdx#router-and-switch-integration) document for more information.
 
 :::tip What happens if the ARP reaches host

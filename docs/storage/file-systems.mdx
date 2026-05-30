@@ -60,7 +60,7 @@ The filesystem information exists in the OS files always.
 Irrespective of whether the disk is physically present or no.
 But only after the mounting the disk, the files will be accessible in the address mentioned in the inode structure.
 
-So mounting a filesystem actually means, the underlying storage of the filesystem is now available for the kernel to access.
+Mounting a filesystem actually means, the underlying storage of the filesystem is now available for the kernel to access.
 
 ## Storage Software
 
@@ -89,11 +89,11 @@ storage and it's firmware.
 ### Logical Volumes
 
 Volumes are virtual disks. Means, multiple physical disks are grouped and shown as a single disk to the operating system.
-There is a logical volume manager that sits on top and handles all the mapping of files to underlying blocks.
+There exists a logical volume manager that sits on top and handles all the mapping of files to underlying blocks.
 
 ## Storage without a filesystem
 
-There are use cases where the disks can exist without any filesystem, means the block storage is used as it is.
+There exist use cases where the disks can exist without any filesystem, means the block storage is used as it is.
 
 For example, some databases use the block devices as it's and manage the blocks themselves.
 Same also with LVMs in Linux.

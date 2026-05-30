@@ -24,7 +24,7 @@ The formula of permutation also reflects the same.
 If there are N available choices and we need to build permutations of size K.
 In this case, for first position, we've N options, for second position we've N-1 and then N-2, until 1.
 
-So the number of permutations possible is, $N \times N-1 \times N-2 ...$ until K positions are filled.
+The number of permutations possible is, $N \times N-1 \times N-2 ...$ until K positions are filled.
 The formula exactly does this.
 Takes the full factorial of the available choices and removes all unused positions by dividing it.
 It means, when the problem statement only asks for K permutations(positions) from N available choices,
@@ -41,7 +41,7 @@ also formula doesn't allow repeating items, this isn't always true.
 Permutations with repetitions is an important use case.
 For example, when we've a 3 digit number lock, the numbers can be repeated.
 This means, the above formula isn't valid for finding the number of permutations possible.
-So every position has all options to chose from.
+every position has all options to chose from.
 This means, if you have 10 choices to fill in 3 positions then we've $10 \times 10 \times 10$ permutations.
 
 <!-- vale Vale.Spelling = NO -->

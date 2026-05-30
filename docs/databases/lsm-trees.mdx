@@ -23,13 +23,13 @@ Sometimes even multiple pages needs to be updated when index re-balances.
 - Every file has string stored data.
 - Sorting happens based on the key specified for the table.
 - An SSTables spans across multiple disk pages.
-- There is also an index in each SSTables file which says which range of entries are on which page.
+- There exists also an index in each SSTables file which says which range of entries are on which page.
 
 ## How Log-Structured file works?
 
 The data is just appended like a log to the mem-table.
 But the mem-table is actually a **tree**.
-So every insert just re-adjusts the tree.
+Every insert just re-adjusts the tree.
 
 <ThemeImage src='/img/database-lsm-trees.excalidraw.png' alt='lsm trees' />
 

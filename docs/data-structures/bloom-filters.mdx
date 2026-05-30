@@ -17,7 +17,7 @@ Which means, this data structure is used to check a specific condition is **defi
 :::
 
 Assume an example where YouTube needs to know which user has seen which shorts already,
-so that the same short isn't shown again.
+such that the same short isn't shown again.
 Given the fact that there are millions of users and billions of shorts,
 it's impractical to store this information in a traditional database.
 
@@ -57,7 +57,7 @@ Then use the output of each of them to represent a key in the bloom filter.
 ## Size of Bloom filter
 
 It's necessary to decide the optimal size of the filter at the beginning itself.
-There is a standard formula that describes the parameters that must be considered.
+There exists a standard formula that describes the parameters that must be considered.
 
 Formula to calculate filter size can be found [here](https://hur.st/bloomfilter/).
 
@@ -65,7 +65,7 @@ Formula to calculate filter size can be found [here](https://hur.st/bloomfilter/
 Changing size of Bloom filter isn't straight forward.
 We can't simply create another bigger bit array and copy the data there
 because if we change the array size then the 'mod' value also changes.
-So the existing calculations become invalid.
+the existing calculations become invalid.
 :::
 
 ## Use cases

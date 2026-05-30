@@ -9,6 +9,9 @@ You must only inform the user that the PR is opened.
 2. If `taskfile` isn't installed it. You must install it.
 3. All PRs MUST be rebased and merged.
    This option must be used in GitHub to merge PRs.
+4. For any of the tasks, don't install any additional NPM packages at project or global level.
+   If even needed, do it in a temporary location only.
+5. Don't install any additional binaries or libraries on the system.
 
 ## Dependency upgrade PRs
 

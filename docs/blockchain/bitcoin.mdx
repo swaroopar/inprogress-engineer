@@ -58,7 +58,7 @@ The transaction fees is also paid in bitcoins.
 ## Miners pick transactions
 
 It's left to the miners to pick transactions in the block based on the transaction fees **offered** by the user
-or any other condition. So this means, each miner can be mining any transaction that it can pick from the mempool.
+or any other condition. This means, each miner can be mining any transaction that it can pick from the mempool.
 
 :::tip handling duplicates
 If two miners have generated a block at same time and in case both have any transaction common,
@@ -67,7 +67,7 @@ If two miners have generated a block at same time and in case both have any tran
 2. Some of the peer nodes will receive second generated block and it will accept it and to blockchain.
 3. Now a **temporary fork** occurs. This means, two versions of the blockchain exists in the network.
 4. Now the miner which builds the third block will add to whatever blockchain it receives from it's full node.
-5. So this blockchain now becomes the longest one becomes the active one and other blockchain is discarded.
+5. This blockchain now becomes the longest one becomes the active one and other blockchain is discarded.
    :::
 
 ## Gossip Protocol
@@ -78,7 +78,7 @@ and the connected nodes forward to the next connected nodes.
 
 :::danger not all peers are connected
 Here not all nodes are connect to all other nodes in the network.
-There is a limit on number of nodes a node in the network connects to.
+There exists a limit on number of nodes a node in the network connects to.
 :::
 
 ## Software in nodes and miners
@@ -114,7 +114,7 @@ This is done using [digital signatures](../security/digital-signatures).
 ## Final Balance
 
 The transactions are spread across multiple blocks.
-So in case of an bank account, the final balance of an user isn't stored anywhere.
+in case of an bank account, the final balance of an user isn't stored anywhere.
 It must be calculated from the entire history of transactions.
 
 :::tip frameworks handle it differently

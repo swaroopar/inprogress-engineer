@@ -22,3 +22,4 @@ yarn-error.log*
 .idea
 .github/vale/styles/Google
 .github/vale/styles/Microsoft
+.github/vale/styles/write-good
