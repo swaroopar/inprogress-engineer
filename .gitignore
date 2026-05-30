@@ -20,6 +20,4 @@ yarn-debug.log*
 yarn-error.log*
 *.iml
 .idea
-.github/vale/styles/Google
-.github/vale/styles/Microsoft
-.github/vale/styles/write-good
+.github/vale/styles/*
