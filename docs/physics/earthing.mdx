@@ -1,0 +1,58 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# Earthing
+
+Most important thing to keep in mind,
+is the fact that earth was historically used as an **indirect** connection.
+Instead of having a full return metal connection between the destination and the source,
+we used earth back then.
+
+:::important How did using earth work?
+
+1. Conductive capacity of materials increase if the size increases.
+   Earth being very big, makes it a good enough conductor.
+2. When earth is injected with electrons coming back from the destination,
+   it will find it ways to reach the source somehow since the source has imbalance in it's charge.
+
+This was the method used in telegrams in the past.
+:::
+
+<ThemeImage src='/img/physics-earthing-historically.excalidraw.png' alt='historical-use-of-earthing' />
+
+:::warning Earthing and Grounding
+Earthing and grounding are exactly the same.
+Just two different names in different locations.
+For example, US calls it grounding and UK calls it earthing.
+:::
+
+## Earthing in electric circuits today
+
+In electrical circuits, earthing is used as of today to protect the circuit from heavy current.
+It doesn't have any other purpose.
+
+:::tip Protective Earthing
+It's provided with a line that has very low resistance.
+The heavy current just finds this path and flows to earthing.
+:::
+
+## Earthing in electronic circuits
+
+In electronic circuits, **ground** is just a **reference used during design to describe** the circuit.
+
+:::danger why the word ground used still?
+Even though the ground isn't used in real sense since nothing is connected to earth
+in case of electronic circuits,
+they just decided to still use the name to refer to the return connections.
+:::
+
+- Input voltage during implementation is ensured to maintain the difference between input
+  and the ground reference.
+- All return connections for the current is also implicitly covered by the ground symbol.
+  This is a common connection.
+
+:::info Ground is the return route
+Ground is nothing but the return route of the circuit.
+But drawing the return route always makes the circuit look complex.
+Hence all return routes are represented as **GND** because
+they represent the same thing - a return route and a zero voltage reference.
+::::
