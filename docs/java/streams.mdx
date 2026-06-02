@@ -1,0 +1,23 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# Streams
+
+Streams are pipelines aren't syntactic sugar for regular loops.
+They're not modified to any other regular loops as part of the compilation.
+
+- Each intermediate method returns the pipeline step.
+- The terminal method then executes the entire pipeline that was passed to it.
+
+<ThemeImage src='/img/java-streams.excalidraw.png' alt='java-streams' />
+
+:::important streams vs collections
+
+- **Collections** are data structures and hence used for storing data.
+- **Streams** are pipeline engines and store no data. Just work on the data.
+  :::
+
+:::warning Streams work also with primitives
+Streams can also work with int, long and double.
+This is because, streams are only about processing the data.
+The data need not be a Collection. Hence even primitive arrays are supported.
+:::
