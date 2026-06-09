@@ -2,32 +2,32 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Align vs Justify Items
 
-One of the most confusing things for me and also frequently forgotten is
-how align-items and justify-content options work in CSS and when to use which one.
+One thing confuses me and I often forget it.
+It's how align-items and justify-content work in CSS, and when to use each.
 
 :::important[Flex Only Feature]
-Both **align-items** and **justify-content** options in CSS are only for flex containers.
-They control the position of the items within a flex container.
+Both **align-items** and **justify-content** are only for flex containers.
+They set where the items sit inside a flex container.
 :::
 
 <ThemeImage src='/img/flex-main-cross-axis.excalidraw.png' alt='Flex Axis' />
 
 ## Justify Content
 
-Used to control the position of flex items over the **main axis** of the flex container.
+It sets where flex items sit on the **main axis** of the container.
 
 ## Align Item
 
-Used to control the position of flex items over the **cross axis** of the flex container.
+It sets where flex items sit on the **cross axis** of the container.
 
-For example, when you want have a row direction flex,
-using align-items option, we can place all the horizontal items at the same vertical level.
+For example, take a row direction flex.
+With align-items, you can place all the items at the same vertical level.
 
 ## Justify and Align Individual Items
 
-The options above are valid for all items in the flex container.
-But **justify-self** and **align-self** can be used to control the position of a specific
-flex item on main and cross axis respectively.
+The options above apply to all items in the container.
+But **justify-self** and **align-self** set one item's place
+on the main and cross axis.
 
 :::info[useful links]
 

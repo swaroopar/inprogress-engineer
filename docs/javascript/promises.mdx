@@ -6,63 +6,62 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 resolve, reject, then, catch, async, await.
 :::
 
-Promise is in JavaScript is nothing but the CompletableFuture in Java.
-The only difference is that JavaScript is single-threaded and Java is multi-threaded.
-This means, same thread is used to execute the code and also to execute the asynchronous tasks.
+A Promise in JavaScript is just like CompletableFuture in Java.
+The one difference is the threading. JavaScript is single-threaded. Java is multi-threaded.
+The same thread runs the code and the async tasks.
 
-This is used to start asynchronous processes and then we tell the executor about the functions that must be executed
-when the execution of this asynchronous process is completed.
-We don't return anything.
-Directly execute something else whenever the first async step completes.
+You use it to start async work.
+You then tell the executor which functions to run when that work is done.
+You don't return anything.
+You just run something else once the first async step finishes.
 
 :::important How handover happens?
-When the async process completes,
-it calls the functions on the Promise object which asks the JavaScript engine
-to restart the paused execution of the main code by placing the result in the place
-where the async process was called.
+When the async work is done,
+it calls the functions on the Promise object.
+These ask the engine to resume the paused main code.
+The result is put back where the async work was called.
 
-When the compiler sees an async function,
-it replaces that code with a state machine where the existing execution is paused
-and the state of the execution is stored in the heap.
-When the async process completes,
-the state machine uses this heap object to resume the execution from where it exactly stopped.
+When the compiler sees an async function, it swaps in a state machine.
+The current run is paused. Its state is stored on the heap.
+When the async work is done,
+the state machine uses this heap object to resume right where it stopped.
 :::
 
 <ThemeImage src='/img/promise.excalidraw.png' alt='JavaScript Promises' />
 
 ## resolve and reject
 
-A Promise constructor takes one object - _executor_ which is the function that must be executed in asynchronous mode
-and this _executor_ must have two functions - _resolve_ and _reject_ as parameters.
+A Promise constructor takes one thing, the _executor_. This is the function to run in async mode.
+The _executor_ takes two functions as parameters: _resolve_ and _reject_.
 
 :::important[Language Specifications ]
-Promise object structure is included in the JavaScript specification.
-Any implementation of JavaScript must have a constructor described as above.
+The Promise object structure is part of the JavaScript spec.
+Any JavaScript engine must have a constructor like the one above.
 :::
 
-These are private methods are executed by the engine when the executor function is successful or has failed.
-It then sets the internal properties of the Promise object to reflect the state of the execution and
-also stores the result object.
+These are private methods. The engine runs them when the executor succeeds or fails.
+They set the inner properties of the Promise to show the state.
+They also store the result object.
 
 :::danger[System Functions]
-_resolve_ and _reject_ are **system** functions. These functions are named by the language specification
-and executed by any JavaScript engine which implements the Promise requirements correctly.
+_resolve_ and _reject_ are **system** functions. The language spec names them.
+Any JavaScript engine that follows the Promise rules runs them.
 :::
 
 ## then and catch
 
-After the promise is resolved or rejected, then the functions in **then** and **catch** are called
-with respective parameters.
+After the promise resolves or rejects, the functions in **then** and **catch** run
+with the right parameters.
 
 :::tip[Trigger Callbacks]
-The _then_ and _catch_ callbacks are automatically placed in the callback queue by the JavaScript engine
-as soon as the state of the Promise has changed.
+The engine puts the _then_ and _catch_ callbacks in the callback queue.
+It does this as soon as the Promise state changes.
 :::
 
 ## async and awaits
 
-Functions marked as _async_ returns a _Promise_ object.
-Basically this is done without having to call `new Promise()` constructor.
+A function marked _async_ returns a _Promise_ object.
+You get this without calling the `new Promise()` constructor.
 
 ```javascript
 async function f() {
@@ -72,24 +71,24 @@ async function f() {
 f().then(alert); // 1
 ```
 
-_await_ statement makes JavaScript wait until the promise is settled and returns its result.
-Basically this gets the resolved value from a _Promise_ object without using a _then_.
+The _await_ statement makes JavaScript wait until the promise settles. Then it returns the result.
+You get the resolved value without a _then_.
 
-We can use a regular _try-catch_ block to get the rejected value from the _Promise_ object.
+You can use a normal _try-catch_ block to get the rejected value.
 
 :::warning[Syntactic Sugars]
-async-await is more of a syntactic sugar to promise-then-catch. It makes the code more readable.
+async-await's mostly syntactic sugar over promise-then-catch. It makes the code easier to read.
 :::
 
 ## Promise.resolve() and Promise.reject()
 
-These are static helper methods which return a _Promise_ object but with the state and value of promise already updated.
+These are static helper methods. They return a _Promise_ object with the state and value already set.
 
-This is useful certain cases where the method should always return a Promise but there is actually no task to perform.
-For example when we want to return something from a cache but the method's return type is always a _Promise_.
+This helps when a method must always return a Promise but has no real task.
+For example, when you return a value from a cache but the return type is always a _Promise_.
 
 :::tip[Caching Example]
-Always using the caching reference to understand the usage of the static helper methods.
+Use the caching example to understand these static helper methods.
 :::
 
 :::info[Useful Links]

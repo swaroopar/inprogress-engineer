@@ -2,19 +2,19 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Kafka Pull Model
 
-In contrary to what RabbitMQ offers, kafka allows only consumers to pull messages from the brokers.
+Unlike RabbitMQ, Kafka lets only consumers pull messages from the brokers.
 
-Kafka consumers send a **fetch** message which is then responded by the broker
-with 1 or more available messages.
+A Kafka consumer sends a **fetch** message.
+The broker replies with one or more messages.
 
-For each fetch request, the broker will return one fetch response which can indicate
-that there are more messages available. In this case, the consumer must send a
-new fetch request to get the remaining messages.
+For each fetch request, the broker returns one fetch response.
+It may flag that more messages are waiting. Then the consumer sends a
+new fetch request to get the rest.
 
 <ThemeImage src='/img/kafka-pull.excalidraw.png' alt='Kafka Pull Model' />
 
 :::important[Request supports multiple partitions]
-In one fetch request, the consumer can request for data from multiple partitions as well.
+In one fetch request, the consumer can also ask for data from many partitions.
 
-In this case, the broker will group messages from requested partitions and return.
+The broker then groups the messages from those partitions and returns them.
 :::

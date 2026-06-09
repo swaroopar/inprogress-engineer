@@ -1,17 +1,16 @@
 # Decimals
 
-As we saw in [floating point](./floating-point.mdx#floating-points-arent-accurate) article,
-they're fast but not accurate due to binary division.
-This is exactly why programming languages also have **Decimal** data type.
+As we saw in the [floating point](./floating-point.mdx#floating-points-arent-accurate) article,
+they're fast but not accurate. This is due to binary division.
+Programming languages also have a **Decimal** data type.
 
 :::important How decimals work?
-Programming languages take full control of the **Decimal** data type.
-It first scales the numbers in the operation to the value such that
-both operands are in the same level.
-Then performs the actual arithmetic operation
-and then scales the result down.
+Programming languages fully control the **Decimal** data type.
+It first scales the numbers so both operands are at the same level.
+Then it does the arithmetic.
+Then it scales the result down.
 
-This is exactly why Decimal is accurate and used in use cases such as balance where accuracy matters.
+This is why Decimal is accurate. It's used where accuracy matters, such as a balance.
 But it's slow.
 
 $

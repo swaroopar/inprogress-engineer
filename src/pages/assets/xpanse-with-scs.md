@@ -1,7 +1,13 @@
 <!-- markdownlint-disable -->
 
-To support and push EU's strong moves to secure its digital sovereignty with a common vision for 2030, there is a need for providing an open-source and ready-to-use cloud computing stack for CSPs to offer infrastructure services and also an open-source managed services framework to offer a competitive service catalog on top of it.
-The intention of the Sovereign Cloud Stack (SCS) is to provide an open-source cloud computing stack ready to be utilized by cloud service providers as well as operators of private cloud environments and the Eclipse Xpanse project provides a framework to offer fully managed services on public and private clouds.
-In this talk, we will see how SCS and Eclipse Xpanse makes a great combination to offer a fully open-source backed cloud stack.
+The EU is making strong moves to secure its digital sovereignty. It has a common vision for 2030.
+To support this, two open-source pieces are needed.
+First, a ready-to-use cloud computing stack. CSPs can use it to offer infrastructure services.
+Second, a managed services framework. It adds a strong service catalog on top.
+
+The Sovereign Cloud Stack (SCS) is one such open-source cloud computing stack.
+Cloud service providers and private cloud operators can use it right away.
+The Eclipse Xpanse project adds the second piece. It offers fully managed services on public and private clouds.
+In this talk, we will see how SCS and Eclipse Xpanse pair up to offer a fully open-source cloud stack.
 
 <!-- markdownlint-enable -->

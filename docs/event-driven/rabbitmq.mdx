@@ -4,30 +4,30 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 In RabbitMQ, the consumer doesn't pick up messages from the queue like I assumed.
 
-When the consumer starts and connects to the broker, there is a TCP connection established.
-Whenever there is a message for the consumer, the broker then pushes the message using the
+When the consumer starts, it connects to the broker over a TCP connection.
+When there is a message for the consumer, the broker pushes it over that
 same TCP session.
 
 :::important[supports both push and pull]
-RabbitMQ supports both push and pull data transfer.
-But default is the push mechanism.
+RabbitMQ supports both push and pull.
+But push is the default.
 
-Even though pull is supported, it isn't recommended.
-For both push and pull mechanism, the TCP session must be initiated by the consumer.
-Broker doesn't start any sessions.
+Pull is supported but not recommended.
+For both, the consumer must start the TCP session.
+The broker starts no sessions.
 :::
 
 <ThemeImage src='/img/active-mq-event-flow.excalidraw.png' alt='active-mq' />
 
 ## Multiple Consumers
 
-When multiple consumers exist, then the broker keeps track and pushes the message
-on different consumer TCP connections in a round-robin model.
+With many consumers, the broker keeps track.
+It pushes messages to the consumer TCP connections in a round-robin way.
 
 ## Producers don't need sessions
 
-Producers need not keep an active TCP session always.
-They can simply start a new session, send messages to the broker and close the session.
+Producers need not keep a TCP session open.
+They can start a session, send messages to the broker, and close it.
 
 An active TCP session need not be maintained using heartbeat or pings.
 

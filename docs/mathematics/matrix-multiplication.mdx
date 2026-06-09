@@ -2,22 +2,20 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Matrix Multiplication
 
-Matrix multiplication is interesting since the way we calculate is different
-and also the use cases are different from regular multiplication.
+Matrix multiplication is interesting. The way we calculate it's different.
+Its use cases also differ from regular multiplication.
 
 :::tip Important use cases
-Its mostly about transforming data from one form to another.
-For example, in graphics, we use matrix multiplication to perform transformations such as rotation, scaling,
+It mostly transforms data from one form to another.
+For example, graphics use it to rotate and scale,
 :::
 
 :::warning Rules of matrix multiplication
 
-1. The number of columns in the first matrix must be equal to the number of rows in the second matrix.
-2. The resulting matrix will have the number of rows of the first matrix and
-   the number of columns of the second matrix.
+1. The first matrix's columns must equal the second matrix's rows.
+2. The result has the first matrix's rows and the second matrix's columns.
 
-Example - If the matrix A is of size m x n and matrix B is of size n x p,
-then the resulting matrix C will be of size m x p.
+Example - matrix A is m x n. Matrix B is n x p. The result C is m x p.
 :::
 
 <ThemeImage src='/img/maths-matrix-multiplication-rules.excalidraw.png' alt='matrix-multiplication-rules' />
@@ -25,14 +23,14 @@ then the resulting matrix C will be of size m x p.
 ## Multiply Accumulate
 
 :::info Multiply Accumulate (MAC)
-Matrix multiplication is essentially a series of **multiply accumulate** operations.
-Meaning, we perform a set of multiplications and add those products together
-to get the final value for each element in the resulting matrix.
+Matrix multiplication is a series of **multiply accumulate** steps.
+We multiply a set of values. Then we add the products.
+This gives the final value for each element in the result.
 :::
 
-To calculate the value of an element in the resulting matrix,
-we take the corresponding row from the first matrix and the corresponding column from the second matrix,
-multiply the elements of the row and column together, and then sum up those products.
+To find one element of the result, take a row from the first matrix.
+Take the matching column from the second matrix.
+Multiply their elements pair by pair. Then add up the products.
 
 ## Code Implementation
 

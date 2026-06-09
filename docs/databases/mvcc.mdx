@@ -2,53 +2,51 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # MVCC
 
-MVCC (Multi-Version Concurrency Control)
-is a database feature where multiple transactions can read and write
-to the same data in parallel without blocking each other.
+MVCC (Multi-Version Concurrency Control) is a database feature.
+It lets many transactions read and write the same data at once.
+They don't block each other.
 
 :::tip Different from locking
-MVCC is only about storing **Multiple Versions** of the same object
-and allowing parallel reads depending on when the read transaction started.
-Where as [locking](./locking.mdx) is only about allowing concurrent writes.
+MVCC just stores **multiple versions** of the same object.
+It then allows parallel reads based on when the read started.
+By contrast, [locking](./locking.mdx) is only about safe parallel writes.
 :::
 
 :::info Also known as repeatable read and snapshot isolation
 
-- **Repeatable Read** - Means, the same query can be repeatedly executed
-  within the a transaction and the value will be same even if it has been changed
-  by another transaction that was executed in parallel.
-- **snapshot isolation** - Means, every transaction sees an isolated snapshot
+- **Repeatable Read** - You can run the same query many times in a transaction.
+  The value stays the same. This holds even if a parallel transaction changed it.
+- **snapshot isolation** - Each transaction sees its own snapshot
   of the database state.
   :::
 
 ## How MVCC works
 
-1. Every database holds the correct sequence of transactions that are executed on the database.
-   This is part of the database's metadata.
+1. Every database keeps the correct order of transactions it runs.
+   This is part of the database metadata.
 2. Every transaction then also gets a transaction ID.
-3. With this ID, the database engine knows the transactions that must be visible
-   and the ones that must not be visible to the transaction.
-4. If there is a transaction that's actually lower then the current transaction,
-   but if the transaction is still not committed,
-   then changes from such transactions won't be visible to the current transaction.
+3. With this ID, the engine knows which transactions are visible.
+   It also knows which ones aren't.
+4. A transaction may have a lower ID than the current one.
+   But if it isn't yet committed,
+   its changes stay hidden from the current transaction.
 
 <ThemeImage src='/img/database-mvcc.excalidraw.png' alt='mvcc' />
 
 :::warning Data written to files before commit
-The data from the transaction is actually written to the files before the commit.
-Main history stays in the WAL or the REDO log files.
-Database engines then uses this to ensure if the data must be visible to the transaction or not.
+The transaction's data is written to the files before the commit.
+The main history stays in the WAL or REDO log files.
+The engine uses this to decide if the data is visible to a transaction.
 :::
 
 :::info transactions exist always
-Even though we don't explicitly write 'BEGIN TRANSACTION' in our SQL queries,
-There exists always a transaction that's created for the execution of the query.
+You may not write 'BEGIN TRANSACTION' in your SQL.
+But a transaction is always created to run the query.
 :::
 
 :::danger How indexes work?
-In case of MVCC, there are multiple versions of data so the index also needs special handling.
-Some databases have the same index to point to multiple locations and the index must be
-additionally queried.
+With MVCC, data has many versions. The index needs special care.
+Some databases let one index point to many locations. The index must then be queried again.
 
-Some databases simply create multiple index tree roots for different versions.
+Some databases just create many index tree roots, one per version.
 :::

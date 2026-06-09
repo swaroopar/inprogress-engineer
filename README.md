@@ -10,7 +10,7 @@ This is a personal profile website built using [Docusaurus](https://docusaurus.i
 
 ## Development
 
-Install all dependencies using the below command.
+Install all the dependencies with the command below.
 
 ```shell
 npm install
@@ -22,8 +22,8 @@ npm install
 npm start
 ```
 
-This command starts a local development server and opens up a browser window.
-Most changes are reflected live without having to restart the server.
+This command starts a local dev server. It opens a browser window.
+Most changes show live, with no restart.
 
 ### Build
 
@@ -31,12 +31,12 @@ Most changes are reflected live without having to restart the server.
 npm build
 ```
 
-This command generates static content into the `build` directory
-and can be served using any static contents hosting service.
+This command builds static content into the `build` directory.
+Any static host can serve it.
 
 ## Deployment
 
-This site is deployed automatically from the `main` branch using [Vercel](https://vercel.com).
+The site deploys automatically from the `main` branch using [Vercel](https://vercel.com).
 
 ## Libraries/Tools Used
 
@@ -49,7 +49,7 @@ This site is deployed automatically from the `main` branch using [Vercel](https:
 
 ## Run vale linter
 
-To run spell checks and other language rules, run the vale linter using the below command
+To run spell checks and other language rules, run the vale linter with the command below.
 
 ```shell
 docker run --rm -v $(pwd)/.github/vale/styles:/styles --pull=always --rm -v $(pwd):/docs -w /docs jdkato/vale .

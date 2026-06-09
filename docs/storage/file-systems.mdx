@@ -4,22 +4,22 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 ## Filesystem vs Filesystem Type
 
-**Filesystem Type** is a specific implementation of storing and organizing data in physical storage.
-During formatting, a normal storage device is then with super blocks on how the underlying storage is managed.
+**Filesystem Type** is one way to store and organize data on physical storage.
+During formatting, the device is written with super blocks. These say how the storage is managed.
 
 **Filesystem** is what a plain storage becomes after it's formatted.
 
 :::info class vs instance
-Filesystem type is the class and a filesystem is an object of it.
+The filesystem type is the class. A filesystem is an object of it.
 
-The filesystem type software then decides how it would like to use this plain storage.
+The filesystem type software then decides how to use this plain storage.
 :::
 
 <ThemeImage src='/img/file-system-type.excalidraw.png' alt='filesystem-and-tye' />
 
 ## Reading data from storage
 
-Reading a file from storage goes through multiple layers of software abstraction.
+Reading a file from storage goes through many layers of software.
 
 <ThemeImage src='/img/filesystems.excalidraw.png' alt='filesystem-abstraction' />
 
@@ -27,83 +27,82 @@ Reading a file from storage goes through multiple layers of software abstraction
 
 ### Formatting a disk
 
-When we format a disk,
-it basically means the storage is prepared to be used by a specific software such as ext4, NTFS, FAT, etc.
-This means, the disk's header blocks are written with certain filesystem specific information and
-also mounting status.
+When you format a disk, you prepare it for a specific software.
+For example ext4, NTFS, or FAT.
+The disk's header blocks get filesystem specific information and the mount status.
 
 :::tip format to ext4
-It means the clearing the existing data and
-creating super block of that storage, root inode information, etc.
+It means you clear the existing data.
+You also create the super block and the root inode information.
 
-For the underlying storage, super block and other information are just stored in a regular place.
-It has no special meaning for the storage hardware itself.
+For the storage, the super block and the rest just sit in a normal place.
+They have no special meaning for the hardware itself.
 :::
 
 ### Map filesystems to mount points
 
-**fstab** file has the mapping of all filesystems to different directory
-in the full file structure hierarchy.
+The **fstab** file maps each filesystem to a directory
+in the full file hierarchy.
 
-This file shows which storage system is mounted at which directory.
+It shows which storage is mounted at which directory.
 
 :::important filesystem information at boot
-When system boots, all hardware is detected and using the data at **/etc/fstab**
-they're mounted (linked) to different directories and
-depending on the filesystem type in this file, the VFS then speaks to the underlying
-storage system to get files and directories information.
+When the system boots, it detects all the hardware.
+It uses the data in **/etc/fstab** to mount them to directories.
+Based on the filesystem type listed there, the VFS talks to the storage system.
+It then gets the files and directories.
 :::
 
 ### Mounting a filesystem
 
-The filesystem information exists in the OS files always.
-Irrespective of whether the disk is physically present or no.
-But only after the mounting the disk, the files will be accessible in the address mentioned in the inode structure.
+The filesystem information always lives in the OS files.
+This holds whether or not the disk is present.
+But the files become reachable only after you mount the disk. They sit at the address in the inode structure.
 
-Mounting a filesystem actually means, the underlying storage of the filesystem is now available for the kernel to access.
+Mounting a filesystem just means its storage is now open for the kernel to access.
 
 ## Storage Software
 
 ### Device Drivers
 
-These are the common methods called by the filesystem code such as ext4 or NTFS irrespective of the underlying device.
-If the underlying disk is an SCSI disk, then the SCSI driver is used.
+These are the common methods the filesystem code calls, such as ext4 or NTFS. They work for any device.
+If the disk is an SCSI disk, the SCSI driver is used.
 
 ### Storage Firmware
 
-These are the storage manufacturer methods invoked by device drivers.
-These methods are mostly about reading and writing data at the specified block address.
+These are the maker's methods that device drivers call.
+They mostly read and write data at a given block address.
 
 ## Splitting Disks
 
 ### Partition
 
-A physical disk can be logically split into multiple logical disks and
-each logical disk can be formatted into a completely different filesystem.
+You can split one physical disk into many logical disks.
+You can format each logical disk with a different filesystem.
 
 :::warning transparent to hardware
-This partitioning of the physical storage is completely transparent to the
-storage and it's firmware.
+This split of the physical storage is fully hidden from the
+storage and its firmware.
 :::
 
 ### Logical Volumes
 
-Volumes are virtual disks. Means, multiple physical disks are grouped and shown as a single disk to the operating system.
-There exists a logical volume manager that sits on top and handles all the mapping of files to underlying blocks.
+Volumes are virtual disks. Many physical disks are grouped and shown as one disk to the OS.
+A logical volume manager sits on top. It maps files to the underlying blocks.
 
 ## Storage without a filesystem
 
-There exist use cases where the disks can exist without any filesystem, means the block storage is used as it is.
+In some cases, a disk has no filesystem. The block storage is used as it is.
 
-For example, some databases use the block devices as it's and manage the blocks themselves.
-Same also with LVMs in Linux.
-The disks are used as plain block devices and the filesystems are created at the logical volume level.
+For example, some databases use the block devices directly and manage the blocks themselves.
+The same goes for LVMs in Linux.
+The disks are plain block devices. The filesystems are built at the logical volume level.
 
 ## Filesystem block size
 
-It's the minium size used by the filesystem to manage files.
-This means, if the block size is 4KB, even a file with just one letter with block 4KB space on storage.
-Mostly the size of the block is kept same as the physical sector size for better performance.
+It's the smallest size the filesystem uses to manage files.
+With a 4KB block size, even a one-letter file takes 4KB on storage.
+The block size is often kept equal to the physical sector size for better performance.
 
 :::danger sector sizes vs filesystem block sizes
 sectors sizes are something managed by the firmware.

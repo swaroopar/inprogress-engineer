@@ -8,44 +8,44 @@ It's a specification that defines
 2. Data transfer between CPU and devices - How data is packaged, addressed and transmitted (requests, acknowledgement transactions).
 
 :::important PCI is becoming the default
-In modern systems, all devices are connected to the CPU using PCI.
-Even if the devices don't support it, the conversion is handled by the respective controllers.
+In modern systems, all devices connect to the CPU using PCI.
+If a device doesn't support it, the controllers handle the conversion.
 :::
 
 ## Analogy with database
 
-This is very similarly to how database standards are implemented.
+This is much like how database standards work.
 
 Initiate transaction -> setup connection -> send data -> commit transaction.
 
 :::warning its not a chip
 PCI isn't a physical chip.
-It has only specifications and the motherboard and devices must implement it.
+It's only a specification. The motherboard and devices must implement it.
 :::
 
 ## Address Allocation
 
-Physical address allocation happens at boot when all devices are enumerated
+Physical addresses are allocated at boot. This is when all devices are enumerated
 and added to the root complex.
 
 <ThemeImage src='/img/device-address-mapping.excalidraw.png' alt='address-mapping' />
 
 ## Root Complex
 
-All PCI devices are linked to the CPU as a tree.
-When there are multiple roots, they're just added as child trees to the root trees.
-It's interesting to note that even RAM is part of the same root.
+All PCI devices link to the CPU as a tree.
+With many roots, they're added as child trees to the root trees.
+Even RAM is part of the same root.
 
-The root complex knows which physical address is part of which branch in the tree.
-The requests from CPU are routed to that specific branch.
-When the address falls in the RAM address range, it will be forwarded to the memory controller.
-But if it's for PCIe device's BAR range, then the root complex formats the request into a PCI packet.
+The root complex knows which address belongs to which branch.
+It routes the CPU requests to that branch.
+If the address is in the RAM range, it goes to the memory controller.
+If it's in a PCIe device's BAR range, the root complex turns the request into a PCI packet.
 
 :::important addressing packets to devices
-When the packet is sent through a branch,
-all PCI devices on the branch gets the packet.
-But only the device for which the packet is intended to will accept the request.
-This is exactly why each device configures it's BAR with this allocated physical address at boot.
+When the packet goes through a branch,
+all PCI devices on it get the packet.
+But only the target device accepts the request.
+This is why each device sets its BAR with this address at boot.
 :::
 
 ![wiki-root-complex](../../static/img/pci-root-complex.png)
@@ -55,6 +55,6 @@ The picture above is taken from [Wikipedia](https://en.wikipedia.org/wiki/PCI_Ex
 :::
 
 :::warning PCI devices via chipset
-For PCI devices connected via the chipset,
-the chipset only validates and forwards the request to the root complex of CPU.
+For PCI devices behind the chipset,
+the chipset just checks and forwards the request to the CPU's root complex.
 :::

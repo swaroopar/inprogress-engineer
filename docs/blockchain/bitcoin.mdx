@@ -2,21 +2,21 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Bitcoin
 
-Bitcoin is the first cryptocurrency and the most popular one.
-At the same time the underlying bitcoin network is also open sourced
-and can be used to build other solutions such as SSI.
+Bitcoin is the first cryptocurrency and the most popular.
+The bitcoin network behind it's also open source.
+You can use it to build other solutions, such as SSI.
 
 It's also the first practical implementation of blockchain technology.
 
 ## How mining works?
 
-Miners are special nodes because these are the ones with high computational needs.
-They're in the network and get the list of transactions that are yet to be added to the blockchain.
+Miners are special nodes. They have high compute needs.
+They're in the network and get the list of transactions not yet on the blockchain.
 
-They run compute intensive hashing task to generate an hash of the block header.
-It's important that the variable is the **nonce** value which is constantly changed until the hash value
-is less than the target hash value.
-Here the **puzzle** is to find the nonce value.
+They run a compute-heavy hashing task to hash the block header.
+The variable here is the **nonce**. It's changed again and again until the hash
+is below the target hash.
+The **puzzle** is to find the nonce.
 
 :::tip meaning of nonce
 **nonce** means number used once.
@@ -25,40 +25,39 @@ Here the **puzzle** is to find the nonce value.
 <ThemeImage src='/img/bitcoin-mining.excalidraw.png' alt='bitcoin-mining' />
 
 :::danger only limited blocks generated
-The protocol is built in a way to ensure the mining of a block takes 10 minutes always.
-This basically means, the target hash value is adjusted such that the mining takes always the same
-amount of time.
+The protocol makes sure mining a block always takes 10 minutes.
+The target hash is adjusted to keep the time the same.
 :::
 
 ## Bitcoin Rewards
 
-The bitcoin is rewarded to miners for the work they do to generate blocks.
-It's then up to the miners to transfer or sell it to anybody else.
-This is how new bitcoins first come to the network.
+Bitcoin is rewarded to miners for the work to generate blocks.
+The miners can then transfer or sell it.
+This is how new bitcoins first enter the network.
 
-**coinbase** is the term given to the reward transaction done.
-This is added as a transaction in the generated block to claim the reward.
+**coinbase** is the name for the reward transaction.
+It's added to the generated block to claim the reward.
 
 :::important Analogy with Gold
-Comparing cryptocurrency with normal currency isn't the right one.
+Comparing cryptocurrency with normal currency is wrong.
 It's better to compare it with gold.
-Both gold and cryptocurrency are mined (only when miners generate a block, new bitcoins are released)
-and both are limited in availability.
+Both are mined. New bitcoins are released only when miners make a block.
+And both are limited in supply.
 :::
 
 ## Transaction Fees
 
-In addition to the mining reward, the miner also gets transaction fees.
-This fees depends on the transactions that are part of the block.
-When a transaction is initiated by the user, the wallet software automatically sets this value
-depending on many factors.
+Besides the mining reward, the miner also gets transaction fees.
+The fees depend on the transactions in the block.
+When a user starts a transaction, the wallet software sets this value
+from many factors.
 
 The transaction fees is also paid in bitcoins.
 
 ## Miners pick transactions
 
-It's left to the miners to pick transactions in the block based on the transaction fees **offered** by the user
-or any other condition. This means, each miner can be mining any transaction that it can pick from the mempool.
+Miners pick the transactions for the block. They go by the fees the user **offers**
+or other conditions. Each miner can mine any transaction it picks from the mempool.
 
 :::tip handling duplicates
 If two miners have generated a block at same time and in case both have any transaction common,
@@ -66,25 +65,25 @@ If two miners have generated a block at same time and in case both have any tran
 1. Some of the peer nodes will receive first generated block and it will accept it and to blockchain.
 2. Some of the peer nodes will receive second generated block and it will accept it and to blockchain.
 3. Now a **temporary fork** occurs. This means, two versions of the blockchain exists in the network.
-4. Now the miner which builds the third block will add to whatever blockchain it receives from it's full node.
-5. This blockchain now becomes the longest one becomes the active one and other blockchain is discarded.
+4. The miner that builds the third block adds it to whatever blockchain it gets from its full node.
+5. That blockchain becomes the longest. It becomes the active one. The other is discarded.
    :::
 
 ## Gossip Protocol
 
-The peer-to-peer communication between the blockchain nodes is done using **gossip** protocol.
-In this protocol, the peer broadcasts the information to all connected nodes
-and the connected nodes forward to the next connected nodes.
+The blockchain nodes talk peer to peer with the **gossip** protocol.
+A peer broadcasts the data to all connected nodes.
+Those nodes forward it to the next ones.
 
 :::danger not all peers are connected
-Here not all nodes are connect to all other nodes in the network.
-There exists a limit on number of nodes a node in the network connects to.
+Not all nodes connect to all others in the network.
+A limit caps how many nodes one node connects to.
 :::
 
 ## Software in nodes and miners
 
-Nodes and miner servers are hosting application in any programming language and
-communicate with other nodes using TCP.
+Nodes and miner servers run an app in any programming language.
+They talk to other nodes over TCP.
 
 :::tip Just another software
 It's important to understand that the bitcoin network is just another software.
@@ -97,13 +96,13 @@ The term sounds complex but it's just a different way of implementing a distribu
 
 ## How errors are handled?
 
-Assume a block was validated and accepted by one full node and forwarded it to its peers.
-Now if a peer rejects it, then there is a **temporary fork** in the network.
+Say one full node validated and accepted a block, then forwarded it to its peers.
+If a peer rejects it, there is a **temporary fork** in the network.
 
-Now the miners connected to this node which accepted the block will continue to build on this block.
-The miners which are working connected to other nodes which start building on the correct last updated block.
+The miners on the node that accepted the block keep building on it.
+The miners on other nodes build on the correct last block.
 
-Eventually, the blockchain with more blocks will be accepted by the network and the other blockchain will be discarded.
+In the end, the blockchain with more blocks wins. The other is discarded.
 
 ## Digital Signatures
 
@@ -113,13 +112,13 @@ This is done using [digital signatures](../security/digital-signatures).
 
 ## Final Balance
 
-The transactions are spread across multiple blocks.
-in case of an bank account, the final balance of an user isn't stored anywhere.
-It must be calculated from the entire history of transactions.
+The transactions are spread across many blocks.
+Unlike a bank account, a user's final balance isn't stored anywhere.
+It must be computed from the full transaction history.
 
 :::tip frameworks handle it differently
-Even though the history is in the full chain,
-the frameworks implement a different caching or calculating mechanism,
-where the final balances are also calculated and stored in the separate place and
-the address of this information is linked in the block headers.
+The history is in the full chain.
+But frameworks add a caching or compute step.
+They compute the final balances and store them elsewhere.
+The address of this data is linked in the block headers.
 :::

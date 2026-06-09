@@ -4,23 +4,23 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 **/boot** folder contains the kernel file (vmlinuz) and initramfs (initrd) files.
 
-During boot, GRUB reads the MBR and knows which partition is bootable
-and what's the filesystem type, etc.
+During boot, GRUB reads the MBR. It then knows which partition is bootable
+and what the filesystem type is.
 
-GRUB has inbuilt minimal filesystem drivers such as EXT4, FAT, etc.
-It uses it to load the configuration and the kernel image into the memory.
+GRUB has minimal built-in filesystem drivers, such as EXT4 and FAT.
+It uses them to load the config and the kernel image into memory.
 
-After boot, this location on disk is **mounted and displayed** as **/boot** filesystem.
-It's done just to ensure updating these files during upgrade, etc.
+After boot, this disk location is **mounted and shown** as the **/boot** filesystem.
+This lets you update these files during an upgrade.
 
 :::important /boot is accessed from both places
-From GRUB for loading the kernel and initramfs into memory during boot
-and from userspace application to upgrade or change these files.
+GRUB reads it to load the kernel and initramfs into memory at boot.
+Userspace apps use it to upgrade or change these files.
 :::
 
 ## Contents
 
-It contains not only the kernel and initramfs files,
-but also files related to GRUB which is [also read during boot](./grub#application-storage).
+It holds the kernel and initramfs files.
+It also holds GRUB files, which are [also read during boot](./grub#application-storage).
 
 <ThemeImage src='/img/boot-directory.excalidraw.png' alt='boot-folder' />

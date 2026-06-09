@@ -5,22 +5,22 @@ Buffers are used for storing data temporarily.
 :::important buffer is for binary data
 Buffers are continuous memory used to write binary data.
 
-For example, data coming from disk, data coming from network.
-All these are directly streamed into buffers.
-The buffers can be then read to convert bytes into whatever encoding is necessary.
+For example, data from disk or from the network.
+All of it streams straight into buffers.
+You can then read a buffer and convert the bytes into any encoding you need.
 :::
 
 ## Stream vs Buffer
 
 Stream is the actual input or output source of bytes.
 
-Buffer is where the data is stored from the stream before sending it to next destination.
+A buffer is where data from the stream is held before it moves to the next place.
 
 ## Streams vs Readers
 
-Streams (InputStream, OutputStream and everything that extends these)
-are for reading and writing binary data from files, the network, or whatever other device.
+Streams handle binary data. This includes InputStream, OutputStream, and all that extend them.
+They read and write bytes from files, the network, or any device.
 
-Readers and writers are for reading and writing text (characters).
-They're a layer on top of streams, that converts binary data (bytes) to characters and back,
+Readers and writers handle text, that's characters.
+They sit on top of streams. They convert bytes to characters and back,
 using a character encoding.

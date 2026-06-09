@@ -2,8 +2,8 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # TCP vs UDP
 
-TCP is always mentioned as reliable and UDP as unreliable.
-This learning is focused on understanding what does this exactly mean.
+TCP is always called reliable and UDP unreliable.
+This note focuses on what that really means.
 
 :::info Everything is same at network layer
 
@@ -13,19 +13,19 @@ This learning is focused on understanding what does this exactly mean.
 
 ## Network stack
 
-Every IP packet that's sent by the network layer contains the information
-if the packet is part of a TCP or an UDP connection.
+Every IP packet from the network layer carries one fact.
+It says if the packet is part of a TCP or a UDP connection.
 
-When the network layer receives a packet, it checks the protocol type and
-forwards the packet to the respective transport layer stack - TCP or UDP.
+When the network layer gets a packet, it checks the protocol type.
+Then it sends the packet to the right transport stack, TCP or UDP.
 
 <ThemeImage src='/img/tcp-kernel-methods.excalidraw.png' alt='TCP Connection' />
 
 :::important acknowledgement packets
 
-In TCP, there is no acknowledgement packets for each segment.
-The receiver decides to send acknowledgement after certain intervals with a specific segment number.
-Then it means, it has received all segments until that number.
+In TCP, there is no acknowledgement for each segment.
+The receiver sends an acknowledgement now and then with a segment number.
+That means it got all segments up to that number.
 :::
 
 ## Kernel Responsibilities
@@ -44,42 +44,42 @@ Then it means, it has received all segments until that number.
 
 ## Application Perspective
 
-For the application, the entire network protocol is completely abstracted away.
-The application just writes entire stream of data to a socket
-and reads entire stream of data from a socket.
+For the application, the whole network protocol is hidden.
+The app just writes a stream of data to a socket.
+It reads a stream of data from a socket.
 
-The network stack then takes care of breaking the stream into packets,
-sending the packets, receiving the packets, reassembling the packets
-and providing the stream to the application.
+The network stack does the rest.
+It breaks the stream into packets, sends them, receives them,
+reassembles them, and hands the stream to the app.
 
 :::danger Shared buffering responsibility
-Even though the kernel handles buffering of packets to the receiver,
-the application is still responsible for buffering data at the application layer.
+The kernel buffers packets for the receiver.
+But the app must still buffer data at the application layer.
 
-For example, if the application tries to send a huge file and
-the network or the receiver is slow.
-Then the connection's socket buffer will fill up and application can't write anymore data.
+For example, say the app sends a huge file.
+And the network or the receiver is slow.
+Then the socket buffer fills up. The app can't write any more data.
 
-In such cases, the application uses epoll to be informed again when the socket is available for writing again.
+In that case, the app uses epoll. It then learns when the socket is ready for writing again.
 :::
 
 ## TCP - Transmission Control Protocol
 
-In this protocol, there is a session established between the actual sender and receiver.
-This happens spans across multiple devices and networks.
+In this protocol, a session is set up between the real sender and receiver.
+It spans many devices and networks.
 
 :::warning Just regular IP Packets
-For the actual network layer, these are just regular IP packets.
+For the network layer, these are just regular IP packets.
 
-The routers and switches don't care if the packet is TCP or UDP or if they're even handshake packets.
-They're just forwarded based on the destination IP address.
+Routers and switches don't care if a packet is TCP, UDP, or a handshake.
+They just forward it by the destination IP address.
 :::
 
 ## UDP - User Datagram Protocol
 
 UDP is a connectionless protocol.
-There exists no session established between the sender and receiver.
-Every packet is just sent across and the receiver receives and processes the packets as they arrive.
+No session is set up between the sender and receiver.
+Each packet is just sent. The receiver takes and processes the packets as they arrive.
 
 :::tip lightweight protocol
 UDP is a lightweight protocol as
@@ -89,17 +89,17 @@ UDP is a lightweight protocol as
   :::
 
 :::info meaning of Datagram
-It comes from the word "telegram" which is a short message sent over a long distance and
-every message is independent of each other and has no relation to each other.
+It comes from the word "telegram." A telegram is a short message sent over a long distance.
+Each message stands alone, with no link to the others.
 :::
 
 ## NAT
 
-In case of NAT also the kernel needs to process TCP messages.
+For NAT too, the kernel must process TCP messages.
 
 1. When there is a SYN packet, the kernel needs to create a new NAT mapping for the connection.
 2. When the connection is closed, the kernel needs to remove the mapping from the entry table.
 
 :::danger necessary to delete entries
-If the NAT doesn't delete entries, then the table just grows big and ends using up memory.
+If NAT doesn't delete entries, the table grows large and uses up memory.
 :::

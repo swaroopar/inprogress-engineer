@@ -183,3 +183,17 @@ SSTable(.*)
 (?i)worktree(.*)
 (?i)protobuf
 (?i)linux
+(?i)config(.*)
+CPUs?
+(?i)recurs(.*)
+SSHes
+navbar
+Excalidraw
+dev
+(?i)docker(.*)
+(?i)struct(.*)
+README(.*)
+CA's
+commit's
+(?i)unreferenced
+(?i)vendored

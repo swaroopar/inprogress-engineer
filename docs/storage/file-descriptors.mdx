@@ -2,86 +2,86 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # File Descriptor
 
-File descriptor is an integer that uniquely identifies an opened file or other I/O resource within a process.
-It's used by the kernel to manage access to
-files, devices, pipes (inter process communication), sockets( network communication) etc.
+A file descriptor is an integer. It uniquely identifies an open file or other I/O resource in a process.
+The kernel uses it to manage access to
+files, devices, pipes for IPC, sockets for the network, and more.
 
 Essentially, anything that can be "opened" for I/O operations.
 
 ## C Structures
 
-Every thread/process has **task_struct**.
-This structure has a pointer to **files_struct** and
-this is nothing but the file descriptor table.
+Every thread or process has a **task_struct**.
+It has a pointer to **files_struct**.
+That's just the file descriptor table.
 
-This file descriptor table is just a map of file descriptor ID and
-the pointer to corresponding **file** structure.
+This table maps each file descriptor ID to
+a pointer to the matching **file** structure.
 
 <ThemeImage src='/img/vfs-linux.excalidraw.png' alt='file descriptors' />
 
 :::tip file structure
-The **file** structure represents an open file.
+The **file** structure stands for an open file.
 It's also called the **open file description**.
-It has pointers to the corresponding [**inode**](./inodes.mdx) structure and
-also pointers to different operations that can be executed on it.
+It has pointers to the matching [**inode**](./inodes.mdx) structure.
+It also has pointers to the operations you can run on it.
 
-A same file can have multiple instances of file structure if it's opened multiple times.
-This is useful when multiple processes want to access the same file from different offsets.
+One file can have many file structures if it's opened many times.
+This helps when many processes read the same file from different offsets.
 :::
 
-This file structure then contains all necessary information such as the device's major number, minor number,
-file location, file operations, permissions and also the pointer to inode structure of the this file.
+This file structure holds all the key data. For example, the device's major and minor number,
+the file location, the file operations, the permissions, and the pointer to the file's inode structure.
 
 :::info File descriptors are C objects
-File descriptor are C objects created by kernel and remain in it's memory.
-Only for uniformity sake, these values are also written to the file system under **/proc**.
+File descriptors are C objects. The kernel creates them and keeps them in its memory.
+Just for uniformity, these values are also written to the file system under **/proc**.
 :::
 
 <ThemeImage src='/img/access-file-inode.excalidraw.png' alt='steps to get a file' />
 
 :::danger closing files
-This why closing a file is important from userspace applications.
-Otherwise the file descriptors remain open and will consume memory.
+This is why userspace apps must close files.
+If not, the file descriptors stay open and use memory.
 :::
 
 ## Sockets
 
-File descriptors aren't just for actual files. It's also used for sockets.
-Similar to how we use **open** method to get the file descriptor of a file,
-we use **socket()** method to get the file descriptor of a socket.
+File descriptors aren't just for real files. They're used for sockets too.
+You use the **open** method to get a file's descriptor.
+In the same way, you use the **socket()** method to get a socket's descriptor.
 
-In case of sockets, the inode structure has information about the source IP, source port,
-destination IP, destination port, protocol, etc.
-Both the client and server socket file structures need this information.
+For sockets, the inode structure holds the source IP and port,
+the destination IP and port, the protocol, and more.
+Both the client and server socket file structures need this.
 
 :::tip
-Even though sockets are treated as another file but network devices aren't treated as block or character device.
-This is because network adapters work completely different and use packets to communicate.
+Sockets are treated as another file. But network devices aren't treated as block or character devices.
+The reason is that network adapters work very differently and use packets to communicate.
 :::
 
 ## Device Files
 
-These are files in /dev directory. They don't contain any data.
-It only contains the major and minor number in its meta data which
-defines the device driver that handles the underlying device.
+These are files in the /dev directory. They hold no data.
+Their metadata holds only the major and minor number.
+That number picks the device driver for the device.
 
-This will include character files such as keyboards, mouse, printers, terminals, etc.
-and also block devices such as hard disk, RAM, CD/DVD, USB, etc.
+This includes character files like keyboards, mice, printers, and terminals.
+It also includes block devices like hard disks, RAM, CD/DVD, and USB.
 
 More information can be found at [virtual file systems](./virtual-file-systems.mdx).
 
 :::important All real interaction is via /dev
-For writing/reading to any device, the writing or reading is always routed via the device located in /dev.
-VFS uses the major and minor number from there to get the corresponding device driver
-to execute methods on the underlying device.
+Any read or write to a device goes through the device file in /dev.
+VFS uses the major and minor number there to find the device driver.
+It then runs methods on the device.
 :::
 
 ### Device Drivers
 
-Any device driver must implement certain API methods defined by the kernel.
-For communication across devices, the same API methods are called by userspace/kernel applications.
+Every device driver must implement certain API methods set by the kernel.
+To talk to a device, userspace or kernel apps call these same methods.
 
-These are the methods then invoked by VFS.
+VFS then invokes them.
 
 :::info Useful links
 

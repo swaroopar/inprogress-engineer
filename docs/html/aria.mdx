@@ -2,10 +2,10 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # ARIA
 
-ARIA(Accessible Rich Internet Applications) is a set of specifications developed
-to enhance accessibility of web content for people with disabilities.
+ARIA (Accessible Rich Internet Applications) is a set of rules.
+They make web content easier to use for people with disabilities.
 
-Every browser implements these specifications which are then consumed by assistive technology devices.
+Every browser follows these rules. Assistive technology devices then use them.
 
 <ThemeImage src='/img/aria.excalidraw.png' alt='aria-structure' />
 
@@ -13,27 +13,27 @@ Every browser implements these specifications which are then consumed by assisti
 
 For every HTML element, there is a role defined. The list of possible roles are defined by ARIA.
 
-The role for each element can be manually set by the page developer and if not set,
-this is implicitly calculated by the browser while generating the accessibility tree for a page.
+The page developer can set the role by hand. If not, the browser works it out.
+It does this while it builds the accessibility tree.
 
 ## Accessible Name
 
-For each HTML that's accessible, there is also a name calculated by the browser.
-This name will be **unique** within the accessible tree of the page.
+For each accessible HTML element, the browser also works out a name.
+This name is **unique** within the accessible tree of the page.
 
-The developer can also provide names using `label` or `aria-label` attributes and
-the browser will automatically consider this while generating the accessibility tree of the page.
+The developer can also set names with the `label` or `aria-label` attributes.
+The browser then uses them while it builds the tree.
 
 ## Accessible Elements
 
-Not all HTML elements in the DOM are by default accessible.
-For example a span or a div has no meaning until it has a details associated with it.
-We must use ARIA attributes to attached details to it.
+Not all HTML elements in the DOM are accessible by default.
+For example, a span or a div has no meaning on its own. You must add details to it.
+We use ARIA attributes to attach those details.
 
-Instead, if we simply use **semantic elements** such as header, main, article, img, p, section,
-then the elements are already accessible since the purpose of these elements are clear.
+Instead, you can use **semantic elements**. These include header, main, article, img, p, and section.
+They're accessible right away. Their purpose is already clear.
 
 :::tip accessibility isn't about interacting
-Here accessibility means if the element can be understood by accessibility devices.
-Doesn't mean if the element can be clicked.
+Here, accessibility means an accessibility device can understand the element.
+It doesn't mean the element can be clicked.
 :::

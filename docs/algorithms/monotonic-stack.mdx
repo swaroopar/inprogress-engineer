@@ -1,27 +1,24 @@
 # Monotonic Stack
 
-It's an algorithm that ensures that data in the stack is always following one direction -
+It's an algorithm. It keeps the data in the stack in one direction:
 **increasing or decreasing**.
 
 :::info Mental model to remember the direction
-When we say an **increasing monotonic stack**, it means the **push** operation ensures
-that the new value is **increasing**.
-Meaning, the new value must be more than the current top of the stack.
+In an **increasing monotonic stack**, the **push** keeps the values **increasing**.
+The new value must be more than the current top.
 
-When we say a **decreasing monotonic stack**, it means the **push** operation ensures
-that the new value is **decreasing**.
-Meaning, the new value must be lesser than the current top of the stack.
+In a **decreasing monotonic stack**, the **push** keeps the values **decreasing**.
+The new value must be less than the current top.
 :::
 
 :::warning Maintaining monotonicity
-If the new value breaks the monotonicity,
-it will pop all the values that breaks this and then pushes the new value.
+If the new value breaks the order,
+it pops all the values that break it. Then it pushes the new value.
 :::
 
 :::tip Using in coding problems
-Keep in mind always that the value in the stack need not be just an integer.
-We can even keep complex structures.
-It's the push function that knows what's the value structure is
-and it can dig through the value to get the actual property which is controlling the monotonicity
-property of the stack.
+Remember, the value in the stack need not be an integer.
+It can be a complex structure.
+The push function knows the structure.
+It digs into the value to find the property that controls the order.
 :::

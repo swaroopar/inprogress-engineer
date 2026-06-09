@@ -1,14 +1,14 @@
 # rootfs
 
-This is the filesystem created during the operating system installation.
-It's then mounted at '/' (root) during the boot process.
+This filesystem is created when you install the operating system.
+It's then mounted at '/' (root) during boot.
 
 :::important switching from initramfs to rootfs
-During the boot process, the '/' directory is mounted with [initramfs](../linux/initrd.mdx) file system.
-This then swapped with the real root filesystem (rootfs) that was created with the operating system installation.
+During boot, the '/' directory is first mounted with the [initramfs](../linux/initrd.mdx) filesystem.
+This is then swapped with the real root filesystem (rootfs). The rootfs was created when you installed the OS.
 
-This switching is done by commands such as **pivot_root**.
-It's the same logic that's also used by docker containers to switch
+Commands such as **pivot_root** do this swap.
+Docker containers use the same logic. They switch
 from the host filesystem to the image's rootfs.
 :::
 
@@ -28,5 +28,5 @@ from the host filesystem to the image's rootfs.
 
 ## Kernel vs userspace applications
 
-These filesystems aren't used by the kernel itself.
-It has all tools necessary for userspace applications to interact with the kernel.
+The kernel itself doesn't use these filesystems.
+They hold the tools userspace apps need to talk to the kernel.

@@ -3,27 +3,27 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 # Floating Point Numbers
 
 :::tip Whats really floating here?
-It's called floating point because the point in the number is really floating to different positions.
-This nothing but the [scientific notations](../mathematics/scientific-notation.mdx)
-where we can float the point anywhere using exponents.
+It's called floating point because the point in the number really floats to different spots.
+This is just [scientific notation](../mathematics/scientific-notation.mdx).
+There, you can float the point anywhere with exponents.
 :::
 
 :::warning Decimals vs Floating Points
 Decimals is how we write numbers in base 10.
 It can be both whole and fractional numbers.
 
-Floating point is just computer's version of [scientific notations](../mathematics/scientific-notation.mdx).
+Floating point is just the computer's version of [scientific notation](../mathematics/scientific-notation.mdx).
 :::
 
-I always assumed that the floating point numbers are simply handled as two different integers with dot separated.
-But this is completely wrong.
-Floating point values are just stored as one single value in floating point specific registers
-but with very different binary manipulation and standards.
+I always assumed floating point numbers were just two integers split by a dot.
+But that's wrong.
+A floating point value is stored as one value in a floating point register.
+It uses very different binary handling and standards.
 
 ## Converting floating numbers to binary
 
-Integer and fractional parts are handled differently.
-They're not treated as just two integers separated by decimal point.
+The integer and fractional parts are handled differently.
+They aren't just two integers split by a decimal point.
 
 <ThemeImage src='/img/computers-floating-point-conversion.excalidraw.png' alt='floating-to-binary' />
 
@@ -32,9 +32,9 @@ They're not treated as just two integers separated by decimal point.
 <ThemeImage src='/img/computers-floating-point-filling.excalidraw.png' alt='floating-point-not-accurate' />
 
 :::warning Why not accurate?
-The above diagram is only a mental model for understanding why it isn't accurate.
+The diagram above is only a mental model for why it isn't accurate.
 
-In reality, for computers to convert a decimal number to a floating representation, it does the following
+In reality, to convert a decimal to a floating form, the computer does this:
 
 1. if the number is 585.22, it will convert it into regular number as -
    $$\frac{58522}{10^2} \text{ or } \frac{58522}{100}$$
@@ -45,10 +45,10 @@ In reality, for computers to convert a decimal number to a floating representati
 
 ## Standards for binary representation of floating numbers
 
-All CPU architectures follow one single standard called the IEE 754 to represent the floating numbers.
-It uses the [scientific notation](../mathematics/scientific-notation.mdx) and
-normalization to ensure the integer part of the binary is always just **1**.
-This is the exponent of base 2 since the value is binary.
+All CPU architectures follow one standard, the IEE 754, for floating numbers.
+It uses [scientific notation](../mathematics/scientific-notation.mdx) and normalization.
+The integer part of the binary is always just **1**.
+The exponent is base 2, since the value is binary.
 
 :::important Ensuring **1** in integer part.
 When we convert a decimal to binary, there will be **1** at some location for sure.
@@ -70,11 +70,10 @@ depending on how decimal is moved to get just **1** before the decimal point.
 
 ### Adding Bias to Exponent
 
-In this floating point representation standard,
-we use the scientific notation to represent the mantissa
-and the exponent can then be positive or negative.
-But the idea is to make exponents just positive to make the comparison easier.
-Meaning, the size of the exponent can be directly used to determine if a number is greater or smaller.
+This standard uses scientific notation for the mantissa.
+The exponent can be positive or negative.
+But the goal is to keep exponents positive. That makes comparison easier.
+The exponent size alone shows if a number is larger or smaller.
 
 :::tip Meaning of bias in this context
 Bias in english means, having an opinion different to truth.
@@ -82,17 +81,16 @@ That's exactly what's done in IEE755.
 The actual value of exponent is biased with a fixed value.
 :::
 
-For example, in case of 32 bit float, the bias value is 127.
-This is because 32 bit float register has 8 bits reserved to represent exponent.
-This means, the exponent can be $$2^{-127}$$ to $$2^{128}$$
-and the exponent bits must hold values $$-127$$ to $$128$$.
-But we will add 127 to each of them to ensure only positive numbers are stored.
+For example, a 32 bit float has a bias of 127.
+The 32 bit float register reserves 8 bits for the exponent.
+The exponent runs from $$2^{-127}$$ to $$2^{128}$$.
+The exponent bits must hold $$-127$$ to $$128$$.
+But we add 127 to each, so only positive numbers are stored.
 
 ## Floating point in programming languages
 
-When we instantiate floating point numbers in Java,
-it already converts it to IEE 758 format before storing it into memory.
-It's an hardware requirement that's directly fulfilled by all programming languages.
+When you create floating point numbers in Java, it converts them to IEE 758 format before storing them.
+This is a hardware need that all programming languages meet.
 
 :::warning Programming language specific implementation
 In JavaScript, all numbers are represented in IEE754 format.
@@ -101,5 +99,5 @@ Meaning even for whole numbers, it has only 53 bits available.
 
 ## FPU in CPU
 
-FPU is a component in CPU that implements and handles IEE 754 standards.
-ALU is used only for integers and FPU is used for all floating point calculations.
+The FPU is a CPU component that handles the IEE 754 standard.
+The ALU is only for integers. The FPU does all floating point math.

@@ -2,9 +2,9 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Folder Structure
 
-1. **INDEX** - Contains the actual repository structure that's currently checked out in the working tree.
-   Any changes done to any files are added to this file using **git add** command.
-   Also any changes are recognized by comparing hash of the files in this file.
+1. **INDEX** - Holds the repository structure currently checked out in the working tree.
+   The **git add** command adds your file changes to it.
+   Git also spots changes by comparing the file hashes in it.
 
 2. **HEAD** - Just points to current root commit.
    This is a local file and never pushed as part of the **git push** command.
@@ -12,16 +12,16 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 <ThemeImage src='/img/git-clone-steps.excalidraw.png' alt='Git Clone Steps' />
 
 :::important What's a working directory?
-Working directory is nothing but the actual folder where the repository
-has a INDEX file created and has the corresponding repository files created.
+The working directory is just the folder where the repository
+has its INDEX file and its files.
 :::
 
 :::warning What's worktrees?
-Worktrees just allows us to create multiple copies of working directory
-**without duplicating** the main data from **.git** folder.
+Worktrees let you make many copies of the working directory
+**without duplicating** the main data in the **.git** folder.
 
-Every worktree, will have it's own INDEX and working directory but
-the object database pointing to one single **.git** folder.
-With the help of this, we just clone the repository **once** but
-can work on different worktrees.
+Each worktree has its own INDEX and working directory.
+But the object database points to one **.git** folder.
+You clone the repository **once** and
+work on many worktrees.
 :::

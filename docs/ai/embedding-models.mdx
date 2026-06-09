@@ -2,29 +2,27 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Embedding models
 
-Embedding is about representing existing text, images or videos as numerical values.
+Embedding turns text, images, or videos into numbers.
 
-These models helps to convert the text, images and videos into a numerical representation and
-store them in vector database.
+These models convert text, images, and videos into numbers.
+They then store them in a vector database.
 
-Later, these numerical representations can be used to find similar text, images or videos.
-This is done by comparing the numerical values of the text, images or videos
-and finding the closest match. This is called as vector search.
+Later, you can use these numbers to find similar items.
+You compare the numbers and pick the closest match. This is called vector search.
 
 :::info RAG concept
-This how RAG concept works where additional contextual data is retrieved from the vector database
-and passed to LLM to generate the final output.
+This is how RAG works. It pulls extra context from the vector database.
+It then passes that context to the LLM to make the final output.
 
-Note that the LLM doesn't call the vector database directly.
-The agent must call the vector database and retrieve the relevant data
-and pass it as context to the LLM.
+Note that the LLM doesn't call the vector database itself.
+The agent calls it. The agent gets the data and passes it to the LLM as context.
 :::
 
 <ThemeImage src='/img/embedding-models.excalidraw.png' alt='embedding-models' />
 
 :::tip why the word embedding
-The term "embedding" in AI comes from the idea of embedding something complex into a simpler,
-often lower-dimensional space while preserving its essential characteristics and relationships.
+In AI, "embedding" means placing something complex into a simpler space.
+This space often has fewer dimensions. It still keeps the key traits and links.
 
-This means, placing the text, images and videos inside another representation space.
+In short, you place text, images, and videos into another space.
 :::

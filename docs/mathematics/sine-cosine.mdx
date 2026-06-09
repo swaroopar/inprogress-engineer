@@ -2,22 +2,22 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Sine and Cosine
 
-Sine and cosine are trigonometric periodic functions which relates to the unit circle.
+Sine and cosine are periodic trigonometric functions. They relate to the unit circle.
 
 :::note what's Trigonometry
-It' is a branch of mathematics focused on the relationships between the angles
-and sides of triangles, particularly right triangles.
+It's a branch of math. It studies the links between the angles
+and sides of triangles, mostly right triangles.
 
 Trigon in Greek means triangle.
 :::
 
 ## Polar to Cartesian Conversion
 
-Cartesian conversion is the most common way of representing the co-ordinates using x and y axis.
-Whereas, [Polar System](https://en.wikipedia.org/wiki/Polar_coordinate_system)
-uses the length of the radius and the angle from the x-axis to represent the position.
+The Cartesian way is the most common way to show co-ordinates. It uses the x and y axes.
+The [Polar System](https://en.wikipedia.org/wiki/Polar_coordinate_system)
+uses the radius length and the angle from the x-axis.
 
-Trigonometry exactly provides a way to convert between these two co-ordinate systems.
+Trigonometry gives us a way to convert between these two systems.
 
 $$
 \begin{aligned}
@@ -27,34 +27,34 @@ y = r(sin(θ))
 $$
 
 :::important multiplicate with radius
-All trigonometric functions are multiplied with the radius.
-This is because the sine and cosine functions assume 'unit circle', meaning a circle with radius 1.
+All trigonometric functions are multiplied by the radius.
+The reason is that sine and cosine assume a 'unit circle'. That's a circle with radius 1.
 
-Circumference - 2πR and this is 2π in case of unit circle.
+The circumference is 2πR, which is 2π for a unit circle.
 
-This is also why all graphs show the x-axis with π or 2π as the time required for a full cycle.
+This is also why graphs show the x-axis with π or 2π as the time for one full cycle.
 :::
 
 ## Circle
 
-This is the origin of the sine and cosine functions.
-Here the co-ordinates of the point rotating on the circumference of the circle represent the sine and cosine values.
+This is where sine and cosine come from.
+A point rotates on the circle. Its co-ordinates give the sine and cosine values.
 
 - cosine - x co-ordinate of the point on the circle.
 - sine - y co-ordinate of the point on the circle.
 
 :::tip Radian in a circle
-Radian is the length of the circular arc in a circle and
-one radian is equal to the length of the radius of the circle.
+A radian is the length of an arc on the circle.
+One radian equals the length of the radius.
 :::
 
 <ThemeImage src='/img/sine-cosine-triangle.excalidraw.png' alt='sine-cosine-circle' />
 
 ## Triangle
 
-Sine and cosine values can be calculated using the properties of a right triangle.
-Here the triangle can be placed inside a unit circle and
-the sine and cosine values can be calculated using the below formulas:
+You can find sine and cosine from a right triangle.
+Place the triangle inside a unit circle.
+Then use the formulas below:
 
 $$
 \begin{aligned}
@@ -64,50 +64,50 @@ cosine = \frac{\text{adjacent}}{\text{hypotenuse}}
 $$
 
 :::warning opposite and adjacent is relative
-Opposite and adjacent values are relative to the angle θ
-and this angle depends on which of the two available angles is being considered.
+Opposite and adjacent are relative to the angle θ.
+This angle depends on which of the two angles you pick.
 
 <ThemeImage src='/img/right-angle-triangle.excalidraw.png' alt='right-angle-triangle' />
 :::
 
 ## Oscillations
 
-It's just a coincidence that the oscillations such as swing, pendulum,
-and sound waves can be described using sine and cosine functions.
+It's just a coincidence that oscillations fit sine and cosine.
+These include a swing, a pendulum, and sound waves.
 
-That's why physics uses these functions to describe the behavior of waves and oscillatory motion.
+That's why physics uses these functions to describe waves and motion.
 
 :::danger No relation to circle or triangle
-There exists no real relation to circle or triangle here.
-The movement forms the same sinusoidal shape and hence it's used or referred to.
+It has no real link to a circle or triangle here.
+The motion just forms the same sine shape. We use these functions.
 :::
 
 ## Inputs to Sine and Cosine Functions
 
 ## Theta
 
-Whenever sine and cosine functions are evaluated, the angle (often denoted as θ, or "theta") is the input.
-But this input variable isn't really used by the function.
+When you evaluate sine and cosine, the angle is the input. It's often written as θ, or "theta."
+But the function doesn't really use this input.
 
-It just denotes that the x and y variables are related to the angle θ in the unit circle.
-As the angle changes, the values of x and y co-ordinates which is nothing
-but the output of the cosine and sine functions also change.
+It just shows that x and y relate to the angle θ in the unit circle.
+As the angle changes, x and y change too.
+And x and y are the outputs of cosine and sine.
 
 ## Time
 
-In the context of oscillations, time is often used as the input variable for sine and cosine functions.
-As time progresses, the angle θ changes, which in turn changes the values of the sine and cosine functions.
+For oscillations, time is often the input.
+As time moves on, the angle θ changes. That in turn changes the sine and cosine values.
 
 :::important Time Dependency
-Even though the x-axis shows the co-ordinates of the moving point,
-in real life cases, it refers to time.
+The x-axis shows the co-ordinates of the moving point.
+But in real life, it stands for time.
 :::
 
 ## Frequency
 
-Frequency refers to how fast the event completes one full cycle.
-In case of the object circulating the unit circle,
-the frequency is determined by how quickly the angle θ changes with respect to time.
+Frequency is how fast the event finishes one full cycle.
+For an object going around the unit circle,
+it depends on how fast the angle θ changes with time.
 
 :::note useful links
 
@@ -117,23 +117,23 @@ the frequency is determined by how quickly the angle θ changes with respect to 
 ## Sine and Cosine in Computation
 
 Computers have no idea of angles or triangles.
-They only understand numbers and can compute the sine and cosine values using mathematical formulas.
+They only know numbers. They compute sine and cosine with math formulas.
 
-the libraries that build trigonometric functions use Taylor series formulae to calculate these values.
+The libraries that build these functions use the Taylor series to find the values.
 
 ## GPS Co-ordinates
 
-GPS co-ordinates are represented in terms of latitude and longitude which are angles.
-These angles are then converted to Cartesian co-ordinates using sine and cosine functions
-to determine the position on the Earth's surface.
+GPS co-ordinates use latitude and longitude, which are angles.
+Sine and cosine turn these angles into Cartesian co-ordinates.
+This gives the position on the Earth's surface.
 
 Without the Cartesian co-ordinates,
-it's not possible to calculate the exact distance between two different GPS co-ordinates.
+you can't find the exact distance between two GPS points.
 
 :::important GPS is just angles
 
-- **Latitude** - It's the angle from the equator to the point on the Earth's surface.
-  It's represents the north-south position of the point on the Earth's surface.
-- **Longitude** - It's the angle from the prime meridian to the point on the Earth's surface.
-  It represents the east-west position of the point on the Earth's surface.
+- **Latitude** - the angle from the equator to the point on the Earth's surface.
+  It gives the north-south position.
+- **Longitude** - the angle from the prime meridian to the point on the Earth's surface.
+  It gives the east-west position.
   :::

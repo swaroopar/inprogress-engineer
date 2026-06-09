@@ -14,21 +14,21 @@ we "have" the quorum,
 we "don't have" the quorum.  
 :::
 
-Quorum is used in the context of distributed systems in two different ways.
+Quorum is used in distributed systems in a few ways.
 
-1. Where we've multiple replicas of the same data and
-   we need to read or write to a minimum number of replicas to ensure consistency.
-2. Where we've multiple nodes in a cluster and we need to ensure that a minimum number must exist.
+1. We've many replicas of the same data.
+   We must read or write to a minimum number of them for consistency.
+2. We've many nodes in a cluster. We must make sure a minimum number exist.
 3. We need a minimum number of votes to elect a leader in a cluster.
 
 :::important Reading from minimum number of replicas
-In case of reading, the data is read from configured number of replicas.
-It's then the responsibility of the client to compare and figure out which one has the latest data
-and use the data accordingly.
+For a read, the data comes from a set number of replicas.
+The client then compares them.
+It finds which one has the latest data and uses it.
 :::
 
 :::warning Application need not make multiple calls
-Normally the application doesn't have to worry about ensuring quorum.
-The driver or the co-ordindator on the server side takes care of it.
-The client only sends the regular request to the co-ordinator.
+Usually the app doesn't worry about quorum.
+The driver or the coordinator on the server handles it.
+The client just sends a regular request to the coordinator.
 :::

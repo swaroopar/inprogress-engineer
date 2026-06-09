@@ -2,7 +2,7 @@
 
 **initrd** is a [temporary file system](../storage/temporary-file-system.mdx)
 that's loaded from [boot](./boot-directory.mdx) into memory.
-It contains the main **init** program that will be executed the kernel
+It holds the main **init** program that the kernel runs.
 
 1. It starts the init process which starts the **systemd**.
 2. **systemd** then takes over the [next process](./systemd.mdx).
@@ -11,9 +11,8 @@ It contains the main **init** program that will be executed the kernel
 **initrd** is Operating System specific.
 Each distribution builds its own initrd during installation.
 
-Kernel only expects an initrd to be present and
-a file **/init** to exist inside it.
-Kernel then simply executes that file.
+The kernel only expects an initrd to exist with a **/init** file inside.
+It then just runs that file.
 
 - Kernel - is common
 - initramfs - distribution specific

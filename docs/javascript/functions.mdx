@@ -2,17 +2,17 @@
 
 Functions in JavaScript are first class citizens.
 
-When functions are created, the JavaScript engine first validates for syntax and after that
+When a function is created, the JavaScript engine first checks the syntax. After that:
 
 1. Allocated memory for a new function object.
 2. Attaches the function body, lexical environment map, etc
-3. Returns the function reference ID - which is like a pointer to the memory where the function is located.
+3. Returns the function reference ID. This is like a pointer to where the function lives in memory.
 
 :::warning functions not always recreated
-Normal functions - reference created once when the function is referred for the first time.
-After that the same reference is reused.
+Normal functions - the reference is created once, on first use.
+After that, the same reference is reused.
 
-Child functions - the function objects are created each time the parent function is executed.
-This is because every function has it's own lexical environment which is created during the execution
-and its garbage-collected after that.
+Child functions - the function object is created each time the parent runs.
+Every function has its own lexical environment.
+It's built during the run and garbage-collected after.
 :::

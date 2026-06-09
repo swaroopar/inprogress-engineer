@@ -2,40 +2,40 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Next Token Prediction
 
-Output in an LLM is always about predicting the next best token a.k.a the next word.
+An LLM's output is always about predicting the next best token, or next word.
 
 Example - Which is the capital of France?
-The output will be next best word after the full text that is, Which is the capital of France? `{$answer token}`.
+The output is the next best word after the full text. So: Which is the capital of France? `{$answer token}`.
 
-Like, this the entire input + generated token (word by word) is passed to LLM
-to generate the next best word until the full output is generated.
+The whole input plus the generated tokens, word by word, is passed back to the LLM.
+This repeats until the full output is done.
 
 <ThemeImage src='/img/auto-regressive-ai.excalidraw.png' alt='output-token' />
 
 ## Probability
 
-The output of the neural network computation will always be another
-array of floating values for each token in the LLM's vocabulary.
+The neural network output is always an array of float values.
+It holds one for each token in the LLM's vocabulary.
 
 This value is then converted into probabilities.
 
 ## Sampling
 
-Sampling is a method in statistics where a subset of items are used to predict the whole.
+Sampling is a statistics method. It uses a subset of items to predict the whole.
 
-In case of LLM, the sampling is done from the probability distribution of the next token.
-Takes only a subset of tokens based on temperature, Top-P, and Top-K values.
+For an LLM, sampling is done from the next token's probability distribution.
+It takes only a subset of tokens, based on temperature, Top-P, and Top-K.
 
 :::important Temperature, Top-P, and Top-K
 
-- **Temperature**: Depending on the this parameter, the LLM decide to chose the token from the list
-  generated. The higher the temperature, the more random the output. The lowest temperature (0.0), the
-  value with the highest probability is always returned.
+- **Temperature**: This parameter shapes how the LLM picks a token.
+  Higher temperature gives more random output. At the lowest (0.0), it always
+  returns the highest-probability value.
 
-- **Top-P**: This is another parameter that decides the number of tokens to be considered for the
-  output. Using this value, LLM then only considers the top-P tokens sum of whose probabilities is equal to the top-P value.
+- **Top-P**: This parameter sets how many tokens to consider.
+  The LLM keeps the top tokens whose probabilities add up to the Top-P value.
 
-- **Top-K**: Just considered the top-K tokens with the highest probability for the next token.
+- **Top-K**: It just keeps the top-K tokens with the highest probability.
 
 :::
 
@@ -43,11 +43,11 @@ Takes only a subset of tokens based on temperature, Top-P, and Top-K values.
 
 ## Greedy Decoding
 
-When greedy decoding is used, the model always selects the token with the highest probability as the next token.
-For example, temperature with value 0.0, Top-P with value 0.0, and Top-K with value 1.0.
+With greedy decoding, the model always picks the highest-probability token.
+For example, temperature 0.0, Top-P 0.0, and Top-K 1.0.
 
 :::danger No causal understanding
-LLMs only knows the relationship between two things.
-They don't know the cause-effect relationship
+LLMs only know how two things relate.
+They don't know cause and effect.
 
 :::

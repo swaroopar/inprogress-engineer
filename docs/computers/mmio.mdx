@@ -2,38 +2,38 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Memory-Mapped IO
 
-MMIO is a technique where all IO devices are accessed using the same way how memory is accessed.
-Memory is accessed using it's address pointers.
-Similarly, in MMIO the address registers of the devices are added as regular address in the CPU's known list of addresses.
+MMIO is a technique. You access all IO devices the same way you access memory.
+Memory is accessed by its address pointers.
+In the same way, MMIO adds the device address registers to the CPU's known list of addresses.
 
 :::important unified access
-It provides an unified and standard way of accessing all IO devices.
-This means, device drivers, OS can all access everything in the same way.
+It gives one standard way to access all IO devices.
+Device drivers and the OS access everything the same way.
 :::
 
 ## Address mapping
 
-At boot, the kernel queries all connected devices and its information.
-After that the devices are initialized and assigned memory in the same address space
-which the CPU uses to access memory.
+At boot, the kernel queries all the connected devices and their information.
+Then it initializes the devices. It assigns them memory in the same address space
+the CPU uses.
 
-This means, the page table of the kernel memory space is updated to directly have mappings to IO devices as well.
+The kernel's page table is updated to map the IO devices too.
 
 This feature is called **MMIO - Memory Mapped IO**.
 
 <ThemeImage src='/img/cpu-mmio-system-agent.excalidraw.png' alt='mmio-cpu' />
 
 :::warning MMIO vs Port IO
-In case of MMIO, the registers of the devices are available in the CPU's memory space.
-Whereas in Port IO, the CPU has to specifically interact with the devices using separate instructions and addresses.
+With MMIO, the device registers sit in the CPU's memory space.
+With Port IO, the CPU must use separate instructions and addresses for the devices.
 
-PIO is legacy. Not used anymore.
+PIO is legacy. It isn't used anymore.
 :::
 
 ## MMIO and PCI
 
-MMIO is a technique that can work with or without PCI.
-Irrespective of whether the device supports PCI protocol, MMIO can work.
+MMIO can work with or without PCI.
+It works whether or not the device supports the PCI protocol.
 
 :::danger Only address allocation process is different
 PCI - The physical addresses are allocated at boot by CPU and written to base address registers.

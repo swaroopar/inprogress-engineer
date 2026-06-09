@@ -2,16 +2,16 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Pause Containers
 
-We understood in the [namespaces](../linux/namespaces.mdx#examples) that Kubernetes pods only have certain namespaces.
-When kubelet receives a request for a pod, it will create one **dummy** container with necessary isolated namespaces.
+In the [namespaces](../linux/namespaces.mdx#examples) note, we saw that Kubernetes pods have only certain namespaces.
+When kubelet gets a request for a pod, it creates one **dummy** container. This container holds the isolated namespaces.
 
-Then the CNI will setup connectivity from this isolated network namespace to the host.
-This is what's used by all containers that are connected to this logical group.
+Then the CNI links this isolated network namespace to the host.
+All containers in this logical group use that link.
 
 <ThemeImage src='/img/k8s-pause-container.excalidraw.png' alt='pause containers' />
 
 :::info docker run with arguments
-Docker provides a way to start containers where it can join other container's namespaces.
+Docker lets you start a container that joins another container's namespaces.
 
 ```sh
 docker run --name k8s_app_my-pod \
@@ -26,7 +26,7 @@ docker run --name k8s_app_my-pod \
 
 ## Why we need this?
 
-1. If the main containers itself own the shared namespaces,
-   then if one container fails then the other containers are also broken.
-2. We will have to maintain sequence of container startup.
-3. Any container restarts will destroy the namespaces.
+1. Say the main containers own the shared namespaces.
+   Then if one container fails, the others break too.
+2. We would have to keep a strict startup order.
+3. Any container restart would destroy the namespaces.

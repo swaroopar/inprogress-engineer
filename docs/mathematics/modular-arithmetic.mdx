@@ -2,56 +2,56 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Modular Arithmetic
 
-It's a type of arithmetic that deals with remainders,
-where the numbers **wrap-around** after they reach a certain value.
-The remainder value is the mod value of that number.
+It's a type of arithmetic that deals with remainders.
+The numbers **wrap around** after they reach a certain value.
+The remainder is the mod value of that number.
 
-This is also called as **clock** arithmetic since the numbers here go in a circle.
-In N modulo, we can have only 0 to N-1 numbers.
+It's also called **clock** arithmetic, since the numbers go in a circle.
+In N modulo, you have only 0 to N-1.
 
 :::info modulo vs division
-Modulo returns the reminder whereas division returns the quotient.
+Modulo returns the remainder. Division returns the quotient.
 
-For example, when we want to get digits out of a large number,
-we use modulo of 10 and division by 10 to get the digits.
+For example, to pull digits out of a large number,
+you use modulo 10 and division by 10.
 :::
 
 <ThemeImage src='/img/maths-modular-arithmetic.excalidraw.png' alt='modular-arithmetic' />
 
 :::tip Mental model for modular operations
-It's important to understand that the mathematical way of representing modular is by dividing.
-But the right mental model is to see it as a counter on the circle and
-**mod is what remains on the circle in the last round.**
+The math way to show modular is by dividing.
+But the right mental model is a counter on a circle.
+**Mod is what remains on the circle in the last round.**
 :::
 
 :::important Clock is mod 12
-When we say clock is **mod 12**, it means the numbers allowed here are only from 0 to 11.
-Just for the sake of practical purposes, we've 1 to 12 on clocks.
-But the concept is the same.
+When we say a clock is **mod 12**, only 0 to 11 are allowed.
+For practical reasons, clocks show 1 to 12.
+But the idea is the same.
 
-4 hours after 9 AM is 13 which is actually referred as 1 PM.
+4 hours after 9 AM is 13, which we call 1 PM.
 :::
 
 ## Binary Overflow
 
-Modular arithmetic is the concept that's also implemented in binary overflow.
-In case of binary arithmetic,
-the overflow bit is just ignored which brings the value back to the beginning of the circle.
+Modular arithmetic also shows up in binary overflow.
+In binary arithmetic,
+the overflow bit's just dropped. This brings the value back to the start of the circle.
 See [binary arithmetic](./binary-arithmetic.mdx#mental-model-for-carry-and-overflow) article for more details.
 
 :::warning Setting zeros makes module of different systems
-If we've a N bit width value, setting MSB will give us the module value for N-1 bit width.
-This is exactly why, doing an AND with just a specific set of lower of bits to 1,
-gives modulo directly and we need not perform a CPU expensive modulo operation.
+Take an N bit wide value. Setting the MSB gives the modulo value for an N-1 bit width.
+This is why an AND with a set of low bits set to 1 gives the modulo directly.
+You skip the costly modulo operation.
 
-But note that this pattern works only when the AND is performed by all ones.
+But this works only when the AND uses all ones.
 :::
 
 :::info Circular data structures
-This is also the technique used by circular queues and circular linked lists.
-The circular nature of the data structure is implemented by using modular arithmetic to wrap around the indices.
+Circular queues and circular linked lists use this too.
+They use modular arithmetic to wrap the indices around.
 
-Meaning when we do a next operation and if the value has already reached the end of the queue or list,
-then we can just wrap around to the beginning by using modulo operation.
-This will then again point to the start of the queue or list.
+On a next operation, if the value is already at the end,
+you wrap to the start with modulo.
+It then points to the start of the queue or list again.
 :::
