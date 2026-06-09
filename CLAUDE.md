@@ -51,10 +51,8 @@ CI (`.github/workflows/ci.yml`) additionally runs `tsc --noEmit`, `prettier --ch
 
 ## Vale prose linting
 
- - Vale runs in Docker (no local install needed). To add accepted spellings/terms, edit `.github/vale/styles/config/vocabularies/website/accept.txt`. Run locally with `task vale-lint`.
- - DO NOT add anything to accept.txt without approval.
-
-
+- Vale runs in Docker (no local install needed). To add accepted spellings/terms, edit `.github/vale/styles/config/vocabularies/website/accept.txt`. Run locally with `task vale-lint`.
+- Don't add anything to accept.txt without approval.
 
 ## Readability (Flesch-Kincaid)
 
