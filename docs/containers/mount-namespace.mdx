@@ -44,6 +44,6 @@ The Docker binary does it when we execute the **docker run** command.
 5. This backup location is used to [bind the volumes](../linux/bind-mounts.mdx) requested via **-v** option.
 6. Finally it will un-mount the backup location to hide the host file system.
 
-The bind mounted volume stays visible even though it was mounted from the backup location.
+**Remember:** The bind mounted volume stays visible even though it was mounted from the backup location.
 This is because the kernel still knows the actual inode and dentry of the underlying file or directory.
 :::
