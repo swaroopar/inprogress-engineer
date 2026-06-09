@@ -31,6 +31,6 @@ then CPU will throw a fault.
 
 At boot, the bootloader is executed as ring 1.
 When bootloader runs the kernel image, even that's done as ring 1.
-But when kernel starts systemd, it starts with ring 3.
+When kernel starts systemd, it starts with ring 3.
 
 After that everything that's forked from systemd, will have ring 3.

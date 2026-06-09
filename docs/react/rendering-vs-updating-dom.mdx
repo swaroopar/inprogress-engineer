@@ -28,8 +28,8 @@ Whereas, rendering happens each time the state of the mounted component changes.
 
 ## Render ≠ UpdateDOM
 
-It's very important to know that even though every render generates a new virtual DOM
-but this doesn't mean that the DOM will be updated.
+It's important to know that even though every render generates a new virtual DOM,
+this doesn't mean that the DOM will be updated.
 
 React diffing algorithm is called **reconciliation** will be used by React to check if there are any DOM changes.
 If there are any changes, then the changes are handed over to ReactDOM which will then update the real DOM.

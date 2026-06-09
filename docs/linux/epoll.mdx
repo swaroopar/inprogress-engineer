@@ -25,7 +25,7 @@ epoll avoids userspace from polling the file descriptors.
 Instead we ask kernel to create an epoll instance and ask it to monitor which ever file descriptors we're interested in.
 
 After this, epoll monitors the file descriptors independently.
-Whenever there is state change, the thread is simply scheduled again by the kernel.
+Whenever there is state change, the thread is scheduled again by the kernel.
 It was earlier paused exactly at the step where it called the _epoll_wait_ system call
 and now it will be scheduled again to check the events.
 

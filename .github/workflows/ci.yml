@@ -31,6 +31,7 @@ jobs:
               with:
                   filter_mode: nofilter
                   fail_on_error: true
+                  vale_flags: '--glob=!.github/vale/styles/**'
             - name: Run EsLint
               working-directory: ./
               run: npx eslint . --max-warnings=0

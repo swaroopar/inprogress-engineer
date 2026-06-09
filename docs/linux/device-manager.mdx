@@ -41,7 +41,7 @@ The kernel uses ephemeral names for devices. They don't persist across reboots.
 It names them in the order the BIOS detected them.
 
 These names are simple for the kernel to handle.
-But userspace apps need persistent names to find devices across reboots.
+Still, userspace apps need persistent names to find devices across reboots.
 This is where udev comes in.
 
 <ThemeImage src='/img/device-manager.excalidraw.png' alt='udev' />
@@ -69,7 +69,7 @@ The devices in `/dev` don't persist across reboots.
 Each boot, the devices are detected again.
 The `/dev` directory is rebuilt with the current devices.
 
-But udev keeps the userspace device names consistent across reboots.
+Still, udev keeps the userspace device names consistent across reboots.
 :::
 
 ## Difference between /dev and /sys file systems

@@ -99,7 +99,7 @@ Then $$\text{height of leaf node} = \text{max(-1, -1)} + 1 = 0$$.
 :::danger +1 is just an arbitrary convention
 This +1 convention might look a bit confusing at the first time,
 since we also add +1 for a leaf node which doesn't have any edge connecting to child.
-But this is the standard convention used in algorithms for defining height of trees.
+Still, this is the standard convention used in algorithms for defining height of trees.
 
 This makes sense because, we use **-1** when no edge connects to child.
 And recursively, we can use one single formula for all nodes.
@@ -154,7 +154,7 @@ The ancestor nodes control and decide what values the descendant nodes can have.
 - Right child will have a value greater than the parent.
 
 This is the only requirement.
-This makes it very easy to search for a value in the tree.
+This makes it easy to search for a value in the tree.
 
 :::tip one side will have equal to condition
 Depending on the implementation, one side of the tree will have value equal to the parent node.

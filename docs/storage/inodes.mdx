@@ -10,7 +10,7 @@ Linux uses an inode structure for all IO operations even though it's mainly used
 
 For other IO operations such as sockets, the inode structure has information that's necessary to access the sockets.
 
-But this page describes only about inode data structure for real files.
+This page describes only the inode data structure for real files.
 :::
 
 :::tip inode is an ext4 concept
@@ -43,7 +43,7 @@ Every inode structure contains information such as
 6. Actual size of the file - this is needed to know where to stop in the last disk page used by the file.
 
 :::important inode doesn't hold the most important information
-It's very important to keep in mind that the inode neither contains the file name nor
+It's key to keep in mind that the inode neither contains the file name nor
 the file data. It's in the dentries.
 :::
 

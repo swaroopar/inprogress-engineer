@@ -26,7 +26,7 @@ It updates that order whenever an entry is used or added.
 
 The biggest bottleneck is keeping the entry order in a concurrent setup.
 Moving an entry to the front is an O(1) operation.
-But it still needs a lock on the whole cache for thread safety.
+Still, it needs a lock on the whole cache for thread safety.
 
 :::danger Linked list corruption
 If many threads access the cache,

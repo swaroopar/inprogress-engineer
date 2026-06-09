@@ -11,7 +11,7 @@ In a database, locking lets you ask the database to lock a data set.
 This guards it during parallel transactions.
 
 The default lock works like this. Many transactions can read at once.
-But only one can write at a time.
+Only one can write at a time though.
 
 :::danger No checks in this lock
 In the default lock, writes happen one by one.
@@ -35,7 +35,7 @@ If it did, the app must update the query and retry.
 Or it handles the case some other way.
 
 :::tip why the name optimistic
-The name fits because this lock is very hopeful.
+The name fits because this lock is hopeful.
 It assumes a race condition is rare.
 :::
 
@@ -49,7 +49,7 @@ It makes sure no other transaction updated it first.
 ## Pessimistic Locking
 
 This lock is built by the **database** itself.
-But the app controls how it's applied.
+The app controls how it's applied though.
 The app **specifies it in the query**.
 The database then handles it.
 

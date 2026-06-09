@@ -45,8 +45,8 @@ While instantiating, we must pass any object that implements in the interface.
 :::important child struct also implements interface
 With such an embedding, since all fields and methods are promoted,
 the child struct also is seen as an implementation of the interface.
-This is very important.
-Later we can simply override any implemented method as necessary.
+This is key.
+Later we can override any implemented method as necessary.
 :::
 
 ## Zero Values Handling
@@ -59,7 +59,7 @@ When an embedded struct is initialized with a zero value, the following happens
 
 1. If the embedded struct is a value, even the fields of this struct is initialized with zero values.
 2. If the embedded struct is a pointer,
-   then the pointer is simply initialized to nil. Then the calling any method on that struct will fail.
+   then the pointer is initialized to nil. Then the calling any method on that struct will fail.
 
 :::tip Sources
 

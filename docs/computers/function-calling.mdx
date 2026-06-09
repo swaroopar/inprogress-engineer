@@ -3,7 +3,7 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 # Function Calling
 
 In most documents, it's mentioned that CPU just executes the instructions one by one.
-But how does the CPU handle function calls using stack?
+How does the CPU then handle function calls using stack?
 
 When a function is called, the CPU does the following:
 
@@ -15,7 +15,7 @@ When a function is called, the CPU does the following:
 6. When the next instruction runs,
    the if the function is returning any value,
    then the instruction will definitely be a copy from a specific register back to stack.
-   If not, then the code runs from next line simply.
+   If not, then the code runs from the next line.
 
 <ThemeImage src='/img/computers-return-statement-handling.excalidraw.png' alt='Function Call Stack' />
 

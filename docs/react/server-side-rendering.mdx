@@ -9,7 +9,7 @@ In case of CSR, JSX is converted to JS and bundled.
 The bundle is executed on browser which then generates the HTML.
 
 In case of SSR, JSX is converted to HTML on the server and returned directly to HTML on server.
-But additionally, the same client code that we send as part of CSR is also sent here.  
+Additionally, the same client code that we send as part of CSR is also sent here.  
 :::
 
 <ThemeImage src='/img/ssr-rendering.excalidraw.png' alt='SSR Rendering' />
@@ -43,7 +43,7 @@ of interactivity and event handlers._
 It's important to note that SSR simulates an environment for rendering a React tree into raw HTML.
 It doesn't differentiate between server and client components, and it renders them the same way on server.
 
-But it only renders the static HTML. All dynamic content comes from the hydration process.
+Still, it only renders the static HTML. All dynamic content comes from the hydration process.
 :::
 
 ## Problems with plain-old SSR

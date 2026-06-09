@@ -37,7 +37,7 @@ When a mismatch happens
 :::danger why $$length - 1$$ is mentioned everywhere
 **length** variable in all the explanations means the length of the last found longest prefix-suffix.
 
-But length starts it's count from 1 where as the LPS array index from 0.
+Still, length starts it's count from 1 where as the LPS array index from 0.
 Hence, when the LPS array is queried, we always do an $$lps[length - 1]$$.
 :::
 
@@ -46,7 +46,7 @@ Hence, when the LPS array is queried, we always do an $$lps[length - 1]$$.
 As all pattern matches, we've two pointers.
 One for the actual string and the one for the pattern.
 We move both whenever there are matches.
-But when there is a mismatch, we move only the pointer of the pattern string back.
+When there is a mismatch, we move only the pointer of the pattern string back.
 How much we must move back is what the LPS index provides.
 
 The approach of moving the pointer back is actually bit counter intuitive.

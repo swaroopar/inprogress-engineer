@@ -22,7 +22,7 @@ The interpreter always uses more memory. It works with a local variable array an
 It's also slower. It reads each instruction one by one and
 runs the matching native code.
 
-But this keeps things simple and portable.
+Still, this keeps things simple and portable.
 With its own stack and local variable array, it need not worry about registers.
 Byte code is also smaller. It only deals with stack operations, not register ones.
 

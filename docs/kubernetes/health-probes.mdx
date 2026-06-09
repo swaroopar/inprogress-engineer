@@ -27,7 +27,7 @@ but they're continuously checked during the lifecycle of the pod.
 :::important Liveness and Readiness are the same in some cases
 In frameworks like tomcat, the server is available on the port only when the complete initialization is complete.
 This means, when the application ready, it's also live.
-But this isn't true for all cases.
+Yet this isn't true for all cases.
 
 For example, even in tomcat the server maybe fully started but we can implement custom readiness probes,
 where we can additionally check if certain required microservices are reachable or not and decide the readiness answer.

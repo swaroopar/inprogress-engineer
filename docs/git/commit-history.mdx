@@ -17,7 +17,7 @@ it will just move the HEAD pointer to the latest commit of the source branch.
 ### Rebase
 
 This will move the commits from your current branch with other branch's HEAD as it's base.
-But doing this means, the tree structure will change and there by the commits will change.
+Doing this means, the tree structure will change and there by the commits will change.
 
 New commits will be created with new hashes.
 
@@ -40,7 +40,7 @@ when such a merge is done.
 In case of fast forward merge, new commits are created on top of the current branch.
 Meaning, a new tree is created based on the filesystem state.
 
-But in case of merge commit, the commits are merged as it is.
+For a merge commit, the commits are merged as it is.
 Meaning the commit what we've in the source branch are directly added to the target branch.
 no new commits are created.
 :::
@@ -53,6 +53,6 @@ and see what commits were already merged.
 :::tip Main use case of merge commit
 After you merge a branch using merge commit,
 if you do more commits to it and merge it again,
-GIT can easily identify what commits were already merged
+GIT can identify what commits were already merged
 and which new commits needs to be merged.
 :::
