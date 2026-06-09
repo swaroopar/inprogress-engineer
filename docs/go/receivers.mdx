@@ -33,7 +33,7 @@ Based on the struct type, either it's value or pointer, the corresponding method
 ### When to use which type of receiver
 
 The general approach is to use pointer receiver if the calling method must or will update the receiver object.
-Otherwise use the value receiver.
+Otherwise just use the value receiver.
 
 :::tip Modifying Method
 Always think of **pointer receiver** method as a modifying method.
