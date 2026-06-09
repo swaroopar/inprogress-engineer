@@ -2,11 +2,11 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Device Manager
 
-Device managers in Linux isn't similar to Windows where we've one single tool that manages all devices.
-In Linux, there are different tools that manages different types of devices.
-Some handle block devices, some handle USB devices, some handle PCI devices, etc.
-Here we see how devices are represented in the kernel, how they're registered,
-and how userspace interacts with them.
+Device managers in Linux aren't like Windows. Windows has one tool that manages all devices.
+Linux has different tools for different device types.
+Some handle block devices, some USB, some PCI.
+Here we see how the kernel represents devices, how they're registered,
+and how userspace works with them.
 
 ## Software Representation
 
@@ -22,11 +22,10 @@ and vice versa.
 
 ## udev
 
-**udev** is short form for userspace device manager.
-It defines the following for each device.
-
-It configures the device in the userspace and let's userspace applications interact with the device.
-It additionally executes whatever steps needed to be done when a device is added or removed.
+**udev** is short for userspace device manager.
+It sets up each device in userspace.
+It lets userspace apps work with the device.
+It also runs any steps needed when a device is added or removed.
 
 :::tip example of udev task
 
@@ -38,44 +37,44 @@ It additionally executes whatever steps needed to be done when a device is added
 
 ## Ephemeral vs Persistent Namings
 
-Kernel uses ephemeral names for devices, which aren't persistent across reboots.
-It gives names in the sequence the BIOS has detected the devices.
+The kernel uses ephemeral names for devices. They don't persist across reboots.
+It names them in the order the BIOS detected them.
 
-But these are simple names for kernel to handle,
-whereas userspace applications need persistent names to identify devices across reboots.
-This is where udev comes into picture.
+These names are simple for the kernel to handle.
+But userspace apps need persistent names to find devices across reboots.
+This is where udev comes in.
 
 <ThemeImage src='/img/device-manager.excalidraw.png' alt='udev' />
 
 :::warning in-built versus external drivers
-When a driver isn't part of the kernel itself, but is loaded as a module.
-Where as external drivers are loaded as modules.
+An in-built driver is part of the kernel.
+An external driver is loaded as a module.
 :::
 
 ## Loading Persistent Information
 
-In case of a disk, the UUID is read from the disk and used as the persistent name.
-In case of a network interface, the MAC address is used as the persistent name.
+For a disk, the UUID is read and used as the persistent name.
+For a network interface, the MAC address is used.
 
 For other devices, hardware information such as vendor ID, product ID, and serial number are used to create a unique identifier.
 
-These values remain same across reboots and are used to identify the device in the userspace.
-This is then mapped to the ephemeral name given by the kernel in the **uevent** message.
+These values stay the same across reboots. They identify the device in userspace.
+udev maps them to the kernel's ephemeral name from the **uevent** message.
 
 All userspace applications use this persistent name to identify the device.
 
 :::danger /dev is a temporary filesystem
-It's important to note that `/dev` is a temporary filesystem,
-which means that the devices listed in `/dev` aren't persistent across reboots.
-Each time the system boots,
-the devices are re-detected and the `/dev` directory is recreated with the current devices.
+Note that `/dev` is a temporary filesystem.
+The devices in `/dev` don't persist across reboots.
+Each boot, the devices are detected again.
+The `/dev` directory is rebuilt with the current devices.
 
-But it's important to know that udev ensures the userspace names of devices are kept consistent across reboots.
+But udev keeps the userspace device names consistent across reboots.
 :::
 
 ## Difference between /dev and /sys file systems
 
-Both /dev and /sys are virtual filesystems in Linux to manage devices, but they serve different purposes.
+Both /dev and /sys are virtual filesystems in Linux for devices. But they serve different purposes.
 
 **/dev**:
 

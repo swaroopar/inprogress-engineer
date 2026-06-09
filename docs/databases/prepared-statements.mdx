@@ -2,38 +2,34 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Prepared Statements
 
-Prepared statements is a database engine's concept
-where a query template is created and stored in the database server.
+Prepared statements are a database engine concept.
+The engine creates a query template and stores it on the server.
 
-While execution, the client only passes the prepared statement's name and
-the parameters to the database server,
-which then executes the query using the provided parameters.
+At run time, the client sends only the statement's name and the parameters.
+The server then runs the query with those parameters.
 
 :::important Question marks in the DB Query
-The question marks what we see in the database logs are
-the placeholders and when we see that,
-it means that the query is being executed as a prepared statement.
+The question marks in the database logs are the placeholders.
+When you see them, the query is running as a prepared statement.
 :::
 
 :::warning Prepared statements and SQL Injection Protection
-Prepared statements are used by database engines for query caching.
+Database engines use prepared statements to cache queries.
 
-SQL Injection protection is a side effect of using prepared statements.
+SQL Injection protection is a side effect.
 :::
 
 <ThemeImage src='/img/database-prepared-statements.excalidraw.png' alt='hash-tables' />
 
 ## SQL Injection Protection
 
-When we use prepared statements, the database engine treats the parameters as data and not as part of the query.
+With prepared statements, the engine treats the parameters as data, not as part of the query.
 
 :::tip How does it work?
-When prepared statements aren't used,
-the entire query is treated as string and
-the database engine parses the query and executes it.
-This is what causes SQL Injection vulnerability.
+Without prepared statements, the whole query is one string.
+The engine parses that string and runs it.
+This is what opens the door to SQL Injection.
 
-But when prepared statements are used,
-the query is fixed,
-the values are directly passed into the query with **specific types**.
+With prepared statements, the query is fixed.
+The values are passed in with **specific types**.
 :::

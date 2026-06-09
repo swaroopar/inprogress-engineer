@@ -3,26 +3,25 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 # Code Execution
 
 :::warning mental model about stacks
-Never confuse the Java's stack with the stack trace what we see in errors.
+Don't confuse the Java stack with the stack trace in errors.
 They aren't related at all.
 
-The Java stack is used only for interpreted mode of execution.
+The Java stack is used only in interpreted mode.
 :::
 
-Each application thread inside the JVM has an instance of the execution engine which
-executes the application byte code.
+Each app thread in the JVM has its own execution engine instance.
+It runs the app byte code.
 
 <ThemeImage src='/img/jvm-execution-engine.excalidraw.png' alt='execution engine' />
 
-Java code execution happens in two modes - interpreted and JIT compiled.
-Additionally it can also switch between these two modes of execution seamlessly.
+Java code runs in two modes: interpreted and JIT compiled.
+The JVM can switch between them smoothly.
 
 ## Interpreted Mode
 
-This is an infinite loop where the JVM reads the byte code and executes it instruction by instruction.
-It's already native compiled code which just has a large switch case statement
-which reads each byte code instruction
-and executes a set of native instructions for each byte code instruction.
+This is an infinite loop. The JVM reads the byte code and runs it one instruction at a time.
+It's native compiled code with a large switch case.
+For each byte code instruction, it runs a set of native instructions.
 
 :::warning Interpreted mode details
 Read the [interpreter](./interpreter.mdx) page for more details on how the interpreted mode works.
@@ -34,32 +33,31 @@ Here the JVM compiles the byte code to native code and then executes that native
 
 :::important Java's stack isn't used at all
 In this mode, the Java stack isn't used at all.
-the native code and the native stack is used for execution.
+The native code and the native stack run the execution.
 :::
 
 ## Integration between two modes
 
-It's common that not all methods are JIT compiled and some are interpreted.
-JVM can seamlessly switch between these two modes of execution.
+Often, not all methods are JIT compiled. Some are interpreted.
+The JVM can switch between the two modes smoothly.
 
 <ThemeImage src='/img/jvm-execution-transition.excalidraw.png' alt='execution mode transition' />
 
 :::important stack traces
-The stack trace in error logs what we see is the logical representation of the execution flow.
-It need not follow the same in reality.
+The stack trace in error logs is a logical view of the flow.
+It need not match reality.
 
-It translates the internal state of execution (which includes native code, interpreted bytecode,
-and possibly multiple layers of abstraction like method inlining or JIT optimizations) into a human-readable,
-logical view of how Java methods were called.
+It turns the internal state into a readable view of how Java methods were called.
+That state includes native code, interpreted byte code, and layers like method inlining or JIT optimizations.
 
-IDEs use JVM's debugging APIs to present this logical stack trace.
+IDEs use the JVM's debugging APIs to show this logical stack trace.
 :::
 
 ## Local Variables Stack
 
-Every stack frame in a JVM thread stack has it's own local variables stack.
+Every stack frame in a JVM thread stack has its own local variables stack.
 
 When a method is called,
-the arguments passed to the method are pushed onto the **local variables** stack of the frame.
-JVM reads this data and copies them to the local variable area of the newly created stack frame.
-And after the method returns, JVM copies the returned value to the operand stack of the calling stack frame.
+its arguments are pushed onto the frame's **local variables** stack.
+The JVM reads this and copies it to the local variable area of the new stack frame.
+When the method returns, the JVM copies the result to the operand stack of the calling frame.

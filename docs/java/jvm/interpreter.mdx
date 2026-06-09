@@ -2,48 +2,48 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Interpreter
 
-Consider JVM interpreter as a script reader that reads .class files.
-Similar to how bash reads shell scripts line by line and executes them,
-JVM interpreter reads the byte code instructions one by one and executes them.
+Think of the JVM interpreter as a script reader for .class files.
+Bash reads a shell script line by line and runs it.
+In the same way, the JVM interpreter reads the byte code instructions one by one and runs them.
 
 :::tip JVM is an infinite while loop and switch case.
-JVM is essentially an infinite loop that keeps reading byte code instructions and
-the code then has a big switch case that executes the instruction based on the opcode.
+The JVM is basically an infinite loop. It keeps reading byte code instructions.
+A big switch case then runs each one based on its opcode.
 :::
 
-When the code is compiled, the compiled code is just an array of instructions.
-This array is what the interpreter reads one by one and executes.
+When the code is compiled, it becomes an array of instructions.
+The interpreter reads this array one by one and runs it.
 
 <ThemeImage src='/img/jvm-interpreter.excalidraw.png' alt='JVM-interpreter' />
 
 ## Interpreter isn't efficient
 
-Interpreter always uses more memory since it works using local variable array and operand stack.
-Also, the execution is slower since each instruction is read one by one and
-corresponding native code is executed.
+The interpreter always uses more memory. It works with a local variable array and an operand stack.
+It's also slower. It reads each instruction one by one and
+runs the matching native code.
 
-But this is needed for simplicity and portability reasons.
-By maintaining its own stack and local variable array, it doesn't have to worry about registers.
-Also, byte code is smaller when it just has to maintain stack operations instead of register operations.
+But this keeps things simple and portable.
+With its own stack and local variable array, it need not worry about registers.
+Byte code is also smaller. It only deals with stack operations, not register ones.
 
 :::important stack makes the bytecode smaller
-By using stack, the byte code instructions are smaller since they don't have to specify registers.
-For example, when we say `iadd`, we don't specify the operands.
-It's implied that the operands are on the top of the stack.
-We never pass any operands to it.
+With a stack, the byte code instructions are smaller. They need not name registers.
+For example, `iadd` names no operands.
+The operands are implied to be on top of the stack.
+We never pass any to it.
 :::
 
 ## Handover between application code and interpreter?
 
-When JVM is started, it will look for the byte code of the main class and
-start executing it.
+When the JVM starts, it finds the byte code of the main class and
+runs it.
 
-There exists no **handover** between the application code and interpreter.
-The interpreter will keep reading the byte code instructions of the main class
-and execute them one by one.
+No **handover** happens between the app code and the interpreter.
+The interpreter just reads the main class's byte code
+and runs it one by one.
 
 :::warning interpreter is the code that runs
-When interpreter is running, there is no application code running.
-The interpreter is the code that's running and
-it's executing the native code instructions mapped to every application byte code instruction.
+When the interpreter runs, no app code runs.
+The interpreter is the code that runs.
+It runs the native instructions mapped to each app byte code instruction.
 :::

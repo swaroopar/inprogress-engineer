@@ -1,13 +1,13 @@
 # Method Set
 
-A method set is the Golang feature where the compiler knows the set of the methods available for a type
-and this set is created based on the **method receiver** type.
+A method set is a Golang feature. The compiler knows the set of methods for a type.
+This set is based on the **method receiver** type.
 
-Since a method receiver can be both a value or a pointer, the compiler decides the method set based on the variable type.
+A method receiver can be a value or a pointer. The compiler decides the method set from the variable type.
 
 :::danger Regular methods vs interface methods
-In case of regular methods, a T or *T type can call a methods with T or*T receiver.
-There exists no restriction.
+For regular methods, a T or *T type can call a method with a T or*T receiver.
+No restriction applies.
 
 The restriction of T variable not being able to call methods of \*T receiver **applies only to interfaces**.
 
@@ -24,25 +24,25 @@ which isn't permitted by the language specification.**
 
 ## Selector
 
-A selector is the **.** operator which is used to call the method or access the field.
+A selector is the **.** operator. You use it to call a method or access a field.
 
-When the dot operator is used on a type,
-the compiler knows which methods are available for the type based on the method set.
+When you use the dot operator on a type,
+the compiler knows its methods from the method set.
 
 ## Method Sets of interface
 
-1. Value receivers operate on the copies of the original value.
-   this can be called using a T or \*T.
-   This is because, if T is known then the compiler automatically gets the address (using &) to call the method.
-2. Pointer receivers can be called only using pointer types.
-   only type an interface type \*T can call.
+1. Value receivers work on a copy of the value.
+   You can call them with a T or \*T.
+   If T is known, the compiler gets the address with & to call the method.
+2. Pointer receivers can be called only with pointer types.
+   Only an interface of type \*T can call them.
 
 :::important Method vs Function
 
-In all programming languages, we must understand the difference between a function and a method.
-All methods are functions. But not functions are methods.
+In all languages, know the difference between a function and a method.
+All methods are functions. But not all functions are methods.
 
-A method is a function that's linked with the context of a type/struct/class.
+A method is a function tied to a type, struct, or class.
 :::
 
 :::tip Sources

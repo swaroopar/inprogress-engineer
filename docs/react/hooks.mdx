@@ -2,57 +2,56 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # React Hooks
 
-Hooks provided by the React framework is the only way to hook the application with the react framework.
+React hooks are the only way to tie your app into the React framework.
 
 :::important hooks are just another functions.
-Hooks are just another functions which are simply executed whenever the component is rendered.
+Hooks are just plain functions. They run each time the component renders.
 :::
 
 ## ReactJS hooks and JavaScript closures
 
-All ReactJS hooks are internally using closures.
-This is achieved by creating closures during the rendering using the current values of the render.
-It uses this to compare the new values, store current values and re-render as necessary.
+All React hooks use closures inside.
+React makes a closure during each render with the current values.
+It uses this to compare new values, store current ones, and re-render when needed.
 
 <ThemeImage src='/img/react-hooks.excalidraw.png' alt='react-hooks-closure' />
 
 ## useCallback
 
-This hook is used to cache the [object Id](../javascript/functions.mdx) of the function itself.
-This is important because the creation of a new reference of a child function happens always
-when the parent function is called.
+This hook caches the [object Id](../javascript/functions.mdx) of the function.
+This matters because a child function gets a new reference each time the parent runs.
 
 :::danger How React uses child functions
-In react, every component is just a JavaScript function.
+In React, every component is just a JavaScript function.
 All functions inside it are child functions.
-This means, for every re-render, a new reference for child function is created.
+Each re-render makes a new reference for a child function.
 :::
 
-Since re-render causes functions to be created again,
-if we pass the function to lower components as parameters, it will unnecessarily re-render those child components.
-This is where useCallback is useful.
+A re-render builds those functions again.
+If you pass one down as a prop, it makes the child components re-render with no need.
+This is where useCallback helps.
 
 :::tip useCallback implementation
-When a component re-renders, the useCallback method is called and
-then this method compares old function body with new function body and additionally compares the dependencies too.
+When a component re-renders, useCallback runs.
+It compares the old function body with the new one. It also compares the dependencies.
 :::
 
 ## useMemo
 
-This is similar to useCallback but instead of caching the function reference, it caches the return value of the function.
-This is useful when the function is expensive to execute and we want to avoid executing it unnecessarily.
+This is like useCallback. But it caches the return value, not the function reference.
+It helps when a function is costly to run and you want to skip needless runs.
 
 ## useEffect
 
-This is again just another method which is executed whenever the component is rendered.
+This is again a plain method. It runs each time the component renders.
 
-The useEffect method then executes the function passed in the first argument,
-if the values of the dependencies have changed.
-The old dependency values are stored in the ReactJS's internal storage.
+useEffect runs the function in its first argument.
+But only if the dependency values changed.
+React stores the old dependency values in its internal storage.
 
 ## useState
 
-1. Whenever there is a new render, the useState() function returns the current value and a new closure setter method.
-2. The returned setter method has also the call to the function
-   that queues the re-render of the component using the new state.
-   This is executed whenever there is an event that triggers the execution of this setter method.
+1. On each new render, useState() returns the current value and a new closure setter method.
+2. The setter method also calls the function
+   that queues a re-render with the new state.
+   It runs whenever an event fires this setter.

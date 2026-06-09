@@ -1,13 +1,12 @@
 # Fragmentation
 
-It's about memory or disk being used in fragments and
-causing no continuous memory range to be available.
+It's when memory or disk gets used in small fragments.
+As a result, no large continuous range is free.
 
 ## Paging and Fragmentation
 
-To avoid fragmentation, the memory is split into pages
-and application receives memory from different location.
-It's never continuous.
+To avoid this, the memory is split into pages.
+An app then gets memory from many places. It's never continuous.
 
-But paging and MMU collates these pieces of memory pages such that
-the application views it as a single continuous block of memory.
+But paging and the MMU join these pages together.
+The app sees one single continuous block of memory.

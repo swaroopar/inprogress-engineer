@@ -2,13 +2,13 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Process Memory
 
-When a program is executed, the operating system allocates a dedicated memory space for the process.
+When a program runs, the operating system gives the process its own memory space.
 
 <ThemeImage src='/img/computer-process-memory.excalidraw.png' alt='Process Memory Layout' />
 
 ## Memory Segments
 
-Whenever a process is started, the operating system allocates certain memory regions for the process.
+When a process starts, the operating system sets aside certain memory regions for it.
 
 1. Code Segment: Contains the executable code of the program.
 2. Data Segment: Contains global and static variables.
@@ -16,14 +16,14 @@ Whenever a process is started, the operating system allocates certain memory reg
 4. Stack: Used for function calls and local variables.
 
 :::warning different from JVM memory regions
-These heap and stack are different from the JVM heap and stack where objects and JVM's thread stack live.
-JVM's native code itself will receive it's own heap and stack from the operating system.
+This heap and stack differ from the JVM heap and stack. Those hold objects and the JVM thread stack.
+The JVM's own native code gets its heap and stack from the OS.
 :::
 
 ## Threads inside process
 
-When a process starts multiple threads,
-then the same memory space is shared among all threads of the process.
+When a process starts many threads,
+they all share the same memory space.
 But each thread gets its own stack segment for function calls and local variables.
 
 It's described in detail in the [context switching page](./context-switching.mdx#process-with-multiple-threads).

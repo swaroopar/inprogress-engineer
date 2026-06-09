@@ -1,29 +1,29 @@
 # Atomic Variables
 
 :::tip why the word atomic?
-Atomic in general means, something that can't be further divided.
-In case of Java, atomic variables does two tasks always as one atomic task.
+Atomic means something you can't divide further.
+In Java, atomic variables do two tasks as one atomic task.
 
-Two tasks include get and set, compare and increment, etc.
+The two tasks include get and set, or compare and increment.
 :::
 
-In Java, Atomic variables refer to the variables which can be only accessed by one thread at a time.
+In Java, atomic variables can be accessed by only one thread at a time.
 
 :::important Achieved using a special CPU instruction
-CPU provides this feature of serializing access to a memory address via a special instruction.
-Java simply uses it to achieve this.
+The CPU serializes access to a memory address with a special instruction.
+Java just uses it.
 :::
 
 ## CAS - Compare and Save
 
 Compare and Save is just one of the features of atomic variables.
 
-Since atomic variables only ensure atomicity just for that specific line
-and given that this is handled at CPU level,
-it can happen that even before the next line runs,
-another thread has acquired the lock and updated the value.
+Atomic variables ensure atomicity for just that one line.
+And the CPU handles it.
+Even before the next line runs,
+another thread may have taken the lock and changed the value.
 
 :::important No blocking of threads
-No threads are locked in case of atomic variables.
-All threads just keep trying to acquire full access to a memory address until it gets it.
+No threads are locked with atomic variables.
+Each thread just keeps trying to get full access to the memory address until it does.
 :::

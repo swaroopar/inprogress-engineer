@@ -1,14 +1,14 @@
 # Virtual File Systems
 
-Virtual file system means, the file system that's not directly tied to a physical storage device.
-These files are actually hosted on memory and not on a disk
-and more importantly, the contents of these files are dynamic.
+A virtual file system isn't tied to a physical storage device.
+These files live in memory, not on a disk.
+And the content of these files is dynamic.
 
 :::important dynamic file content
-The VFS layer, routes the open, read, write, and close calls to the appropriate file system implementation.
-In case of virtual file systems,
-these functions are implemented by the kernel where it returns it's information from internal data structure
-or writes back to it's internal objects.
+The VFS layer routes the open, read, write, and close calls to the right file system.
+For virtual file systems,
+the kernel implements these functions. It returns data from internal structures
+or writes back to its internal objects.
 :::
 
 :::danger Directories and files in virtual file systems
@@ -27,7 +27,7 @@ It contains information about each process - such as how it's started, its memor
 The filesystem type is **procfs**.
 
 :::tip use of /proc file system
-It's mostly fo read only except for some files that allow writing to change kernel parameters.
+It's mostly read only. Some files allow writing to change kernel parameters.
 For example, you can change the maximum number of open files by writing to **/proc/sys/fs/file-max**.
 or IP forwarding by writing to **/proc/sys/net/ipv4/ip_forward**.
 
@@ -57,8 +57,8 @@ It contains information about devices, their attributes, and configuration optio
 The filesystem type is **sysfs**.
 
 :::danger write operations
-Write operations on **/sys** file system changes the configuration of the underlying device.
-Updating a value here, is same as updating a device configuration using a command line tool like **sysctl**.
+A write to the **/sys** file system changes the device's configuration.
+Updating a value here is the same as using a command line tool like **sysctl**.
 :::
 
 ### /dev
@@ -74,6 +74,6 @@ This is also of type **tmpfs**.
 
 ### /dev/random
 
-This is one of the implementations of kernel.
-It's a character device when read(), the kernel's function behind it will return random characters.
-The client of the device must wait and read the random number of characters it needs.
+This is one of the kernel's implementations.
+It's a character device. On read(), the kernel function behind it returns random characters.
+The client must wait and read as many characters as it needs.

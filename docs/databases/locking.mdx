@@ -3,61 +3,61 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 # Locking
 
 :::warning Locking is a generic concept
-Locking is a generic concept that can be applied to various domains.
-Kernels apply it for [memory](../computers/memory-locking.mdx) and databases apply it for data sets.
+Locking is a generic concept. You can apply it in many domains.
+Kernels use it for [memory](../computers/memory-locking.mdx). Databases use it for data sets.
 :::
 
-Locking in database is a feature where we can request data set to be locked by the database
-for concurrent transactions.
+In a database, locking lets you ask the database to lock a data set.
+This guards it during parallel transactions.
 
-The default lock type is - Reads allowed for concurrent transactions
-but write allowed to only one transaction at a time.
+The default lock works like this. Many transactions can read at once.
+But only one can write at a time.
 
 :::danger No checks in this lock
-In the default locking mechanism, the writes are only done serially.
-There exists no checks if the queued updates are making any changes
-that could be writing unwanted changes.
+In the default lock, writes happen one by one.
+No check runs on the queued updates.
+They may write unwanted changes.
 :::
 
 :::important Readers-Writer Lock
-This default locking mechanism of a database is called
+This default database lock is called the
 [Readers—writer lock](https://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock).
-Here the read requests can happen in parallel but write happens sequentially.
+Reads can happen in parallel. Writes happen one by one.
 :::
 
 <ThemeImage src='/img/pessimistic-optmistic-locking.excalidraw.png' alt='pessimistic-optimistic-locking' />
 
 ## Optimistic Locking
 
-It's the locking mechanism that happens at **application level**.
-This means, the application must verify if something has changed and
-if something has changed, then the query must be updated and retried or
-handled based on the situation.
+This lock happens at the **application level**.
+The app must check if the data changed.
+If it did, the app must update the query and retry.
+Or it handles the case some other way.
 
 :::tip why the name optimistic
-It's called so because this locking mechanism is very optimistic
-and assumes that the race condition would occur very rarely.
+The name fits because this lock is very hopeful.
+It assumes a race condition is rare.
 :::
 
 ### Version or Timestamp Column
 
-This is implemented by using an extra version or timestamp column.
+You build it with an extra version or timestamp column.
 
-The application then uses this column to ensure the row being updated
-isn't already updated by another concurrent transaction.
+The app uses this column to check the row.
+It makes sure no other transaction updated it first.
 
 ## Pessimistic Locking
 
-It's the locking mechanism implemented by the **database** itself.
-But the application must control the database on how it must be applied.
-This is **specified in the query** it sends to the database and
-database then handles it.
+This lock is built by the **database** itself.
+But the app controls how it's applied.
+The app **specifies it in the query**.
+The database then handles it.
 
 ### SQL syntax
 
-By using special SQL syntax by the application, specific datasets can be locked.
+With special SQL syntax, the app can lock specific data sets.
 
 :::danger SQL server specific
-These aren't common syntax.
-Each SQL server has a different implementation of the pessimistic locking concept.
+This syntax isn't common.
+Each SQL server builds pessimistic locking in its own way.
 :::

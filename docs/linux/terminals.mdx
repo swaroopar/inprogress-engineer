@@ -2,9 +2,9 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Terminals
 
-Terminals are desktop applications, just like a browser or any other application.
-Similar to how a browser can be used to open multiple web apps,
-similarly, a terminal can be used to open multiple apps such as bash, nushell, zsh, etc. or even python REPL.
+Terminals are desktop applications, like a browser.
+A browser can open many web apps.
+In the same way, a terminal can open many apps, such as bash, nushell, zsh, or even a python REPL.
 
 <ThemeImage src='/img/terminal-shell.excalidraw.png' alt='terminal-shell' />
 
@@ -16,7 +16,7 @@ and is part of the user configuration.
 
 ## Real vs Pseudo Terminals
 
-The pseudo terminal applications just emulate what the physical terminals did in the past.
+Pseudo terminal apps just emulate what physical terminals did in the past.
 
 <ThemeImage src='/img/linux-pseudo-vs-real-terminals.excalidraw.png' alt='terminal-comparison' />
 
@@ -24,7 +24,7 @@ The pseudo terminal applications just emulate what the physical terminals did in
 
 In a terminal, the **line discipline** is the way input and output are handled.
 
-1. When characters are entered, they're displayed on screen but not sent to bash or any program the terminal has forked.
+1. When you type characters, they show on screen. But they aren't sent to bash or any forked program yet.
 2. When the Enter key is pressed, the line discipline sends the entire line to the program.
 3. Terminal also handles special keys like Ctrl+C, which sends a signal to the program to interrupt it.
 
@@ -35,10 +35,10 @@ Terminal just displays whatever events it receives from the keyboard.
 
 :::warning terminal applications needs to know which terminal
 
-Terminal applications such as vim, less, top, etc needs to know which terminal is executing it.
-It's necessary since shell generates output and escape characters based on terminals.
+Terminal apps like vim, less, and top must know which terminal runs them.
+The shell builds output and escape characters based on the terminal.
 
-It gets the value from **$TERM** and then uses the value to get information from **/usr/share/terminfo**.
+It reads **$TERM**, then gets the details from **/usr/share/terminfo**.
 :::
 
 Receives input -> displays it on screen -> send to master ->
@@ -54,34 +54,34 @@ displays the output from bash.
 
 ## tty command
 
-'tty' command shows which slave device is connected to the current shell.
-Each shell knows only its slave device from which it reads input and writes output.
+The 'tty' command shows which slave device is connected to the current shell.
+Each shell knows only its slave device. It reads input and writes output there.
 
 ## Terminal Configuration
 
-For every user it's configured in **/etc/passwd** file the default shell.
+Each user's default shell is set in the **/etc/passwd** file.
 
 :::tip remote connection to a machine
-When we connect to a machine using SSH,
-the terminal is in the local machine and the SSH server creates a bash process on the remote machine.
+When you connect to a machine with SSH, the terminal is on your local machine.
+The SSH server creates a bash process on the remote machine.
 
-SSH server creates a slave device for the bash process,
-and the SSH client creates a master device for the terminal.
-The final process is same just that the slave is in the remote machine and master is in the local machine.
+The SSH server makes a slave device for bash.
+The SSH client makes a master device for the terminal.
+The flow is the same. Just the slave is remote and the master is local.
 :::
 
 ## Terminal Prompt
 
-Prompt is just another **stdout** returned by bash to terminal.
-Bash only has a configuration to return a certain string whenever it's ready to accept a new command.
+The prompt is just another **stdout** bash returns to the terminal.
+Bash has a config to return a set string whenever it's ready for a new command.
 
-The same prompt is returned after the previous command is executed.
+It returns the same prompt after the last command runs.
 
 ## oh-my-posh and nerd-fonts
 
 The relation between these projects are exactly what's described above.
 
-1. **oh-my-posh** is a **shell prompt theme engine** that generates the prompt string.
-   It only configures the shell to generate prompt with the desired string using Unicode characters.
-2. **nerd-fonts** is a collection of fonts that includes additional glyphs and icons.
-   The Unicode values returns from the shell prompt is rendered using these fonts.
+1. **oh-my-posh** is a **shell prompt theme engine**. It builds the prompt string.
+   It sets the shell to make the prompt with Unicode characters.
+2. **nerd-fonts** is a set of fonts with extra glyphs and icons.
+   The Unicode values from the shell prompt are rendered with these fonts.

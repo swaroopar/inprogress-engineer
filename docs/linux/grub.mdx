@@ -14,8 +14,8 @@ It's **unified** because
 
 UEFI - Unified Extensible Firmware Interface
 
-UEFI runtime is the software that understands specific file format.
-GRUB implements such an application which UEFI runtime can parse and execute.
+The UEFI runtime is the software that reads a specific file format.
+GRUB is such an application. The UEFI runtime can parse and run it.
 
 :::danger UEFI can work with any bootloader
 UEFI can work with any bootloader that provides an **.efi** bootloader implementation.
@@ -24,23 +24,23 @@ UEFI can work with any bootloader that provides an **.efi** bootloader implement
 <ThemeImage src='/img/uefi-grub.excalidraw.png' alt='uefi-exeuction-process' />
 
 :::important comparison to other runtimes
-JRE understand **.class** files.
-Kernel understand **.ELF** native files.
+The JRE understands **.class** files.
+The kernel understands **.ELF** native files.
 
-The runtime then schedule the application for CPU to execute.
+The runtime then schedules the app for the CPU to run.
 This is exactly what UEFI does.
-It takes GRUB which is an UEFI based application and executes it.
+It takes GRUB, a UEFI based app, and runs it.
 :::
 
 ## Configuration
 
-GRUB configuration is the **grub.cfg** file which shows what values must be displayed on UI on boot to choose from.
-This file is passed to GRUB's UEFI application.
+The GRUB config is the **grub.cfg** file. It lists the options to show on the boot UI.
+This file is passed to GRUB's UEFI app.
 
 ## Application storage
 
-GRUB application is stored in a special filesystem of type FAT under **/boot/efi**.
-It's location is mentioned in the boot order which is stored in a non-volatile area in RAM.
+The GRUB app is stored in a special FAT filesystem under **/boot/efi**.
+Its location is in the boot order, stored in a non-volatile area in RAM.
 
 ## Execution process
 

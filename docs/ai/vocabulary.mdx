@@ -4,39 +4,39 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 ## Vectors
 
-Vectors in general means having a multi-dimensional values to represent anything.
-This is usually an array of numbers that represents something where each number has a specific meaning.
+In general, vectors are multi-dimensional values that represent something.
+Usually it's an array of numbers. Each number has a specific meaning.
 
 ### Vectors in AI
 
-In AI, vectors are an array of floating point numbers that represents a token. Either by
+In AI, a vector is an array of float numbers that represents a token.
 
 :::important high dimensional arrays
-Think vectors as high dimensional arrays
-where every dimension has a meaning and only LLM knows the meaning of each dimension.
+Think of vectors as high dimensional arrays.
+Every dimension has a meaning. Only the LLM knows what each dimension means.
 :::
 
-In case of natural language processing, each word is described using an array of co-ordinates in the word space.
-This means, similar words will be close to each other this space.
-You can also think of this like location co-ordinates.
+In natural language processing, each word is an array of co-ordinates in the word space.
+Similar words sit close to each other.
+Think of it like location co-ordinates.
 
 :::tip space vs Graph
-In case of a graph, the nodes are connected to each other and the relation between the nodes is defined by the edges.
+In a graph, the nodes connect to each other. The edges define the relation.
 
-where as in a dimensional space,
-the relation between the points is defined by the co-ordinates of the points that's the distance between them.
+In a dimensional space,
+the co-ordinates define the relation. That's the distance between the points.
 :::
 
 ## Vocabulary Size
 
-Even though English vocabulary contains more than 600k words, the tokens recognized during a model training is very less.
-It would be somewhere less than 50K. This is because the LLM splits words and takes only unique words as context.
+English has more than 600k words. But a model learns far fewer tokens.
+It's somewhere under 50K. This is because the LLM splits words and keeps only the unique parts.
 
 :::warning example of splitting words
-If there are words, happiness and unhappiness. In dictionary, this will be two different words.
+Take the words happiness and unhappiness. In a dictionary, these are two words.
 
-But the LLM will split it into 'un' and 'happiness' and since it already knows the meaning of un and happiness,
-it can easily interpret the meaning of unhappiness without adding it as a separate token.
+But the LLM splits it into 'un' and 'happiness'. It already knows both.
+It can read unhappiness without a separate token.
 :::
 
 ## Vocabulary Embedding
@@ -52,13 +52,12 @@ m is the number of dimensions in the vector.
 
 ## Vocabulary update during training
 
-During the training of an LLM,
-the vector for each token is updated based on the context in which it appears.
+During training, each token's vector is updated from the context it appears in.
 
-This is where the tokens related to each other are grouped together in the vector space.
+Related tokens get grouped in the vector space.
 
 <ThemeImage src='/img/input-tokens.excalidraw.png' alt='input-tokens' />
 
 :::danger word vectors are too long
-In order to store tons of context for each word, the word vector has around 12K co-ordinates in case of ChatGPT.
+To hold lots of context per word, a word vector has around 12K co-ordinates in ChatGPT.
 :::

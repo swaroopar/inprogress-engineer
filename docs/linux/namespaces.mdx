@@ -2,50 +2,48 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Namespaces
 
-Namespaces is a logical separation of **processes** provided by kernel.
-Every process that's started can be started by specifying 0 or 1-N type of different namespaces.
+Namespaces are a logical split of **processes** by the kernel.
+When you start a process, you can give it 0 or 1-N types of namespaces.
 
 - 0 means, the newly started process simply inherits everything from the parent PID.
 - 1-N means, we can specify another namespace for any of the resources.
 
 ## Impact on kernel
 
-The understanding that kernel is just like any other program and
-stores it's runtime data in C structures is very critical.
+One idea is key. The kernel is just like any other program.
+It stores its runtime data in C structures.
 
 1. These C structures are namespace specific.
-2. It's the same instance of kernel code that runs.
-   Just the data on which it runs is different based on the associated namespaces.
+2. The same kernel code runs each time.
+   Only the data it works on changes, based on the namespaces.
 
 :::important Everything is Linux is related to a process
 Everything in Linux runs as a process and every process has a set of namespaces.
 
 This is exactly what makes namespaces work.
-When kernel executes any function, it simply pulls the namespace data of the corresponding process
-and executes.
+When the kernel runs a function, it pulls the namespace data of that process
+and runs.
 :::
 
 ## Namespace selection
 
 :::warning usual misconception
-Usual misconception is that, we think the process is started in it's own namespace.
-This then makes sure that this process gets it's own PID, mount, net, etc. namespace.
+A common myth is this. We think a process starts in its own namespace.
+It gets its own PID, mount, net, and other namespaces.
 This isn't true at all.
 
-You can simply start a process just **only** with it's own network namespace.
-Rest of the namespaces can be simply inherited from it's parent process which started this process.
+You can start a process with **only** its own network namespace.
+It can inherit the rest from its parent process.
 :::
 
-This means, when a process is started,
-we can define the namespaces that we would like to use.
-For example, if a process is started without a mount namespace,
-then the process sees the same filesystem that the parent process sees.
+When a process starts, you can choose the namespaces it uses.
+For example, start a process with no mount namespace.
+Then it sees the same filesystem as its parent.
 
 ### Examples
 
-- In case of docker, it automatically ensures the application process is created
-  with all necessary namespaces to ensure complete isolation.
-- In Kubernetes, Pods have only it's own network, UTS (hostname) and IPC namespace.
+- Docker creates the app process with all the namespaces it needs for full isolation.
+- In Kubernetes, a Pod has only its own network, UTS (hostname), and IPC namespace.
 
 <ThemeImage src='/img/linux-process-namespaces.excalidraw.png' alt='namespace' />
 
@@ -68,42 +66,41 @@ then the process sees the same filesystem that the parent process sees.
 
 Each namespace provides different levels of isolation based on the type of resource.
 
-- PID namespace - this is an hierarchical one.
-  The parent process can still see the process of the child namespace.
-- Net namespace - It's completely isolated since network namespaces aren't hierarchical.
-  They both communicate with the network hardware two complete separate networks.
-- Mount namespace - The entire data on the host is visible to all mount namespaces.
-  The mount name space only handles the logical 'view' of the paths on the disk.
+- PID namespace - this one is hierarchical.
+  The parent can still see the processes in the child namespace.
+- Net namespace - this one is fully isolated. Network namespaces aren't hierarchical.
+  Each talks to the network hardware as a separate network.
+- Mount namespace - all the host data is visible to every mount namespace.
+  It only changes the logical 'view' of the paths on the disk.
 
 :::important mount namespace is for mount points
-Mount namespace isn't for disk or file systems.
-**Its only for mount points**. This nuance is important to understand.
+A mount namespace isn't for disks or filesystems.
+**It's only for mount points**. This nuance is important.
 :::
 
 ## How different namespaces are created
 
-Every type of namespace such as PID, network,
-mount are backed by a specific type of kernel C structure.
-When we create a new namespace of a specific type,
-a new object of this structure is created
-and linked to the process's [nsproxy](#nsproxy-struct) structure.
+Each namespace type, such as PID, network, or mount,
+is backed by a kernel C structure.
+When you create a new namespace of a type,
+a new object of this structure is made.
+It's linked to the process's [nsproxy](#nsproxy-struct) structure.
 
 ## nsproxy struct
 
 As we know every process in Linux has a corresponding **struct task_struct**.
 See [the linux process structure doc for more details.](./processes.mdx#processthread-structure)
 
-This struct has a pointer to another structure called **struct nsproxy**.
-This structure has references to all namespaces objects of the process.
+This struct has a pointer to another one, **struct nsproxy**.
+That structure references all the process's namespace objects.
 
 ## Standard Streams
 
-When a docker container or when a process with an isolated namespace is started,
-the standard streams of these processes are set to the parent process
-that's executing the process that's why the output of the
-application is seen on the terminal which started the process.
+Start a docker container, or any process with an isolated namespace.
+Its standard streams are set to the parent process that ran it.
+That's why the app's output shows on the terminal that started it.
 
 ## cgroup
 
-cgroup is short form of control groups.
-With cgroup, we can control the amount of physical resources provided to these namespaces.
+cgroup is short for control groups.
+With cgroup, you can limit the physical resources given to these namespaces.

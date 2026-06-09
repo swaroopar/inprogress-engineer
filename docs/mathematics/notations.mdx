@@ -2,7 +2,7 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Mathematical Notations
 
-In Mathematics, an expression is a combination of symbols that jointly express a quantity or a relationship.
+In math, an expression is a group of symbols. Together they show a quantity or a relation.
 
 1. Prefix Notation (Polish Notation) - The operator precedes their operands.
    Example: + A B (which means A + B)
@@ -12,40 +12,39 @@ In Mathematics, an expression is a combination of symbols that jointly express a
    Example: A B + (which means A + B)
 
 :::warning infix is most intuitive
-This is the most intuitive and human-readable form, mimicking how we naturally write math.
-However, it requires parentheses to resolve operator precedence.
+This is the most intuitive, human-readable form. It mirrors how we write math by hand.
+But it needs parentheses to set operator precedence.
 :::
 
 ## Relation to Computers
 
-For programming languages, parsing expressions in infix notation is complex.
-It will also need to know operator precedence and associativity rules.
-This is why compilers convert infix expressions to either prefix or postfix notation
-which can be easily evaluated using stacks without needing parentheses.
+For programming languages, parsing infix notation is complex.
+It must also know operator precedence and associativity rules.
+Compilers convert infix to prefix or postfix notation.
+A stack can then evaluate these with no parentheses.
 
-For example, the expression **A + B \- C** in infix notation
-is converted to **A B C \- +** in postfix notation or **+ A \- B C** in prefix notation.
+For example, take **A + B \- C** in infix notation.
+In postfix it becomes **A B C \- +**. In prefix it becomes **+ A \- B C**.
 
 :::danger How humans see and computers see expressions?
-Reading postfix and prefix notation is just to execute the operations in the order they appear.
-Just execute the operation on the next two operands you see.
+To read postfix or prefix, just run the operations in order.
+Run each operation on the next two operands you see.
 
-But in case of programming languages, after the tree structure is built,
-the operands are just pushed onto a stack and when an operator is encountered,
-the required number of operands are popped from the stack, the operation is performed,
-and the result is pushed back onto the stack.
+In programming languages, the tree is built first.
+Then operands are pushed onto a stack. When an operator shows up, the needed operands are popped.
+The operation runs. The result is pushed back.
 
-In this example, stack has A, B, C and in this sequence.
-Then \- operator is encountered, B and C are popped, B \- C is calculated and result is pushed back.
-Then when + operator is encountered, A and (B \- C) are popped, A + (B \- C) is calculated and result is pushed back.
+In this example, the stack holds A, B, C in that order.
+Then the \- operator shows up. B and C are popped. B \- C is computed and pushed back.
+Then the + operator shows up. A and (B \- C) are popped. A + (B \- C) is computed and pushed back.
 :::
 
-In this case, it's easy for the computer to evaluate the expression.
+Now the computer can evaluate the expression with ease.
 
 :::important converting expression tree to mathematical notations
 In programming languages like Java, the expression is first parsed into an expression tree.
-Then the expression tree can be traversed in different orders to get different notations.
-Normally into postfix notation so that the entire expression can be pushed into stack.
+You can walk the tree in different orders to get different notations.
+Usually postfix, so the whole expression can go onto a stack.
 :::
 
 <ThemeImage src='/img/expression-tree-to-notation.excalidraw.png' alt='expression-tree-to-postfix-comiler' />

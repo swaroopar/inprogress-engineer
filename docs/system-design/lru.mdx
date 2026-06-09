@@ -2,13 +2,13 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # LRU Cache
 
-Least Recently Used (LRU) cache is a type of cache that evicts the least recently used items
-when the cache reaches its capacity.
+A Least Recently Used (LRU) cache evicts the least recently used items.
+It does this when the cache is full.
 
 :::warning LRU Cache isn't timestamp based
-I always thought LRU cache based on usage timestamps but it's not.
-The cache implementation only maintains an order of cache entries and
-keeps updating it whenever an entry is accessed or added.
+I always thought an LRU cache used timestamps. But it doesn't.
+It only keeps an order of entries.
+It updates that order whenever an entry is used or added.
 
 - It always adds/moves the accessed/added entry to the front of the order.
 - When the cache exceeds its capacity, it evicts the entry at the end of the order
@@ -24,27 +24,27 @@ keeps updating it whenever an entry is accessed or added.
 
 ## Concurrency Problems
 
-The biggest bottleneck here is to maintain the order of cache entries in a concurrent environment.
-Even though moving an entry to the front of the order is O(1) operation,
-it still requires locking the entire cache to ensure thread safety.
+The biggest bottleneck is keeping the entry order in a concurrent setup.
+Moving an entry to the front is an O(1) operation.
+But it still needs a lock on the whole cache for thread safety.
 
 :::danger Linked list corruption
-If multiple threads try to access the cache,
-then the LRU cache implementation will try to update the linked list order concurrently.
-This will corrupt the linked list.
+If many threads access the cache,
+the LRU code updates the linked list order at the same time.
+This corrupts the linked list.
 :::
 
 Some solutions for the concurrency problem are:
 
-1. **2-Random** - In this method, there is no linked list used at all.
-   Each entry also holds a counter or a timestamp to track its usage.
-   When the cache needs to evict an entry, it randomly selects two entries
-   and evicts the one that's less recently used based on the counter or timestamp.
-2. **Segmented LRU** - In this method, the cache is divided into multiple segments.
-   Each segment maintains its own LRU order and eviction policy.
-   When an entry is accessed, it's moved to the front of its segment's order.
-   When the cache needs to evict an entry,
-   it evicts the least recently used entry from the segment that has the least recently used entry overall.
-3. **Bulk Updates** - In this method, instead of updating the order of cache entries on every access,
-   the cache maintains a separate data structure to track the usage of entries.
-   The order of cache entries is updated in bulk at regular intervals or when the cache reaches a certain threshold.
+1. **2-Random** - This method uses no linked list.
+   Each entry holds a counter or timestamp for its usage.
+   To evict, the cache picks two entries at random.
+   It evicts the less recently used one, by the counter or timestamp.
+2. **Segmented LRU** - The cache is split into many segments.
+   Each segment keeps its own LRU order and eviction policy.
+   When an entry is used, it moves to the front of its segment.
+   To evict, the cache picks the segment with the overall least recently used entry.
+   It evicts that entry.
+3. **Bulk Updates** - The cache doesn't update the order on every access.
+   Instead, it keeps a separate structure to track usage.
+   It updates the order in bulk at set intervals, or when the cache hits a threshold.

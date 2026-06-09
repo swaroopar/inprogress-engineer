@@ -1,10 +1,11 @@
 # Absolute vs Relative Imports
 
-Absolute imports are where the imports start with `@` from the root component
-whereas relative imports fetched relatively using the double dot (`..`) character from the filesystem.
+Absolute imports start with `@` from the root.
+Relative imports use the double dot (`..`) to walk up from the current file.
 
-Default configuration is the relative import but the absolute import allows better readability.
+By default, imports are relative.
+Absolute imports are easier to read.
 
 ## Paths Configuration
 
-To achieve absolute imports, the **paths** configuration in the tsconfig.json must be updated.
+To use absolute imports, set the **paths** field in `tsconfig.json`.

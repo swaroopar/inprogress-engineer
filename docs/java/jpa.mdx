@@ -2,30 +2,34 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Java Persistence APIs
 
-These are the APIs and abstractions defined by the framework
-which can be used Java application irrespective of the database used.
+These are the APIs and rules set by the framework.
+You can use them in any Java app. They work with any database.
 
-- Defines how the data in the database are converted to and from Java objects.
-- APIs to perform actions on the database.
+- They define how database data maps to and from Java objects.
+- They give APIs to act on the database.
 
 ## ORM - Object-Relational Mapping
 
-ORM aims to simplify database interactions by providing an abstraction layer
-that translates between objects and database tables.
-It enables developers to work with databases using the same language as the rest of their application.
+ORM makes database work simpler.
+It adds a layer that maps objects to database tables.
+You can use one language across the whole app.
 
-Hibernate and Eclipselink are examples of such ORM libraries. They implement JPA specifications.
+Hibernate and Eclipselink are ORM libraries.
+Both follow the JPA rules.
 
 ## Spring Data
 
-Spring Data library doesn't implement JPA specifications.
-Instead it only writes wrappers on JPA specifications which avoids writing boiler plate code for standard CRUD methods.
+Spring Data doesn't follow the JPA rules on its own.
+Instead, it wraps them.
+This saves you from writing boiler plate code for basic CRUD methods.
 
-For the repositories which we create by extending **JpaRepository** and **JpaSpecificationExecutor** interfaces,
-all queries are automatically added during compile time.
+You make a repository by extending two interfaces.
+They're **JpaRepository** and **JpaSpecificationExecutor**.
+Spring then adds all the queries at compile time.
 
 :::info[Repository Interfaces]
-Repository interface is an example which automatically generates a lot of methods automatically.
+A repository interface is one good example.
+It builds many methods for you.
 :::
 
 <ThemeImage src='/img/jpa-orm-comparision.excalidraw.png' alt='jpa-orm' />

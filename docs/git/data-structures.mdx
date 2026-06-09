@@ -2,15 +2,15 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Data Structures
 
-It's always very confusing to understand what exactly is behind a commit.
-We've the entire code base that's tracked by GIT
-and at the same time we say a commit contains everything.
-Here I'm trying to build a strong mental model of how GIT stores data internally.
-This will definitely help to also understand while working with branches, merges, rebases, etc.
+It's always confusing to know what's behind a commit.
+GIT tracks the whole code base.
+Yet we say a commit holds everything.
+Here I build a strong mental model of how GIT stores data inside.
+This also helps with branches, merges, and rebases.
 
 :::warning data structures used in a GIT repository
-GIT has two different parallel data structures.
-It's important to keep both in mind while working with repositories.
+GIT has two parallel data structures.
+Keep both in mind when you work with repositories.
 
 1. **Commit History** - This is just ONE acyclic graph data structure.
 2. **Trees** - There exists 1 to N trees based on different branches, different heads, etc.
@@ -20,56 +20,52 @@ as files inside the `.git/objects` directory.
 :::
 
 :::important folder structure is very important
-The entire repository structure isn't stored in the exact folder structure inside **.git/objects**.
+The repository structure isn't stored as the same folder structure inside **.git/objects**.
 
-GIT simply spreads all data across different folders to ensure uniform spread of data across different folders
-to avoid too many files under same folder.
+GIT spreads the data across folders.
+This keeps the spread even and avoids too many files in one folder.
 
 - Base folders are created with 2 characters.
-  Since the possible values in SHA-1 hash is 0-9 and A-F,
-  there can be 256 different possible first two characters of any hash generated.
-- This means, every hash generated either for the commit or for the file or for a tree,
-  has to start with one of these 256 possible combinations.
-- GIT simply spreads the data across these folders based on the first two characters.
-- This means, first 2 characters is the folder name and rest is the file name.
-- GIT then searches and builds the repository structure by reading through different folders
-  based on different hash values.
+  A SHA-1 hash uses 0-9 and A-F.
+  A hash has 256 possible first two characters.
+- Every hash, for a commit, a file, or a tree, starts with one of these 256 combinations.
+- GIT spreads the data across these folders by the first two characters.
+- The first 2 characters are the folder name and the rest is the file name.
+- GIT then builds the repository structure by reading through these folders by hash.
   :::
 
 <ThemeImage src='/img/git-storage-structure.excalidraw.png' alt='Git Storage Structure' />
 
-Every node (which is a file on the filesystem) of the tree contains
-pointers to the underlying objects that are inside it.
-A directory contains pointers to files and sub-directories.
-The pointers are nothing but the file name of the underlying object.
-It can then look for the files with the names of the hash to retrieve its next level objects.
+Each tree node is a file on the filesystem. It holds pointers to the objects inside it.
+A directory holds pointers to files and sub-directories.
+A pointer is just the file name of the object.
+GIT then looks up files by their hash names to get the next level of objects.
 
-:::danger Every commit is a snapshot
+:::danger Every commit's a snapshot
 Every commit in GIT points to a root tree object.
-This means, every commit gets it's own **filesystem snapshot** of the entire project.
+Every commit gets its own **filesystem snapshot** of the whole project.
 :::
 
 :::important Change leading to new tree objects
-Whenever a change is made to any file or directory, or just permissions,
-the hash of that object contents changes.
-This change is propagated up to the root of the tree,
-leading to new tree objects being created for all parent directories up to the root.
+Change any file, directory, or even just permissions, and that object's content hash changes.
+This change flows up to the root of the tree.
+New tree objects are made for all parent directories up to the root.
 
-But all other unchanged objects are reused from previous commits.
-This shared structure is what makes GIT efficient in terms of storage
-and at the same time keeping full files separately and not just differences makes it fast.
+But all other unchanged objects are reused from past commits.
+This shared structure makes GIT efficient in storage.
+And keeping full files, not just diffs, makes it fast.
 :::
 
 ## Commit to tree link
 
-Every commit object contains a link to the root tree object.
-This is how when a commit is checked out,
-GIT retrieves the entire tree structure for the root of the tree.
+Every commit object links to the root tree object.
+When you check out a commit,
+GIT gets the whole tree structure from that root.
 
 ## Root commit
 
 Every tree object is immutable.
-If anything inside a folder changes (file or subdirectory),
+If anything in a folder changes, a file or a subdirectory,
 GIT creates a new tree for that folder and all parent folders up to the root.
 
 Unchanged sub-trees are reused across commits.

@@ -1,11 +1,10 @@
 # Recursions
 
-Recursive programming makes a natural way of implementing many use cases.
-Since most of the time we use only iterative programming,
-it's becomes extremely important in recognizing the solution patterns to decide if recursion fits to a situation.
+Recursive programming is a natural fit for many use cases.
+We mostly use iterative programming.
+It's key to spot the patterns where recursion fits.
 
-If we see that the solution can be easily built based on the **base case**,
-then recursion can be used for such problems.
+If you can build the solution from the **base case**, recursion fits the problem.
 
 :::tip best mental model
 Assume you are standing in a long queue and you want to count the queue size.
@@ -18,33 +17,33 @@ Assume you are standing in a long queue and you want to count the queue size.
    Each person adds just a **1** to the previous count to figure out their position.
 
 This is exactly what recursion is.
-We've a bigger problem but we can only figure out the solution after reaching the base case
+We've a bigger problem. But we can only solve it once we reach the base case,
 or from the base case.
 :::
 
 ## Recursions in for loop
 
-A recursion inside a **for loop** is very interesting and
-adds more complexity when reading or writing such code.
+A recursion inside a **for loop** is interesting.
+It makes the code harder to read and write.
 
 :::warning Adding different choices
-The only thing that a **for loop** additionally adds is **branching**.
+The **for loop** just adds **branching**.
 
-It lets the code to choose a branch and then recurse on that branch
-and on **return**, choose the next possible branch.
-This is exactly what's referred as **Backtracking** or
-in other words also called **[DFS](../algorithms/graph-search.mdx#postorder)**.
+The code picks a branch and recurses on it.
+On **return**, it picks the next branch.
+This is exactly what we call **Backtracking**,
+also known as **[DFS](../algorithms/graph-search.mdx#postorder)**.
 :::
 
 ### Using DFS in permutation problems
 
-It's important to keep a **standard template** for generating permutations in mind so that
-code can be understood for Big O problems and also implemented easily.
+Keep a **standard template** for permutations in mind.
+Then the code is easy to read for Big O problems and easy to write.
 
 :::important Pattern recognition
-With recursive programming, it's important that we recognize the pattern.
-Once the problem pattern is understood,
-it becomes obvious where to use it and how to use it.
+With recursion, you must spot the pattern.
+Once you see the problem pattern,
+where and how to use it becomes clear.
 :::
 
 | Generic concept      | What it means (abstract)           | Example in permutations       |
@@ -62,10 +61,10 @@ it becomes obvious where to use it and how to use it.
 - **Backtracking** - This is the logic where previous decisions are changed and
   alternatives are tried.
 
-In case of a string permutations problem,
-the below diagram shows how the recursion based solution generates different combinations.
-Here it only shows the first character chosen to be **A**.
-The same tree will be duplicated when the execution fully backtracks and then selects **B** for the first position.
+For a string permutations problem,
+the diagram below shows how recursion builds the combinations.
+It shows only the first character chosen as **A**.
+The same tree repeats when the run fully backtracks and picks **B** for the first spot.
 
 :::important Any permutations problem and not just string
 This pattern applies to any permutations problem and not just strings.

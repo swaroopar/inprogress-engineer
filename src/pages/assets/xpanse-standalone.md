@@ -1,21 +1,21 @@
 <!-- markdownlint-disable -->
 
-Project Eclipse Xpanse aims to implement configurable and portable managed services based on principles and ideas of "Eclipse Open Services Cloud initiative."
-This project allows service providers to offer their managed services across multiple clouds easily by abstracting all critical aspects of a cloud service
-such as catalog, life-cycle management, deployment, monitoring and metering.
+Project Eclipse Xpanse builds managed services. You can set them up and move them.
+It's based on the ideas of the "Eclipse Open Services Cloud initiative."
+With Xpanse, a provider can offer managed services on many clouds. It hides the hard parts of a cloud service.
+These include the catalog, life-cycle, deployment, monitoring, and metering.
 
-Eclipse Xpanse isn't only for providing managed services on big hyperscalers but is also a perfect add-on layer for any small and
-medium-sized cloud providers offering infrastructure services.
-It will provide an open ecosystem to allow service providers to offer native managed services easily on such cloud providers too.
-One such good example is Openstack which is used by many public and private cloud providers.
-Eclipse Xpanse can be used to provide managed services on top of any Openstack based cloud.
+Xpanse isn't just for the big hyperscalers. It also suits small and medium cloud providers.
+It gives them an open way to offer native managed services.
+Openstack is one good example. Many public and private clouds use it.
+You can use Eclipse Xpanse to run managed services on any Openstack based cloud.
 
 In this talk, we will see:
 
-1. How Xpanse approaches the problems of current cloud market and implements the OSC ideas.
-2. Xpanse architecture - Runtime, API and UI.
-3. Define managed services using the Xpanse Service Descriptor.
-4. Make services available in the service catalog.
-5. Deploy services using the current reference implementation clouds - Any vanilla Openstack based clouds, SCS based clouds, HUAWEI cloud and Flexible Engine.
+1. How Xpanse tackles today's cloud market. It also applies the OSC ideas.
+2. The Xpanse architecture - runtime, API, and UI.
+3. How to define services with the Xpanse Service Descriptor.
+4. How to list services in the catalog.
+5. How to deploy services on the reference clouds. These are any vanilla Openstack cloud, SCS clouds, HUAWEI cloud, and Flexible Engine.
 
 <!-- markdownlint-enable -->

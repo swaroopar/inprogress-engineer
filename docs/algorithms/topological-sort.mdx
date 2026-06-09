@@ -2,18 +2,18 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Topological Sort
 
-Topological sort is about sorting the nodes in a graph based on its dependencies.
+Topological sort orders the nodes in a graph by their dependencies.
 
 :::info Mental model for the name
-Topology is what we come across when discussing about the network setup.
-It means, the logical structure of the network.
+We meet topology when we talk about network setup.
+It means the logical structure of the network.
 
-Same applies here, based on the structure of the graph, we sort the nodes in a topological sort.
+The same applies here. We sort the nodes by the structure of the graph.
 :::
 
 :::danger Not a regular sort
-Topological sort doesn't sort the elements based on its value like we do it in
-Insertion Sort, Bubble Sort, Merge Sort.
+Topological sort doesn't order elements by value, like
+Insertion Sort, Bubble Sort, or Merge Sort.
 :::
 
 Topological sort needs two important components
@@ -22,7 +22,7 @@ Topological sort needs two important components
 2. **In-degree** - the number of incoming connections for a node.
 
 :::warning Contents of Adjacency list and In-degree
-Adjacency list contains the actual node names whereas In-degree contains only the count.
+The adjacency list holds the actual node names. The in-degree holds only the count.
 :::
 
 ## Kahn's Algorithm
@@ -30,9 +30,9 @@ Adjacency list contains the actual node names whereas In-degree contains only th
 <ThemeImage src='/img/algorithms-topologicalsort-kahn.excalidraw.png' alt='kahn-algorithm' />
 
 :::tip Using actual values versus Node IDs
-We can directly sort a graph topologically using the node values which are strings.
-This solution will use the maps to implement the algorithm.
+You can sort a graph topologically using the node values, which are strings.
+This solution uses maps.
 
-But in programming tests, the node values are compressed to integers 0 to N.
-In this case, we just use arrays because the node value is represented by the array index.
+But in programming tests, the node values are squeezed to integers 0 to N.
+Then you just use arrays, since the array index is the node value.
 :::

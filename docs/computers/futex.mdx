@@ -2,20 +2,21 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Futex
 
-Fast Userspace Mutual Exclusive is a **kernel feature** that helps userspace applications
-to build **MUTEX** solutions by sleeping and waking up threads based on the state of the lock.
+Fast Userspace Mutual Exclusive is a **kernel feature**.
+It helps userspace apps build **MUTEX** solutions.
+It sleeps and wakes threads based on the lock state.
 
-1. An application thread calls **Futex** to remove itself out of scheduling until another thread releases the lock.
-2. Futex holds an hash map of memory addresses and blocked threads.
-3. When a second thread which was actually holding the lock updates the memory address value as **free**,
-   it also calls the Futex with a WAKE_UP command for that specific address.
-4. Futex then wakes up all threads which were blocked before.
+1. An app thread calls **Futex** to drop out of scheduling. It waits until another thread releases the lock.
+2. Futex holds a hash map of memory addresses and blocked threads.
+3. A second thread holds the lock. When it sets the memory address to **free**,
+   it also calls Futex with a WAKE_UP command for that address.
+4. Futex then wakes all the threads that were blocked.
 
-All programming languages use this feature internally to provide locking and synchronization features.
+All programming languages use this feature inside to provide locking and synchronization.
 
 :::important Lock address
-This can be any address that's related to the application.
-For example, it can be the address of a **lock** property of the object.
+This can be any address tied to the app.
+For example, it can be the address of a **lock** property on the object.
 :::
 
 <ThemeImage src='/img/computers-threads-futex.excalidraw.png' alt='Futex-logic' />

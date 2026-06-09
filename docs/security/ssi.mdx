@@ -4,43 +4,45 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 ## Verifiable Credential
 
-A verifiable credential is nothing but a credential that can be verified by a third party without asking the issuer.
+A verifiable credential is one a third party can verify without asking the issuer.
 
 :::important Difference between SSL and SSI
-In case of SSL, the certificates issued by a CA is blindly trusted.
+In SSL, a certificate issued by a CA is trusted blindly.
 
-But in SSI, the signature is verified by getting the public keys from the participant who signed in case of web DID
-or the participant publishes it's public keys to central registry
-and the verifier must get the information from the registry.
+In SSI, the verifier checks the signature itself.
+With web DID, it gets the public keys from the signer.
+Or the signer publishes its public keys to a central registry.
+Then the verifier reads them from that registry.
 :::
 
 <ThemeImage src='/img/ssi.excalidraw.png' alt='ssi-workflow' />
 
 :::tip Credentials are sent in plain text
-When credentials such as a degree certificate or drivers license is sent to a verifier,
-it's sent as plain text. The data itself isn't encrypted.
+A credential, such as a degree or driver's license, is sent to a verifier as plain text.
+The data itself isn't encrypted.
 
-This is why [digital signatures](./digital-signatures) are used for this purpose.
+This is why [digital signatures](./digital-signatures) are used here.
 :::
 
 ## DID
 
 DID stands for Decentralized Identity.
-It's an ID of an entity. Just like an user ID in case of centralized identity systems.
-Normally identities are centralized which means the credentials are stored on a central server.
+It's the ID of an entity. It's like a user ID in centralized identity systems.
+Normally, identities are centralized. The credentials sit on a central server.
 
 ## DID Doc
 
 :::important why DID doc is necessary
-When using SSI, the client application sends his self-signed credential in header.
-This header size can't be too big. It mainly contains DID and basic information.
+With SSI, the client app sends its self-signed credential in a header.
+This header can't be too big. It mainly holds the DID and basic information.
 :::
 
-The receiving participant then uses the DID value to get the DID doc as separate entity.
-This document then has all necessary information such as the public key and
-URLs for other services it exposes which can be used to get verifiable credentials, etc.
+The receiver then uses the DID value to fetch the DID doc as a separate entity.
+This document holds all the needed information.
+For example, the public key and URLs for other services it exposes.
+These can be used to get verifiable credentials.
 
-DID value must follow a specific syntax/format has a specific schema which already defines the way to fetch DID doc.
+The DID value must follow a set syntax. This schema already defines how to fetch the DID doc.
 
 ```sh
 did:web:widget-x.foo.com # This DID means, the doc is available on web via https://widget-x.foo.com/.well-known/did.json
@@ -48,13 +50,13 @@ did:web:widget-x.foo.com # This DID means, the doc is available on web via https
 
 ## Verifiable Presentation
 
-It's the verifiable credential that's presented by the **holder** to the **verifier**.
+It's the verifiable credential the **holder** presents to the **verifier**.
 
-1. It can contain the full credential received from issuer or partial.
-2. The credential contains also the signature from the issuer.
-3. Signed by the holder to prove his identity.
+1. It can hold the full credential from the issuer, or part of it.
+2. The credential also holds the issuer's signature.
+3. The holder signs it to prove their identity.
 
 :::warning Multiple proofs
-The verifiable presentation has an parent proof for the entire DID document,
-and the DID document internally contains the proof details of the issuer.
+The verifiable presentation has a parent proof for the whole DID document.
+The DID document holds the issuer's proof inside.
 :::

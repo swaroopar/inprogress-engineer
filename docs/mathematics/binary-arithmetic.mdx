@@ -2,9 +2,9 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Binary Arithmetic
 
-Since everything at the assembly level is just binary,
-it's important to understand how binary arithmetic works and
-how different cases are handled here.
+At the assembly level, everything is just binary.
+It helps to know how binary arithmetic works and
+how it handles different cases.
 
 :::important carry-out and carry-in
 
@@ -16,37 +16,37 @@ This means, what's carry-out for one position is the carry-in for the next posit
 
 ## Status Flags
 
-1. **Carry Flag (CF)** - This flag is set when there is a carry out from the most significant bit (MSB) in addition,
-   or a borrow in subtraction. It indicates that the result of an operation exceeds the maximum value that can be represented
-   with the given number of bits.
+1. **Carry Flag (CF)** - It's set when addition carries out of the most significant bit (MSB),
+   or subtraction needs a borrow. It shows the result is past the max value
+   for the given bits.
 
 2. **Zero Flag (ZF)** - This flag is set when the result of an operation is zero.
    It indicates that the operands were equal in a comparison operation.
 
-3. **Sign Flag (SF)** - This flag is set based on the sign of the result of an operation.
-   It reflects the most significant bit (MSB) of the result,
-   where 0 indicates a positive result and 1 indicates a negative result.
-   It's just a copy of whatever the MSB is.
-   No special calculation done to generate the value of this flag.
+3. **Sign Flag (SF)** - It's set from the sign of the result.
+   It mirrors the result's MSB.
+   A 0 means positive, a 1 means negative.
+   It's just a copy of the MSB.
+   No special calculation is done for it.
 
-4. **Overflow Flag (OF)** - This flag is set when the result of a signed arithmetic operation
-   exceeds the range that can be represented with the given number of bits.
-   It indicates that the result is too large or too small to be represented correctly.
+4. **Overflow Flag (OF)** - It's set when a signed result is past the range
+   for the given bits.
+   It shows the result is too large or too small to represent.
 
 :::warning MSB value
-In signed calculations, MSB isn't only used to define if the value is positive or negative.
-MSB still contributes to the actual value just that the value is negative.
+In signed math, the MSB doesn't only set the sign.
+The MSB also adds to the value, but as a negative amount.
 
 For binary $$1000100$$,the value is calculated as $$-2^7 + 0 + 0 + 0 + 0 + 2^2 + 0 + 0 = -124$$
 :::
 
 :::danger Small integers in CPU registers
-When we work with small integers and we want to implement something that exactly fits certain bits,
-this will be tricky since the registers are always 32 or 64 bits.
-Even if you say, you want a maximum value to be 15 (assuming 4 bit),
-the overflow will simply use all other available bits in the register.
+Working with small integers in exact bit widths is tricky.
+Registers are always 32 or 64 bits.
+Say you want a max value of 15 (4 bits).
+The overflow just uses the other bits in the register.
 
-This is why, we use an AND with exact number of bits you want to retain to filter out unwanted bits.
+We use an AND with the exact bits we want to keep. This filters out the unwanted bits.
 :::
 
 :::important RFLAG register
@@ -56,39 +56,38 @@ Each flag is represented by a specific bit in this register.
 
 ## Signed and unsigned calculations
 
-For every arithmetic operation, the CPU provides result of both signed and unsigned operations.
-It's up to the caller to consider the output according to it's choice.
+For every operation, the CPU gives both signed and unsigned results.
+The caller picks the one it needs.
 
-for every operation, CPU will set the result as well as CF and OF flags
-considering signed and unsigned operations.
+The CPU also sets the result and the CF and OF flags for both.
 
 :::tip Java uses only signed
 For example, Java has only signed integer types.
-when Java code performs arithmetic operations, it relies on the Overflow Flag (OF)
-to detect overflow conditions in signed arithmetic.
+When Java does arithmetic, it uses the Overflow Flag (OF)
+to spot overflow in signed math.
 :::
 
 ## How hardware detects these flags
 
-**Overflow** - It checks the sign bit of the input values.
-If the input is both negative, the output's signed bit can't be positive.
-Similarly, if input is both positive, the output's signed bit can't be negative.
+**Overflow** - It checks the sign bits of the inputs.
+If both inputs are negative, the output sign bit can't be positive.
+If both are positive, it can't be negative.
 
 **Carry** - Checks directly if the last bit's addition has a carry-out of 1.
 For subtraction, it checks if borrow is needed.
 
 ## Mental model for carry and overflow
 
-In case of signed numbers, consider the sequence as a ring.
-When overflow happens, the result wraps around to the negative side of the ring.
-This is also why it's called a **overflow**.
+For signed numbers, picture the sequence as a ring.
+On overflow, the result wraps to the negative side of the ring.
+This is why it's called an **overflow**.
 
-In case of unsigned numbers, consider the sequence as a straight line.
-When carry happens, the result exceeds the maximum limit.
+For unsigned numbers, picture the sequence as a straight line.
+On a carry, the result goes past the max limit.
 
 :::warning Cases where both carry and overflow happens.
-There exist some cases, such as specific combinations of negative and positive numbers,
-where both carry and overflow can happen simultaneously.
+In some cases, with certain mixes of negative and positive numbers,
+both carry and overflow happen at once.
 :::
 
 <ThemeImage src='/img/carry-overflow-flags.excalidraw.png' alt='carry-overflow-mental-model' />

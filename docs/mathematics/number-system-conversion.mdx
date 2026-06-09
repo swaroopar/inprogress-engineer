@@ -2,34 +2,34 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Number System Conversion
 
-In this page we will only focus on building the most easiest mental model for number systems and conversions.
-Just to ensure that the conversions are registered in mind forever.
-Mathematically, we use division and multiplication methods for conversions between number systems.
+This page builds the easiest mental model for number systems and conversions.
+The goal is to fix the conversions in your mind for good.
+In math, we use division and multiplication to convert between number systems.
 
 ## Odometer Mental Model
 
-Look at all number systems with one mental model that's the **odometer**.
-In a odometer,
+See all number systems with one model: the **odometer**.
+In an odometer,
 
 - Each position can start from minimum value of 0 to maximum value of base - 1.
-- When we increment the value at a position beyond maximum value, it rolls over to 0
-  and increments the next position by 1.
+- When you increment a position past its max, it rolls over to 0.
+  The next position then goes up by 1.
 - Then again the current position can be incremented from 0 to maximum value.
 
 This is exactly how all number systems work.
-In case of binary, the allowed values are just 0 and 1.
+In binary, the allowed values are just 0 and 1.
 The numbers are just 0, 1, 10, 11, 100, 101, 110, 111, 1000, etc.
 
 ## Box model for conversions
 
-See every position in a number system as **box size** and
-each position has hold only certain **number of boxes** which is a fixed value for that based system.
-For example, in case of base 10, each position can hold 10 boxes of different sizes.
+See each position in a number system as a **box size**.
+Each position holds a fixed **number of boxes** for that base.
+For example, in base 10, each position holds 10 boxes of different sizes.
 
 :::important boxes contain boxes
-The boxes at higher position are groups of boxes already created at previous position.
-For example, in base 10, the box at position 2 (hundreds) contains 10 boxes but
-each box is actually 10 boxes of size 10 (tens).
+The boxes at a higher position are groups of boxes from the previous one.
+For example, in base 10, the box at position 2 (hundreds) holds 10 boxes.
+But each box is itself 10 boxes of size 10 (tens).
 :::
 
 <!-- markdownlint-disable MD013-->
@@ -45,26 +45,26 @@ each box is actually 10 boxes of size 10 (tens).
 
 <!-- markdownlint-restore-->
 
-1.**Greedy model conversion** - Put the maximum possible items in a boxes at each position.
-The boxes must be always full and move remaining to next position.
-If no box can be full, then set the position value to 0.
+1.**Greedy model conversion** - Put as many items as you can in the boxes at each position.
+The boxes must always be full. Move the rest to the next position.
+If no box can be full, set the position value to 0.
 
-2.**Remainder Model** - At each position, we divide/group by the items that can fit in that box.
-For every division, the remainder says what doesn't fit in the next box and goes to the current position.
-For the next division, we re-group/re-divide the quotient again.
-This works since the boxes of next position are always multiple of current position boxes.
-we just continue building groups of groups (boxes of boxes).
+2.**Remainder Model** - At each position, you divide by the items that fit in that box.
+For each division, the remainder is what doesn't fit the next box. It goes to the current position.
+For the next division, you re-divide the quotient.
+This works because the next position's boxes are always a multiple of the current ones.
+You just keep building groups of groups.
 
         :::important division is grouping
-        Division is nothing but making groups of certain size.
+        Division is just making groups of a certain size.
 
-        If we keep dividing again, we only make group of groups.
-        This is exactly how the remainder model relates to the box mental model.
+        Keep dividing and you make groups of groups.
+        This is how the remainder model maps to the box model.
         :::
 
-3.  **Non decimal to decimal conversion** - We use weighted sum model.
-    Each position's value is multiplied by the box size for that position and
-    all such products are summed to get the decimal value.
+3.  **Non decimal to decimal conversion** - Use the weighted sum model.
+    Multiply each position's value by its box size.
+    Add all the products to get the decimal value.
 
 <ThemeImage src='/img/maths-number-systems-box.excalidraw.png' alt='box-model-example' />
 
@@ -74,25 +74,25 @@ we just continue building groups of groups (boxes of boxes).
 2. **To Base 10** - Multiply each position by the base system value for that position (box size) and add them.
 
 :::danger conversion between non-decimal systems
-Conversion between non-decimal systems is mathematically possible but
-very hard to do multiplication and division using any other number system.
+You can convert between non-decimal systems in math.
+But multiplication and division are hard in other number systems.
 
-we use decimal as an intermediate step always.
+We always use decimal as a middle step.
 :::
 
 ## Direction of Reading Digits
 
-1. **Right to Left** - In this method, the full number must read first.
-   Then we know which number is in which position.
-   Since value comes from position which is the box size.
+1. **Right to Left** - Here you read the full number first.
+   Then you know which digit's in which position.
+   The value comes from the position, which is the box size.
 
-2. **Left to Right** - This is the intuitive way of reading and also how computers implement conversion.
-   Always assumes that there is just one digit and processes just one position at a time.
+2. **Left to Right** - This is the intuitive way to read. It's also how computers convert.
+   It assumes one digit and handles one position at a time.
     - Every position is processed assuming to be the last position.
-    - Means, every position is just taken value as it's since last position has power of 0.
-    - Then rest of the position is multiplied by the base value.
+    - Each position takes its value as is, since the last position has power 0.
+    - Then the rest is multiplied by the base value.
 
 :::tip Multiplying by base value
-Multiplying the already added value by base value is equivalent to shifting the entire number.
-we only add the new number to the existing number.
+Multiplying the running total by the base is the same as shifting the whole number.
+You then add the new digit to it.
 :::

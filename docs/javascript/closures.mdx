@@ -1,16 +1,17 @@
 # Closures
 
-Closures are **functions** that refers to variables that are neither part of their arguments nor created in their body.
+Closures are **functions** that use variables from outside.
+These variables aren't their arguments and aren't made in their body.
 
 :::tip What accounts to variables
-In JavaScript, a variable can be a primitive, object or a function.
-Any of these outside references in the function makes it a closure.
+In JavaScript, a variable can be a primitive, an object, or a function.
+An outside reference to any of these makes the function a closure.
 :::
 
 ## Closure execution
 
-A function is a closure irrespective of when it's executed.
-It can be executed immediately, executed by the caller or it can be passed around.
+A function is a closure no matter when it runs.
+It can run at once, run via the caller, or be passed around.
 
 ## Meaning of word closure
 
@@ -20,18 +21,18 @@ It can be executed immediately, executed by the caller or it can be passed aroun
 - The lid closed over the box, securing its contents.
 
 :::important why the word closure
-In case of JavaScript, it means the code block **closes over** all surrounding necessary information.
+In JavaScript, the code block **closes over** all the data it needs around it.
 
-It's a closed bundle of function code plus the variables necessary for it to execute independently.
+It's a closed bundle of the function code plus the variables it needs to run on its own.
 :::
 
 ## Lexical environment of closures
 
 Closures get their own [lexical environment](./lexical-environment.mdx).
-This means, when the closure is created, it gets its own map of variables, functions and reference to parent environment.
+When a closure is created, it gets its own map of variables and functions. It also gets a reference to the parent environment.
 
 :::warning life of a closure
-The created closure function remains alive as long as the closure object is referenced by any other object.
+A closure stays alive as long as some other object references it.
 
-Just standard object management.
+This is just standard object management.
 :::

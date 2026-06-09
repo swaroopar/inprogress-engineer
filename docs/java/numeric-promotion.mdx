@@ -1,19 +1,18 @@
 # Numeric Promotion
 
-Numeric promotion is a Java concept that automatically promotes smaller data types to larger data types
-when performing arithmetic operations.
+Numeric promotion is a Java concept. It promotes smaller data types to larger ones during arithmetic.
 
-The conversion steps are already added at the compile time.
-It doesn't mean the actual result is already known to be larger than what it can store.
-But it just does an [heuristic](../algorithms/heuristic.mdx) check to see if the result can fit in the smaller data type.
+The conversion steps are added at compile time.
+This doesn't mean the result is known to be too large.
+The compiler just does a [heuristic](../algorithms/heuristic.mdx) check. It sees if the result can fit in the smaller type.
 
 :::tip Why is numeric promotion needed?
 Numeric promotion is needed to prevent data loss during arithmetic operations.
 For example,
 
-- byte + byte is automatically promoted to int.
-  Because adding two bytes can result in a value that exceeds the range of byte,
-  It's promoted to int to accommodate the larger range.
+- byte + byte is promoted to int.
+  Adding two bytes can give a value past the byte range.
+  It's promoted to int for the larger range.
 - int + long is promoted to long.
 - int + float is promoted to float.
 - int + double is promoted to double.

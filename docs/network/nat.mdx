@@ -2,33 +2,32 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Network Address Translation
 
-This is used everywhere whenever a single external facing network must be shared between multiple devices.
+We use this whenever many devices must share one external facing network.
 
-For example, in a home network, there is a single public IP address assigned by the ISP.
-In case of container networks, all containers share the same IP address as the host machine when packets are sent out.
+For example, a home network has one public IP address from the ISP.
+In container networks, all containers share the host's IP address when they send packets out.
 
 ## Connection Tracking
 
 This is part of every device that does NAT.
-It keeps track of all outgoing connections and the corresponding incoming connections.
+It tracks all outgoing connections and their matching incoming ones.
 
-When a packet is sent out, the source IP address and port number is replaced
-with the external facing IP address and a unique port number.
-This mapping is stored in the **connection tracking** table.
+When a packet goes out, the source IP and port are swapped.
+They become the external IP and a unique port.
+This mapping is saved in the **connection tracking** table.
 
-When a response packet is received, the destination IP address and
-port number is **looked up** in the connection tracking table and
-replaced with the original source IP address and port number
-for which the response is received before forwarding it to the internal device.
+When a response comes back, the device **looks up** the destination IP and port in the table.
+It swaps them back to the original source IP and port.
+Then it forwards the packet to the internal device.
 
 <ThemeImage src='/img/nat-connection-tracking.excalidraw.png' alt='connection-tracking' />
 
 ## Port Forwarding
 
-It's an sub-type of NAT where incoming packets to a specific port on the external facing IP address
-are forwarded to a specific internal IP address and port number.
+It's a sub-type of NAT. Incoming packets to a given port on the external IP
+go to a set internal IP and port.
 
 :::danger Port Forwarding is for incoming connections
-Port forwarding concept is purely about incoming connections.
-It handles how the request is mapped to different IP and forwarded to the internal device.
+Port forwarding is purely about incoming connections.
+It maps a request to another IP and forwards it to the internal device.
 :::

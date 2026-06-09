@@ -2,50 +2,49 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Matrices
 
-Matrix is an interesting topic since memory is just single dimensional.
-It's important to understand how multi dimensional matrices are represented in memory.
+A matrix is an interesting topic. Memory is just one dimensional.
+It helps to see how multi dimensional matrices live in memory.
 
-The core data structure used is the **array**.
-When we declare matrices, then nested arrays are used to represent the same.
+The core data structure is the **array**.
+When you declare a matrix, nested arrays represent it.
 
 :::tip array and matrix used interchangeably
-It's important to keep in mind that matrices and arrays are used to represent the same concept.
-Both are same.
-Moreover the programming languages also use the arrays to implement matrices.
+Keep in mind that matrices and arrays mean the same thing here.
+They're the same.
+Programming languages also use arrays to build matrices.
 :::
 
 :::important how arrays are used to represent matrices
 
-- A single dimensional matrix is just a normal array where values are just primitives.
-- A two dimensional matrix is array of arrays where values are just pointers to underlying arrays.
+- A one dimensional matrix is a plain array. Its values are primitives.
+- A two dimensional matrix is an array of arrays. Its values are pointers to the inner arrays.
 - A three dimensional matrix is array of array of arrays.
 
-This can be nested up to any levels required.
+You can nest this to any depth.
 :::
 
 <ThemeImage src='/img/computers-matrix.excalidraw.png' alt='matrix-stored-as-arrays' />
 
 :::danger finding size of matrices
-It's important to understand the structure of the matrices in terms of underlying arrays
-to calculate the size of the matrix in different dimensions.
+To find the size of a matrix in each dimension, you must know its structure in terms of the inner arrays.
 :::
 
 ## Mental model for multi dimensional matrices
 
-Its important to understand and remember how 1D and 2D matrices are represented in memory.
-The rest are just built on top of it by nesting multiple layers.
-Irrespective of the size of the matrix, at the end the actual matrix data is stored in 1-D matrix
-which is nothing but an array which is again just a continuous memory area holding primitive values.
+Learn how 1D and 2D matrices live in memory.
+The rest just nest more layers on top.
+Whatever the size, the real data sits in a 1-D matrix.
+That's just an array. And an array is a continuous block of memory holding primitive values.
 
 :::warning N dimensional matrix mental model
-N dimensional array is just an array where elements are just N-1 arrays.
-This goes until the elements becomes primitive types.
+An N dimensional array is an array whose elements are N-1 arrays.
+This repeats until the elements are primitive types.
 
-For 3D matrix, consider the matrix like a cube made of multiple layers
-where each layer is a 2D array.
+For a 3D matrix, picture a cube of many layers.
+Each layer is a 2D array.
 
-For 2D matrix, consider the matrix to be a rectangle plank made of up of multiple small blocks
-where each block is a 1D array.
+For a 2D matrix, picture a flat plank of many small blocks.
+Each block is a 1D array.
 :::
 
 ```java

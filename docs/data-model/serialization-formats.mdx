@@ -2,31 +2,29 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 # Data Serialization
 
-I come across the statement always that JSON is text based
-whereas protobuf is binary.
-But what confused me always is the fact that,
-everything is binary at the end.
+I always read that JSON is text based and protobuf is binary.
+But one thing confused me.
+In the end, everything is binary.
 
 <ThemeImage src='/img/data-model-serialization.excalidraw.png' alt='text-binary' />
 
 ## Text Based
 
-In case of text based methods such as JSON, the entire payload is text based.
-Meaning, every character is just encoded using UTF-8 or whatever encoding the encoding is.
+In text based methods like JSON, the whole payload is text.
+Every character is encoded with UTF-8 or some other encoding.
 
-1. Integers, decimals are also considered as characters and each character in it's encoded.
-2. Even for boolean values true and false are encoded as 4 and 5 characters respectively.
-3. Every quote, brackets are all encoded as characters.
+1. Integers and decimals are also treated as characters. Each one is encoded.
+2. Even boolean values true and false are encoded as 4 and 5 characters.
+3. Every quote and bracket is encoded as a character.
 
 :::important Text based serialization provides human readability
-Due to the encoding methods used here,
-it's easy to decode the entire payload and view the contents.
+These encoding methods make it easy to decode the whole payload and read the contents.
 :::
 
 ## Binary Based
 
-In case of binary based methods such as Protobuf, the encoding aims to reduce the payload size
-by directly generating binary values for data.
+In binary based methods like Protobuf, the encoding aims to shrink the payload.
+It writes binary values for the data directly.
 
 1. Integers are fully converted to binary using VARINT.
 2. Decimals are converted to binary using IEE754 based floating point numbers.
@@ -34,7 +32,7 @@ by directly generating binary values for data.
 4. Boolean as just 1 byte.
 
 :::warning protobuf features
-Binary encoding is just one of the features of protobuf.
-There exists other features such as not sending the key names,
-is what makes the payload even smaller.
+Binary encoding is just one protobuf feature.
+It has others too. For example, it can skip the key names.
+This shrinks the payload even more.
 :::

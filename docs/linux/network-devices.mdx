@@ -4,11 +4,11 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 
 ## Kernel as Router
 
-A Öinux host has just one router. It's this router that handles all namespaces.
+A Linux host has just one router. This router handles all namespaces.
 
 Each network namespace has its own routing table.
-This means, whenever there the packet comes from or to a virtual device on a specific namespace,
-then it will switch all configuration data of that corresponding namespace and handle accordingly.
+When a packet comes from or goes to a virtual device in a namespace,
+the router switches to that namespace's config and handles it.
 
 :::warning not container level
 It feels like routing happens at container level.
@@ -17,10 +17,10 @@ But it's actually all happening at host level.
 
 ## Enable Kernel as router
 
-To enable kernel to act as router, we set parameter `net.ipv4.ip_forward=1`.
-See [router definition](../network/routing.mdx#router) to understand the background.
-When this is set to 0, kernel doesn't do IP packet forwarding and
-it can handle only whatever comes to it's own IP address.
+To make the kernel act as a router, set `net.ipv4.ip_forward=1`.
+See [router definition](../network/routing.mdx#router) for the background.
+When this is 0, the kernel does no IP forwarding.
+It handles only what comes to its own IP address.
 
 ## C Structure for NIC
 
@@ -28,8 +28,8 @@ it can handle only whatever comes to it's own IP address.
 Both physical and virtual devices are represented using this structure.
 
 :::important who creates net_device structure
-For the kernel, any network device is the same and treats exactly the same way.
-It's only difference comes from who creates it.
+For the kernel, every network device is the same. It treats them all the same way.
+The only difference is who creates it.
 :::
 
 ## How physical and virtual devices created
@@ -37,8 +37,8 @@ It's only difference comes from who creates it.
 Physical devices are created by [device enumeration](../computers/pci.mdx#address-allocation) and
 configured by kernel using its [device drivers](./device-manager.mdx#software-representation).
 
-Similarly virtual devices are added by userspace applications and
-the kernel then creates the necessary memory structures to represent them.
+Virtual devices are added by userspace apps.
+The kernel then creates the memory structures to represent them.
 
 <ThemeImage src='/img/linux-network-device-creation.excalidraw.png' alt='phy-virtual-device' />
 
@@ -54,8 +54,8 @@ When a virtual device is created, the corresponding driver is also loaded to han
 
 ## Virtual Ethernet Pair - A virtual wire
 
-When we create a veth pair, it's nothing but connecting two virtual devices virtually.
-It symbolizes an virtual cable connecting two devices.
+When you create a veth pair, you just connect two virtual devices.
+It stands for a virtual cable between two devices.
 See also [switching page](../network/switching.mdx#role-of-switches-and-cables) to understand the mental model.
 
 ```bash
@@ -64,39 +64,38 @@ ip link add veth0 type veth peer name veth1
 ```
 
 :::important how the cable is implemented in memory
-Every virtual Ethernet device, the structure contains a peer pointer.
-The peer pointer points to another virtual Ethernet structure.
-Whenever there is a send request on the source device,
-the data is directly copied to the peer buffer memory which simulates the data transfer over a cable.
+Every virtual Ethernet device structure has a peer pointer.
+It points to another virtual Ethernet structure.
+On a send request from the source device,
+the data is copied straight to the peer's buffer. This simulates data transfer over a cable.
 :::
 
 :::danger Connection from veth to switch port
-Similar to how the data is copied from source veth to peer veth,
-if the peer is connected to a bridge or switch port,
-the data is copied to the bridge or switch port memory.
+Just like data is copied from source veth to peer veth,
+if the peer connects to a bridge or switch port,
+the data is copied to that port's memory.
 
-This is exactly also how the data moves in case of physical systems.
+This is also how data moves in physical systems.
 :::
 
 ## How multiple IP addresses on the same device work
 
 It doesn't matter how many IP addresses a device has.
-What matters is, using this IP, the device is part of which network and
-how the routing rules are setup between these networks.
+What matters is which network each IP puts the device on.
+And how the routing rules link these networks.
 
-1. If there are multiple IP addresses, the ARP request must respond to all IP addresses with MAC address.
-2. Once received, kernel will check if there is any process listening on the given IP and the port.
-   If yes, forward data to that process.
+1. With many IP addresses, the ARP request must answer for all of them with the MAC address.
+2. Once received, the kernel checks if a process listens on that IP and port.
+   If yes, it forwards the data to that process.
 
 <ThemeImage src='/img/network-multiple-ips.excalidraw.png' alt='kernel-the-single-router' />
 
 :::warning kernel is just one single router
-The most important mental model is to understand that on every host,
-kernel is the main and the only router.
+The key mental model: on every host, the kernel is the main and only router.
 
-Every other bridge or internal network is simply connected to one of the ports on this router.
-This is exactly how data flow works in docker networks too.
-From the container, the data reaches the gateway IP which is on the kernel router.
-Kernel then uses it's [routing table](../network/routing.mdx#router-is-one-single-program)
-to forward it to physical port.
+Every other bridge or internal network connects to one of its ports.
+This is how data flows in docker networks too.
+From the container, the data reaches the gateway IP on the kernel router.
+The kernel then uses its [routing table](../network/routing.mdx#router-is-one-single-program)
+to forward it to the physical port.
 :::
