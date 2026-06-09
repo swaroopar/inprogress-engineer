@@ -1,0 +1,27 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# BM25
+
+:::tip Why the name BM25?
+BM means Best Match which is a family of retrieval functions.
+25 is just the version that worked well and became the standard.
+:::
+
+BM25 is a ranking algorithm which ranks each document relative to the query.
+It doesn't filter the result. Just returns all documents and its corresponding scores.
+It's up to the application layer to consider or ignore the returned files based on the .
+
+:::important BM25 isn't about semantic search
+It's confusing since BM25 is also used in the context of AI.
+But BM25 isn't about semantic search.
+It does only **lexical search** which means exact word search.
+:::
+
+:::warning BM25 with pre-processing
+Even though BM25 is lexical search,
+usually there is a preprocessing step that comes before the BM25 search.
+This step usually extends the search with different words and
+then the lexical search is performed using all the words.
+:::
+
+<ThemeImage src='/img/ai-bm25.excalidraw.png' alt='bm25-search' />
