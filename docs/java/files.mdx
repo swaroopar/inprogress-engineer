@@ -5,7 +5,7 @@ import { ThemeImage } from '@site/src/components/ThemeImage';
 It's important to understand file management since everything is a file in Unix.
 Also since all IO involves files, understanding the foundation of it's necessary in building
 high-performance applications.
-Everything in this document can be simply applied to all IO and not just regular hard disk files.
+Everything in this document can be applied to all IO and not just regular hard disk files.
 
 :::important Java file creation
 Creating a new Java **File** object doesn't open the file.
@@ -45,7 +45,7 @@ Whereas **mmap** is for mapping files into memory space of the process and
 access it as if it were part of the process's memory.
 
 :::danger avoid system calls
-Since system calls are very expensive, using memory mapped files avoid multiple system calls.
+Since system calls are costly, using memory mapped files avoid multiple system calls.
 This is because, once the file is mapped into memory, all read/write operations are done using
 memory access instructions and not system calls.
 

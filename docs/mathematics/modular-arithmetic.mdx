@@ -20,14 +20,14 @@ you use modulo 10 and division by 10.
 
 :::tip Mental model for modular operations
 The math way to show modular is by dividing.
-But the right mental model is a counter on a circle.
+The right mental model, though, is a counter on a circle.
 **Mod is what remains on the circle in the last round.**
 :::
 
 :::important Clock is mod 12
 When we say a clock is **mod 12**, only 0 to 11 are allowed.
 For practical reasons, clocks show 1 to 12.
-But the idea is the same.
+The idea is still the same.
 
 4 hours after 9 AM is 13, which we call 1 PM.
 :::
@@ -44,7 +44,7 @@ Take an N bit wide value. Setting the MSB gives the modulo value for an N-1 bit 
 This is why an AND with a set of low bits set to 1 gives the modulo directly.
 You skip the costly modulo operation.
 
-But this works only when the AND uses all ones.
+This works only when the AND uses all ones.
 :::
 
 :::info Circular data structures

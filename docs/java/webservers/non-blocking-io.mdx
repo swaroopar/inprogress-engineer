@@ -38,7 +38,7 @@ All documents speak about **callbacks** used by worker threads to update the res
 There exists no callback as such.
 
 The actual objects that the poller thread creates after registering a socket for polling is sent across thread pools.
-The worker or async threads simply call the method on these objects which sets the buffer directly on the object
+The worker or async threads call the method on these objects which sets the buffer directly on the object
 and also update the interest for OP_WRITE event for that **selection key**.
 :::
 

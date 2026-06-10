@@ -53,7 +53,7 @@ and React only replaces/adds components which were newly received in the streame
 1. By default, the root component is always a server component in RSC.
 2. And by default, every component is a server component. Only client components must be explicitly declared using the
    `use client` directive.
-3. Client components are simply exported as regular client scripts as it's done with CSR.
+3. Client components are just exported as regular client scripts as it's done with CSR.
 4. The RSC payload contains the
     - JSX serialized data for server components
     - Placeholders for scripts of client components which are used in the server component.
@@ -71,7 +71,7 @@ component to generate the complete React tree.
 
 The boundary starts from any component that has the `use client` directive. It then covers all imports the file has.
 
-As long as the client component has very small and minimal imports, the boundary is limited.
+As long as the client component has small and minimal imports, the boundary is limited.
 
 ## RSC with SSR
 

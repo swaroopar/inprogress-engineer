@@ -24,7 +24,7 @@ This is inefficient, since a switch can have devices that are connected to diffe
 Switches need not do anything special to handle ARP requests.
 
 1. End devices send out ARP requests with a broadcast MAC address (ff:ff:ff:ff:ff:ff).
-2. Switches simply handle it like any other broadcast frame
+2. Switches just handle it like any other broadcast frame
    and forward it to all ports in the same broadcast domain.
 
 :::danger Only task of switches with ARP

@@ -15,11 +15,11 @@ Keep both in mind when you work with repositories.
 1. **Commit History** - This is just ONE acyclic graph data structure.
 2. **Trees** - There exists 1 to N trees based on different branches, different heads, etc.
 
-**NOTE**: All these data structures exist on the filesystem
+**Remember:** All these data structures exist on the filesystem
 as files inside the `.git/objects` directory.
 :::
 
-:::important folder structure is very important
+:::important folder structure matters
 The repository structure isn't stored as the same folder structure inside **.git/objects**.
 
 GIT spreads the data across folders.
@@ -51,7 +51,7 @@ Change any file, directory, or even just permissions, and that object's content 
 This change flows up to the root of the tree.
 New tree objects are made for all parent directories up to the root.
 
-But all other unchanged objects are reused from past commits.
+All other unchanged objects are reused from past commits.
 This shared structure makes GIT efficient in storage.
 And keeping full files, not just diffs, makes it fast.
 :::

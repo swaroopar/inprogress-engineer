@@ -58,7 +58,7 @@ This is done using the `TPM2_Extend` command, which appends the new hash to the 
 This way, the PCR value is a cumulative hash of all the components that have been measured during the boot process.
 
 :::warning Initial values of PCR indexes
-Initial value of PCR is always 0x00.
+Initial value of PCR is always `0x00`.
 This is set during the reboot of the system.
 :::
 
@@ -91,7 +91,7 @@ Real world example - College issues certificate, Government Authority attests it
 ## PCR Quotes and Signing
 
 **PCR quotes** is nothing but the current values of PCR values.
-But the quote isn't returned as is.
+Still, the quote isn't returned as is.
 It's [digitally signed](digital-signatures) using the private AIK of the client requesting it.
 The verifier then gets the corresponding certificate from client (which was already [attested](#key-attestation)) and
 verifies the signature to trust the PCR quote values.
@@ -128,7 +128,7 @@ This means, the remote system must first trust the TPM and then create a local s
 :::warning difference to local sealing
 In case of local sealing process used by BitLocker, the key is generated locally and sealed in the TPM.
 
-But in case of remote sealing, a remote system first has to trust the TPM and then asks the TPM to seal the key.
+For remote sealing, a remote system first has to trust the TPM and then asks the TPM to seal the key.
 :::
 
 <ThemeImage src='/img/tpm-remote-sealing.excalidraw.png' alt='remote-sealing' />

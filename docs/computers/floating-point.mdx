@@ -16,9 +16,9 @@ Floating point is just the computer's version of [scientific notation](../mathem
 :::
 
 I always assumed floating point numbers were just two integers split by a dot.
-But that's wrong.
+That's wrong.
 A floating point value is stored as one value in a floating point register.
-It uses very different binary handling and standards.
+It uses different binary handling and standards.
 
 ## Converting floating numbers to binary
 
@@ -72,7 +72,7 @@ depending on how decimal is moved to get just **1** before the decimal point.
 
 This standard uses scientific notation for the mantissa.
 The exponent can be positive or negative.
-But the goal is to keep exponents positive. That makes comparison easier.
+Still, the goal is to keep exponents positive. That makes comparison easier.
 The exponent size alone shows if a number is larger or smaller.
 
 :::tip Meaning of bias in this context
@@ -85,7 +85,7 @@ For example, a 32 bit float has a bias of 127.
 The 32 bit float register reserves 8 bits for the exponent.
 The exponent runs from $$2^{-127}$$ to $$2^{128}$$.
 The exponent bits must hold $$-127$$ to $$128$$.
-But we add 127 to each, so only positive numbers are stored.
+We add 127 to each, so only positive numbers are stored.
 
 ## Floating point in programming languages
 

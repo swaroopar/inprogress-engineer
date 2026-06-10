@@ -44,7 +44,7 @@ The main threads created listener and worker threads at the boot.
 
 In case of normal async servlets, we just offload the task to a thread pool outside of the servlet container.
 
-But in spring reactive, the async process works similar to the **event loop** in NodeJS.
+In spring reactive though, the async process works similar to the **event loop** in NodeJS.
 Which means, just one thread handles everything.
 
 ## Futures and Completable Futures

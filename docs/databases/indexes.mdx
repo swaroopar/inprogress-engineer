@@ -40,7 +40,7 @@ This means, we can traverse the tree to find out the actual disk block which con
 :::danger b-tree with disk address
 Normally when we speak about b-trees, we refer to the in-memory data structure
 where the address are the memory addresses.
-But in case of databases, the addresses are the disk block addresses.
+In case of databases though, the addresses are the disk block addresses.
 :::
 
 :::tip why b-trees
@@ -58,7 +58,7 @@ This also why a binary search is used on the index node.
 
 :::important data itself can be stored anywhere
 The indexes have the keys sorted and stored.
-But the actual data can be stored anywhere on the disk.
+The actual data can be stored anywhere on the disk though.
 
 Only in case of clustered indexes, the data is stored in the order of index.
 :::
@@ -122,7 +122,7 @@ All secondary indexes are non clustered indexes.
 ## Bitmap Indexes
 
 This is another type of index, which are relevant where the number of rows are huge
-but the possible values in a column is very small.
+but the possible values in a column is tiny.
 Examples such as gender, country, age, etc.
 
 The index is a map where key is the actual value and

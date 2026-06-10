@@ -59,7 +59,7 @@ CPU ensures this serial accessing of the address when such an atomic access inst
 
 :::info cache line serialization
 In the diagram we see that the L3 cache line is shared across multiple cores.
-But when a core accesses a specific cache line,
+Still, when a core accesses a specific cache line,
 it must first acquire a lock on that cache line to ensure data consistency.
 
 At the same time, this concept also refers to **atomic memory operations**.
@@ -122,7 +122,7 @@ In case of L1 Cache of 32 KB with 64 Byte cache line size and 4-way associativit
 **This same logic is used to split all 3 levels of cache.
 Just different 'N-way' associativity is used to split the cache lines into sets.**
 
-This is very similar to how we calculate the index key for hash tables.
+This is much like how we calculate the index key for hash tables.
 Meaning, in a hash table the key is always the same for a specific input.
 Similarly, here a cache line on which a memory address will be loaded is always the same.
 :::

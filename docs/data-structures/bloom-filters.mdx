@@ -40,7 +40,7 @@ This means, if we want to store information about 1 million data then it just ne
 If the **hash()** value of multiple keys leads to same key or keys,
 then the same data represent multiple keys.
 This is exactly why when we read the data for a key, then the output is **probably true** .
-But when for a key, if the index isn't set to '1', then the output is **definitely false**.
+Yet when for a key, if the index isn't set to '1', then the output is **definitely false**.
 :::
 
 <ThemeImage src='/img/bloom-filter.excalidraw.png' alt='bloom-filter' />
@@ -63,7 +63,7 @@ Formula to calculate filter size can be found [on internet](https://hur.st/bloom
 
 :::warning changing size of Bloom filter isn't easy
 Changing size of Bloom filter isn't straight forward.
-We can't simply create another bigger bit array and copy the data there
+We can't just create another bigger bit array and copy the data there
 because if we change the array size then the 'mod' value also changes.
 the existing calculations become invalid.
 :::

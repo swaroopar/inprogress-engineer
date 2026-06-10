@@ -39,7 +39,7 @@ They just move data between the memory buffers of two processes.
 For regular files, there is just one file descriptor.
 It's used for both reading and writing.
 
-But for sockets, the kernel creates two file descriptors.
+For sockets, though, the kernel creates two file descriptors.
 One is for reading. One is for writing.
 The producer gets one.
 The consumer gets the other to write responses to.

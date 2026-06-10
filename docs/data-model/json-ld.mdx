@@ -36,7 +36,7 @@ JSON-LD is one of the implementations and serialization methods of RDF.
 It's a way to represent RDF data model in JSON format.
 
 :::warning URI vs URL
-It's very important to understand that the IDs here are URIs and not URLs.
+It's key to understand that the IDs here are URIs and not URLs.
 They look like URLs can also be resolved but they're just unique identifiers.
 :::
 
@@ -46,7 +46,7 @@ They look like URLs can also be resolved but they're just unique identifiers.
 - **predicate** is the field name.
 - **object** is the field value.
 
-**NOTE**: @type is a special predicate in RDF which is also used in JSON-LD.
+**Remember:** @type is a special predicate in RDF which is also used in JSON-LD.
 :::
 
 ## Differences to JSON Schema
@@ -59,7 +59,7 @@ They look like URLs can also be resolved but they're just unique identifiers.
 
 :::info different from Hate-OS
 In Hate-OS, the clients must use the links to fetch or do other actions on the resource.
-But in JSON-LD, they URIs just refer to other resources from other sources.
+In JSON-LD, the URIs just refer to other resources from other sources.
 The clients can still use the data in the payload directly.
 :::
 
@@ -71,6 +71,6 @@ The clients can still use the data in the payload directly.
   This refers to any resource, anywhere on the web or local.
   It's the **subject**.
 - **@type**: defines the meaning/type of the object itself.
-- **"vocab**: When used, call fields are simply referred directly from this vocab.
+- **"vocab**: When used, call fields are referred directly from this vocab.
   Again the client doesn't go the URL mentioned here,
   instead implicitly takes the context URI of the field name as 'vocab URI + field name'.

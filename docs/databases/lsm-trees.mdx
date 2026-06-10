@@ -6,7 +6,7 @@ Log-Structured Merge-tree is a data structure that's optimized for write-heavy w
 
 :::tip B-Trees are optimized for read-heavy workloads.
 B-Trees are really good for reads.
-But when it comes to writes, the index needs to be updated
+When it comes to writes though, the index needs to be updated
 and data has to written to the disk.
 Sometimes even multiple pages needs to be updated when index re-balances.
 :::
@@ -28,7 +28,7 @@ Sometimes even multiple pages needs to be updated when index re-balances.
 ## How Log-Structured file works?
 
 The data is just appended like a log to the mem-table.
-But the mem-table is actually a **tree**.
+The mem-table is actually a **tree** though.
 Every insert just re-adjusts the tree.
 
 <ThemeImage src='/img/database-lsm-trees.excalidraw.png' alt='lsm trees' />
