@@ -69,7 +69,8 @@
             "*.js"
         ],
         "ignore": [
-            "src/components/ThemeImage/**/*"
+            "src/components/ThemeImage/**/*",
+            "scripts/generate-knowledge-map.mjs"
         ],
         "ignoreDependencies": [
             "@docusaurus/useDocusaurusContext",
