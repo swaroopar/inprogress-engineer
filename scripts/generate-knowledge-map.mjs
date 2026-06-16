@@ -125,16 +125,21 @@ function buildTree() {
     return { tree, noteCount, categoryCount: categories.length };
 }
 
-/** Render the tree as Mermaid mindmap lines (two spaces per level). */
+/**
+ * Render the tree as a Mermaid mindmap (two spaces per level).
+ *
+ * Kept as an overview: root -> domain -> category, with each category
+ * labelled by its note count so the map stays readable. (Listing all
+ * notes makes the diagram too dense to read.) A colon separates the
+ * count because parentheses trigger Mermaid node-shape syntax.
+ */
 function renderMindmap(tree) {
     const lines = ['mindmap', '  root((Knowledge))'];
     for (const domain of Object.keys(tree).sort()) {
         lines.push(`    ${domain}`);
         for (const category of Object.keys(tree[domain]).sort()) {
-            lines.push(`      ${category}`);
-            for (const note of tree[domain][category]) {
-                lines.push(`        ${note}`);
-            }
+            const count = tree[domain][category].length;
+            lines.push(`      ${category}: ${count}`);
         }
     }
     return lines.join('\n');
@@ -148,7 +153,7 @@ function main() {
 
 # Knowledge Map
 
-This map shows every topic I've written about. Each note sits under a parent area, so the breadth and the depth are clear at a glance.
+This map shows how broad and how deep my notes go. Each topic sits under a parent area, and the number shows how many notes it holds.
 
 It covers ${noteCount} notes across ${categoryCount} topics.
 
