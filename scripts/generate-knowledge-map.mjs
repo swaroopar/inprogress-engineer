@@ -144,7 +144,7 @@ function main() {
     const { tree, noteCount, categoryCount } = buildTree();
     const mindmap = renderMindmap(tree);
 
-    const page = `{/* GENERATED FILE - do not edit by hand. Run \`task generate-map\` to refresh. */}
+    const page = `{/* GENERATED FILE - don't edit by hand. Run \`task generate-map\` to refresh. */}
 
 # Knowledge Map
 
