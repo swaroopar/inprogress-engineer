@@ -149,17 +149,18 @@ function main() {
     const { tree, noteCount, categoryCount } = buildTree();
     const mindmap = renderMindmap(tree);
 
-    const page = `{/* GENERATED FILE - don't edit by hand. Run \`task generate-map\` to refresh. */}
+    const page = `# Knowledge Map
 
-# Knowledge Map
-
-This map shows how broad and how deep my notes go. Each topic sits under a parent area, and the number shows how many notes it holds.
+This map shows how broad and deep my notes go.
+Each topic sits under a parent area. The count shows how many notes it holds.
 
 It covers ${noteCount} notes across ${categoryCount} topics.
 
 \`\`\`mermaid
 ${mindmap}
 \`\`\`
+
+_Generated from the docs folder. Run \`task generate-map\` to refresh._
 `;
 
     fs.writeFileSync(OUTPUT_FILE, page, 'utf-8');
