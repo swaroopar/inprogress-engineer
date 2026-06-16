@@ -85,3 +85,27 @@ The relation between these projects are exactly what's described above.
    It sets the shell to make the prompt with Unicode characters.
 2. **nerd-fonts** is a set of fonts with extra glyphs and icons.
    The Unicode values from the shell prompt are rendered with these fonts.
+
+## tmux - Terminal Multiplexer
+
+:::warning Problem with terminals
+When the terminal window is killed,
+then the bash process as well as the connection to the PTY is gone.
+Which means the entire session is lost.
+
+Another big advantage is that,
+**tmux makes the entire management of terminals programmable**.
+Which means, we can start terminals, split, close and many more which can't be done by regular terminal applications.
+:::
+
+tmux solves this problem by hosting the PTY process outside the terminal application.
+It uses a client server architecture by making the server durable and holding all the session data.
+
+<ThemeImage src='/img/linux-tmux.excalidraw.png' alt='tmux' />
+
+:::important tmux for SSH
+tmux is useful for SSH too by doing an SSH into the server
+and then starting the tmux on it and then executing commands.
+Next time when we SSH, we can directly attach again to the same tmux session
+and continue from where left off.
+:::

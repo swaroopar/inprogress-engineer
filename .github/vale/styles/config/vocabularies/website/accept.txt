@@ -197,3 +197,4 @@ CA's
 commit's
 (?i)unreferenced
 (?i)vendored
+tmux
