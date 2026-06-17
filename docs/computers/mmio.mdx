@@ -36,7 +36,8 @@ MMIO can work with or without PCI.
 It works whether or not the device supports the PCI protocol.
 
 :::danger Only address allocation process is different
-PCI - The physical addresses are allocated at boot by CPU and written to base address registers.
-non PCI - The address ranges are fixed in the device's firmware.
-MMU will map these physical addresses to virtual address space.
-:::
+
+- PCI - The physical addresses are allocated at boot by CPU and written to base address registers.
+- non PCI - The address ranges are fixed in the device's firmware.
+  MMU will map these physical addresses to virtual address space.
+  :::

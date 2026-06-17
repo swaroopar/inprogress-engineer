@@ -1,0 +1,128 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# LLM Architecture
+
+:::warning High level understanding
+The page only tries to compile a high level understanding of the LLM architecture.
+Details will be added as and when new internal details are learnt.
+:::
+
+## Terminologies
+
+1. **Tokenization** - gives every word in the sentence a value based on the model's dictionary.
+   Since not all words are in the vocabulary,
+   the words are split into small reusable parts and then the corresponding numeric ID is assigned.
+2. **Embedding Vectors** - Map each token ID to an embedding vector.
+   The size of this vector is model dependent and
+   model architects decide it before the training.
+3. **Positional Vectors** - Again another table where every position has a vector.
+   Meaning, for a word at position 1, there is a fixed vector.
+   This gives weightage based on the position of the word in the entire sentence/context.
+4. Positional and Embedding vectors are added and the final vector is feed into transformer layers.
+5. Now the vectors for all tokens are taken as a matrix.
+   If we put 1-D arrays/vectors one below the other, it's becomes a matrix.
+6. Every transformer block/layer contains the following -
+    1. **Multi Head Layer**
+        1. Each layer has its own Q, K and V values.
+        2. Each layer works on the same input vector.
+        3. Each layer works on different aspects of the language.
+        4. Output of each layer is then concatenated.
+    2. **Feed Forward Neural Network Layer**
+        1. Here more complex patterns and relationships are applied to the input vector.
+7. **Output Layer**
+    1. The input matrix has now been updated by different layers and passed to the output layer.
+    2. The output layer just uses the value of the last token in this matrix.
+    3. This is then passed to an **un-embedding layer** to decide the next token.
+    4. In this step, the matrix is multiplied with another predefined matrix to generate a final output
+       matrix that will then be the size of the model's vocabulary.
+
+:::warning Projecting output to vocabulary size
+It's about taking the final vector from the matrix and
+multiplying with another vector.
+
+When we multiply $$1 \times 3$$ with $$3 \times \text{VocabularySize}$$ then we get $$1 \times \text{VocabularySize}$$ matrix.
+Which means, we've a value for every word of the vocabulary.
+
+**Also, projection is a matrix concept of changing dimensions of the matrix.**
+:::
+
+:::important Positional vector table size
+This is the old method to use a table for positional vectors.
+This causes limitation because the table can't be too large
+where as the context in many models are already 1M length.
+
+Hence most of the new models have positional vector calculation
+as part of the transformer layer.
+:::
+
+<ThemeImage src='/img/ai-llm-hl.excalidraw.png' alt='ai-llm-high-level' />
+
+## Q, K and V in LLMs
+
+1. During training, the W_K, W_Q and W_V are generated.
+   They're the actual weights.
+2. Every token embedding vector is then multiplied by W_K, W_Q and W_V
+   to generate the Q, K and V vectors.
+3. At this stage, Q, K and V vector values aren't dependent on other tokens.
+
+:::warning vectors versus matrices
+We must keep in mind that Q, K and V are vectors for each token.
+Only when vectors for all tokens are considered together,
+then it's just all vectors put one below the other which makes it a 2-D matrix.
+:::
+
+### Size of weight matrices
+
+Since the weight matrices are multiplied with the token vectors to generate Q, K, V vectors,
+the length of the token vector must be same as the number of rows of the weight matrix.
+This is necessary for the matrix multiplication to work.
+
+:::important Token vector length
+Vector is always $$1 \times \text{vectorLength}$$.
+The weight matrix then be $$\text{vectorLength} \times \text{anySize}$$.
+
+This means, the output of matrix multiplication will result in a vector
+with length being the number of columns in the weight matrix.
+In most cases, this will reduce the size of the token embedding which makes the further calculations performant.
+:::
+
+### Attention between tokens
+
+Initially, the LLM only calculates or figures out what value each token is bringing to the context.
+This is done by generating the Q, K and V vectors for the token.
+
+1. **Query** - What's the information that the token is looking for?
+2. **Key** - What does the token provide? Is it even important?
+3. **Value** - Information that the token provides, if the key is really important.
+
+The relation between tokens only happens after that.
+Q and K from rest of the tokens are first combined and then the result is combined with V of the rest of the token.
+
+:::tip $$Q * K$$ is first calculated for attention
+Q and K are first multiplied to figure out for each token,
+what does it look for and which other tokens provides the information it's looking for.
+
+V is then multiplied at the end after few other mathematical calculations are done.
+:::
+
+<ThemeImage src='/img/ai-llm-kv-cache.excalidraw.png' alt='ai-llm-kv-cache' />
+
+:::warning Prefill vs Decode
+
+- **Prefill** - This is about processing the input context.
+  In this case, the vector of all tokens are simply put in as a matrix and
+  K, V and Q values are generated in one go and then cached.
+- **Decode** - This is about generating the next token.
+  Here the K and V values from previous generated are used from cache.
+  :::
+
+### K V Cache
+
+KV cache is about caching the K and V generated values to avoid performing matrix multiplications
+during generation of next tokens.
+
+:::important Why only K and V are cached
+To generate the next token,
+the transformer only uses K from all previous token to multiply with **Q of the current token**
+and at the end, it uses V from all tokens to get it's new embedding.
+:::

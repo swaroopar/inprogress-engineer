@@ -20,4 +20,13 @@ yarn-debug.log*
 yarn-error.log*
 *.iml
 .idea
-.github/vale/styles/*
+.github/vale/styles/.vale-config
+.github/vale/styles/Google
+.github/vale/styles/alex
+.github/vale/styles/Joblint
+.github/vale/styles/Microsoft
+.github/vale/styles/neighbor
+.github/vale/styles/proselint
+.github/vale/styles/Readability
+.github/vale/styles/write-good
+
