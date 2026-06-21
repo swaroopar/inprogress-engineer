@@ -30,7 +30,7 @@ CI (`.github/workflows/ci.yml`) additionally runs `tsc --noEmit`, `prettier --ch
 - Every change goes through a PR; **an agent must not approve the PR** - only tell the user it was opened.
 - PRs are **rebased and merged** (use that merge option in GitHub).
 - `task build` must succeed before opening a PR.
-- **Don't install any new NPM packages** at project or global level that are}n't part of the package.json, and don't install system binaries/libraries. If a tool is truly needed, use a temporary location only. (`task` itself may be installed if missing.)
+- **Don't install any new NPM packages** at project or global level that aren't part of the package.json, and don't install system binaries/libraries. If a tool is truly needed, use a temporary location only. (`task` itself may be installed if missing.)
 - Dependency-upgrade PRs must pass `npx --yes package-lock-utd@1.1.3`.
 - Don't commit any changes directly. Only make changes and STOP.
 
