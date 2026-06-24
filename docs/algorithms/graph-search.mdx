@@ -12,7 +12,7 @@ There exists two ways to mainly do it.
    before moving on to nodes at the next depth level.
 
 :::tip DFS is stack and BFS is queue
-This is the main mental model.
+**This is the main mental model.**
 
 - DFS uses stack to traverse a graph.
   Here the stack we use is just the thread stack.
@@ -131,3 +131,9 @@ for every node processed, we will read the adjacent nodes of it and then add the
 :::warning which on to use - DFS or BFS
 It depends on the use case and trade-offs.
 :::
+
+### Level Order Transversal
+
+This is nothing but BFS but the term applies only to trees and not for graphs.
+We transverse the tree at each level and
+then also apply different logic at each level if necessary.
