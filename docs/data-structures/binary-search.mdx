@@ -1,0 +1,100 @@
+import { ThemeImage } from '@site/src/components/ThemeImage';
+
+# Binary Trees
+
+A tree which can have a maximum of two children is called a binary tree.
+
+## Types of binary trees
+
+:::tip mental model to remember
+Consider the name **full** and then we can relate to what a **complete** binary tree means.
+Here full means nothing **incomplete** or **partial**.
+
+When it's complete, it means there are no any **empty** spots when we put the tree into an array.
+:::
+
+<ThemeImage src='/img/data-structures-binary-tree-types.excalidraw.png' alt='binary-tree-types' />
+
+## Binary Search Trees
+
+:::warning Binary tree vs binary search tree
+Binary tree only mandates that the each node can have at most two children.
+Whereas, binary search tree additionally ensures the values of the child must be in a specific sequence
+in comparison with the parent.
+:::
+
+In this data structure, there is nothing about the shape of the tree.
+It's only about the values each node can hold.
+The ancestor nodes control and decide what values the descendant nodes can have.
+
+- Left child will have a value lesser than the parent.
+- Right child will have a value greater than the parent.
+
+This is the only requirement.
+This makes it easy to search for a value in the tree.
+
+:::tip one side will have equal to condition
+Depending on the implementation, one side of the tree will have value equal to the parent node.
+:::
+
+:::danger No tree shape requirement
+Even if a tree has just right or left children for any number of levels,
+it's still a valid tree as long as the values follow the binary search tree rules.
+:::
+
+<ThemeImage src='/img/datastructure-binary-search.excalidraw.png' alt='sample-tree' />
+
+As we can see in the above image,
+the right side always has by default a minimum value limit and
+the left side always has by default a maximum value limit.
+
+:::tip Traversal of binary search tree using inorder DFS
+Inorder DFS traversal of a binary search tree will always give the values in sorted order.
+:::
+
+### Binary Search Tree Manipulation
+
+:::note Whats a successor and predecessor?
+In a binary search tree, the successor of a node is the next higher value in the tree.
+and predecessor of a node is the next lower value in the tree.
+:::
+
+1. Successor of a node is always the last **leftmost** node of the right sub tree.
+   This means, the one with the `node.left == null`.
+
+2. If a node must be deleted, then the successor of that node must be moved/copied to
+   the position of the node that must be deleted. Then to maintain the binary search tree
+   we must delete the successor node from its original position.
+
+In the below example, if we say we must remove the node 26,
+then the left of 30 is assigned with the right sub-tree of 26.That's all.
+Understanding this **left to right shift** is confusing at the first attempt,
+but you see that the sub-tree is still on the right but moved to the left of the parent.
+`30.left = 26.right`. By doing this, we're also de-referencing 26 out of the tree.
+
+```ssh
+Original sub tree:
+    30
+   /
+  26
+    \
+     27
+       \
+        28
+
+Final sub tree after deleting node 26:
+   30
+   /
+  27
+    \
+     28
+```
+
+### Binary Search Tree Rules
+
+- Left sub-tree < node < right sub-tree
+- Inorder traversal is sorted
+- Minimum = leftmost node of the entire tree
+- Maximum = rightmost node of the entire tree
+- Successor = minimum of right sub-tree
+- Predecessor = maximum of left sub-tree
