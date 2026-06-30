@@ -2,7 +2,11 @@
     "extends": "@docusaurus/tsconfig",
     "compilerOptions": {
         "types": ["@docusaurus/plugin-ideal-image"],
-        "ignoreDeprecations": "6.0"
+        "ignoreDeprecations": "6.0",
+        "paths": {
+            "@site/*": ["./*"],
+            "@site/src/components/*": ["./src/components/*"]
+        }
     },
     "include": [
         "./src/**/*.*",

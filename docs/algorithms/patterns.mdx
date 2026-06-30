@@ -1,1 +1,17 @@
 # Problem Patterns
+
+In this page, I will collect different problem patterns that we come across.
+
+## Graph Connected Components
+
+This is a pattern used in many graph problems where we need to use stack
+and recurse all the way down the entire graph.
+
+```java
+for (each node) {
+    if (not visited) {
+        dfs(node);
+        count++;
+    }
+}
+```

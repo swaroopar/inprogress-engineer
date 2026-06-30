@@ -41,7 +41,7 @@ CI (`.github/workflows/ci.yml`) additionally runs `tsc --noEmit`, `prettier --ch
 - **Excalidraw images must use the `ThemeImage` component, not markdown image syntax.** `ThemeImage` (`src/components/ThemeImage/`) applies a CSS `invert` filter so diagrams adapt to dark mode. `check-theme-image-usage.mjs` enforces this by failing the build if any `![...](....excalidraw.png)` markdown image is found. Use:
 
     ```mdx
-    import { ThemeImage } from '@site/src/components/ThemeImage';
+    import { ThemeImage } from '../../src/components/ThemeImage';
     <ThemeImage src="/img/xxx.excalidraw.png" alt="Description" />
     ```
 

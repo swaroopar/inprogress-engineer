@@ -113,7 +113,7 @@ function main() {
         console.error('---');
         console.error('Please use the ThemeImage component instead:');
         console.error('');
-        console.error("  import { ThemeImage } from '@site/src/components/ThemeImage';");
+        console.error("  import { ThemeImage } from '../../src/components/ThemeImage';");
         console.error('');
         console.error('  <ThemeImage src="/img/xxx.excalidraw.png" alt="Description" />');
         console.error('');

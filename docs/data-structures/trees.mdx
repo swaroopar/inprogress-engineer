@@ -1,12 +1,18 @@
-import { ThemeImage } from '@site/src/components/ThemeImage';
+import { ThemeImage } from '../../src/components/ThemeImage';
 
 # Trees
 
 Trees are hierarchical and non-linear data structures.
 
 :::important tree is just a type of graph
-Graphs are the parent data structure type.
-Tree is just a type of graph which has a root node and must be acyclic.
+A graph is a tree if and only if:
+
+- It's connected
+- It has n nodes
+- It has $$n - 1$$ edges
+
+All nodes connected and having just n-1 edges indirectly means that there
+are no multiple connections between nodes.
 :::
 
 :::tip tree is inverted

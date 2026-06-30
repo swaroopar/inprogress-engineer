@@ -2,15 +2,18 @@
 
 Heaps are trees, but with a specific requirement.
 
-- Every node will have a value lesser (or greater for max-heap) than it's children.
-- Root node will have the smallest value.
+- Root node will have the smallest/largest value.
+  **This is the main rule which makes heaps useful.
+  Every **peek()** always returns the next smallest/largest value.**
+- Every node will have a value lesser (or greater for max-heap) than its children.
 - The tree isn't sorted like in the binary search tree.
 
-:::important main use case
-Most important use case of heap is when we've to find just the minimum or the maximum value.
-Nothing else.
+:::important Heap vs Priority Queue
+A Priority Queue isn't a data structure.
+It's only a class with specific requirement which says,
+the class returns always the next person in the queue based on the priority.
 
-This is exactly why it's used in the priority queue data structure.
+Priority Queue implements this feature using heaps.
 :::
 
 :::warning How heaps are stored?
