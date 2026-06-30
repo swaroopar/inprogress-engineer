@@ -1,4 +1,4 @@
-import { ThemeImage } from '@site/src/components/ThemeImage';
+import { ThemeImage } from '../../src/components/ThemeImage';
 
 # Memory Paging
 
@@ -45,7 +45,7 @@ then uses MMU (Memory Management Unit) to translate it to the actual physical ad
 This type of pages is used for loading the application itself in the memory
 and also when the application wants to load any file from disk into memory.
 
-A good example will loading java binary itself
+A good example is, java binary loads itself
 and then how java loads the jar file.
 :::
 
@@ -101,7 +101,7 @@ Kernel loads the paged memory back to memory and asks CPU to retry the user proc
 
 ## Segmentation Fault
 
-This is returned by the operating system when an invalid access to a memory location occurs.
+This is returned by the operating system when invalid access to a memory location occurs.
 
 For example, accessing a kernel page from a userspace process.
 
