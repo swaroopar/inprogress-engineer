@@ -1,4 +1,4 @@
-import { ThemeImage } from '@site/src/components/ThemeImage';
+import { ThemeImage } from '../../src/components/ThemeImage';
 
 # Terminals
 
@@ -23,6 +23,13 @@ Pseudo terminal apps just emulate what physical terminals did in the past.
 ## Line Discipline
 
 In a terminal, the **line discipline** is the way input and output are handled.
+
+:::important Discipline enforcement
+This discipline is handled by the slave TTY driver.
+It ensures the characters are sent to the end program only after enter is received,
+or if there is a Ctrl+C received, it will interrupt the program by scheduling an interrupt handler.
+See details in the signals [page](./signals.mdx).
+:::
 
 1. When you type characters, they show on screen. But they aren't sent to bash or any forked program yet.
 2. When the Enter key is pressed, the line discipline sends the entire line to the program.

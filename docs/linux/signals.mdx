@@ -1,0 +1,31 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# Signals
+
+Signals are special information which the kernel passes to running processes.
+Each application decides what to do when a signal arrives.
+
+:::important Signal Handlers are userspace code
+Signal Handlers are regular userspace code.
+They don't need special privileges.
+:::
+
+<ThemeImage src='/img/linux-signals.excalidraw.png' alt='linux-signals' />
+
+## Handling Signals
+
+Signals are processed in two different ways by the kernel.
+
+- **Process currently in user mode** - In this case, the signal is received by the kernel, and
+  it forwards this to the process by writing it to the process's **process** structure.
+
+- **Process already in kernel mode** - If a signal arrives during a system call, the kernel handles it differently.
+  The application is already in the kernel mode so the kernel will handle it immediately.
+  It's handled by scheduling the handler for execution.
+
+## Default Signal Handling
+
+If no handlers are registered, the kernel uses default handling based on signal type.
+
+In such cases, the kernel will either terminate or stop the process
+or ignore the message depending on the type of the signal.
