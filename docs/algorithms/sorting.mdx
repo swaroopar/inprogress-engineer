@@ -12,13 +12,55 @@ what each of these sorting algorithms mean.
 5. **Count Sort** - In the first pass, we count all available elements and its number of occurrences.
    Then we update the values in sorted sequence in the original array.
 
+## Ascending and descending
+
+There's one rule that's followed in all sorting algorithms to switch between ascending and descending sorting.
+The rules are
+
+1. If 'a' must come before 'b' then return $$-1$$.
+2. If 'b' must come after 'a' then return $$+1$$.
+3. If 'a' and 'b' are equal then return $$0$$.
+
+We can write the code as below to achieve ascending and descending orders using the rules stated above..
+
+```java
+// Ascending
+(a, b) -> {
+    if (a < b) return -1; // a comes before b.
+    if (a > b) return 1; // a comes after b.
+    return 0;
+}
+
+// Descending
+(a, b) -> {
+    if (a > b) return -1; // a comes before b (same as above)
+    if (a < b) return 1; // a comes after b (same as above)
+    return 0;
+}
+```
+
+The subtraction version is just a shorthand of the logic above but uses a clever idea.
+This ensures the returned value is $$-1$$ or $$+1$$ based on the way
+
+:::danger how subtraction is mapped to the above logic
+If the subtraction results in any negative value (not just $$-1$$), then first argument comes **before** second.
+If the subtraction results in positive value (not just $$+1$$), then first argument comes \*_after_+ second.
+
+The idea holds good for everything including sorting just negative numbers too.
+:::
+
+```java
+Arrays.sort(arr, (a, b) -> a - b); # Ascending
+Arrays.sort(arr, (a, b) -> b - a); # Descending
+```
+
 ## Sorting Algorithm Implementation
 
 ### Merge Sort
 
 1. Nothing is really merged. Everything is just managed using indexes on same array.
 2. Definitely additional memory needed. Half of the size of the array.
-3. Mid element is calculated and elements before and after that are sorted.
+3. Mid-element is calculated and elements before and after that are sorted.
 
 ### Quick Sort
 
