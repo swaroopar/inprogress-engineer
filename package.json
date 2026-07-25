@@ -36,7 +36,7 @@
         "lucide-react": "^1.21.0",
         "postcss": "^8.5.15",
         "prettier": "^3.9.6",
-        "prettier-plugin-tailwindcss": "^0.8.0",
+        "prettier-plugin-tailwindcss": "^0.8.1",
         "prism-react-renderer": "^2.4.1",
         "react": "^19.2.8",
         "react-dom": "^19.2.8",
