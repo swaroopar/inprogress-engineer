@@ -3,13 +3,13 @@ import { ThemeImage } from '../../src/components/ThemeImage';
 # Bloom Filters
 
 :::warning Origin of the Name
-The name Bloom comes from the name of the scientist **Burton Howard Bloom** who invented this.
+The word Bloom comes from the name of the scientist **Burton Howard Bloom** who invented this.
 :::
 
 ## Why we need bloom filters
 
-It's used for use cases where storing information in a traditional database is too expensive or impractical
-and we only need to check if an specific condition is true or false.
+It's used for use cases where storing information in a traditional database is too expensive or impractical,
+and we only need to check if a specific condition is true or false.
 
 :::important Membership check
 The main use case of Bloom filter is the **membership/presence proof** check.
@@ -48,7 +48,7 @@ Yet when for a key, if the index isn't set to '1', then the output is **definite
 ## Hash Functions
 
 We need not use strong and expensive cryptographic hashing functions such has SHA or MD5.
-Instead use hashing algorithms such as Murmur.
+Instead, use hashing algorithms such as Murmur.
 
 If we want to use multiple bits to represent a key,
 then we can use multiple hash functions and pass the same key to it.

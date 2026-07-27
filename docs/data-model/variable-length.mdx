@@ -19,7 +19,7 @@ This is only an encoding technique.
 ## How it's achieved?
 
 1. **Integers (VARINT)** - First bit of the byte is used to signal if it's the last byte.
-   If it's 1, it means it's not the last byte and it must read the next byte as well.
+   If it's 1, it means it's not the last byte, and it must read the next byte as well.
    It reads through the entire data like this and forms the actual value with it.
 
 2. **Strings (VARCHAR)** - The initial bits store the length of the string,

@@ -14,8 +14,8 @@ This is exactly why we see the thread with name **http-nio-** in Spring Boot
 
 ## Blocking IO (BIO)
 
-1. JVM listens on the server port. Eg., 8080. This is the acceptor/main thread.
-2. When a request arrives at the this port,
+1. JVM listens on the server port. For example, 8080. This is the acceptor/main thread.
+2. When a request arrives at this port,
    then main thread then calls the `run` method of the new thread with the **socket** object to a thread.
 3. The **Socket Processor** then converts the socket object to an HTTP request object and then calls the servlet.
 4. This thread remains blocked until the **complete connection is closed.**

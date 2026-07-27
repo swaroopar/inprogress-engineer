@@ -44,7 +44,7 @@ Every small tree also has the same characteristics as a big tree mentioned above
 This is exactly why we use recursion to traverse trees.
 Specially in [binary DFS traversals](../algorithms/graph-search.mdx#depth-first-search-dfs)
 (preorder, inorder, postorder),
-we recursively work on sub trees until we reach the leaf nodes.
+we recursively work on subtrees until we reach the leaf nodes.
 :::
 
 <ThemeImage src='/img/trees-recursive.excalidraw.png' alt='tree-recursive' />
@@ -59,7 +59,7 @@ we recursively work on sub trees until we reach the leaf nodes.
 <!-- vale Microsoft.Negative = NO  -->
 
 :::important height is max of children
-$$\text{Height of a node}=\text{Max height of it's children} + 1$$.
+$$\text{Height of a node}=\text{Max height of its children} + 1$$.
 
 We just calculate the height of the children nodes,
 take the maximum of those heights,
@@ -78,7 +78,7 @@ and height is how high the node is up to the farthest leaf.
 
 ### -1 for height of empty tree
 
-Whenever a node has specific sub-tree empty, we consider the height of that empty sub-tree as -1.
+Whenever a node has specific subtree empty, we consider the height of that empty subtree as -1.
 This is exactly why the leaf nodes have height 0.
 
 A leaf node has no children. it's -1 each side.
@@ -90,7 +90,7 @@ $$\text{max(-1, -1)} + 1 = 0$$.
 
 Whenever we calculate the height of a node,
 we first recursively calculate the height of its children.
-Then we always add **+1** for the edge connecting the node to it's child.
+Then we always add **+1** for the edge connecting the node to its child.
 
 if a node has a child with height h,
 then the height of the node itself will be h + 1.
