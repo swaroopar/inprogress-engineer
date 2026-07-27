@@ -10,15 +10,20 @@ They then store them in a vector database.
 Later, you can use these numbers to find similar items.
 You compare the numbers and pick the closest match. This is called vector search.
 
-:::info RAG concept
-This is how RAG works. It pulls extra context from the vector database.
-It then passes that context to the LLM to make the final output.
+:::info How RAG works with LLMs?
+The AI agent pulls extra context from the vector database.
+It then passes that context to the LLM as part of the prompt to make the final output.
 
 Note that the LLM doesn't call the vector database itself.
 The agent calls it. The agent gets the data and passes it to the LLM as context.
 :::
 
-<ThemeImage src='/img/embedding-models.excalidraw.png' alt='embedding-models' />
+:::warning How does the database knows the limit of relevant chunks?
+For a vector being queried, even the most remote chunk is related to the query vector but the relation is weak.
+By setting the top-k parameter, we can filter the most relevant chunks from the vector database.
+:::
+
+<ThemeImage src='/img/ai-embedding-models.excalidraw.png' alt='embedding-models' />
 
 :::tip why the word embedding
 In AI, "embedding" means placing something complex into a simpler space.
@@ -26,3 +31,26 @@ This space often has fewer dimensions. It still keeps the key traits and links.
 
 In short, you place text, images, and videos into another space.
 :::
+
+## Vector and Graph databases
+
+Vector databases is what's explained above.
+Just stores the chunks in a vector space.
+Whereas graph databases only stores the relationships between entities and
+a pure graph database doesn't need embedding models as well.
+If you know the exact entities and its relationships, then creating the graph database is straightforward.
+
+## GraphRAG
+
+GraphRAG is an architecture where vector and graph databases are combined to provide a stronger solution.
+
+1. Queries always start from the vector index.
+2. The vector database returns the most relevant nodes.
+3. The graph data of the node is used to then fetch the related nodes.
+
+:::danger what happens if it's a pure graph database?
+If we've a pure graph database, the query will either have to send exact graph node names or scan through the entire graph.
+By adding a vector database on top will bring in semantic search to the same graph database.
+:::
+
+<ThemeImage src='/img/ai-graph-rag.excalidraw.png' alt='graph-rag' />
