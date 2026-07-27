@@ -15,8 +15,8 @@ instead it travels in packets called Quants.
 <ThemeImage src='/img/ai-quantization.excalidraw.png' alt='ai-quantization' />
 
 :::warning Not for entire weight model
-The quantization doesn't happen to the entire weight matrix.
-Entire weight matrix is split into different blocks and
+The quantization doesn't happen to the entire weight matrix at once.
+The full weight matrix of a model is split into different blocks and
 then each block is quantized separately.
 Meaning, each block will have its own scale, min value, etc.
 :::
