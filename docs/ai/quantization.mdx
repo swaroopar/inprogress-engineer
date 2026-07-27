@@ -1,0 +1,22 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# Quantization
+
+Quantization is a process of converting a free flowing sequence of values into specific buckets.
+In AI, this is used to convert large models weights to smaller values.
+This reduces the size of the model and makes it faster to run.
+
+:::info history of the word
+Quanta means discrete packets.
+The word was first coined when the flow of lights was discovered not to be continuous,
+instead it travels in packets called Quants.
+:::
+
+<ThemeImage src='/img/ai-quantization.excalidraw.png' alt='ai-quantization' />
+
+:::warning Not for entire weight model
+The quantization doesn't happen to the entire weight matrix.
+Entire weight matrix is split into different blocks and
+then each block is quantized separately.
+Meaning, each block will have its own scale, min value, etc.
+:::
