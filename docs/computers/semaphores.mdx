@@ -22,16 +22,16 @@ and the semaphore then wakes up one of the waiting threads.
 
 :::warning difference between mutex, semaphore and blocking queues
 
-- **Mutex** - its a lock which can be used by only one thread at a time.
-- **Semaphore** - its a lock which can be used by multiple threads at a time.
+- **Mutex** - it's a lock which can be used by only one thread at a time.
+- **Semaphore** - it's a lock which can be used by multiple threads at a time.
   It has a counter to keep track of the number of threads that can acquire the lock at a time.
-- **Blocking queue** - its a data structure which can be used to exchange data between threads.
+- **Blocking queue** - it's a data structure which can be used to exchange data between threads.
   It's mainly used to hold data and how the producers and consumers exchange data between them using the queue.
   :::
 
 ## Kernel Level Semaphores
 
-Kernel also has it's own semaphores which are used to synchronize access to kernel resources.
+Kernel also has its own semaphores which are used to synchronize access to kernel resources.
 
 Some of the example use cases of kernel level semaphores are:
 

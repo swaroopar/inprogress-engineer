@@ -33,7 +33,7 @@ Fork is the system call to start a process.
 :::danger only init process is created without fork
 When the OS boots, only the first process with PID 1 isn't booted via fork.
 
-It's started by the Kernel and it then forks all other system services at boot.
+It's started by the Kernel, and it then forks all other system services at boot.
 :::
 
 :::tip All commands are forks.
@@ -61,7 +61,7 @@ This path then calls the other system call called execve()
 which then replaces the parent program with something else that was requested.
 
 :::important responsibility of parent process
-It's the responsibility of the parent process to have the below mentioned logic.
+It's the responsibility of the parent process to have the below-mentioned logic.
 :::
 
 ```c

@@ -3,7 +3,7 @@ import { ThemeImage } from '../../src/components/ThemeImage';
 # Time
 
 In programming, it's always confusing about the time zones, time formats, etc.
-Moreover some terms are used interchangeably unknowingly.
+Moreover, some terms are used interchangeably unknowingly.
 
 <ThemeImage src='/img/time-source-calculation.excalidraw.png' alt='time-source' />
 
@@ -15,7 +15,7 @@ Here time calculation standards means, the set of rules to calculate the current
    It uses sun's position to define the current hour, minute and second.
    This isn't used anymore.
 
-2. **UTC** - Co-ordinated Universal Time.
+2. **UTC** - Coordinated Universal Time.
    This is the new standard and the only standard used at present.
    In this standard, they define duration of a second based on
    how many times an atom needs to vibrate to consider it a second.
@@ -49,11 +49,11 @@ Unix time is the implementation where the server uses hardware timers on the mot
 
 When the server boots, it first takes the UTC time from NTP server which is epoch from 1972.
 The server then takes this value and adds more **seconds** to move the epoch to 1970
-and then starts it's own counter again the last fetched value.
+and then starts its own counter again the last fetched value.
 This is exactly why the server time continues to run even when there is no network connection.
 :::
 
-:::danger time on Unix
+:::danger Time on Unix systems
 On Unix, whenever we ask for the system time, it always returns whatever the Unix seconds counter shows.
 Only at certain intervals, the system synchronizes and corrects it's time from an NTP server.
 :::
@@ -74,6 +74,6 @@ we can represent it in calendar format that humans understand.
 We apply timezones, date, hour, etc., to it.
 
 :::important ISO format
-ISO 8601 is now such standard which represents the UTC is an human-readable and machine friendly format.
+ISO 8601 is now such standard which represents the UTC is a human-readable and machine friendly format.
 It doesn't add any timezones. The location based changes must be then added by clients as part of i18n.
 :::

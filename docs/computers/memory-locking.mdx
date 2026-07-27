@@ -3,7 +3,7 @@
 Like databases, the operating system also locks memory.
 The terms match database locking. But the concept differs a bit.
 
-1. **Pessimistic Locking**- Lock the memory first. Release it only after the work is done.
+1. **Pessimistic Locking** - Lock the memory first. Release it only after the work is done.
    Example - Mutex, Semaphores, Reentrant Locks.
 2. **Optimistic Locking** - Do the work first. Check if the memory is still in the same state.
    If not, then retry or handle it based on the situation.
