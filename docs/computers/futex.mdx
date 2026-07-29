@@ -2,21 +2,41 @@ import { ThemeImage } from '../../src/components/ThemeImage';
 
 # Futex
 
+:::tip Futex vs CAS
+
+- All features such as mutex, semaphores, locks, atomic variables are implemented using CPU's CAS instruction.
+- If on top we need waiting or blocking feature, then Futex comes into play.
+  :::
+
 Fast Userspace Mutual Exclusive is a **kernel feature**.
-It helps userspace apps build **MUTEX** solutions.
+It helps userspace apps build **MUTEX** solutions for memory locations.
 It sleeps and wakes threads based on the lock state.
 
-1. An app thread calls **Futex** to drop out of scheduling. It waits until another thread releases the lock.
+1. An app thread calls **Futex** asking for exclusive access of a memory location.
+   Kernel's Futex system call uses CPU's atomicity to check if it's free or locked.
+   If locked, it will add the thread information and the memory address that it's asking for.
 2. Futex holds a hash map of memory addresses and blocked threads.
 3. A second thread holds the lock. When it sets the memory address to **free**,
    it also calls Futex with a WAKE_UP command for that address.
-4. Futex then wakes all the threads that were blocked.
+4. Futex then wakes all the threads that were blocked by that address.
 
 All programming languages use this feature inside to provide locking and synchronization.
+
+:::danger Responsibility of the application
+It's the responsibility of the application to ensure that it uses Futex to lock and unlock.
+Only then the real blocking of threads will happen.
+Otherwise, the thread will remain active waiting for the lock to be released.
+:::
 
 :::important Lock address
 This can be any address tied to the app.
 For example, it can be the address of a **lock** property on the object.
+:::
+
+:::warning Futex is a Linux feature
+Futex is just a linux feature.
+Even POSIX compliance ensures a Mutex feature.
+Linux implements the same using Futex.
 :::
 
 <ThemeImage src='/img/computers-threads-futex.excalidraw.png' alt='Futex-logic' />

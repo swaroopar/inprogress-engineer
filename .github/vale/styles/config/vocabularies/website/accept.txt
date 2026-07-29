@@ -177,7 +177,7 @@ DBus
 futex_wait
 futex_wake
 epoll_wait
-Reentrant
+(?i)Reentrant
 SSTable(.*)
 (?i)Ject
 (?i)worktree(.*)
@@ -203,3 +203,4 @@ weightage
 Tokenization
 Quants
 (?i)subtree(.*)
+semaphoro
