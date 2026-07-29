@@ -1,0 +1,33 @@
+import { ThemeImage } from '../../../src/components/ThemeImage';
+
+# Locking
+
+Locking features such as synchronized, volatile, atomic, reentrant
+are implemented using different features of the kernel and CPU.
+All the locking features are implemented in the Asynchronous Queue Synchronizer (AQS) class of Java.
+
+:::danger Futex in kernel doesn't provide order
+If we use the Futex feature of Kernel directly,
+there is no ordered guaranteed.
+If multiple threads are waiting for a lock and if such a lock is released,
+then kernel schedules any one of the blocked threads again.
+:::
+
+## How threads block and release each other?
+
+When the thread holding the lock calls the unlock method,
+as part of this unlock method, the next thread in the queue is scheduled using Futex.
+It's important to build a mental model that there is no central thread that's controlling multiple threads.
+
+<ThemeImage src='/img/java-locking-sequence.excalidraw.png' alt='java-locking' />
+
+:::info How barging happens?
+Barging is a scenario where a new thread comes in while the thread 2 is in the process of being freed and scheduled.
+The third thread will run CAS on the main lock address and will acquire the lock successfully.
+:::
+
+## Reentrant Locking
+
+Reentrant locking is the case where the same thread tries to acquire the same lock again while it already owns the lock.
+In this case, AQS checks if the thread asking the lock is already the owner of that specific lock
+and allows it.

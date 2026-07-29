@@ -20,7 +20,7 @@ is also required in the near future.
 
 ## Cache Lines
 
-Cache line is nothing but the each cache entry size.
+Cache line is nothing but the cache entry size.
 This is a fixed value across all cache levels. Typically, a cache line is 64 bytes.
 This value is something fixed by the CPU manufacturer and can't be changed or configured by the user.
 
@@ -38,7 +38,7 @@ This is also what's used for serializing lock requests.
 If a core wants to lock an address,
 it will send out the 'LOCK' control command to the L3 controller,
 which then sets the ownership of the memory address to the specific core
-and then sends another control message to all other cores which has the same address in it's cache.
+and then sends another control message to all other cores which has the same address in its cache.
 
 If two threads ask for the lock on same address,
 then this is where the requests get serialized and
