@@ -8,8 +8,8 @@ BM means Best Match which is a family of retrieval functions.
 :::
 
 BM25 is a ranking algorithm which ranks each document relative to the query.
-It doesn't filter the result. Just returns all documents and its corresponding scores.
-It's up to the application layer to consider or ignore the returned files based on the .
+It doesn't filter the result. Just returns all documents (or we can ask to return top K) and its corresponding scores.
+It's up to the application layer to consider or ignore the returned files based on the ranking.
 
 :::important BM25 isn't about semantic search
 It's confusing since BM25 is also used in the context of AI.
@@ -25,3 +25,12 @@ then the lexical search is performed using all the words.
 :::
 
 <ThemeImage src='/img/ai-bm25.excalidraw.png' alt='bm25-search' />
+
+:::tip implementation in RAG Databases
+In case of Neo4J, when a **FULL_TEXT** index is created,
+all queries on this index are performed using BM25 by default.
+
+These indexes are [inverted indexes](../databases/inverted-indexes.mdx)
+which means the index stores the words and the documents that contain those words.
+Therefore, it already has all the information necessary for performing BM25.
+:::
