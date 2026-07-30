@@ -1,0 +1,24 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# Reciprocal Ranking Fusion
+
+This is an idea where the ranking from multiple systems are **fused** together to get a better ranking.
+
+:::info Why use reciprocal?
+When we've multiple ranking systems,
+just adding the ranks from multiple systems directly is misleading.
+
+<ThemeImage src='/img/ai-rrf-reciprocal.excalidraw.png' alt='rrf-why-reciprocal' />
+
+Also note that, reciprocal is just one of the ideas.
+If we minus the ranks with 100 will also give the same kind of results.
+:::
+
+<ThemeImage src='/img/ai-rrf.excalidraw.png' alt='rrf-with-rrfk' />
+
+:::warning Why the parameter RRF_K?
+Without RRF_K, the reciprocal values doesn't have smooth values.
+The values have stark difference.
+By using a higher value for RRF_K,
+we get more smoother rankings.
+:::
