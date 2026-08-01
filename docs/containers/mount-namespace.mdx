@@ -1,6 +1,6 @@
 # Mount Namespaces
 
-When a container process is started, the process is attached to it's unique namespace.
+When a container process is started, the process is attached to its unique namespace.
 After that, the directories on the disk are mounted to this new mount namespace
 
 ## rootfs
@@ -11,11 +11,11 @@ also controls the size of the image.
 If the application running doesn't need a lot of operating system libraries,
 the rootfs can be kept as small as possible.
 
-It basically means, the process in this namespace sees it's own /lib, /bin, /sbin, /usr, /home, folders.
+It basically means, the process in this namespace sees its own /lib, /bin, /sbin, /usr, /home, folders.
 
 :::warning only own rootfs
 Containers have only their own rootfs but the kernel is used from the host.
-All of the system calls will go via the host kernel.
+All the system calls will go via the host kernel.
 :::
 
 ## Isolation
@@ -42,7 +42,7 @@ The Docker binary does it when we execute the **docker run** command.
 3. Then it will change the rootfs to point to the OverlayFS mount point.
 4. This step will move the old root mount point to another location.
 5. This backup location is used to [bind the volumes](../linux/bind-mounts.mdx) requested via **-v** option.
-6. Finally it will un-mount the backup location to hide the host file system.
+6. Finally, it will un-mount the backup location to hide the host file system.
 
 **Remember:** The bind mounted volume stays visible even though it was mounted from the backup location.
 This is because the kernel still knows the actual inode and dentry of the underlying file or directory.

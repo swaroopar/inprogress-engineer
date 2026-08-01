@@ -3,9 +3,9 @@
 Java build systems use scopes to set compile and deployment strategies.
 Knowing them well matters. It helps you pick the right option for each use case.
 
-1. **compile** - This is the default scope. The dependency is added to the compile classpath.
-2. **runtime** - The dependency isn't on the compile classpath.
-   But it's added to the final jar used at runtime.
+1. **compile** - This is the default scope. The dependency is added to compile classpath.
+2. **runtime** - The dependency isn't available in compile classpath,
+   but it's added to the final jar used at runtime.
 3. **provided** - The dependency is there only at compile and test time.
    Other sources provide it at runtime.
 

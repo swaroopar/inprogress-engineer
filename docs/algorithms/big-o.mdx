@@ -38,7 +38,7 @@ Theoretically - Big O notation only describes upper bound.
 
 In Computer science - Big O notation says that its rate of growth.
 Even though it means the tight upper and lower bound,
-its been used in practice to represent rate of growth.
+it's been used in practice to represent rate of growth.
 
 :::warning bounds vs rate of growth
 Both bounds and rate of growth are related concepts.
@@ -112,7 +112,7 @@ The term bound here means, we say that the running time of a function won't cros
 :::danger Bounds are for the growth class and not exact values
 Here the **tight bound** isn't for the exact mathematical calculation but for the growth class classification.
 
-Meaning, if we say an algorithm is O(N), it means its growth class is linear
+Meaning, if we say an algorithm is O(N), it means its growth class is linear,
 and it can't be better or worse than that.
 :::
 
@@ -142,7 +142,8 @@ see which of the values really dominate the growth of the function's runtime or 
 When we say O(2N) is same as O(N), since the shape of the graph is same.
 The constant 2 doesn't change the shape of the graph, it just scales it.
 
-Similarly, when we say O(N + log N) is same as O(N), we're saying that as input size increases,
+Similarly, when we say O(N + log N) it's same as O(N).
+Here, we're saying that as input size increases,
 the N term dominates the log N term, so the shape of the graph is determined by the N term.
 
 **This means, the constants don't change the rate of growth.
@@ -169,10 +170,10 @@ then the overall running time is O(2 log N) which is O(log N) after dropping the
   it can happen that in some cases even O(N) can be slower than O(N log N) if the constants are large enough.
 
 **It's key to keep in mind that different algorithms behave better at different input sizes.
-Hence it's important to understand the input size while designing algorithms.**
+Hence, it's important to understand the input size while designing algorithms.**
 
 :::important Big O doesn't say which algorithm is better
-Big O is about the limiting behavior as $n \rightarrow \infty$,
+Big O is about the limiting behavior as $n \rightarrow \infinity$,
 not about which algorithm is faster for your actual use case.
 
 Consider it as just a **guideline** to get a rough idea of performance.
@@ -210,17 +211,17 @@ Everything matters during Big O calculation.
 
 <!-- markdownlint-restore-->
 
-:::important What's $N \log N$
+:::important What's $N \log N$?
 For problems with $N \log N$ Big O normally means,
 
 - Problem space is halved at each step.
-- But some steps then runs on all halves at each step.
+- Plus some steps then runs on all halves at each step.
   :::
 
 :::tip meaning of words
 
-- **Quadratic** - the word has **quad** in it but it refers only to **square** of a number.
-  This is because quad means geometrically square. Hence the word.
+- **Quadratic** - the word has **quad** in it but, it refers only to **square** of a number.
+  This is because quad means geometrically square. Hence, the word.
   This will to remember the names of terms.
 - **Linearithmic** - Linear plus logarithmic.
   This isn't a real mathematical word. Used only in Big O.

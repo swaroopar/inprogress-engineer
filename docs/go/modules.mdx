@@ -20,12 +20,12 @@ security such as checksum validations when dependent modules are downloaded.
 1. Module is the main application or the library.
 2. Under modules there can be 1:N packages.
 3. Imports always stop at package level. We import packages. Nothing below that.
-4. All go source files inside a package are accessible to each other without making
-   any thing public.
+4. All Go source files inside a package are accessible to each other without making
+   anything public.
 
 :::important[Different package name in same folder]
-The package name in the go files must be same for all go files under one folder.
-Otherwise there is a compile failure.
+The package name in the Go files must be same for all Go files under one folder.
+Otherwise, there is a compile failure.
 :::
 
 ## Accessing imported code
@@ -33,7 +33,7 @@ Otherwise there is a compile failure.
 Accessing of all public code from the imported package then happens via the package name.
 
 We just put the package (folder) path and then use ´packageName.xxxx´ to access them.
-No need to even specify the package name. It's automatically taken since all the go
+No need to even specify the package name. It's automatically taken since all the Go
 files under a folder have the same package name.
 
 :::tip[Alias for package names]
@@ -45,8 +45,8 @@ coding standards then we can add an alias in the import.
 
 ### Packages on the root folder
 
-For go files which are directly put under the root folder of the module, there is no special **pkg** folder needed.
-Still, all go files must have the same package name inside it.
+For Go files which are directly put under the root folder of the module, there is no special **pkg** folder needed.
+Still, all Go files must have the same package name inside it.
 
 ## Go Build
 

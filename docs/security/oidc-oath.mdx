@@ -24,7 +24,7 @@ A clear mental model keeps the concepts straight.
    Identity providers issue **access tokens**. A token is just another form of the user.
    It says which resources the user can access.
 
-:::important OIDC builds on top of OAuth
+:::important OAuth first or OIDC first?
 OAuth existed first. OIDC was added on top, using the standards OAuth had set.
 
 OAuth had already defined the flows to get access tokens from identity providers.
@@ -41,11 +41,11 @@ Clients verify the signature with public keys to check the tokens are valid.
 
 ## Pure OIDC use cases
 
-In case of LinkedIn using Google to login:
+In case of LinkedIn using Google to log in:
 
 1. Uses OIDC to authenticate the user using Google.
 2. Gets back an ID token from Google which contains user information.
-3. LinkedIn can use this information to map the user to it's user data.
+3. LinkedIn can use this information to map the user to its user data.
 4. It then uses its own authorization to connect to its APIs.
 
 :::warning No OAuth used at all

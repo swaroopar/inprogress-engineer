@@ -198,9 +198,13 @@ commit's
 (?i)unreferenced
 (?i)vendored
 tmux
-Prefill
+(?i)Prefill
 weightage
 Tokenization
 Quants
 (?i)subtree(.*)
 semaphoro
+softmax
+hardmax
+microcontroller
+tamperproof

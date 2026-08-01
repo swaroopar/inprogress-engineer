@@ -18,7 +18,7 @@ It uses this to compare new values, store current ones, and re-render when neede
 
 ## useCallback
 
-This hook caches the [object Id](../javascript/functions.mdx) of the function.
+This hook caches the [object ID](../javascript/functions.mdx) of the function.
 This matters because a child function gets a new reference each time the parent runs.
 
 :::danger How React uses child functions
@@ -39,7 +39,7 @@ It compares the old function body with the new one. It also compares the depende
 ## useMemo
 
 This is like useCallback. But it caches the return value, not the function reference.
-It helps when a function is costly to run and you want to skip needless runs.
+It helps when a function is costly to run, and you want to skip needless runs.
 
 ## useEffect
 

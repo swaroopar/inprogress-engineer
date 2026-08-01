@@ -15,7 +15,7 @@ In case of RSC, when a page is requested the following happens
 <ThemeImage src='/img/rsc-server-rendering.excalidraw.png' alt='rsc-rendering' />
 
 :::note
-Components in RSC can be also a async (Methods that return Promise).
+Components in RSC can be also an async (Methods that return Promise).
 :::
 
 ## RSC streams JSX
@@ -48,7 +48,7 @@ and React only replaces/adds components which were newly received in the streame
 2. Heavy NPM packages aren't anymore part of the client bundle. The packages are only on the server,
    and they're directly used on server to render components.
 
-### Stringify JSX Data a.k.a RSC Payload
+### Stringify JSX Data a.k.a. RSC Payload
 
 1. By default, the root component is always a server component in RSC.
 2. And by default, every component is a server component. Only client components must be explicitly declared using the
@@ -61,7 +61,7 @@ and React only replaces/adds components which were newly received in the streame
 
 :::tip
 The JSX is serialized using the same `React.CreateElement()` function to get the serialized form of JSX. The same
-React client library is used here to generate it. It will recursively go from the requested route to the inner most
+React client library is used here to generate it. It will recursively go from the requested route to the innermost
 component to generate the complete React tree.
 :::
 

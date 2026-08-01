@@ -35,8 +35,8 @@ The ingress controller then also creates an external load balancer to route traf
 In case of cloud providers,
 
 - The Ingress controller runs inside the cluster. But it creates a LoadBalancer resource outside the cluster.
-- You create only an Ingress resource.
-  But the controller still makes an external LoadBalancer service to route traffic to the cluster.
+- You create only an Ingress resource,
+  but the controller still makes an external LoadBalancer service to route traffic to the cluster.
   :::
 
 :::tip Understand the controller implementation

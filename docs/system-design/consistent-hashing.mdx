@@ -31,7 +31,7 @@ server = hash(key) % number_of_servers
 :::warning problems with regular hashing
 
 1. The **mod N** depends always on the size of the partition.
-   Hence adding and removing partitions will always lead to lot of data migration.
+   Hence, adding and removing partitions will always lead to a lot of data migration.
 2. Irrespective of how good the hash function is, applying **mod** on it at the end will always create same issues.
    :::
 
@@ -40,16 +40,16 @@ server = hash(key) % number_of_servers
 This solution brings in consistency by ensuring any additions or deletions to partitions
 won't lead to too many changes in data position.
 It achieves this by removing the use of **mod**.
-Instead it uses the same hash function to generate the positions of the servers on the ring
+Instead, it uses the same hash function to generate the positions of the servers on the ring
 as well as the keys.
 
 Important to keep in mind - Items are placed on a circular track and
 the item goes to the nearest box available in the clockwise direction.
 
 :::tip size of the key in reality
-Normally the size of the key is a 32 or 64 bit integer.
+Normally the size of the key is a 32 or 64-bit integer.
 Meaning, the allowed positions are $$2^{32}$$.
-Hence the ring is rarely full.
+Hence, the ring is rarely full.
 :::
 
 <ThemeImage src='/img/system-design-consistent-hashing.excalidraw.png' alt='consistent hashing' />
@@ -57,7 +57,7 @@ Hence the ring is rarely full.
 ## Virtual Nodes
 
 :::info use of virtual nodes
-In case there is lot of keys being assigned to the same server,
+In case there are a lot of keys being assigned to the same server,
 we split create virtual copies of it and use the same hash function to determine its position.
 
 Virtual nodes are just labels. They still point to the same physical shard.

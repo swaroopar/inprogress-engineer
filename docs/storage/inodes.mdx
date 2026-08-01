@@ -14,8 +14,8 @@ This page describes only the inode data structure for real files.
 :::
 
 :::tip inode is an ext4 concept
-inode is just an Linux ext4 file system concept.
-NTFS used in Windows also has a similar concept
+inode is just a Linux ext4 file system concept.
+NTFS used in Windows also has a similar concept,
 but it's called MFT - Master File Table.
 :::
 
@@ -47,7 +47,7 @@ It's key to keep in mind that the inode neither contains the file name nor
 the file data. It's in the dentries.
 :::
 
-There exists a inodes cache maintained by kernel on memory.
+There exists an inodes cache maintained by kernel on memory.
 It keeps adding data to it whenever files are accessed.
 
 ## inode Limits
@@ -80,7 +80,7 @@ inode number of the final file is found in the **inode table**.
 
 <ThemeImage src='/img/file-finding-process.excalidraw.png' alt='file-search' />
 
-:::info uniqueness of inode number
+:::info Is inode number unique?
 inode number is unique only within the corresponding file system.
 
 If multiple filesystems are mounted on a same host, then same inode number can exist on multiple file systems.
