@@ -28,12 +28,12 @@ By contrast, [locking](./locking.mdx) is only about safe parallel writes.
 3. With this ID, the engine knows which transactions are visible.
    It also knows which ones aren't.
 4. A transaction may have a lower ID than the current one.
-   But if it isn't yet committed,
+   If it isn't committed yet,
    its changes stay hidden from the current transaction.
 
 <ThemeImage src='/img/database-mvcc.excalidraw.png' alt='mvcc' />
 
-:::warning Data written to files before commit
+:::warning Data written to file before commit
 The transaction's data is written to the files before the commit.
 The main history stays in the WAL or REDO log files.
 The engine uses this to decide if the data is visible to a transaction.

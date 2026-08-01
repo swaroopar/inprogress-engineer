@@ -21,9 +21,9 @@ You can't get the inner reference details.
 
 1. **Old JVM versions** - an in-between table holds the link to the direct memory address.
    Every reference variable has an entry in this table.
-2. **Compressed Ordinary Object Pointers (Compressed OOPS)** - The reference holds the actual address.
-   But it's an offset from the start of the heap.
-   This avoids 64 bit address pointers.
+2. **Compressed Ordinary Object Pointers (Compressed OOPS)** - The reference holds the actual address,
+   but it's an offset from the start of the heap.
+   This avoids 64-bit address pointers.
 3. **Direct Pointer** - The reference points to the direct address in the heap.
 
 ## Passing Reference in Methods
