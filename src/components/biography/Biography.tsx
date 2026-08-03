@@ -12,8 +12,8 @@ export function Biography(): React.JSX.Element {
                 <div className=''>
                     <BiographyAd />
                 </div>
-                <div className='flex-shrink-0 flex justify-center md:justify-end'>
-                    <Image className='w-64 h-64 md:w-80 md:h-80' img={avatar as string}></Image>
+                <div className='flex flex-shrink-0 justify-center md:justify-end'>
+                    <Image className='h-64 w-64 md:h-80 md:w-80' img={avatar as string}></Image>
                 </div>
             </div>
         </div>
