@@ -20,3 +20,15 @@ The full weight matrix of a model is split into different blocks and
 then each block is quantized separately.
 Meaning, each block will have its own scale, min value, etc.
 :::
+
+## QAT
+
+QAT stands for Quantization Aware Training.
+This is a process of training a model while keeping in mind that the weights will be quantized
+later on.
+
+## Optiq
+
+This is just another technique, which doesn't quantize all layers with same quantization level.
+If it figures out that a specific layer adds more value,
+then it uses a higher quantization for such weights of such layer.
