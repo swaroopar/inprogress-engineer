@@ -54,3 +54,12 @@ By adding a vector database on top will bring in semantic search to the same gra
 :::
 
 <ThemeImage src='/img/ai-graph-rag.excalidraw.png' alt='graph-rag' />
+
+:::warning Returning data from Graph databases
+It's up to the implementation to decide how deep we can go in the graph or which of all the nodes at a specific level
+should be considered.
+
+- **Use node degrees** - if a node has many child nodes, consider only the first N child nodes which the maximum [degree](../data-structures/graphs.mdx#concept-of-degrees)
+  and ignore the rest.
+- **Use hops** - To say how many levels in the graph should be considered.
+  :::
