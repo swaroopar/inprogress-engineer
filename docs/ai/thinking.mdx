@@ -1,0 +1,38 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# Thinking
+
+When the request context contains only a `<Think>` tag, this is enough for the LLM to understand
+that it must start producing tokens which look like **thinking** and not look like **final answer**.
+
+:::warning how thinking stops?
+The thinking token generation stops whenever the model predicts `</Think>` as the next token during the decode process.
+:::
+
+<ThemeImage src='/img/ai-thinking-in-models.excalidraw.png' alt='thiinking-mode' />
+
+:::info How thinking is trained into LLMs?
+During the training process, LLMs are trained with data which actually has the thinking tags,
+thinking/reasoning tokens and then the final answers.
+
+With such enormous data with thinking pattern,
+the LLMs learns to generate thinking like tokens before generating the final answer.
+:::
+
+:::tip how thinking is disabled?
+When an agent configured to disable thinking for a model,
+then the agent simply sends the opening `<Think>` as well as the closing `</Think>` token.
+With this, the LLM will never generate reasoning tokens.
+:::
+
+## Reasoning Tokens Limit
+
+This is the limit on number of reasoning/thinking tokens per inference request.
+When the number of thinking tokens cross the configured limit,
+the inference engine at the end of a full forward pass, checks the token count and
+forcefully inserts a `</Think>` tag to stop the thinking/reasoning if it has exceeded the limit.
+
+:::danger what happens when there is no limit?
+When there is no limit, the LLMs can produce unlimited thinking tokens,
+which can be useless, expensive and time-consuming.
+:::
