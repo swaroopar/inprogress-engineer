@@ -209,3 +209,5 @@ hardmax
 microcontroller
 tamperproof
 Optiq
+(?i)Microstate(.*)
+(?i)trop

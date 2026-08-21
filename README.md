@@ -50,7 +50,9 @@ The site deploys automatically from the `main` branch using [Vercel](https://ver
 ## Run vale linter
 
 To run spell checks and other language rules, run the vale linter with the command below.
+First install `vale` CLI and then run the below commands.
 
 ```shell
+vale sync
 docker run --rm -v $(pwd)/.github/vale/styles:/styles --pull=always --rm -v $(pwd):/docs -w /docs jdkato/vale .
 ```
