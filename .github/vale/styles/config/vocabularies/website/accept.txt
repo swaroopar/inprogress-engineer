@@ -185,6 +185,7 @@ SSTable(.*)
 (?i)linux
 (?i)config(.*)
 CPUs?
+GPUs?
 (?i)recurs(.*)
 SSHes
 navbar
@@ -211,3 +212,6 @@ tamperproof
 Optiq
 (?i)Microstate(.*)
 (?i)trop
+Radier
+Radiergummi
+rasterize(.*)
