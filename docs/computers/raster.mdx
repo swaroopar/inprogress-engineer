@@ -1,0 +1,44 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# Raster
+
+Raster means a matrix of cells where every cell holds data or information.
+Whereas, a grid is just geometric framework of lines.
+
+This is used mainly to represent images.
+Digital images such as JPEG stores the color of each pixel in a raster/grid format.
+
+:::info Origin of the word
+Raster comes from the same origin as German word Radier in Radiergummi. It means scraper.
+
+In the past, wax was applied on a glass sheet and then the wax was scrapped using a rake like tool.
+This created the raster pattern on the wax.
+Depending on the thickness of the wax that was scrapped,
+the grid allowed different levels of light to pass through it.
+
+This was how colors of different brightness levels were produced.
+:::
+
+<ThemeImage src='/img/computers-raster.excalidraw.png' alt='computers-raster' />
+
+## Raster vs Vector Images
+
+1. **Raster Images** - They're regular images which stores what color must come at each pixel of the image.
+
+2. **Vector Images** - They store mathematical instructions for the graphics engine to draw the image.
+   The renderer has to execute this and create the image at runtime. This is how SVG images work.
+
+:::warning Vector images are also rasterized
+The displays we use have only pixels.
+Therefore, vector images must also be converted to raster images before they can be displayed.
+
+Chrome for example uses libraries to perform this conversion.
+These libraries use GPUs when available to rasterize and display them.
+:::
+
+:::tip how zoom works?
+For raster images, zooming in will show the pixels and the image will look blurry.
+Because the information in the cells is same.
+Whereas for vector images, zooming in won't make the image blurry.
+Because the renderer will re-execute the instructions and draw the image at a higher resolution.
+:::
