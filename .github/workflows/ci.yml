@@ -21,7 +21,7 @@ jobs:
               working-directory: ./
               run: npm ci
             - name: Run vale linter
-              uses: errata-ai/vale-action@2.1.2
+              uses: errata-ai/vale-action@v3.0.0
               with:
                   filter_mode: nofilter
                   fail_on_error: true
