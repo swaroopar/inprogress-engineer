@@ -1,1 +1,24 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
 # Speculative Decoding
+
+The standard way of [decoding](./ai/llm-architecture#attention-between-tokens)
+in the LLM architecture is to generate one token at a time.
+Speculative decoding is a technique to generate multiple tokens at once.
+
+:::danger Speculative Decoding and Sparse Models not the same
+
+- Models which run through the entire neural network to predict the next token are called **dense models**.
+
+- Models which run through a part of neural network to predict the next token are called **sparse models**.
+  Sparse models are quick and have only a fraction of the entire model parameters active for a given request.
+  Mixture of Experts (MoE) is a type of sparse model.
+  :::
+
+<ThemeImage src='/img/ai-speculative-decoding.excalidraw.png' alt='speculative-decoding' />
+
+1. Methods such as DSpark, DFlash, EAGLE and Drafter use a secondary smaller model to predict the next token faster.
+   The main LLM then has to decide and either accept or reject the predicted token.
+
+2. MTP (Multi Token Prediction) is an LLM architecture with a separate MTP module.
+   This module is trained to predict multiple future tokens.

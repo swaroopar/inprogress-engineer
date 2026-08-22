@@ -215,3 +215,5 @@ Optiq
 Radier
 Radiergummi
 rasterize(.*)
+DSpark
+DFlash
