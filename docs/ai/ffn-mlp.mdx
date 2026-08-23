@@ -1,0 +1,36 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# Feed Forward Networks
+
+Feed Forward Networks also known as Multi Layer Perceptron(MLP) is the layer that's part of every layer
+in the transformer architecture.
+
+The execution of the FFN/MLP is also what's called as **activation**.
+
+:::danger Size of parameters
+In a LLM model, the number of parameters in the FFN modules are way too high compared to the attention modules.
+
+1. In case of dense models, FFN modules take the 60-70% of the overall model parameters.
+2. In case of MoE models, the FFN modules take 90-95% of the overall model parameters.
+   :::
+
+:::important Attention vs FFN
+Attention is only about relation between the tokens in the context.
+Whereas, FFN/MLP is mainly about adding trained knowledge and factual information.
+
+After the attention block is complete,
+the generated hidden weights is feed into the FFN block which generates the final output vector for the token.
+:::
+
+## FFNs in MoE
+
+In case of MoE models, every attention block has a router module which routes the request to one of the many
+FFN blocks based on the use case.
+
+<ThemeImage src='/img/ai-moe-models.excalidraw.png' alt='output-token' />
+
+:::tip How router module works?
+
+The router module is also a trained neural network.
+During training, this router network learns which expert has more knowledge for which domain.
+:::

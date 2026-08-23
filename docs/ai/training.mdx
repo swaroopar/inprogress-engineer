@@ -23,9 +23,16 @@ The following numbers are static and are pre-determined before the actual LLM mo
 ## Parameters
 
 Parameters are basically the values that can be tuned during the training.
-
 They're nothing but the knobs in the network that can be tuned with specific values to control the flow.
-The parameters are the values then passed along with the vector to
+
+- **weights** - these values show how strong the link is between two nodes in a neural network.
+- **bias** - values held by the neuron in the neural network.
+- **parameters** - Weights and biases together are called parameters of the model.
+
+:::important adjusting weights and bias
+During training, we adjust both weights and biases.
+The goal is to shrink the gap between the predicted output and the real output.
+:::
 
 ## How Knowledge is stored
 
