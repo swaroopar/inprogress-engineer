@@ -1,0 +1,75 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# Inference Engines
+
+:::danger GPU isn't mandatory
+GPU isn't mandatory to host models.
+
+When GPU doesn't exist, the inference runtime can also use CPU itself.
+It generates CPU instructions for matrix operations.
+:::
+
+:::tip CUDA is just for NVIDIA
+CUDA is mentioned by default.
+It's just a wrapper for sending tasks to NVIDIA GPUs.
+Similar to CUDA, Apple has Metal APIs.
+:::
+
+LLM Models generate one single next token at a time.
+It's the inference engine that keeps appending this newly generated token to the context.
+It calls the model again until the EOS token is received.
+This **loop** is what the inference engine implements.
+
+<ThemeImage src='/img/ai-inference-engines.excalidraw.png' alt='inference-engines' />
+
+## Separation of concerns
+
+It's important to understand which role is performed by which part of the inference chain.
+This is exactly why a model produced by training on one platform can be used by different inference engines
+on different platforms.
+
+Below we see example for KV cache and MTP implementation.
+
+<ThemeImage src='/img/ai-inference-layers-samples.excalidraw.png' alt='inference-layers-samples' />
+
+## Building Blocks
+
+A model is saved after training.
+It produces two mandatory artifacts.
+One is the weights(safe tensors) and other is the model config.
+The model config/metadata contains the architecture details and which mathematical transformations must be done.
+Inference engine uses this information to perform the defined steps in runtime.
+
+:::tip Model package format
+The model package format depends on different model hosting providers.
+
+For example, hugging face has its own format which contains
+**model.safetensors**, **tokenizer.json** and **config.json**.
+Whereas, **llama.cpp** uses the GGUF format where the entire model is put in a singe file.
+:::
+
+:::important LEGO and the LEGO Blocks
+Think of the model architecture as the instruction book for a LEGO set.
+The engine and hardware provide the actual blocks to build it.
+:::
+
+:::warning If models are platform neutral why do we need converted Models?
+Code is compiled for a specific CPU.
+Similarly, model weights are converted or shrunk (quantized) to run faster on specific hardware.
+:::
+
+## Paged Attention
+
+Paged attention is inference engine's way of implementing [CPU's memory paging](../computers/memory-paging) for storing
+KV Cache.
+
+The inference engine grabs one large VRAM pool from the GPU.
+It splits this pool into small pages and allocates them on demand.
+The engine maps logical pages to physical memory blocks without touching the model itself.
+
+<ThemeImage src='/img/ai-paged-attention.excalidraw.png' alt='paged-attention' />
+
+:::warning It's not model specific
+Paged attention isn't a model feature.
+The GPU provider must provide this feature and the inference then uses it if available.
+:::
