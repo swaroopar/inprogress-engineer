@@ -1,0 +1,43 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# CPU GPU Communication
+
+## GPU is just another peripheral
+
+In all other peripherals, CPU does the data processing
+and uses the corresponding driver to send data payload to the hardware.
+In case of GPU, the CPU via the GPU driver, sends the actual compiled code that the GPU must execute and return back
+:::important Asynchronous IO
+For the inference application running on CPU, the GPU calls are just asynchronous IO calls.
+This is exactly same as how an application waits for an external HTTP request to return.
+
+GPU interrupts the CPU when there a token is ready to be streamed and the inference application is woken up to process it.
+:::
+
+:::tip GPU vs TPU
+GPU is a general purpose device which is also used for AI and ML tasks.
+It can also be used for video rendering tasks.
+Whereas a TPU is purely for AI and ML tasks.
+:::
+
+<ThemeImage src='/img/ai-cpu-gpu-handover.excalidraw.png' alt='mmio-cpu' />
+
+The GPU and its memory regions are connected via high bandwidth lines.
+This is necessary for the GPU to copy large amounts of data to and from its registers.
+This the **memory bandwidth** that's referred to in hardware specifications.
+
+## Communication
+
+:::warning GPU is just another device
+It's important to understand that GPU is just another peripheral for CPU.
+All concepts such as device drivers, interrupt handlers apply to GPU as well.
+:::
+
+The following modes of communication is possible between GPU and the CPU.
+
+1. [MMIO](../computers/mmio) - Used to directly write data to GPU's registers.
+2. [mmap](../java/files) - used to move data from disk into the CPU's RAM
+   without having to load entire weights file at a time.
+3. [PCIe](../computers/pci) - Used to send requests to GPU. Data is copied to registers and then tasks are handed over
+   on these addresses.
+4. GDS - GPU Direct Storage used to copy data into GPU memory without touching CPU RAM at all.
