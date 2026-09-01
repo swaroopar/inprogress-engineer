@@ -1,6 +1,15 @@
 import { ThemeImage } from '../../src/components/ThemeImage';
 
-# Next Token Prediction
+# Sampling
+
+:::danger Sampling is next token prediction
+An LLM always generates a list of next tokens with their probabilities.
+Sampling is a method to pick one token from this list based on the probabilities.
+
+Most important to remember that sampling is an inference engine feature.
+Model has no idea about it.
+Top-k, top-p and temperature are all inference engine parameters to control the sampling process.
+:::
 
 An LLM's output is always about predicting the next best token, or next word.
 Read also [speculative decoding](./speculative-decoding) which is a technique to predict multiple tokens at once.
@@ -11,13 +20,6 @@ The output is the next best word after the full text. So: Which is the capital o
 The whole input plus the generated tokens, word by word, is passed back to the LLM.
 This repeats until the LLM generates EOS as the next token.
 
-:::info EOS Token
-EOS means End of Sequence.
-This is the special token used during the LLM training.
-If the LLM predicts EOS as the next most probable token,
-then the LLM understands that it's done and must return the response back to the client.
-:::
-
 <ThemeImage src='/img/auto-regressive-ai.excalidraw.png' alt='output-token' />
 
 ## Probability
@@ -27,7 +29,7 @@ It holds one for each token in the LLM's vocabulary.
 
 This value is then converted into probabilities.
 
-## Sampling
+## Sampling Process
 
 Sampling is a statistics method. It uses a subset of items to predict the whole.
 

@@ -220,3 +220,4 @@ DFlash
 FFN(.*)
 ollama
 Qwen
+(?i)tokenizer

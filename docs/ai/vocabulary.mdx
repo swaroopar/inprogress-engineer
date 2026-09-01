@@ -2,6 +2,14 @@ import { ThemeImage } from '../../src/components/ThemeImage';
 
 # Vocabulary
 
+:::warning Tokenization is different from vocabulary
+Every model contains two things - tokenizer and vocabulary.
+
+- Tokenizer is an integer value for each token known by the model.
+  This used to create KV Cache too.
+- Every token ID has a vector representation in the vocabulary embedding.
+  :::
+
 ## Vectors
 
 In general, vectors are multidimensional values that represent something.
