@@ -137,25 +137,6 @@ and during decode, we do it for each token.
 This is one of the properties of matrix multiplication that acts independently on each row of the input matrix.
 :::
 
-### K V Cache
-
-KV cache is about caching the K and V generated values to avoid performing matrix multiplications
-during generation of next tokens.
-
-The name is just for usability.
-It refers to K-Cache and V-Cache.
-
-:::tip Why only K and V are cached?
-To generate the next token,
-the transformer only uses K from all previous token to multiply with **Q of the current token**
-and at the end, it uses V from all tokens to get it's new embedding.
-
-The K of the current token is added to the K-cache,
-and this new K matrix is then multiplied with single row Q matrix of the current token.
-:::
-
-<ThemeImage src='/img/ai-llm-qkv.excalidraw.png' alt='ai-llm-kvq' />
-
 ## Soft Max
 
 Soft max is a mathematical method of converting an array of numbers into its probability,
