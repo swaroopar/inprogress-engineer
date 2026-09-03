@@ -1,0 +1,38 @@
+# Euler's Number
+
+It's a number similar to pi. The value is approximately 2.718.
+
+## Origin - Continuous Compounding of interest
+
+:::tip First reference of Euler's number
+It was first referenced to show in a specific example mentioned below.
+Irrespective of how frequently the interest is paid out,
+it reaches a ceiling that's equal to the Euler's number.
+:::
+
+1. $1 is kept in a bank account which gives 100% interest per year.
+2. If this interest is paid only once a year, then the value of the money becomes $2 at the end of 1 year.
+3. Similarly, the interest can be paid out at shorter intervals, example 50% every 6 months.
+   In this case, the 50% of the first 6 months is also compounded into the interest paid at the end of next 6 months.
+4. If we keep getting the interest paid out infinite frequency,
+   the compounding will lead to a ceiling value of around 2.718 at the year.
+
+:::warning continuous vs discreet
+In case of discreet change, the bank interest is paid out at regular intervals.
+Whereas in case of continuous change, the same interest is paid out continuously at every millisecond .
+:::
+
+## Relation to differential calculus
+
+Even though the value 2.718 was established in the continuous compounding context,
+the other benefits were proven only with calculus.
+
+It was figured out that, $$f(x)=e^x$$ is the only possible exponential function
+that has a special property where the derivative is same as the function output.
+
+$$\frac{dy}{dx} = y \quad \Rightarrow \quad y = e^x$$
+
+:::important what does it mean?
+For input x and output y, $$f(x)=e^x$$ is the only function when plotted as a graph,
+results in a derivative value at any point in the graph that's equal to the output value at that point.
+:::
