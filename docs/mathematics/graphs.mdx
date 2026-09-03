@@ -1,0 +1,71 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# Graphs
+
+Graphs and coordinates are concepts which are learnt as a way to plot values in a 2D space.
+It's important to understand that what we plot is actually input and output of functions.
+
+:::important Definition of function
+When $$y= x^2$$, the function is defined as $$f(x) = x^2$$.
+The input is $$x$$ and the output is $$y$$.
+
+This is nothing but $$y=f(x)$$
+:::
+
+## Slope
+
+A slope is the value between two points after plotting the graph.
+It's just a fraction between the difference of input values to the difference of output values.
+
+$${\text{slope}=\frac{\Delta y}{\Delta x}}$$
+
+:::danger what does slope define?
+A slope defines the **rate of change** of output as the input changes.
+This applies to any 2-dimensional data.
+:::
+
+## Differential Calculus
+
+:::info Differential Calculus vs Derivatives
+Differential calculus is all about rate of change.
+Whereas, derivative is a topic within differential calculus which is about the rate of change at a specific point in time.
+:::
+
+:::tip mental model for derivative
+In a fast moving data,
+derivative is like a "pause" button to see exactly how fast things are moving at that one split second.
+:::
+
+:::warning Slope vs Derivative
+The most important property of a slope is **it's always between two points**.
+Whereas, **Derivative** is the slope at a single point.
+It's the limit of the slope as the two points get infinitely close to each other.
+:::
+
+### Understanding derivatives formula
+
+- for a slope between two finite points is $${\text{slope}=\frac{\Delta y}{\Delta x}}$$.
+- for a slope between two infinitely close points is $$\frac{dy}{dx}$$.
+  This is nothing but $$\frac{d}{dx}(f(x))$$ that takes another function as a parameter.
+
+## Integral Calculus
+
+It's about integrating the area under a curve.
+How slope is between two points, integral is the area between those points.
+
+:::tip Example of integral calculus
+In case of the bank account interest compounding,
+the integral between two points shows the actual amount accumulated between two points.
+
+Also in case of travel, derivative shows the speed at the exact point in time,
+integral shows the distance covered between two points in the graph.
+:::
+
+<ThemeImage src='/img/maths-calculus.excalidraw.png' alt='differential-integral-calculus' />
+
+## Euler number and derivative
+
+$$f(x)=e^x$$ is an exponential logarithm that uses the [Euler's number](./soft-max.mdx#Euler's Number) as the base.
+The most important feature of this is, the derivative value is always same as the function's output value.
+
+The $$\frac{d}{dx}(e^x)=e^x$$ applies at all data points.

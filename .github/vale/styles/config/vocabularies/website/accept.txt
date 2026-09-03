@@ -205,7 +205,7 @@ Tokenization
 Quants
 (?i)subtree(.*)
 semaphoro
-softmax
+(?i)softmax
 hardmax
 microcontroller
 tamperproof
@@ -221,3 +221,4 @@ FFN(.*)
 ollama
 Qwen
 (?i)tokenizer
+Euler

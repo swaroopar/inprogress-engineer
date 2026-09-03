@@ -37,6 +37,15 @@ that it becomes easy to remember and stays in memory longer.
 Agent is the LLM plus the entire system surrounding it - Chat bot, tools, databases, memory, etc.
 :::
 
+:::warning Prefill vs Decode
+
+- **Prefill** - This is about processing the input context.
+  In this case, the vector of all known tokens are simply put in as a matrix and
+  K, V and Q values are generated in one go and then K and V values of all known tokens are cached.
+- **Decode** - This is about generating the next token.
+  Here the K and V values from previous generated are used from cache.
+  :::
+
 :::tip paper links
 
 - [Chain-of-Thought prompting](https://arxiv.org/abs/2201.11903)

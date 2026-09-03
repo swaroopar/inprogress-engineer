@@ -1,0 +1,32 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# Flash Attention
+
+In a normal attention mechanism,
+the attention, softmax and matrix multiplication are calculated as separate steps.
+The inference engine calls different GPU kernel operations at each step.
+
+:::warning Normal attention needs memory bandwidth
+During normal attention, the intermediate results are stored in GPU memory.
+This needs to be read and written multiple times during the attention calculation.
+:::
+
+<ThemeImage src='/img/ai-normal-attention-steps.excalidraw.png' alt='regular-attention' />
+
+Flash attention solves this problem.
+In flash attention, the entire matrix is split into smaller tiles.
+Each tile is worked on independently.
+
+<ThemeImage src='/img/ai-flash-attention.excalidraw.png' alt='flash-attention' />
+
+:::info How softmax works in flash attention?
+The softmax calculation has two steps. See [softmax details here](../mathematics/softmax).
+These two steps are done at different stages in flash attention
+
+1. Perform KV multiplication for each K and V tiles that has causal impact on the Q tile.
+2. Calculate the exponentiation for scores in KV output - softmax step 1.
+3. Calculate the sum of exponentiation values for each tile - softmax step 2a.
+4. Already perform V multiplication on the exponentiation values.
+5. At the end add all the values produced by step 3.
+6. Perform division of the scores with the final sum of scores - softmax step 2b.
+   :::

@@ -1,0 +1,35 @@
+# Softmax
+
+Soft max is a mathematical method of converting an array of numbers into its probability,
+such that the sum of all the values is 1.
+
+:::important why the word soft max?
+In hardmax, the element with the highest value gets the value 1 and rest are 0 and
+still the sum of all elements is 1.
+
+In softmax, the values of the soft max output is a softer curve and sum of values is 1.
+:::
+
+$$
+\begin{aligned}
+\text{Scores:}\quad & [2,\,1,\,0] \\[6pt]
+\text{Exponentiate each score:}\quad
+& e^2 = 7.389,\qquad e^1 = 2.718,\qquad e^0 = 1 \\[6pt]
+\text{Sum:}\quad
+& 7.389 + 2.718 + 1 = 11.107 \\[6pt]
+\text{Normalize:}\quad
+& \frac{7.389}{11.107}=0.665,\qquad
+\frac{2.718}{11.107}=0.245,\qquad
+\frac{1}{11.107}=0.090 \\[6pt]
+\therefore\quad
+& \boxed{\operatorname{softmax}([2,1,0])
+= [0.665,\,0.245,\,0.090]}
+\end{aligned}
+$$
+
+:::tip Why Euler Number?
+
+1. Scores can be negative as well. With $$e^x$$, the output is always positive.
+2. Using the $$e$$ as base never scrambles the actual value.
+   It's the only exponential function whose derivative is the same as the function itself.
+   :::
