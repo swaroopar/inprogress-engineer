@@ -33,7 +33,7 @@
         "eslint": "^9.39.3",
         "eslint-plugin-markdownlint": "^0.10.1",
         "eslint-plugin-react": "^7.37.5",
-        "knip": "^6.32.2",
+        "knip": "^6.34.0",
         "lucide-react": "^1.37.0",
         "postcss": "^8.5.26",
         "prettier": "^3.9.6",
