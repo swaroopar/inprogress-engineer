@@ -14,6 +14,9 @@ tasks:
         cmds:
             - docker run --rm -v $(pwd)/.github/vale/styles:/styles --pull=always --rm -v $(pwd):/docs -w /docs jdkato/vale --glob='!.github/vale/styles/**' .
 
+    quick-vale:
+        cmd: docker run -v $(pwd)/.github/vale/styles:/styles  -v $(pwd):/docs -w /docs jdkato/vale --glob='!.github/vale/styles/**' .
+
     check-theme-image:
         desc: Check that all Excalidraw images use ThemeImage component
         cmds:
