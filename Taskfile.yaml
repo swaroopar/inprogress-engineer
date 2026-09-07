@@ -4,7 +4,7 @@ version: '3'
 
 tasks:
     format-lint:
-        desc: run all lint commands togeter
+        desc: run all lint commands together
         cmds:
             - npx prettier --config .prettierrc --write .
             - npx eslint . --max-warnings=0
@@ -19,10 +19,15 @@ tasks:
         cmds:
             - node scripts/check-theme-image-usage.mjs
 
+    check-links:
+        desc: check no broken links
+        cmd: npm run build
+
     build:
-        desc: Run all tasks requried for a full clean build
+        desc: Run all tasks required for a full clean build
         # It's fine to run these tasks in parallel.
         deps:
             - format-lint
             - vale-lint
             - check-theme-image
+            - check-links
