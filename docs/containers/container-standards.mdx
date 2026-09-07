@@ -1,0 +1,25 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# Container Standards
+
+Multiple runtimes are available for containers.
+Docker, podman, kata-containers and many more.
+Still all of them can work with the same Dockerfile.
+This is possible via the open standards.
+
+:::danger Same Dockerfile
+We use the same Dockerfile to create the container using the **runtime** of our choice.
+:::
+
+<ThemeImage src='/img/container-interfaces.excalidraw.png' alt='container standards' />
+
+## Open Standards
+
+1. containerd-shim-v2 - For communicating with runtime specific shim processes.
+2. [OCI](https://opencontainers.org/) - For shim to interact with runtime.
+
+:::important choose between runtimes
+The container runtime can be supplied while starting the container.
+Based on this, the containerd will pass the request to corresponding shim.
+The shim then communicates with the runtime to start the container.
+:::

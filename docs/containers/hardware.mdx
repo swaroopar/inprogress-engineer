@@ -1,0 +1,23 @@
+# Hardware
+
+A container doesn't get hardware access on the host.
+
+:::important Different /dev mount point
+The /dev mount point inside the container namespace isn't same as the one on the host.
+Containers have no access to hardware devices on the host by default.
+:::
+
+## Enable hardware inside containers
+
+The following configurations are necessary to enable a specific hardware.
+
+1. cgroup - Read details here [resource control group](control-groups#device-control-group).
+2. seccomp - read details here [seccomp](../linux/seccomp).
+
+## How GPU is made available inside a container?
+
+1. Docker - NVIDIA provides its own [runtime](container-standards#open-standards).
+   This extends the default runc runtime with the following additional steps.
+    1. mounting GPU devices and driver
+    2. adding [capabilities](../linux/capabilities).
+2. Kubernetes - it uses Container Device Interface (CDI) to mount GPUs.

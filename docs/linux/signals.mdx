@@ -17,7 +17,8 @@ They don't need special privileges.
 Signals are processed in two different ways by the kernel.
 
 - **Process currently in user mode** - In this case, the signal is received by the kernel, and
-  it forwards this to the process by writing it to the process's **process** structure.
+  it forwards it to the process.
+  The forwarding is done by writing it to the process's **process** structure.
 
 - **Process already in kernel mode** - If a signal arrives during a system call, the kernel handles it differently.
   The application is already in the kernel mode so the kernel will handle it immediately.
@@ -27,5 +28,5 @@ Signals are processed in two different ways by the kernel.
 
 If no handlers are registered, the kernel uses default handling based on signal type.
 
-In such cases, the kernel will either terminate or stop the process
-or ignore the message depending on the type of the signal.
+- Terminate the process.
+- Ignore the signal.
