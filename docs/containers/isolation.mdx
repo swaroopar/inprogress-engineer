@@ -16,19 +16,12 @@ The docker image has its own userspace rootfs filesystem.
 It has its own /bin, /lib, /usr, and /etc.
 These are mounted into a new [mount namespace](mount-namespace.mdx).
 
-## Prepare Namespaces
-
-When a container starts, the docker binary first creates all the namespaces it needs.
-Each new namespace is a copy of the parent process's namespace.
-
-Then it starts the **init** process. That process updates the namespace content.
-
 ## clone() Method
 
 Like the Linux **fork()** method, containers use the **clone()** method to start the process.
 The Dockerfile's app process starts this way.
 
-This method lets you pick which namespaces the new process needs.
+This method lets you pick which namespaces the new process needs to be launched with.
 
 :::important example of namespaces flags
 When you pass **--network=host** to the docker command,
@@ -47,4 +40,25 @@ Still, the host kernel handles all the system calls from the binaries in that ro
 
 ## Container Creation Process
 
+Container creation process is all about starting the application process with the following points.
+
+1. [namespaces](../linux/namespaces)
+2. [capabilities](../linux/capabilities)
+3. [control groups](../linux/control-groups)
+4. [seccomp profiles](../linux/seccomp)
+5. AppArmor or SELinux profiles
+
+<ThemeImage src='/img/containers-startup.excalidraw.png' alt='container creation process' />
+
+The runc application uses host namespace to configure all necessary things on the host.
+After that the runc init process which is running in its own namespace configures itself.
+
+:::warning why runc doesn't configure the container namespace itself?
+The host runc process is running as root.
+It can switch the namespaces and configure the container namespace.
+This is just not implemented as a design choice.
+:::
+
 <ThemeImage src='/img/prepare-container-namespace.excalidraw.png' alt='container creation process' />
+
+Check [mount namespace](./mount-namespace#isolation) to understand how the disk is really made visible to the process.

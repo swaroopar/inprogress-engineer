@@ -1,0 +1,18 @@
+# Capabilities
+
+The root user has full access on the host.
+Other users may need only a subset of these privileges.
+Capabilities make it easy to assign these privileges.
+
+Capabilities are groups of privileges that can be assigned directly to processes.
+
+:::danger Only the same or fewer capabilities than the parent
+A process can fork another process or create a new thread.
+The new process or thread can have the same capabilities as its parent or fewer.
+:::
+
+:::important Different assignments are possible
+
+- Start a process with a specific set of capabilities.
+- Start a thread with a specific set of capabilities.
+  :::

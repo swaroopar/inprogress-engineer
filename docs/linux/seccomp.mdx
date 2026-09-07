@@ -1,0 +1,20 @@
+# seccomp
+
+seccomp is short form for **secure computing**.
+It's a Linux kernel feature where we can define which system calls are allowed and which aren't.
+
+:::important Filtering at thread level
+The seccomp filter is applied at the thread level.
+This means, if a process has multiple threads, each thread can have its own seccomp filter.
+The main thread can always get the explicitly set seccomp filter.
+:::
+
+:::danger seccomp vs Resource Control Group
+[Resource cgroups control](./control-groups#device-control-group) which resources can be used.
+For every device we use the same system call such as read() or write() or open().
+
+This where the difference comes in.
+seccomp filters if the system call is allowed at all.
+If allowed at all,
+then the resource control group checks if the system call for the specific resource or device is allowed at all.
+:::

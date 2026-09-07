@@ -18,3 +18,18 @@ See [Unix Domain Sockets](../linux/sockets.mdx#unix-domain-sockets) for more det
 
 Still, this can be changed to configured to listen on TCP sockets as well.
 In this case, even remote docker clients can connect to the docker daemon over the network.
+
+## Ways of running Docker daemon
+
+1. **As root** - Here the docker daemon runs as root and has full access to the host system.
+   the docker CLI forwards the request to this daemon which configures everything.
+2. **As root but with user namespace** - In this case, the application is started with user namespace enabled.
+   In this case, the users in the namespace are mapped to a non-root user on the host system.
+3. **rootless docker** - In this case, the docker daemon runs as a non-root user and has limited access to the host system.
+   This changes everything. Docker networking for example can't be used as before.
+
+:::important User namespace not used by default
+Docker containers don't have a separate user namespace by default.
+It simply shares the host's user namespace.
+Without this, accessing files on the host becomes tricky due to mismatch of UID and GIDs.
+:::

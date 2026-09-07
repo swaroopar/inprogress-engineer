@@ -1,0 +1,30 @@
+# cgroup
+
+cgroup is the short name for control group.
+
+With cgroup, you can control the **resources and access boundaries** given to a **group** of processes.
+These resources include CPU, memory, devices, number of processes, IO limits
+and more.
+
+:::important mental model for cgroup
+Here there are two things.
+
+- It controls a process.
+- It groups processes into groups of processes and limits are applied across the group.
+  :::
+
+## Controllers
+
+Linux kernel has individual **controllers** for each of these resources.
+These controllers are executed by the kernel at different stages.
+
+For example, when a process asks for more memory,
+the kernel invokes the cgroup memory controller to check if the requested memory is still within the allowed value.
+
+## cgroup Assignment
+
+When a new process is created, the kernel adds the process to same cgroup of the parent.
+
+## Device Control Group
+
+With the device control group, we can control the physical devices with which the group of processes can interact with.

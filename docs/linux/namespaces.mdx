@@ -6,7 +6,19 @@ Namespaces are a logical split of **processes** by the kernel.
 When you start a process, you can give it 0 or 1-N types of namespaces.
 
 - 0 means, the newly started process inherits everything from the parent PID.
-- 1-N means, we can specify another namespace for any of the resources.
+- 1-N means, we can specify a namespace for each resource the process likes to access
+
+:::tip Namespaces are per thread
+Namespaces in linux is per thread.
+When we start a process with certain namespace,
+then the main thread uses this namespace.
+Other threads of the process can simply use another namespace.
+:::
+
+:::warning Namespaces aren't physical
+Namespaces are just kernel objects and can exist even without a process.
+It's used only when a process is really started to run using them.
+:::
 
 ## Impact on kernel
 
@@ -99,8 +111,3 @@ That structure references all the process's namespace objects.
 Start a docker container, or any process with an isolated namespace.
 Its standard streams are set to the parent process that ran it.
 That's why the app's output shows on the terminal that started it.
-
-## cgroup
-
-cgroup is short for control groups.
-With cgroup, you can limit the physical resources given to these namespaces.

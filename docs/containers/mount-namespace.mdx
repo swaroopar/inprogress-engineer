@@ -26,6 +26,10 @@ All the system calls will go via the host kernel.
 2. **rootfs** is part of the image.
 3. Old root namespace from the host is unmounted from the container's mount namespace.
 
+:::danger mount namespaces always inherit
+Mount namespace is the only namespace that inherits the entire mount details from the parent namespace.
+:::
+
 ## Mount Namespace Setup
 
 This is the most important and interesting one.

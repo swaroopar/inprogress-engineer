@@ -222,3 +222,8 @@ ollama
 Qwen
 (?i)tokenizer
 Euler
+seccomp
+SELinux
+cgroups
+podman
+containerd
