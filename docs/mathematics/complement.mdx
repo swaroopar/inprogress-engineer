@@ -2,34 +2,113 @@ import { ThemeImage } from '../../src/components/ThemeImage';
 
 # Complement
 
-:::important Mental model for the name
-Complement is set theory concept where, when we've a fix set of possible values
-and complement of A means, all values other than the A in the set is the complement of A.
+Complement in English means, something that completes or goes well with something else.
+The same meaning holds here as well.
 
-This word is just borrowed from set theory for a concept which is similar to it.
+It's a concept in mathematics that can be applied to any number system.
+2's complement is most widely needed, as computers use addition circuits to perform subtraction as well.
+
+<ThemeImage src='/img/maths-complement.excalidraw.png' alt='complement-set' />
+
+:::important Mental model for the name
+Complement is set theory concept where, the set contains a fixed set of values.
+Complement of A means, all values other than the A in the set is the complement of A.
+
+The set has a fixed set of values.
+This is where the **fixed width arithmetic** comes into play.
+**Mathematical complements are relative to the width.**
 :::
 
-:::warning complement versus negation
-In arithmetic,complement and negation aren't the same.
+## 1's and 9's complement
+
+This is the actual complement.
+Here **every digit** is subtracted from the maximum possible digit in that base.
+
+:::tip Either every digit or maximum value
+
+- subtract every digit with maximum possible digit.
+- subtract entire value from the maximum possible value in that base.
+
+Both produce the same thing.
+This is why 1's complement is also denoted using $$r^n - 1 - N$$.
+:::
+
+- In case of base 10 and width 3, maximum digit is 9. Therefore, 9's complement of 245 is 754.
+- In case of base 2 and width 4, maximum digit is 1. Therefor, 1's complement of 1010 is 0101.
+
+If you see in both cases, the sum of the number and its complement is always the maximum possible value in that base.
+
+:::important 1's complement in hardware
+In case of binary, 1's complement is just toggling the bits.
+Hence, implementing this is easy in hardware.
+:::
+
+## Using complements to build negation
 
 In case of [arithmetic negation](./boolean-alegbra.mdx#arithmetic-negation),
 we represent $$123$$ as $$-123$$ as it's negated value.
 This then makes $$123 + {-123} = 0$$.
-In case of **fixed width arithmetic**, though, we can't write negative numbers.
-Instead, we represent negative numbers using **complements**.
+
+For this to happen, we need to add 1 to the complement of the number.
+This is exactly why we end up with 2's and 10's complement.
+2's and 10's complement are just 1's and 9's complement + 1 respectively.
+
+:::warning complement versus negation
+In arithmetic, complement and negation aren't the same.
+Number + complement of number = max value of the set.
+Number + negation of number = 0.
 
 Complement of a number is the rest of the value available to reach the max possible value.
-Assume, base 10 and N is 3. $$10^3$$ is $$1000$$.
-For value $$123$$, the complement is $$877$$ because $$123 + 877 = 1000$$.
-
-Here if you want to keep the fixed width, so we drop the left most 1, and the value is then $$000$$.
+Assume, base 10 and width 3. $$10^3$$ is $$1000$$.
+For value $$123$$, the complement is $$876$$ because $$123 + 876 = 999$$.
 :::
 
-<ThemeImage src='/img/maths-complement.excalidraw.png' alt='complement-set' />
+## Negative Numbers in computers
 
-## How fixed width produces modulo?
+Since sum of the number and its 2's complement results in 0,
+computers use this to represent negative numbers.
 
-In case of binary number system, for every left bit that's set to 0,
-the remaining value is actually the modulo value.
-This is because setting every left most 1 to 0 means we're dividing the number by the value
-of that position.
+:::tip 2's complement in computers
+Whenever you come across this word,
+just consider that it's the concept used in computer hardware for representing negative numbers
+in a **fixed with arithmetic**.
+
+As a consequence of this, $$A - B = A + (-B)$$.
+
+**IMPORTANT** - Fixed with arithmetic is what computers need because the registers are of fixed width.
+:::
+
+## How's subtraction achieved using addition itself?
+
+Subtraction in the above image is achieved using addition itself.
+To perform this addition we need the complement value.
+Generating complement is again a subtraction from the maximum value.
+This **trick** is what must be understood to see how this really works.
+
+:::important Complement achieved without subtraction
+In case of binary, $$2^N$$ is the maximum value.
+$$(2^N) - 1$$ is always just 1's.
+To subtract any binary from just 1's, we just have to toggle each bit.
+This is because when we already have all 1's, there is no need of carry or borrow or whatsoever.
+
+$$r^n - N = \mathbf{(r^n - 1 - N) + 1}$$
+:::
+
+<ThemeImage src='/img/maths-complement-in-hardware.excalidraw.png' alt='complement-hw' />
+
+## Clocks to understand complements
+
+In a fixed width arithmetic, we can use modulo to understand complements.
+We know that modulo can be explained using a [clock](./modular-arithmetic) analogy.
+
+In case of $$10^3$$, the clock has 1000 values from 0 to 999.
+For a value 655, the complement is 345 because $$655 + 345 = 1000$$.
+This also means, if we go 345 steps backward from 0, we reach 655.
+
+:::important Mental model with clocks
+
+- Moving clockwise is addition ($+$).
+- Moving counter-clockwise is subtraction ($-$).
+  :::
+
+<ThemeImage src='/img/maths-10s-complement.excalidraw.png' alt='complement-example' />
