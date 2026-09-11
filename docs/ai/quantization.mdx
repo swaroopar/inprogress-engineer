@@ -6,6 +6,14 @@ Quantization is a process of converting a free flowing sequence of values into s
 In AI, this is used to convert large models weights to smaller values.
 This reduces the size of the model and makes it faster to run.
 
+:::warning Quantization doesn't remove floating point operations
+Quantization only reduces the size of the weights.
+The inference engine has to execute another additional step
+to convert them back to floating point values for the actual calculations.
+
+This also why we've quantization for KV Cache.
+:::
+
 :::info history of the word
 Quanta means discrete packets.
 The word was first coined when the flow of lights was discovered not to be continuous,
