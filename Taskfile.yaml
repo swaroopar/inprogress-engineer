@@ -28,9 +28,10 @@ tasks:
 
     build:
         desc: Run all tasks required for a full clean build
-        # It's fine to run these tasks in parallel.
+        # It's fine to run these tasks in parallel, but check-links must run after they finish.
         deps:
             - format-lint
             - vale-lint
             - check-theme-image
-            - check-links
+        cmds:
+            - task: check-links
