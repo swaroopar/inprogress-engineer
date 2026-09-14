@@ -37,9 +37,14 @@ Details will be added as and when new internal details are learnt.
        matrix that will then be the size of the model's vocabulary.
 
 :::info what are heads?
-It's an architectural term for a specialized branch attached to a neural network.
-You can consider it as a module that can be attached to the neural network.
-For example, MTP heads or MoE Heads.
+Head is one full, self-contained pipeline (however sequential internally) that runs alongside sibling pipelines,
+**independently parameterized**, doing the **same job on the same input**.
+
+Parallel refers to sibling-to-sibling, not to the internal steps of a single pipeline.
+Q Heads means - Q values are generated in each attention head independently but using the input,
+and then combined at the end.
+Same goes for K and V heads.
+Also, if you combine every block as whole, then we get attention heads.
 :::
 
 :::warning Projecting output to vocabulary size

@@ -9,6 +9,13 @@ The inference engine calls different GPU kernel operations at each step.
 :::warning Normal attention needs memory bandwidth
 During normal attention, the intermediate results are stored in GPU memory.
 This needs to be read and written multiple times during the attention calculation.
+
+Flash attention reduces the memory traffic.
+:::
+
+:::important it's a kernel feature
+Flash attention is mostly a GPU kernel feature.
+The kernel implements flash attention.
 :::
 
 <ThemeImage src='/img/ai-normal-attention-steps.excalidraw.png' alt='regular-attention' />
