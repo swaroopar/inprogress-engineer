@@ -1,0 +1,41 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# RoPE
+
+**RoPE stands for Rotational Positional Embedding.**
+
+The position of the token in the entire context isn't considered during self-attention by default.
+The relationship between tokens are built without looking at the position.
+This is necessary because the same token at two different positions have two different importance.
+
+:::important space vs graph
+The token is projected from its original space into Q and K space first.
+This means the every token is projected from embedding space into Q and K space.
+
+The space is converted into a graph with weights only with the QK multiplication.
+:::
+
+Initially every token is completely independent.
+It hasn't attended any other tokens in the context.
+When tokens are projected into Q and K space,
+each token is only is still independently projected.
+
+With RoPE, the tokens are rotated a certain degree within it's K and V space.
+The amount of degree is decided by the location of the token in the context.
+By doing this, the vector of token also implicitly now has its position embedded.
+
+<ThemeImage src='/img/ai-embedding-space.excalidraw.png' alt='sine-cosine-circle' />
+
+:::important RoPE Rotation Trick
+In RoPE, each token in the Q and K space is rotated based on the position of the token in the entire context.
+The amount of change to every value is simply multiplied by its position.
+:::
+
+:::warning RoPE is applied in pairs
+
+1. In RoPE entire row belonging to one token is multiplied by its position in the context.
+2. To rotate a token, all the co-ordinates of the token must be moved.
+
+The rotation operator needs two co-ordinates.
+This is why we use pairs of co-ordinates and rotate pair-by-pair.
+:::
