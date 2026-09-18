@@ -227,3 +227,8 @@ SELinux
 cgroups
 podman
 containerd
+PRs
+IDEs
+GRand
+GRUB's
+whiteSpace
