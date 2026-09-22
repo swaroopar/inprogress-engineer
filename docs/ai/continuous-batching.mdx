@@ -1,0 +1,114 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# Continuous Batching
+
+It's an implementation detail of the inference engine achieve the following goals.
+
+1. Process concurrent requests.
+2. Ensure GPU resources are fully utilized.
+
+:::important How batching is achieved?
+This is the most important mental model to understand.
+
+It depends on the mathematical operation to be performed.
+
+1. For attention operation, the kernel parallelizes the compute for each request.
+2. For other operations, the length is already same across all requests.
+   The requests are put into one single matrix where every request is one row in the matrix.
+   All operations are performed on this one single matrix.
+   Matrix multiplication by its nature allows to extract output of each row from the result matrix.
+   :::
+
+:::danger Where's continuous batching implemented?
+The full implementation is shared between inference engine and the GPU kernels.
+The inference engine batches the requests and sends it to the GPU kernel.
+
+GPU Kernel's features such as paged attention, variable length requests enhances the batching.
+:::
+
+<ThemeImage src='/img/ai-continuous-batching.excalidraw.png' alt='continuous batching' />
+
+:::tip Warp vs continuous batching
+Warp already ensures all threads in a warp execute the same instruction but for different data.
+
+Where as in continuous batching, Kernel sends the same instruction across Warps to utilize GPU completely.
+:::
+
+## Continuous Batching only with in a model
+
+The continuous batching is applied only for requests of the same model.
+This is a prerequisite for the following reasons.
+
+1. The request is batched for the entire forward pass.
+   This is possible only when all requests follow the same computational graph.
+2. This ensures the same instructions are executed for the entire batch.
+
+:::warning weights are already fully loaded
+Weights of the model are already fully loaded in GPU memory.
+:::
+
+## Batching prefill and decode requests
+
+Requests for the inference engine can be of type decode or prefill.
+The continuous batching handles both.
+Both requests are put in the same batch and processed together.
+
+## Chunked Prefill
+
+We put both prefill and decode requests in a batch.
+but prefill requests always take more time.
+This delays the entire batch.
+
+**Chunked prefill** solves this exact problem.
+The prefill requests are split into chunks of a certain configured size.
+This ensures the decode requests inside a batch aren't blocked waiting for a prefill to be completed.
+
+## Paged Attention
+
+[Paged Attention](./paged-attention) indirectly benefits continuous batching.
+In case of continuous batching,
+each request in the batch uses its respective pages of the KV cache.
+
+Also, we don't need any padding as well since every request is handled separately.
+
+:::important Understanding CUDA code
+Note the calling function `paged_attention_kernel<<<grid, block>>>` in the example below.
+This is nothing but a parallel for loop.
+It tells CUDA to execute this block of code for each grid value.
+:::
+
+```cpp
+__global__ void paged_attention_kernel(
+    float* output, float* query, float* key_cache, float* value_cache,
+    int* block_tables, int* seq_lengths)
+{
+    int seq_id  = blockIdx.x;   // which sequence this block handles
+    int head_id = blockIdx.y;   // which attention head this block handles
+
+    int my_seq_len = seq_lengths[seq_id];       // e.g. 40 for seq 3, 300 for seq 4
+    int num_blocks_for_this_seq = (my_seq_len + BLOCK_SIZE - 1) / BLOCK_SIZE;
+
+    for (int b = 0; b < num_blocks_for_this_seq; b++) {
+        int physical_block_id = block_tables[seq_id * MAX_BLOCKS + b];
+        // ... read key_cache/value_cache at physical_block_id,
+        // ... accumulate attention score for this (seq_id, head_id) ...
+    }
+
+    // write result for (seq_id, head_id) to output
+}
+```
+
+```cpp
+// Execution configuration: one block per (sequence, head) pair
+dim3 grid(num_sequences, num_heads);   // e.g. (4, 32) = 128 blocks total
+dim3 block(threads_per_block);          // e.g. 128 threads per block
+
+paged_attention_kernel<<<grid, block>>>( // Parallelism is defined here in triple brackets.
+    output,
+    query,
+    key_cache,      // physical block storage, NOT one array per sequence
+    value_cache,
+    block_tables,   // block_tables[seq_id] = list of physical block indices
+    seq_lengths      // seq_lengths[seq_id] = 40, 250, etc.
+);
+```
