@@ -1,0 +1,28 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# Workload Identity Federation
+
+Workload Identity Federation lets services use **short-lived credentials** instead of long-lived service account keys.
+
+## Meaning of the terms
+
+1. **Workload** - A machine or service that runs in another trust domain.
+2. **Identity Federation** - One domain trusts an ID from another domain.
+
+:::important How's federation achieved?
+Federation is set up by adding the other domain's identity provider as a trusted provider.
+:::
+
+:::danger Signature is used to trust the source
+When a system gets a JWT, it checks the token's signature.
+It gets the public key from the OIDC URL configured when the OIDC was set up.
+It also checks the token's issuer, audience, and expiry.
+The entire JWT is still in plain text.
+:::
+
+:::info How the domain is identified?
+The remote domain can have federations with multiple domains.
+It uses the **iss** key in the JWT to identify the actual domain that's sending the JWT.
+:::
+
+<ThemeImage src='/img/security-wif.excalidraw.png' alt='WIF' />
