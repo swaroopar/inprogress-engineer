@@ -14,9 +14,9 @@ It depends on the mathematical operation to be performed.
 
 1. For attention operation, the kernel parallelizes the compute for each request.
 2. For other operations, the length is already same across all requests.
-   The requests are put into one single matrix where every request is one row in the matrix.
+   The requests are put into one single matrix where token of **every request is one row** in the matrix.
    All operations are performed on this one single matrix.
-   Matrix multiplication by its nature allows to extract output of each row from the result matrix.
+   Matrix multiplication by its nature allows to extract output of each request from the result matrix.
    :::
 
 :::danger Where's continuous batching implemented?
