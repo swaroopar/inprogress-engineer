@@ -29,7 +29,7 @@
         "@typescript-eslint/eslint-plugin": "^8.70.0",
         "@typescript-eslint/parser": "^8.58.0",
         "@typescript/native": "npm:typescript@^7.0.2",
-        "autoprefixer": "^10.6.0",
+        "autoprefixer": "^10.6.1",
         "eslint": "^9.39.3",
         "eslint-plugin-markdownlint": "^1.0.0",
         "eslint-plugin-react": "^7.37.5",
