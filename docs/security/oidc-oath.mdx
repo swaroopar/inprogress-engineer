@@ -53,3 +53,28 @@ In this whole flow, no OAuth is used.
 It does receive access tokens. But it never uses them to reach Google's services or
 its own APIs.
 :::
+
+## ID Token vs Access Token
+
+1. **ID Token** - It refers to identity token.
+   It contains information about the user.
+2. **Access Token** - It refers to the access the user has.
+   It contains the authorization information of the user.
+
+:::important Which token is returned when?
+ID Token is part of the OIDC standards and access token is part of the OAuth standard.
+In case of a full OAuth flow, both tokens are returned.
+:::
+
+## Machine to Machine
+
+OAuth 2.0 also enables authorization between two machines without any user interaction.
+This is called **client credentials flow**.
+
+Here the client is also authenticated/identified but no OIDC flow is involved.
+
+:::tip Client in OAuth
+Client in OAuth always means a machine.
+Only user means a human user.
+This is why the client_id and client_secret are always for a machine.
+:::
