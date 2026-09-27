@@ -1,0 +1,20 @@
+# JWT
+
+JWT is a standard that defines token format.
+The token contains these two main parts.
+
+1. Payload - JSON structure for the token. It's called the **claims**.
+2. Signature of the payload.
+
+:::important why is it called claims?
+The identity provider which generated the token is making claims about the user.
+All claims about the user is trusted by validating the signature of the token.
+:::
+
+JWT is a format that can be used in any security protocol to carry authentication and authorization information.
+For example, the access tokens in OAuth are in JWT format.
+
+:::warnings Using JWT token format
+JWT doesn't define how to use the details in the token.
+Fetching public keys, validating the signature, and checking claims are the security protocol's implementation details.
+:::

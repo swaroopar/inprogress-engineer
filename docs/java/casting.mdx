@@ -1,0 +1,39 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# Casting
+
+Casting happens at two levels.
+One for built-in types and one for objects.
+
+## Built-in types casting
+
+For built-in types, there are two types of casting.
+
+1. Automatic casting when we cast from smaller to bigger data types.
+   This is automatic because the smaller bits fits fully in the bigger type's allocated space.
+2. Manual casting when we cast from bigger to smaller data types.
+   In this case, only the last bits that fits in the smaller data type is retained.
+
+:::important Automatic widening
+This is another type of casting that depends on the types involved in the arithmetic operation.
+The type of the result is automatically widened to the biggest type involved.
+
+```java
+// char to int
+c - '0' // Here the
+//int to char
+(char) '0' + n
+```
+
+:::
+
+## Object casting
+
+Object casting is different compared to built-in types casting and has different rules.
+
+:::tip Understanding object layout
+To build a great mental model, it's important to understand the object's memory layout.
+Only then we can understand how property values are inferred and functions are inferred
+:::
+
+<ThemeImage src='/img/java-casting.excalidraw.png' alt='cpu-components' />
