@@ -49,7 +49,6 @@ ws
 (?i)servlet(.*)
 performant
 Endian
-Lilliputans
 (?i)kafka
 Eclipselink
 Gradle
@@ -233,3 +232,7 @@ GRand
 GRUB's
 whiteSpace
 iss
+client_id
+client_secret
+javap
+multibyte

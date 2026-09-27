@@ -1,0 +1,14 @@
+# Char Data Type
+
+Char data type is 2-byte.
+The binary representation is always the same as the Unicode code point of the character.
+
+:::important Larger Unicode code points
+Unicode also has some code points that won't fit in 2 bytes.
+In this case, Java uses a pair of char values to represent the same.
+:::
+
+:::tip String vs Character
+String is just an array of characters.
+Every character in a string is stored by its char value.
+:::

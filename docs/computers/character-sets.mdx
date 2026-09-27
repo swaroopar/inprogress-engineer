@@ -9,16 +9,27 @@
 :::warning Character set vs Encoding
 It's extremely important to understand this difference.
 
-**Character sets** - Allocate a code for each character.
+- **Character sets** - Allocate a code for each character.
+- **Encoding** - How the is really stored in memory and sent across the network.
+  :::
 
-**Encoding** - How the code can be serialized and de-serialized as bytes.
+:::important Code points
+Unicode is the universal standard.
+It gives a unique number to all possible characters.
+This number is called a code point.
+
+The code point is sometimes written as hexadecimal.
+The actual value is still an integer.
 :::
 
 ## UTF-8 Encoding
 
 This defines how the Unicode code points are efficiently stored and transmitted.
-Its that's why also named Unicode Transformation Format.
-It's implements certain logic which ensures efficient usage of bytes to generate encoding.
+That's why the name Unicode Transformation Format.
+
+Each character is Unicode is an integer.
+Directly storing and transmitting as integer is expensive because integer is 32 bit.
+Instead, UTF is used to represent these integers in a variable length byte format.
 
 :::important why ASCII has no special encoding?
 ASCII has one but since it's just 128 characters,
@@ -26,3 +37,10 @@ the encoding is to directly use 7 bits to encode each value.
 
 Since this has a direct mapping, we feel there is no encoding.
 :::
+
+## Unicode Properties
+
+Unicode standards also defines properties such as uppercase, lowercase, digit, Latin, etc. for every character.
+
+These properties are then exposed by programming languages in different ways.
+For example, in Java, the `Character` class has methods such as `isUpperCase()`, `isLowerCase()`, `isDigit()`, etc.
