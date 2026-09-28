@@ -1,0 +1,86 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# GPU Components
+
+1. **SM** - Streaming Multiprocessor is the compute unit on the GPU.
+   It has multiple cores and shared memory.
+2. **Register file** - It's the shared register on the SM.
+3. **Shared Memory** - It's shared at thread block level. It's used to share data between threads on the same block.
+
+<ThemeImage src='/img/ai-gpu-components.excalidraw.png' alt='ai-gpu-components' />
+
+:::important Meaning of warp?
+Warp is part of the weaving machine.
+It's the vertical threads that are stationary.
+Through these vertical threads, the horizontal threads are woven to create a fabric.
+
+This is exactly what happens in GPU as well.
+Warp is a group of threads.
+All threads in a warp execute the same instruction always but each thread works on different data.
+:::
+
+## Memory Levels in a GPU
+
+1. Global Memory - HBM/VRAM
+2. GPU Caches
+3. Shared Memory
+4. Register Files
+
+:::warning Thread block and block are same
+These two terms are used interchangeably in GPU programming.
+Both mean the same.
+:::
+
+## Register Files
+
+All threads on the same SM share the same register file.
+The register file is divided into multiple banks.
+Each bank can be accessed independently.
+Whenever thread switching happens, unlike CPU the registers must not be copied out.
+
+## Software Abstraction using GPU Kernels
+
+To understand kernels, it's important to have both software and hardware mental models.
+
+:::tip Grid vs Blocks vs Threads
+Grid is a collection of many small cubes called threads.
+Every block is a collection of many smaller cubes called threads.
+
+This is exactly what we define when we write a kernel execution strategy -
+
+```cpp
+naive_matmul<<<blocksPerGrid, threadsPerBlock>>>
+```
+
+:::
+
+<ThemeImage src='/img/ai-gpu-abstraction.excalidraw.png' alt='ai-gpu-abstraction' />
+
+### Memory Layout of matrices
+
+GPUs deal with matrix multiplications.
+These matrices aren't just 1D but also 2D or even 3D.
+The critical mental model is to understand that the memory is just 1D.
+Therefore, we need to represent multiple dimension data in a 1D array.
+
+:::important Data is continuous
+The data is stored in a continuous manner in memory.
+Every row is just placed one after the other.
+
+This is exactly leads to the formula to get the correct position of an item in a 2D matrix.
+For matrix with M rows and N columns, a specific item's offset can be found using $$row * N + col$$.
+
+The line $$gid = blockIdx * blockDim + threadIdx$$ is the same formula.
+:::
+
+:::tip idx and dim in examples
+All examples includes the terms idx and dim.
+**idx** means index and **dim** means dimension.
+
+Index is the array index and dimension is the actual size of the array.
+:::
+
+:::note useful links
+
+- [Basic GPU Kernel](https://x.com/goyal__pramod/status/2103565642800431533)
+  :::
