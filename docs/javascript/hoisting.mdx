@@ -30,10 +30,10 @@ This is also because **var** existed from day one of JavaScript. **const** and *
 
 ```js
 function example() {
-    var a = 1; // Function-scoped
+    const a = 1; // Function-scoped
     let b = 2; // Block-scoped to function body
     {
-        var c = 3; // Function-scoped (ignores block). Will be moved to top of the function.
+        const c = 3; // Function-scoped (ignores block). Will be moved to top of the function.
         let d = 4; // Block-scoped to inner block
         console.log(a, b, c, d); // 1, 2, 3, 4
     }
@@ -56,7 +56,7 @@ Using one before its assignment throws an error at runtime.
 
 <ThemeImage src='/img/hoisting-js.excalidraw.png' alt='Hoisting Process' />
 
-:::danger Lexical Environment and Hoisting
+:::danger Lexical Environment and Hoisting Relationship
 Hoisting is just the creation of the lexical environment.
 The compiler pulls each variable up to the lexical environment map it belongs to.
 :::
