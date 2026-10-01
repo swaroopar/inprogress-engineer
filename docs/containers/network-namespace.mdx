@@ -19,8 +19,7 @@ This isolation gives each container its own memory structures.
 These cover network devices, routing tables, firewall rules, and other network config.
 See [Linux network device](../linux/network-devices.mdx#kernel-as-router) to learn how this works.
 
-:::warning no restriction on connection between namespaces
-Namespaces only isolate the memory structures.
+:::warning no restriction on connection between namespaces only isolate the memory structures.
 Nothing limits how devices in different namespaces connect.
 
 This is exactly why the **veth pair** works.

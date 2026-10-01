@@ -18,7 +18,7 @@ This was the first module system in the JavaScript ecosystem.
 
 ## ES Modules
 
-ES Modules is the latest form of modules where we use **import and export** key words to
+ES Modules is the latest form of modules where we use **import and export** keywords to
 share code between modules
 
 Files can be explicitly have `.mjs` extension to say that the code is written in ES Module format.
@@ -32,11 +32,11 @@ That's also why the files have extension `mjs` and also package.json have type v
 
 ## Type Field in Package.json
 
-The **type** field in package.json is used by bundlers and NodeJS to parse files.
+The **type** field in package.json is used by bundlers and Node.js to parse files.
 Still, this is an **optional** field.
 
 :::tip
-This field is used by NodeJS directly parse and execute files on the server.
+This field is used by Node.js directly parse and execute files on the server.
 The same field is also used by bundlers to compile and transpile files.
 :::
 
@@ -60,13 +60,13 @@ ES Modules came later.
 
 As explained earlier, CommonJS was intended for server-side applications and
 is **synchronous**. This means, all dependent files are synchronously loaded by the
-NodeJS runtime as and when it comes across in the code.
+Node.js runtime as and when it comes across in the code.
 
 Where as ES modules are **asynchronous**. This means, the runtime (browser or server) can request multiple files in parallel.
 
 ## Life Before Modules
 
-When NodeJS was created to run JavaScript on servers,
+When Node.js was created to run JavaScript on servers,
 they created the first module system called CommonJS.
 This lead to also build the package manager system called **NPM**.
 

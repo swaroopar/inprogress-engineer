@@ -32,7 +32,7 @@ Think of it like a JSON schema that describes the structure.
 
 ## Certificate Verification
 
-1. The CA signs by generating an hash of the certificate contents.
+1. The CA signs by generating a hash of the certificate contents.
 2. The CA uses its private key to encrypt the hash.
 3. The encrypted hash is included in the certificate.
 4. The hash algorithm used to hash the certificate is also included in the certificate.
@@ -60,10 +60,10 @@ The algorithms let both sides build the same secret values.
 :::
 
 ```javascript
-PublicKey = PrivateKey × G
+PublicKey = PrivateKey * G;
 
-Where G is the **generation point**.
-It has a known x and y co-ordinates in a graph.
+//Where G is the **generation point**.
+// It has a known x and y co-ordinates in a graph.
 ```
 
 :::warning why is this secure?
