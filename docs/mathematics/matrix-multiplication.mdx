@@ -5,6 +5,15 @@ import { ThemeImage } from '../../src/components/ThemeImage';
 Matrix multiplication is interesting. The way we calculate it's different.
 Its use cases also differ from regular multiplication.
 
+:::info Matrix multiplication and Projection
+Matrix multiplication is nothing but projection.
+When a matrix is multiplied by an input of different dimension,
+then the result is nothing but the input being projected into a different space dimension.
+
+This is because matrix multiplication changes the output dimension.
+The output always gets the column size of the matrix.
+:::
+
 :::tip Important use cases
 It mostly transforms data from one form to another.
 For example, graphics use it to rotate and scale,
@@ -48,3 +57,15 @@ for (int i = 0; i < rowsA; i++) {
 ```
 
 <ThemeImage src='/img/maths-matrix-multiplication.excalidraw.png' alt='matrix-multiplication-code' />
+
+## Rank Concept
+
+Rank defines how the matrix's multiplication's output **direction** changes for **all** its inputs.
+
+:::tip Maximum possible value of a matrix's rank
+Maximum rank is always the minimum of the row and column length.
+
+$$\text{Rank} \le \text{minimum of (Rows, Columns)}$$
+:::
+
+<ThemeImage src='/img/maths-matmul-ranks.excalidraw.png' alt='matrix-multiplication-ranks' />
