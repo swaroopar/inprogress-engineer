@@ -1,0 +1,25 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# LoRA
+
+LoRA means Low Rank Adapter.
+It's a fine-tuning technique for large language models.
+The biggest advantage is that it uses a small number of parameters to store the fine-tuned weights.
+
+:::tip what's low rank?
+It's a matrix multiplication concept.
+Read more about [matrix ranks here](../mathematics/matrix-multiplication#rank-concept).
+:::
+
+Low rank in LoRA means,
+a matrix with a lower rank is used to store weights.
+It uses a matrix multiplication trick by compressing first into smaller dimension
+and then expanding into the actual dimension needed.
+
+<ThemeImage src='/img/ai-lora.excalidraw.png' alt='ai-lora' />
+
+:::important Using delta weights in inference
+
+1. The delta weights can already be added to the base model weights as a one-time operation.
+2. Or the addition can be performed as an additional step by the inference engine.
+   :::
