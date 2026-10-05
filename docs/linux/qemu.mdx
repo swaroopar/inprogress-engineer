@@ -1,0 +1,54 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# QEMU
+
+QEMU stands for Quick Emulator.
+It's a VMM that creates virtual machines using [KVM](./kvm) for CPU and memory and provides emulation other devices.
+
+## vCPU in virtual machines
+
+When a virtual machine is created in QEMU,
+we need to specify the number of CPUs the virtual machines sees.
+That's the vCPU count.
+The Guest OS assumes that these are the physical CPUs available.
+The scheduler of the OS then schedules one thread at a time on each vCPU.
+
+:::important how QEMU handles vCPU?
+Every vCPU is a thread started by QEMU and also refers to a CPU context.
+CPU context is a data structure that contains the state of the
+CPU registers, program counter, stack pointer, and other relevant information.
+
+When the vCPU thread is started on host, it first executes the boot process
+and then enters the main loop of the guest OS.
+The thread is still the same but the instruction pointer comes from guest OS code.
+
+Every vCPU is just a thread inside the main QEMU process.
+:::
+
+:::tip instruction translation
+The guest OS sees the exact CPU type and generates instructions for that CPU.
+No additional translation of instructions is required.
+:::
+
+<ThemeImage src='/img/linux-qemu.excalidraw.png' alt='qemu' />
+
+## Device Emulators
+
+Except for CPU and memory, all other devices are emulated by QEMU.
+The device emulation follows the same [device manager](./device-manager) concept.
+
+In this case, the device managers are mostly memory structures such as queues.
+On one side the guest OS writes data to these queues.
+On the other side, the QEMU emulators process them on the host and write results back to the queues.
+
+:::danger only a high level model
+This is just a high level mental model.
+Every device is different and there are many internal details that aren't covered here.
+:::
+
+## VM Boot Process
+
+This follows the exact same process explained in [Linux Boot Process](./boot-process) document.
+The only difference is that the UEFI firmware is also provided by QEMU.
+
+<ThemeImage src='/img/linux-qemu-process.excalidraw.png' alt='qemu' />

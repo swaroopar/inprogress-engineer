@@ -1,6 +1,6 @@
 # Rings
 
-This is an hardware protection enforced by the CPU based on the **execution context**.
+This is a hardware protection enforced by the CPU based on the **execution context**.
 It's nothing to do with kernel.
 It's a CPU protection feature that determines the context of execution and ensures strict separation.
 
@@ -8,6 +8,14 @@ It's a CPU protection feature that determines the context of execution and ensur
 Rings is a concept implemented and e by CPU.
 It's implemented differently in different CPU architectures.
 Kernel just uses this features and protects itself.
+:::
+
+:::danger Who sets the ring value?
+The ring value is set by the kernel when the process is first created.
+Its changed when there is a system call.
+
+The ring value is set in the specific register.
+This register is also copied to kernel's process structure whenever there is a context switch.
 :::
 
 ## Execution context
