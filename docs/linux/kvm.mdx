@@ -1,0 +1,25 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# KVM
+
+KVM stands for Kernel-based virtual machine.
+It provides all system call methods that the userspace VMM applications can use to enable virtualization on the host.
+
+KVM provides two main functions.
+One is to control the CPU to run virtual machines threads.
+Other is to provide memory mapping for the virtual machines.
+
+:::important why kernel based?
+KVM is a linux kernel module that's shipped together with the kernel itself.
+This converts the host into a hypervisor.
+:::
+
+:::danger CPU also must support
+It's not enough for the host to be running Linux kernel with KVM module.
+
+This is because the CPU has the concept of rings.
+In case of virtual machines, every VM also has its own kernel.
+Hence, the CPU must differentiate between the ring 0 of the host kernel itself and the guest kernel itself.
+:::
+
+<ThemeImage src='/img/linux-kvm.excalidraw.png' alt='kvm' />
