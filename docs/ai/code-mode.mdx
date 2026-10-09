@@ -1,0 +1,36 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# Code Mode
+
+This is a concept that really confuses sometimes.
+It aims to reduce loading all tool calls into the context
+and also provide a way to chain multi tool calls instead of LLM calling one after the other.
+
+:::important What's plain tool calls?
+An LLM generates a tool call with tokens that's just specifies the tool name and the parameters.
+This is LLM specific and harness parses it and forwards the call to the specific tool.
+
+The harness must send all available tool to the LLM with its description, parameters and return type.
+:::
+
+Code mode changes it.
+Instead of just generating plain tool calls,
+the LLM is given an execution tool which takes one single string input.
+This input is nothing but a code itself.
+
+<ThemeImage src='/img/ai-codemode.excalidraw.png' alt='codemode' />
+
+:::tip How the LLM knows which code to send?
+The harness generates an SDK for all the available external tools.
+The generated SDK is stored in an environment.
+When LLM asks for a tool, the tool's actual TS or PY function definition is sent.
+:::
+
+:::warning how tools are searched?
+To reduce the context consumption, the LLM is given the following information.
+
+1. A summary of connected systems.
+2. A search tool which takes a string as search text.
+3. The search tool does a semantic search on the available tools.
+4. Returns the function definition of all relevant tools.
+   :::
