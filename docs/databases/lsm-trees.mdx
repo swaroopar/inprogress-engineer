@@ -4,8 +4,13 @@ import { ThemeImage } from '../../src/components/ThemeImage';
 
 Log-Structured Merge-tree is a data structure that's optimized for write-heavy workloads.
 
+:::important LSM trees vs B-Trees
+LSM Trees are replacements for B-Trees.
+Both provide indexing for data on disk.
+:::
+
 :::tip B-Trees are optimized for read-heavy workloads.
-B-Trees are really good for reads.
+B-Trees are perfect for reads.
 When it comes to writes though, the index needs to be updated
 and data has to written to the disk.
 Sometimes even multiple pages needs to be updated when index re-balances.
@@ -19,8 +24,8 @@ Sometimes even multiple pages needs to be updated when index re-balances.
 
 ## How SST works?
 
-- Each table has it's own set of SSTables
-- Every file has string stored data.
+- Each table has its own set of SSTables
+- Every file has string sorted data.
 - Sorting happens based on the key specified for the table.
 - An SSTables spans across multiple disk pages.
 - There exists also an index in each SSTables file which says which range of entries are on which page.
@@ -43,6 +48,11 @@ Every insert just re-adjusts the tree.
 - **Reading** is also always non-blocking because reads are go the old mem-tables until they're flushed to L0.
   Even for other levels, the read queries goes via old bloom filters and old SSTables
   until the flush and compaction has created new files and deleted the old ones.
+
+:::danger what's compaction?
+The WAL based logic keeps appending updates and deletes to the mem-table.
+Compaction is where the changes are updated and the latest state is written to files.
+:::
 
 :::important Internal implementation details
 Even though every compaction leads to a new SSTable file created,
