@@ -18,16 +18,6 @@ Below is a comparison on how different tools use CDP.
 
 <ThemeImage src='/img/browser-automation-tools.excalidraw.png' alt='cdp clients' />
 
-OpenClaw is an interesting variant.
-The browser extension uses the JS client to connect to the CDP.
-Customization is the relay server which runs on the host.
-OpenClaw sends all requests to this relay server.
-The extension is just another JS application running in the browser runtime.
-It has logic to open a connection to the relay server.
-This is the connection status what we see on the extension UI.
-OpenClaw then sends all requests through the relay server
-which converts them to CDP requests and sends them to the browser.
-
 :::warning Web drivers in Selenium
 Web drivers are set of HTTP end points used by Selenium to control the browser.
 Web drivers are standards which are implemented for all browsers.
@@ -40,3 +30,16 @@ The received events aren't sent back to Selenium like it's done in Playwright.
 Not all browsers provide ways to access CDP protocol externally.
 Playwright provides its own browsers that expose CDP protocol externally.
 :::
+
+### OpenClaw Example
+OpenClaw is an interesting variant.
+The browser extension written in JS has the client to connect to the CDP.
+
+Interesting customization is the relay server which runs on the host.
+OpenClaw sends all requests to this relay server.
+
+The browser extension has logic to open a connection to the relay server.
+This is the connection status what we see on the extension UI.
+OpenClaw then sends all requests to the relay server
+which converts them to CDP requests.
+It streams these requests to the extension which is already holding the connection to the relay server.
