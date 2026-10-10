@@ -44,3 +44,8 @@ This is the connection status what we see on the extension UI.
 OpenClaw then sends all requests to the relay server
 which converts them to CDP requests.
 It streams these requests to the extension which is already holding the connection to the relay server.
+
+:::warning why use extension?
+Playwright by default opens a new browser session.
+In case of OpenClaw, it's important to use an existing browser sessions.
+:::
