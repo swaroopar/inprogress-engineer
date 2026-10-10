@@ -1,0 +1,51 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# CDP
+
+CDP stands for Chrome DevTools Protocol.
+It's a JSON based protocol with methods that spans across all possible actions that can be done in a browser.
+
+:::tip CDP used from different clients
+CDP protocol is exposed from the browser for different clients.
+It can be accessed externally as well as internally from the browser itself.
+:::
+
+<ThemeImage src='/img/browser-cdp-access.excalidraw.png' alt='cdp clients' />
+
+## Different tools uses CDP differently
+
+Below is a comparison on how different tools use CDP.
+
+<ThemeImage src='/img/browser-automation-tools.excalidraw.png' alt='cdp clients' />
+
+:::warning Web drivers in Selenium
+Web drivers are set of HTTP end points used by Selenium to control the browser.
+Web drivers are standards which are implemented for all browsers.
+
+These end points interact with the browser using CDP and also receives events.
+The received events aren't sent back to Selenium like it's done in Playwright.
+:::
+
+:::info why playwright provides its own browsers?
+Not all browsers provide ways to access CDP protocol externally.
+Playwright provides its own browsers that expose CDP protocol externally.
+:::
+
+### OpenClaw Example
+
+OpenClaw is an interesting variant.
+The browser extension written in JS has the client to connect to the CDP.
+
+Interesting customization is the relay server which runs on the host.
+OpenClaw sends all requests to this relay server.
+
+The browser extension has logic to open a connection to the relay server.
+This is the connection status what we see on the extension UI.
+OpenClaw then sends all requests to the relay server
+which converts them to CDP requests.
+It streams these requests to the extension which is already holding the connection to the relay server.
+
+:::warning why use extension?
+Playwright by default opens a new browser session.
+In case of OpenClaw, it's important to use an existing browser sessions.
+:::
