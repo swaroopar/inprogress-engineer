@@ -1,0 +1,65 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# WASM
+
+WASM stands for Web Assembly.
+Another topic that's confusing when we take the name literally.
+
+It's not a programming language.
+WASM means **assembly language for the web**.
+It's a low-level assembly like language that runs in the browser.
+
+<ThemeImage src='/img/javascript-wasm-generation.excalidraw.png' alt='wasm-generation' />
+
+:::tip WASM aimed initially at web
+The main goal of WASM was to run code that's already written in different languages in browser.
+There was no point in porting the entire code to JS.
+WASM compiler instead took the original code and generated WSAM code for it.
+
+Browser then provided two runtimes. One for JS and one for WASM.
+:::
+
+## WASM Compiler and Engine
+
+WAS Compiler generates code that's already assembly like.
+This is why it's called assembly and near-native.
+
+The engine does minimal work to generate the native code at runtime.
+
+:::important WASM is a sandbox
+When executed, WASM is only an engine since it only knows how to parse WSAM files.
+The engine only runs computational code.
+Anything else such as for example., loading a file must come from the host environment.
+
+This is exactly why we say WASM is a sandbox by default.
+:::
+
+:::danger what's host environment?
+Host environment is the parent runtime that runs the WASM engine.
+For example, in a browser, the host environment is the browser itself.
+It provides all other functions that the WASM compiled code needs.
+:::
+
+## Using Host Functions
+
+It's important to understand how the host functions exchange data with the WASM engine.
+It happens all via the memory.
+
+<ThemeImage src='/img/javascript-wasm-hostfunction.excalidraw.png' alt='wasm-host-function' />
+
+:::warning How host functions are linked?
+When the WSAM engine is instantiated,
+all the allowed functions of the host is added to a list that's passed to the engine's constructor.
+
+These are nothing but the function references.
+When the function is called, the engine knows that it's the scope of the host and pauses.
+The engine then schedules the host function in the instruction pointer to run.
+:::
+
+## QuickJS
+
+QuickJS is what makes things even more interesting and confusing.
+
+QuickJS is a JS runtime. It can parse JS code and execute.
+It's written in C and compiled to WASM.
+Meaning, we pass the actual JS code to QuickJS, and it will execute it for us inside the WASM sandbox.
