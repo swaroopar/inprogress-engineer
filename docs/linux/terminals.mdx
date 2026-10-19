@@ -6,6 +6,11 @@ Terminals are desktop applications, like a browser.
 A browser can open many web apps.
 In the same way, a terminal can open many apps, such as bash, nushell, zsh, or even a python REPL.
 
+:::tip Which process does the user interact with?
+What the user sees and interacts with, is the terminal process.
+The terminal process then speaks to the shell process via the PTY.
+:::
+
 <ThemeImage src='/img/terminal-shell.excalidraw.png' alt='terminal-shell' />
 
 :::important terminal is what you choose
@@ -116,3 +121,151 @@ and then starting the tmux on it and then executing commands.
 Next time when we SSH, we can directly attach again to the same tmux session
 and continue from where left off.
 :::
+
+### Running multiple panes in non-shell applications
+
+When herdr or tmux application started from the terminal,
+it just paints the entire terminal window.
+Meaning, every location of the window is written by the herdr or tmux client process.
+
+The non-shell application then start shell as child process.
+Without this there is no way to interact with the CLI application.
+
+:::danger Feeling of multiple terminals
+Even though it looks like multiple terminals for the user,
+the application is actually updating the entire window as one single entity.
+:::
+
+<ThemeImage src='/img/linux-terminal-start-process.excalidraw.png' alt='tmux' />
+
+## Glyphs and Character Codes
+
+The application only writes the character codes to the terminal.
+The terminal then renders the character codes with the font it has.
+
+:::warning ANSI Escape Characters for output format
+Terminal application only write data. They use Unicode to write data.
+
+These applications only write ANSI escape character to control how the lines are displayed.
+Everything that follows the escape character is a command and not the data itself.
+The actual font based rendering is done by the terminal itself.
+
+Example - \x1b[38;2;0;0;181m
+:::
+
+:::important what's a glyph?
+Glyph is a Greek word for carving.
+In computing, it's a visual representation of a character code.
+:::
+
+## Handover of data between terminal, kernel and application
+
+Consider the terminal application only reads and writes to the file descriptor of the master device.
+The kernel acts the device driver of this device.
+It then forwards the data to the slave device which is connected to the application.
+The slave device acts as the stdio and stderr channels for the application.
+
+<!-- markdownlint-disable MD013-->
+
+```mermaid
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "fontFamily": "'JetBrains Mono', 'Fira Code', 'SF Mono', Menlo, Consolas, monospace",
+    "fontSize": "13px",
+    "actorBkg": "#ffffff",
+    "actorBorder": "#1e1e1e",
+    "actorTextColor": "#1e1e1e",
+    "actorLineColor": "#868e96",
+    "signalColor": "#e03131",
+    "signalTextColor": "#1e1e1e",
+    "noteBkgColor": "#fff3bf",
+    "noteBorderColor": "#f08c00",
+    "noteTextColor": "#1e1e1e"
+  },
+  "themeCSS": ".actor { rx: 14px; ry: 14px; stroke-width: 2px; } .note { rx: 10px; ry: 10px; stroke-width: 2px; } rect.rect { rx: 12px; ry: 12px; }",
+  "sequence": {
+    "mirrorActors": false,
+    "actorMargin": 60,
+    "width": 190,
+    "boxMargin": 10,
+    "noteMargin": 10,
+    "messageMargin": 32
+  }
+}}%%
+sequenceDiagram
+    participant LA as Launcher's device<br/>(/dev/null or other terminal)
+
+    box rgb(165,216,255) Ghostty process
+        participant GIO as fd 0, 1, 2<br/>(Ghostty's own stdio)
+        participant G as fd 9<br/>(master fd)
+    end
+
+    box rgb(208,191,255) Kernel pty driver - two linked tty_structs
+        participant MT as MASTER tty_struct<br/>/dev/ptmx<br/>own handlers + own input buffer<br/>(pass-through, no editing)
+        participant ST as SLAVE tty_struct<br/>/dev/ttys004<br/>own handlers + own input buffer<br/>+ line discipline (n_tty)
+    end
+
+    box rgb(178,242,187) Child process - forked by Ghostty
+        participant P as fd 0, 1, 2<br/>(stdin, stdout, stderr)
+    end
+
+    Note over LA,GIO: Ghostty's own stdio is inherited from whatever launched it.<br/>It is NOT the pty.
+    GIO-->>LA: fd 0, 1, 2 point here (Ghostty logs go here)
+
+    rect rgba(116,192,252,0.30)
+    Note over G,P: SETUP: new tab opens, Ghostty creates the pty and starts the shell
+
+    G->>MT: open("/dev/ptmx")
+    Note over MT,ST: Kernel allocates TWO tty_structs and links them (tty->link).<br/>No shared buffer, each has its own input buffer.
+    MT-->>G: returns master fd, say 9<br/>(its own open file description pointing to the master)
+
+    G->>MT: grantpt(9), unlockpt(9)
+    Note over MT,ST: fixes slave permissions and unlocks the slave so it can be opened
+
+    G->>MT: ptsname(9)
+    MT-->>G: returns path "/dev/ttys004" (path of the slave)
+
+    G->>P: fork()
+    Note over P: child starts as a copy of Ghostty.<br/>It inherits fd 9 and Ghostty's stdio.
+
+    P->>P: setsid()<br/>new session, no controlling terminal yet
+
+    P->>ST: open("/dev/ttys004")
+    Note over ST,P: slave opened, say as fd 5.<br/>It becomes the controlling terminal of the session<br/>(automatic on Linux, ioctl TIOCSCTTY on macOS/BSD).
+
+    P->>P: dup2(5, 0), dup2(5, 1), dup2(5, 2), close(5), close(9)
+    P-->>ST: fd 0, 1, 2 now all point to the slave<br/>(child no longer holds the master)
+
+    P->>P: exec("zsh") or exec("cat")
+    Note over P: program is replaced, but the fd table survives exec.<br/>zsh never opens the pty itself, it just uses fd 0, 1, 2.
+    end
+
+    Note over G,MT: From now on fd 9 is Ghostty's only link to the pty.
+
+    rect rgba(105,219,124,0.30)
+    Note over G,P: Backspace in canonical mode (cat)
+    G->>G: GUI key event Backspace becomes byte 0x7F
+    G->>MT: write(9, 0x7F)<br/>master's pty_write handler runs
+    MT->>ST: byte pushed into SLAVE's input buffer
+    Note over ST: line discipline processes it:<br/>0x7F is the erase char,<br/>remove last char from line buffer
+    ST->>MT: ECHO: "\b \b" goes out through slave's write path<br/>and is pushed into MASTER's input buffer
+    MT-->>G: read(9) drains master's input buffer, returns "\b \b"
+    Note over G: move cursor left in cell grid,<br/>blank the cell, redraw
+    end
+
+    rect rgba(255,169,77,0.30)
+    Note over G,P: Enter: the program finally gets the line
+    Note over P,ST: cat is blocked in read(0), waiting on the slave's input buffer
+    G->>MT: write(9, "\n")
+    MT->>ST: byte pushed into SLAVE's input buffer
+    Note over ST: line discipline: line complete,<br/>"hello\n" becomes readable
+    ST->>MT: ECHO: "\r\n" pushed into MASTER's input buffer
+    ST->>P: read(0) returns "hello\n"
+    P->>ST: write(1, "hello\n")<br/>fd 1 is the slave
+    Note over ST: output processing: \n becomes \r\n
+    ST->>MT: "hello\r\n" pushed into MASTER's input buffer
+    MT-->>G: read(9) drains master's input buffer
+    Note over G: draw the text on screen
+    end
+```
