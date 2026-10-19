@@ -10,10 +10,10 @@ The main thread can always get the explicitly set seccomp filter.
 :::
 
 :::danger seccomp vs Resource Control Group
-[Resource cgroups control](./control-groups#device-control-group) which resources can be used.
+[Resource cgroups](./control-groups#device-control-group) control which resources can be used.
 For every device we use the same system call such as read() or write() or open().
 
-This where the difference comes in.
+This is where the difference comes in.
 seccomp filters if the system call is allowed at all.
 If allowed at all,
 then the resource control group checks if the system call for the specific resource or device is allowed at all.

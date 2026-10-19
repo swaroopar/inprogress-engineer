@@ -10,8 +10,6 @@ Docker daemon is now a thin layer that orchestrates.
 
 Docker daemon is the orchestrator for container operations.
 The docker CLI is just a client to communicate with the docker daemon.
-It does the docker specific network configuration.
-Then uses the network details in the containerd request.
 
 :::info Comparison with kubelet
 We must understand how kubelet orchestrates CNI, CDI, CSI and finally the CRI
@@ -32,22 +30,24 @@ and writes JSON responses back to the socket.
 By default, docker daemon listens on a Unix socket located at `/var/run/docker.sock`.
 See [Unix Domain Sockets](../linux/sockets.mdx#unix-domain-sockets) for more details.
 
-This can be changed to configured to listen on TCP sockets as well.
+This can be changed to listen on TCP sockets too.
 In this case, even remote docker clients can connect to the docker daemon over the network.
 
 ## Ways of running Docker daemon
 
 1. **As root** - Here the docker daemon runs as root and has full access to the host system.
-   the docker CLI forwards the request to this daemon which configures everything.
 2. **As root but with user namespace** - The docker daemon is started with user namespace config enabled.
-   In this case, the users in the namespace are mapped to a non-root user on the host system.
+   In this case, the users in the container namespace are mapped to a non-root user on the host system.
 3. **rootless docker** - In this case, the docker daemon runs as a non-root user and has limited access to the host system.
-   This changes everything. Docker networking for example can't be used as before.
+   This changes everything. For example, Docker networking can't be used as before.
 
 :::important User namespace not used by default
 Docker containers don't have a separate user namespace by default.
 It shares the host's user namespace.
 Without this, accessing files on the host becomes tricky due to mismatch of UID and GIDs.
+
+Running containers as root is unsafe.
+The Docker daemon handles this by starting processes with limited [linux capabilities](../linux/capabilities).
 :::
 
 <ThemeImage src='/img/containers-control.excalidraw.png' alt='containers-control' />
