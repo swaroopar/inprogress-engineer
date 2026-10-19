@@ -44,3 +44,8 @@ Unicode standards also defines properties such as uppercase, lowercase, digit, L
 
 These properties are then exposed by programming languages in different ways.
 For example, in Java, the `Character` class has methods such as `isUpperCase()`, `isLowerCase()`, `isDigit()`, etc.
+
+:::warning Handling control characters
+Unicode also contains control characters such as NL, CR, LR, ESC, etc.
+The application has to handle when control characters as required.
+:::
