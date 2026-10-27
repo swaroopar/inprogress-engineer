@@ -1,0 +1,21 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# SSO
+
+SSO stands for single sign-on.
+It doesn't refer to any standards.
+Only refers to the process.
+
+:::tip Reason for the name.
+SSO means, we only have a **single** signing in step required to access multiple related applications.
+:::
+
+It's build on OIDC.
+The only additional step it provides is the storage of the session details when the first OIDC auth happens.
+This session detail is stored in the browser as a cookie.
+When another application protected by the same browser is opened, then the cookie is automatically sent.
+
+The identity provider then receives the cookie, directly validates it
+and returns the OIDC tokens to the second application.
+
+<ThemeImage src='/img/security-sso.excalidraw.png' alt='SSO' />

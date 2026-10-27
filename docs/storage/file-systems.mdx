@@ -56,7 +56,7 @@ It then gets the files and directories.
 ### Mounting a filesystem
 
 The filesystem information always lives in the OS files.
-This holds whether or not the disk is present.
+This holds whether the disk is present.
 The files become reachable only after you mount the disk. They sit at the address in the inode structure.
 
 Mounting a filesystem just means its storage is now open for the kernel to access.
@@ -65,8 +65,8 @@ Mounting a filesystem just means its storage is now open for the kernel to acces
 
 ### Device Drivers
 
-These are the common methods the filesystem code calls, such as ext4 or NTFS. They work for any device.
-If the disk is an SCSI disk, the SCSI driver is used.
+These are the implementation of the common methods that the kernel calls when we interact with a file.
+If the disk is a SCSI disk, the SCSI driver is used.
 
 ### Storage Firmware
 
