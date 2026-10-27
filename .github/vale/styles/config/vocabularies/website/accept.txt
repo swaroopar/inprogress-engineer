@@ -239,3 +239,4 @@ multibyte
 idx
 OpenClaw
 herdr
+Frankenprompt

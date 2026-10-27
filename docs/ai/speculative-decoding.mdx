@@ -22,3 +22,14 @@ Speculative decoding is a technique to generate multiple tokens at once.
 
 2. MTP (Multi Token Prediction) is an LLM architecture with a separate MTP module.
    This module is trained to predict multiple future tokens.
+
+## DFlash 1 vs DFlash 2
+
+Both drafters propose a batch of next tokens.
+The main model selects one or more or all tokens from the proposed batch.
+
+In DFlash 2, additionally the score for each position is provided based on how well it fits the adjacent token.
+
+:::important configuration to control the size of proposed tokens
+The model has a parameter where we can configure the number of tokens to be proposed by the drafter.
+:::

@@ -35,6 +35,13 @@ that it becomes easy to remember and stays in memory longer.
 
 8. **Forward Pass** - It's the entire flow that's executed to generate the next token.
 
+9. **Frankenprompt** - It's prompt that's created by stitching together multiple prompts to create a new prompt.
+   For every new thing that's learnt, we add a new line to the prompt.
+
+10. **progressive disclosure** - It's about adding more information to the context as needed.
+    This is what's done with skills. The skill description is loaded only when required.
+    Same is with tool search.
+
 :::important What's an agent?
 Agent is the LLM plus the entire system surrounding it - Chat bot, tools, databases, memory, etc.
 :::
