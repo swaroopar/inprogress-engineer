@@ -16,7 +16,7 @@ The producer and consumer processes connect to the daemon through these sockets.
 Each connection to the DBus daemon socket creates two file descriptors.
 One is for reading. One is for writing.
 
-As we saw in [file descriptors](../storage/file-descriptors.mdx),
+As we saw in [file descriptors](../linux/file-descriptors.mdx),
 each connection to a file creates a file descriptor.
 That's how each connection becomes full duplex.
 

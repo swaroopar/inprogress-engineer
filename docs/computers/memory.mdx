@@ -1,9 +1,15 @@
 import { ThemeImage } from '../../src/components/ThemeImage';
 
-# RAM
+# Memory
 
 Random Access Memory (RAM) is a type of computer memory that can be accessed randomly.
 This means, any random byte can be addressed and accessed without any need to read the preceding bytes.
+
+## Memory initialization
+
+It happens during boot.
+The BIOS code executed by the CPU reads the memory configuration from chip on RAM.
+It uses this to initialize the memory controller in the CPU.
 
 ## Physical Properties
 
@@ -11,7 +17,7 @@ This means, any random byte can be addressed and accessed without any need to re
 
 1. **Channels** - It's the number of data paths between the RAM and the CPU.
    More channels mean more data can be transferred simultaneously.
-   Dual channel means two channels are used but we must use two identical RAM sticks for this to work.
+   Dual channel means two channels are used, but we must use two identical RAM sticks for this to work.
 2. **DIMM** - Dual In-line Memory Module is a type of RAM that has pins on both sides of the module.
    These pins work independently, allowing for more data to be transferred at once.
 3. **Chips** - The chips on the RAM module are the actual memory cells that store data.
@@ -24,7 +30,7 @@ This means, any random byte can be addressed and accessed without any need to re
 5. **Bank** - Each chip is then divided into multiple banks.
    This is a physical division of the memory cells into 2-D arrays inside the chip.
 6. **Bank Group** - It's a logical grouping of banks inside a chip
-   but achieved by the physical dedicated circuits that allow simultaneous access to banks in different groups.
+   but achieved by the physical dedicated circuits that allow simultaneous access to bank in different groups.
 
 :::warning no firmware
 The RAM stick itself doesn't contain any firmware.
@@ -59,7 +65,7 @@ This means, the generated address will be in the form of a rank, bank, row, and 
 When the address is decoded, all banks in the rank will get the same signal.
 All banks will have the same row and column selected.
 
-The values from all banks are concatenated to form the full 64 bit data.
+The values from all banks are concatenated to form the full 64-bit data.
 :::
 
 ## Memory Cell

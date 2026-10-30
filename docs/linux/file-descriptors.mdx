@@ -2,11 +2,21 @@ import { ThemeImage } from '../../src/components/ThemeImage';
 
 # File Descriptor
 
-A file descriptor is an integer. It uniquely identifies an open file or other I/O resource in a process.
+A file descriptor is an integer.
+It uniquely identifies an open file or other I/O resource in a process.
 The kernel uses it to manage access to
 files, devices, pipes for IPC, sockets for the network, and more.
 
-Essentially, anything that can be "opened" for I/O operations.
+Essentially, anything that implements the methods prescribed by the kernel can be accessed via a file descriptor.
+
+:::danger file descriptors vs system calls
+These can be seen as two different ways to ask kernel to do something for us.
+System calls need a number which must be then be implemented across different architectures.
+
+Files where as needs only to implement the standard methods described.
+Behind the file can be anything.
+For example, in case of KVM module, the file descriptor is used to talk to the kernel module.
+:::
 
 ## C Structures
 
@@ -17,15 +27,18 @@ That's just the file descriptor table.
 This table maps each file descriptor ID to
 a pointer to the matching **file** structure.
 
-<ThemeImage src='/img/vfs-linux.excalidraw.png' alt='file descriptors' />
+<ThemeImage src='/img/linux-vfs.excalidraw.png' alt='file descriptors' />
 
 :::tip file structure
 The **file** structure stands for an open file.
 It's also called the **open file description**.
-It has pointers to the matching [**inode**](./inodes.mdx) structure.
+It has pointers to the matching [**inode**](../storage/inodes.mdx) structure.
 It also has pointers to the operations you can run on it.
 
-One file can have many file structures if it's opened many times.
+Every process has a link to the file descriptor table.
+This table is map with key as the file descriptor ID and the corresponding file structure.
+
+One file object created every time a file is opened.
 This helps when many processes read the same file from different offsets.
 :::
 
@@ -68,7 +81,7 @@ That number picks the device driver for the device.
 This includes character files like keyboards, mice, printers, and terminals.
 It also includes block devices like hard disks, RAM, CD/DVD, and USB.
 
-More information can be found at [virtual file systems](./virtual-file-systems.mdx).
+More information can be found at [virtual file systems](../storage/virtual-file-systems.mdx).
 
 :::important All real interaction is via /dev
 Any read or write to a device goes through the device file in /dev.

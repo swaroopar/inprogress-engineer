@@ -1,0 +1,59 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# Virtualization
+
+The main missing mental model here is the CPU virtualization.
+
+:::important how Firmware/BIOS is used?
+
+Every machine needs the firmware to run at boot.
+In case of virtual machines, they're just regular files available on the host machine.
+The hypervisor reads the firmware file and loads it into the virtual machine's memory.
+
+The vCPU is started by executing this code.
+:::
+
+## Physical vs Virtual Boot
+
+:::warning State in CPU
+Whenever CPU is powered on, it starts with certain reset values in its state registers.
+This sets the instruction pointer to address 0xFFFFFFF0.
+
+How this firmware's code reaches from this address to the CPU is different
+in case of physical machine and virtual machine.
+:::
+
+<ThemeImage src='/img/computer-virtualization-boot.excalidraw.png' alt='vm-boot' />
+
+:::tip how VM disk works?
+The VM also probes the disk like mentioned in the [Grub Document](../linux/grub#execution-process).
+The difference is that the disk is a file on the host machine.
+
+virtio-blk device calls are handled by QEMU to return as if it's a real block device behind it.
+:::
+
+## VMCS
+
+VMCS stands for virtual machine control structure.
+This is a requirement of the CPU to support virtual machine.
+
+Important mental model for VMCS is the following.
+
+1. It's an object in memory whose structure must follow CPU's guidelines.
+2. When a thread of a vCPU is scheduled, then the hardware of CPU loads register states from VMCS.
+
+## EPT
+
+Enhanced Page Tables (EPT) is a feature of CPU to support virtual machines.
+When it's a vCPU thread, then the page table address translation goes through another level of translation.
+
+This is necessary to ensure all reads are routed to the host memory and not directly to any device.
+
+## Why is firecracker fast?
+
+All what the firmware and bootloader does is to discover the hardware and initialize the memory and CPU state.
+This is all done so that the kernel can take over from there on.
+
+Firecracker exactly changes this.
+It prepares the CPU state in VMCS, constructs the EPT with all necessary devices.
+It then directly starts schedules the kernel code in the vCPU thread.
