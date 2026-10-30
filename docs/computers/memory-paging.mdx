@@ -27,10 +27,18 @@ This is just the address of the first byte in the 4KB memory page.
 Whenever CPU reads or writes to a memory address,
 it's not referring to the actual address in the physical memory (RAM).
 
-Instead it's referring to the virtual address pointer and
+Instead, it's referring to the virtual address pointer and
 then uses MMU (Memory Management Unit) to translate it to the actual physical address pointer.
 
 <ThemeImage src='/img/computer-memory-pages.excalidraw.png' alt='page table' />
+
+:::tip Kernel pages vs application pages
+The page table also contains kernel pages which aren't accessible to the application.
+These are the same shared pages such as the MMIO of the devices that's attached to page table for all processes.
+
+The kernel pages are in supervisor mode.
+Meaning only kernel mode code can touch them.
+:::
 
 ## Page Fault Types
 
@@ -122,7 +130,7 @@ Swapping is moving data out of RAM to allow space for other processes.
 
 <ThemeImage src='/img/page-swap.excalidraw.png' alt='swapping-oom' />
 
-:::danger not to be confused with page cache
+:::danger page cache is a different topic
 Page cache is a completely different topic.
 It's about caching disk data into memory to avoid frequent disk IO.
 

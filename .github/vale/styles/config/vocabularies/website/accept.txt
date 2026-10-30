@@ -240,3 +240,4 @@ idx
 OpenClaw
 herdr
 Frankenprompt
+multicore

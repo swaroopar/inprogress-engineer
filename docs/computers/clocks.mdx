@@ -2,7 +2,7 @@
 
 A clock or a cycle in the CPU is the maximum time needed for the longest digital circuit to finish its work.
 
-:::tip Example Digital circuits
+:::tip Digital circuits examples
 Digital circuits such as AND, OR and XOR don't provide an output immediately.
 They have multiple components and multiple levels.
 The caller must know when they can be sure that the execution is complete.
@@ -17,7 +17,7 @@ Smaller the circuits, faster the CPU speed.
 3. Synchronization - To synchronize the data transfer between different components.
 
 :::important Metronome for CPU
-Metronome is a the tool that sends beats at regular intervals.
+Metronome is a tool that sends beats at regular intervals.
 In case of CPU, this is the beat at which each step of the CPU's pipeline is completed.
 
 See it as an assembly line of factory which just does steps at specific time intervals.
@@ -32,11 +32,11 @@ CPU uses the entire sequence of voltage pattern to read all bits of a byte.
 
 ## Multiple clock speeds
 
-There exists just one clock on the motherboard but each component uses this clock to setup it's own clock speed.
+There exists just one clock on the motherboard but each component uses this clock to set up its own clock speed.
 
-CPU - This is the fastest component and can work with components of lower speeds.
-RAM - This is slower than the CPU but faster than most other components.
-The memory controllers knows the RAM speed from it's SPE and
-configures itself to work according to that speed.
-IO Devices - Each operate at their own speeds.
-Controllers of each device ensures the data is transferred at the correct speed.
+1. CPU - This is the fastest component and can work with components of lower speeds.
+2. RAM - This is slower than the CPU but faster than most other components.
+   The memory controllers knows the RAM speed from it's SPE and
+   configures itself to work according to that speed.
+3. IO Devices - Each operate at their own speeds.
+   Controllers of each device ensures the data is transferred at the correct speed.

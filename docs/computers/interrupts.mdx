@@ -2,6 +2,17 @@ import { ThemeImage } from '../../src/components/ThemeImage';
 
 # Interrupt Handlers
 
+:::warning Why we need interrupt handlers?
+This is a CPU feature.
+CPU executes whatever code is available at the instruction pointer.
+It can't simply directly handover or call the kernel code like a function call.
+
+It will use its hardware circuits to copy existing CPU state to a stack
+and also update the interrupt handler's memory location to the instruction pointer register itself.
+:::
+
+<ThemeImage src='/img/computer-cpu-interrupt-handler.excalidraw.png' alt='interrupt handlers' />
+
 ## Interrupt Vector Table
 
 This table maps each interrupt id to the **address** of its handler.
@@ -13,6 +24,7 @@ It's called a vector table because this table shows the direction where to go.
 ## Hardware Interrupts
 
 For hardware interrupts, the table holds the list of device drivers.
+Interrupt handlers are part of the device driver.
 
 1. During boot, the BIOS reads each device's config needs.
    It assigns an IRQ ID to each device and stores it in the config space.
@@ -43,3 +55,7 @@ IRET is the instruction that switches the CPU mode back to user mode.
 :::
 
 <ThemeImage src='/img/software-interrupt-handler.excalidraw.png' alt='system call' />
+
+## Inter Processor Interrupts
+
+This interrupt is created by the processor hardware itself for other processors in the same computer.

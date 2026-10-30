@@ -3,7 +3,7 @@ import { ThemeImage } from '../../src/components/ThemeImage';
 # Files
 
 It's important to understand file management since everything is a file in Unix.
-Also since all IO involves files, understanding the foundation of it's necessary in building
+Also since all IO involves files, understanding the foundation of its necessary in building
 high-performance applications.
 Everything in this document can be applied to all IO and not just regular hard disk files.
 
@@ -81,13 +81,13 @@ to and from JVM memory.
 ## Stream vs Buffer
 
 :::important IO Stream in Kernel
-Streams in Java are nothing but the operating system's IO using [file descriptors](../storage/file-descriptors.mdx).
+Streams in Java are nothing but the operating system's IO using [file descriptors](../linux/file-descriptors.mdx).
 
 For example, when a file input stream is opened then the corresponding file descriptor is created.
 A **read** call on the file descriptor then reads the file associated with the file descriptor.
 :::
 
-Streams don't have any memory. They must be routed to an other output to process data such as
+Streams don't have any memory. They must be routed to another output to process data such as
 buffer, system out, array, etc.
 This means, when data is provided by the **read** system call, it's only reading one byte at a time.
 
@@ -95,7 +95,7 @@ This means, when data is provided by the **read** system call, it's only reading
 
 When streams are used without buffers,
 the kernel doesn't copy data between two memory spaces.
-Instead for every byte a function call is done to kernel and kernel returns the next byte.
+Instead, for every byte a function call is done to kernel and kernel returns the next byte.
 
 In case of buffers, the address of the buffer is passed to kernel and kernel copies data to that
 buffer directly as part of system call.
