@@ -241,3 +241,5 @@ OpenClaw
 herdr
 Frankenprompt
 multicore
+totient
+coprime

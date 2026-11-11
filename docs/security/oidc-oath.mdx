@@ -77,4 +77,13 @@ Here the client is also authenticated/identified but no OIDC flow is involved.
 Client in OAuth always means a machine.
 Only user means a human user.
 This is why the client_id and client_secret are always for a machine.
+
+Even in case of **authorization code** grant method that has end user involved, the client is still a machine.
 :::
+
+## PKCE in authorization code
+
+PKCE stands for Proof Key for Code Exchange.
+This is an additional security layer for the authorization code flow.
+
+<ThemeImage src='/img/security-oauth-pkce.excalidraw.png' alt='pkce' />

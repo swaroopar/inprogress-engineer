@@ -1,0 +1,78 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# RSA
+
+RSA is a mathematical algorithm that's used for encryption and digital signatures.
+
+1. **Digital Signatures** - Hash of the text is signed using one key. The same is done on other side using other key.
+   The values must match.
+2. **Encryption** - The actual value itself is signed by one key. The other key is used to get back the original value.
+
+:::danger opposite directions
+In case of digital signatures, the private key is used to sign and public key is used to verify.
+
+Where as in case of SSL, the public key is used to encrypt and private key is used to decrypt.
+:::
+
+:::important how SSL and SSH works?
+In SSL and SSH, only the handshake uses this algorithm.
+The actual data is encrypted using symmetric encryption.
+A secret key is exchanged during the handshake and that key is used to encrypt the data.
+:::
+
+## Mathematics
+
+RSA uses **exponential modulus**.
+The actual data is exponentially multiplied on a modular clock.
+When the same base is multiplied with different values on a modular clock,
+they land on the same number.
+
+This is the trick used by RSA to ensure that the exact combination of private and public keys is necessary
+to land on the same location in the clock.
+
+The mathematical operations happens at two phases.
+
+1. During the key generation
+2. During encryption and decryption and also during signing and verification.
+
+:::important Locking and unlocking
+The main mathematical process is to run exponential of the hash value on a modular clock.
+
+1. **Locking** - run the modular exponentiation of the hash value with the private key on a modular clock.
+2. **Unlocking** - take this result and again run the modular exponentiation with public key on the same modular clock.
+   :::
+
+<ThemeImage src='/img/security-signing.excalidraw.png' alt='signing-rsa' />
+
+:::tip Content of the keys
+They're nothing but numbers.
+It's written in files in hexadecimal format.
+:::
+
+## Mathematics on text?
+
+The encryption and digital signatures are all performed on textual data.
+Actual text data is represented as numbers. The numbers are then used in the mathematical operations.
+
+<ThemeImage src='/img/security-rsa-math-on-text.excalidraw.png' alt='math-on-text' />
+
+## Number in the protocol name
+
+The number is the protocol name refers to the **size of the modulo number**.
+
+:::important how's modulo decided?
+The size is chosen first, as a design decision, and then the primes are picked to fit it.
+
+Decide the key size, for example 2048 bits.
+Generate two random primes of half that size: 1024 bits each.
+Multiply them. The product comes out with 2048 bits.
+:::
+
+## Euler Theorem
+
+1. For a value N, all coprime numbers of N are counted. This count is called the **Euler's totient** of N.
+2. If number **a** and **N** are coprime, then a^φ(N) leaves remainder 1 when divided by N.
+
+:::danger important terms
+co-prime - Two numbers are co-prime if they don't have any common factors except 1.
+:::
