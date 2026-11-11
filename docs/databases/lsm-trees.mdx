@@ -28,7 +28,8 @@ Sometimes even multiple pages needs to be updated when index re-balances.
 - Every file has string sorted data.
 - Sorting happens based on the key specified for the table.
 - An SSTables spans across multiple disk pages.
-- There exists also an index in each SSTables file which says which range of entries are on which page.
+- There exists also an **index** in each SSTables file which says which range of entries are on which page.
+- Index is used to fetch the exact offset within the SSTable.
 
 ## How Log-Structured file works?
 
