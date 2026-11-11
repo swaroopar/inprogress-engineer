@@ -1,0 +1,20 @@
+# Storage Engine
+
+Its very important to distinguish between the storage layer and the database layer.
+Examples of storage engine includes B-Trees and LSM.
+They take care of storing and retrieving data from the disks.
+How the retrieved data is represented to the client is left to the database layer.
+
+:::important RDBMS using KV Store
+This is a very good example to understand the difference.
+
+RocksDB implementes a KV storage engine using LSM.
+But the same engine can be used to implement a RDBMS.
+The value thats fetched is the full row and the database layer can decode it to the column structure it needs.
+:::
+
+:::important Database Layer
+It's the layer that provides us with features such as tables, rows, indexes, transactions, etc.
+They interact with the storage engine and its capabilites to provide the database features.
+:::
+
