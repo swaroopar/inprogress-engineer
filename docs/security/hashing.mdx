@@ -1,11 +1,15 @@
 # Hashing
 
-Hashing is a process of converting data to any fixed size output called hash or digest.
-Any small change in the input data results in a completely different output hash.
+Hashing is the process of converting data to a fixed size output called hash.
+Any small change in the input data results in a completely different hash.
 
 :::important One-way Only
 Hashing is a **one-way** process.
 We can't get the original data back from the hash.
+:::
+
+:::warning Mathematical Algorithm
+It uses a pure math algorithm on the data to build the hash.
 :::
 
 ## Use cases
@@ -15,11 +19,19 @@ We can't get the original data back from the hash.
 3. Verifying data integrity.
 4. Data shortening - For example, URL shortening.
 
+## SHA - Secure Hash Algorithm
+
+SHA256 algorithm produces a 256-bit hash of the original data.
+The output contains 256-bit array.
+
+Every 4 bit is represented by a hexadecimal character.
+Therefore, the data what we see at the end is 64 characters.
+
 ## HMAC - Hash-based Message Authentication Code
 
-HMAC is a specific type of hash that uses a secret key along with the data to produce a hash.
-This ensures that only parties with the secret key can verify the integrity of the data.
+HMAC is a specific type of hashing algorithm that uses a secret key along with the data to produce a hash.
+This ensures that only the parties with the secret key can verify the integrity of the data.
 
 :::tip Used for Authentication
-Since the HMAC involves a secret key, it's used for authentication purposes.
+Since HMAC uses a secret key, it works for user auth too.
 :::
