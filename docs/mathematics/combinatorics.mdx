@@ -70,6 +70,7 @@ The word combination is used so much daily that examples make it easy to remembe
 The combination formula is the same as the permutation one.
 It also removes the duplicates, since order doesn't matter.
 
+<!-- vale off -->
 $$
 \begin{aligned}
 _n C_k = \frac{n!}{k!(n-k)!}
@@ -77,6 +78,8 @@ _n C_k = \frac{n!}{k!(n-k)!}
 _n C_k = \frac{permutations}{\text {Number Of Permutations Per Combination}}  \text{ - The above formula is just same this.}\\
 \end{aligned}
 $$
+
+<!-- vale on -->
 
 :::warning Combination is permutations with grouping
 We group all permutations into groups, where each group corresponds to one unique combination of the items.
@@ -98,10 +101,10 @@ This is also called a **power set**.
 It contains the original set and an empty set.
 :::
 
-Let the set be $$S = \{a, b, c\}.$$
+Let the set be $$S = \lbrace a, b, c\rbrace .$$
 
-**1. Subsets (all sizes):** $$\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}.$$
+**1. Subsets (all sizes):** $$\emptyset, \lbrace a\rbrace , \lbrace b\rbrace , \lbrace c\rbrace , \lbrace a,b\rbrace , \lbrace a,c\rbrace , \lbrace b,c\rbrace , \lbrace a,b,c\rbrace .$$
 
-**2. Combinations (size 2):**$$\{a,b\}, \{a,c\}, \{b,c\}.$$
+**2. Combinations (size 2):** $$\lbrace a,b\rbrace , \lbrace a,c\rbrace , \lbrace b,c\rbrace .$$
 
-**3. Permutations (size 2):**$$(a,b), (b,a), (a,c), (c,a), (b,c), (c,b).$$
+**3. Permutations (size 2):** $$(a,b), (b,a), (a,c), (c,a), (b,c), (c,b).$$

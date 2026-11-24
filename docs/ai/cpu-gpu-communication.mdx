@@ -6,7 +6,8 @@ import { ThemeImage } from '../../src/components/ThemeImage';
 
 In all other peripherals, CPU does the data processing
 and uses the corresponding driver to send data payload to the hardware.
-In case of GPU, the CPU via the GPU driver, sends the actual compiled code that the GPU must execute and return back
+In case of GPU, the CPU via the GPU driver, sends the actual compiled code that the GPU must execute and return.
+
 :::important Asynchronous IO
 For the inference application running on CPU, the GPU calls are just asynchronous IO calls.
 This is exactly same as how an application waits for an external HTTP request to return.

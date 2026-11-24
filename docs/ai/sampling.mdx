@@ -17,7 +17,8 @@ An LLM's output is always about predicting the next best token, or next word.
 Read also [speculative decoding](./speculative-decoding) which is a technique to predict multiple tokens at once.
 
 Example - Which is the capital of France?
-The output is the next best word after the full text. So: Which is the capital of France? `{$answer token}`.
+The output is the next best word after the full text.
+For example - Which is the capital of France? `{$answer token}`.
 
 The whole input plus the generated tokens, word by word, is passed back to the LLM.
 This repeats until the LLM generates EOS as the next token.

@@ -8,7 +8,7 @@ All the locking features are implemented in the Asynchronous Queue Synchronizer 
 
 :::danger Futex in kernel doesn't provide order
 If we use the Futex feature of Kernel directly,
-there is no ordered guaranteed.
+no ordering is guaranteed.
 If multiple threads are waiting for a lock and if such a lock is released,
 then kernel schedules any one of the blocked threads again.
 :::
