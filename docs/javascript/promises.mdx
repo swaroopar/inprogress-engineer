@@ -2,7 +2,7 @@ import { ThemeImage } from '../../src/components/ThemeImage';
 
 # Promises
 
-:::danger[Important Terms in Promise]
+:::danger Important Terms in Promise
 resolve, reject, then, catch, async, await.
 :::
 
@@ -18,13 +18,13 @@ You just run something else once the first async step finishes.
 :::important How handover happens?
 When the async work is done,
 it calls the functions on the Promise object.
-These ask the engine to resume the paused main code.
+These ask the engine to continue the paused main code.
 The result is put back where the async work was called.
 
 When the compiler sees an async function, it swaps in a state machine.
 The current run is paused. Its state is stored on the heap.
 When the async work is done,
-the state machine uses this heap object to resume right where it stopped.
+the state machine uses this heap object to continue right where it stopped.
 :::
 
 <ThemeImage src='/img/promise.excalidraw.png' alt='JavaScript Promises' />

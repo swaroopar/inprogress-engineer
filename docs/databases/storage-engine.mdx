@@ -1,0 +1,28 @@
+import { ThemeImage } from '../../src/components/ThemeImage';
+
+# Storage Engine
+
+It's important to distinguish between the storage layer and the database layer.
+Examples of storage techniques includes B-Trees and LSM.
+They take care of storing and retrieving data from the disks.
+How the retrieved data is represented to the client is left to the database layer.
+
+:::warning RDBMS using KV Storage Engine
+This is a good example to understand the difference.
+
+RocksDB implements a KV storage engine using LSM.
+Whereas the same engine can be used to implement a RDBMS.
+The value that's fetched is the full row and the database layer can decode it to the column structure it needs.
+:::
+
+<ThemeImage src='/img/database-storage-engine.excalidraw.png' alt='storage-engines' />
+
+## Database Layer
+
+It's the layer that provides us with features such as tables, rows, indexes, transactions, etc.
+They interact with the storage engine and its capabilities to provide the database features.
+
+:::danger Difference between KV Database vs KV Storage
+It's important to ask this whenever the term key-value is used.
+Is the client using key-value or is it the storage layer using key-value.
+:::
