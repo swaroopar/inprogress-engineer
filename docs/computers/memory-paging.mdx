@@ -40,12 +40,25 @@ The kernel pages are in supervisor mode.
 Meaning only kernel mode code can touch them.
 :::
 
+## Hierarchical Page Tables
+
+Page table isn't just a single map of virtual to physical addresses.
+Instead, it's a hierarchy of page tables.
+Its always starts with the **Page Table Root** which is just points to the root dictionary whose values points to
+another dictionary.
+Only after the last dictionary, the value points to the actual physical address.
+
+:::important Why page table hierarchy needed?
+It's enables lazy memory allocation and also provides vast virtual address space.
+Otherwise, we will have to have all page tables allocated beforehand and must be in continuous memory.
+:::
+
 ## Page Fault Types
 
-1. File backed page - where only the required parts of the file are loaded already in RAM.
+1. **File backed page** - where only the required parts of the file are loaded already in RAM.
    Remaining needs to be loaded.
    This is lazy loading. Means, the data is first loaded from disk when it's needed for the first time.
-2. Anonymous Page - Needed only for storing application data such as objects in memory.
+2. **Anonymous Page** - Needed only for storing application data such as objects in memory.
 
 <ThemeImage src='/img/page-fault-types.excalidraw.png' alt='page-fault-types' />
 
